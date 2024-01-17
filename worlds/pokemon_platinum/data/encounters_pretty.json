@@ -1,0 +1,130 @@
+{
+	"ENCOUNTER_AERODACTYL": {
+		"id": 142,
+		"str_id": "ENCOUNTER_AERODACTYL"
+	},
+	"ENCOUNTER_ANORITH": {
+		"id": 347,
+		"str_id": "ENCOUNTER_ANORITH"
+	},
+	"ENCOUNTER_ARCEUS": {
+		"id": 493,
+		"str_id": "ENCOUNTER_ARCEUS"
+	},
+	"ENCOUNTER_ARTICUNO": {
+		"id": 144,
+		"str_id": "ENCOUNTER_ARTICUNO"
+	},
+	"ENCOUNTER_AZELF": {
+		"id": 482,
+		"str_id": "ENCOUNTER_AZELF"
+	},
+	"ENCOUNTER_CRANIDOS": {
+		"id": 408,
+		"str_id": "ENCOUNTER_CRANIDOS"
+	},
+	"ENCOUNTER_CRESSELIA": {
+		"id": 488,
+		"str_id": "ENCOUNTER_CRESSELIA"
+	},
+	"ENCOUNTER_DARKRAI": {
+		"id": 491,
+		"str_id": "ENCOUNTER_DARKRAI"
+	},
+	"ENCOUNTER_DIALGA": {
+		"id": 483,
+		"str_id": "ENCOUNTER_DIALGA"
+	},
+	"ENCOUNTER_DRIFLOON": {
+		"id": 425,
+		"str_id": "ENCOUNTER_DRIFLOON"
+	},
+	"ENCOUNTER_EEVEE": {
+		"id": 133,
+		"str_id": "ENCOUNTER_EEVEE"
+	},
+	"ENCOUNTER_GIRATINA": {
+		"id": 487,
+		"str_id": "ENCOUNTER_GIRATINA"
+	},
+	"ENCOUNTER_HEATRAN": {
+		"id": 485,
+		"str_id": "ENCOUNTER_HEATRAN"
+	},
+	"ENCOUNTER_KABUTO": {
+		"id": 140,
+		"str_id": "ENCOUNTER_KABUTO"
+	},
+	"ENCOUNTER_LILEEP": {
+		"id": 345,
+		"str_id": "ENCOUNTER_LILEEP"
+	},
+	"ENCOUNTER_MESPRIT": {
+		"id": 481,
+		"str_id": "ENCOUNTER_MESPRIT"
+	},
+	"ENCOUNTER_MOLTRES": {
+		"id": 146,
+		"str_id": "ENCOUNTER_MOLTRES"
+	},
+	"ENCOUNTER_OMANYTE": {
+		"id": 138,
+		"str_id": "ENCOUNTER_OMANYTE"
+	},
+	"ENCOUNTER_PALKIA": {
+		"id": 484,
+		"str_id": "ENCOUNTER_PALKIA"
+	},
+	"ENCOUNTER_PORYGON": {
+		"id": 137,
+		"str_id": "ENCOUNTER_PORYGON"
+	},
+	"ENCOUNTER_REGICE": {
+		"id": 378,
+		"str_id": "ENCOUNTER_REGICE"
+	},
+	"ENCOUNTER_REGIGIGAS": {
+		"id": 486,
+		"str_id": "ENCOUNTER_REGIGIGAS"
+	},
+	"ENCOUNTER_REGIROCK": {
+		"id": 377,
+		"str_id": "ENCOUNTER_REGIROCK"
+	},
+	"ENCOUNTER_REGISTEEL": {
+		"id": 379,
+		"str_id": "ENCOUNTER_REGISTEEL"
+	},
+	"ENCOUNTER_RIOLU": {
+		"id": 447,
+		"str_id": "ENCOUNTER_RIOLU"
+	},
+	"ENCOUNTER_ROTOM": {
+		"id": 479,
+		"str_id": "ENCOUNTER_ROTOM"
+	},
+	"ENCOUNTER_SHAYMIN": {
+		"id": 492,
+		"str_id": "ENCOUNTER_SHAYMIN"
+	},
+	"ENCOUNTER_SHIELDON": {
+		"id": 410,
+		"str_id": "ENCOUNTER_SHIELDON"
+	},
+	"ENCOUNTER_SPIRITOMB": {
+		"id": 442,
+		"str_id": "ENCOUNTER_SPIRITOMB"
+	},
+	"ENCOUNTER_TOGEPI": {
+		"id": 175,
+		"str_id": "ENCOUNTER_TOGEPI"
+	},
+	"ENCOUNTER_UXIE": {
+		"id": 480,
+		"str_id": "ENCOUNTER_UXIE"
+	},
+	"ENCOUNTER_ZAPDOS": {
+		"id": 145,
+		"str_id": "ENCOUNTER_ZAPDOS"
+	}
+}

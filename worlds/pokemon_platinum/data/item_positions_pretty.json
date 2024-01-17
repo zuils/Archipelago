@@ -1,0 +1,1196 @@
+{
+	"hidden_items": {
+		"ITEM_UNK_LOC_451_SUITE_KEY": {
+			"item_id": 451,
+			"arr_id": 216,
+			"item_name": "Suite Key"
+		},
+		"ITEM_UNK_LOC_84_WATER_STONE": {
+			"item_id": 84,
+			"arr_id": 148,
+			"item_name": "Water Stone"
+		},
+		"ITEM_UNK_LOC_81_MOON_STONE": {
+			"item_id": 81,
+			"arr_id": 228,
+			"item_name": "Moon Stone"
+		},
+		"ITEM_UNK_LOC_298_FLAME_PLATE": {
+			"item_id": 298,
+			"arr_id": 139,
+			"item_name": "Flame Plate"
+		},
+		"ITEM_UNK_LOC_91_STAR_PIECE": {
+			"item_id": 91,
+			"arr_id": 232,
+			"item_name": "Star Piece"
+		},
+		"ITEM_UNK_LOC_39_MAX_ETHER": {
+			"item_id": 39,
+			"arr_id": 19,
+			"item_name": "Max Ether"
+		},
+		"ITEM_UNK_LOC_80_SUN_STONE": {
+			"item_id": 80,
+			"arr_id": 93,
+			"item_name": "Sun Stone"
+		},
+		"ITEM_UNK_LOC_41_MAX_ELIXIR": {
+			"item_id": 41,
+			"arr_id": 119,
+			"item_name": "Max Elixir"
+		},
+		"ITEM_UNK_LOC_74_YELLOW_SHARD": {
+			"item_id": 74,
+			"arr_id": 97,
+			"item_name": "Yellow Shard"
+		},
+		"ITEM_UNK_LOC_47_IRON": {
+			"item_id": 47,
+			"arr_id": 183,
+			"item_name": "Iron"
+		},
+		"ITEM_UNK_LOC_313_IRON_PLATE": {
+			"item_id": 313,
+			"arr_id": 56,
+			"item_name": "Iron Plate"
+		},
+		"ITEM_UNK_LOC_304_TOXIC_PLATE": {
+			"item_id": 304,
+			"arr_id": 211,
+			"item_name": "Toxic Plate"
+		},
+		"ITEM_UNK_LOC_36_HEAL_POWDER": {
+			"item_id": 36,
+			"arr_id": 104,
+			"item_name": "Heal Powder"
+		},
+		"ITEM_UNK_LOC_40_ELIXIR": {
+			"item_id": 40,
+			"arr_id": 78,
+			"item_name": "Elixir"
+		},
+		"ITEM_UNK_LOC_89_BIG_PEARL": {
+			"item_id": 89,
+			"arr_id": 218,
+			"item_name": "Big Pearl"
+		},
+		"ITEM_UNK_LOC_92_NUGGET": {
+			"item_id": 92,
+			"arr_id": 256,
+			"item_name": "Nugget"
+		},
+		"ITEM_UNK_LOC_308_INSECT_PLATE": {
+			"item_id": 308,
+			"arr_id": 1,
+			"item_name": "Insect Plate"
+		},
+		"ITEM_UNK_LOC_25_HYPER_POTION": {
+			"item_id": 25,
+			"arr_id": 223,
+			"item_name": "Hyper Potion"
+		},
+		"ITEM_UNK_LOC_24_MAX_POTION": {
+			"item_id": 24,
+			"arr_id": 198,
+			"item_name": "Max Potion"
+		},
+		"ITEM_UNK_LOC_53_PP_MAX": {
+			"item_id": 53,
+			"arr_id": 207,
+			"item_name": "PP Max"
+		},
+		"ITEM_UNK_LOC_72_RED_SHARD": {
+			"item_id": 72,
+			"arr_id": 81,
+			"item_name": "Red Shard"
+		},
+		"ITEM_UNK_LOC_35_ENERGY_ROOT": {
+			"item_id": 35,
+			"arr_id": 243,
+			"item_name": "Energy Root"
+		},
+		"ITEM_UNK_LOC_77_MAX_REPEL": {
+			"item_id": 77,
+			"arr_id": 215,
+			"item_name": "Max Repel"
+		},
+		"ITEM_UNK_LOC_28_REVIVE": {
+			"item_id": 28,
+			"arr_id": 245,
+			"item_name": "Revive"
+		},
+		"ITEM_UNK_LOC_46_PROTEIN": {
+			"item_id": 46,
+			"arr_id": 197,
+			"item_name": "Protein"
+		},
+		"ITEM_UNK_LOC_75_GREEN_SHARD": {
+			"item_id": 75,
+			"arr_id": 162,
+			"item_name": "Green Shard"
+		},
+		"ITEM_UNK_LOC_4_POKÉ_BALL": {
+			"item_id": 4,
+			"arr_id": 91,
+			"item_name": "Poké Ball"
+		},
+		"ITEM_UNK_LOC_51_PP_UP": {
+			"item_id": 51,
+			"arr_id": 226,
+			"item_name": "PP Up"
+		},
+		"ITEM_UNK_LOC_26_SUPER_POTION": {
+			"item_id": 26,
+			"arr_id": 208,
+			"item_name": "Super Potion"
+		},
+		"ITEM_UNK_LOC_309_STONE_PLATE": {
+			"item_id": 309,
+			"arr_id": 99,
+			"item_name": "Stone Plate"
+		},
+		"ITEM_UNK_LOC_50_RARE_CANDY": {
+			"item_id": 50,
+			"arr_id": 210,
+			"item_name": "Rare Candy"
+		},
+		"ITEM_UNK_LOC_111_ODD_KEYSTONE": {
+			"item_id": 111,
+			"arr_id": 201,
+			"item_name": "Odd Keystone"
+		},
+		"ITEM_UNK_LOC_29_MAX_REVIVE": {
+			"item_id": 29,
+			"arr_id": 227,
+			"item_name": "Max Revive"
+		},
+		"ITEM_UNK_LOC_300_ZAP_PLATE": {
+			"item_id": 300,
+			"arr_id": 110,
+			"item_name": "Zap Plate"
+		},
+		"ITEM_UNK_LOC_73_BLUE_SHARD": {
+			"item_id": 73,
+			"arr_id": 209,
+			"item_name": "Blue Shard"
+		},
+		"ITEM_UNK_LOC_327_RAZOR_FANG": {
+			"item_id": 327,
+			"arr_id": 168,
+			"item_name": "Razor Fang"
+		},
+		"ITEM_UNK_LOC_76_SUPER_REPEL": {
+			"item_id": 76,
+			"arr_id": 153,
+			"item_name": "Super Repel"
+		},
+		"ITEM_UNK_LOC_301_MEADOW_PLATE": {
+			"item_id": 301,
+			"arr_id": 44,
+			"item_name": "Meadow Plate"
+		},
+		"ITEM_UNK_LOC_90_STARDUST": {
+			"item_id": 90,
+			"arr_id": 217,
+			"item_name": "Stardust"
+		},
+		"ITEM_UNK_LOC_93_HEART_SCALE": {
+			"item_id": 93,
+			"arr_id": 240,
+			"item_name": "Heart Scale"
+		},
+		"ITEM_UNK_LOC_94_HONEY": {
+			"item_id": 94,
+			"arr_id": 222,
+			"item_name": "Honey"
+		},
+		"ITEM_UNK_LOC_37_REVIVAL_HERB": {
+			"item_id": 37,
+			"arr_id": 235,
+			"item_name": "Revival Herb"
+		},
+		"ITEM_UNK_LOC_45_HP_UP": {
+			"item_id": 45,
+			"arr_id": 122,
+			"item_name": "HP Up"
+		},
+		"ITEM_UNK_LOC_221_KING’S_ROCK": {
+			"item_id": 221,
+			"arr_id": 246,
+			"item_name": "King’s Rock"
+		},
+		"ITEM_UNK_LOC_109_DAWN_STONE": {
+			"item_id": 109,
+			"arr_id": 26,
+			"item_name": "Dawn Stone"
+		},
+		"ITEM_UNK_LOC_63_POKÉ_DOLL": {
+			"item_id": 63,
+			"arr_id": 75,
+			"item_name": "Poké Doll"
+		},
+		"ITEM_UNK_LOC_82_FIRE_STONE": {
+			"item_id": 82,
+			"arr_id": 241,
+			"item_name": "Fire Stone"
+		},
+		"ITEM_UNK_LOC_326_RAZOR_CLAW": {
+			"item_id": 326,
+			"arr_id": 80,
+			"item_name": "Razor Claw"
+		},
+		"ITEM_UNK_LOC_2_ULTRA_BALL": {
+			"item_id": 2,
+			"arr_id": 234,
+			"item_name": "Ultra Ball"
+		},
+		"ITEM_UNK_LOC_83_THUNDERSTONE": {
+			"item_id": 83,
+			"arr_id": 145,
+			"item_name": "Thunderstone"
+		},
+		"ITEM_UNK_LOC_27_FULL_HEAL": {
+			"item_id": 27,
+			"arr_id": 225,
+			"item_name": "Full Heal"
+		},
+		"ITEM_UNK_LOC_86_TINYMUSHROOM": {
+			"item_id": 86,
+			"arr_id": 160,
+			"item_name": "TinyMushroom"
+		},
+		"ITEM_UNK_LOC_306_SKY_PLATE": {
+			"item_id": 306,
+			"arr_id": 120,
+			"item_name": "Sky Plate"
+		},
+		"ITEM_UNK_LOC_48_CARBOS": {
+			"item_id": 48,
+			"arr_id": 191,
+			"item_name": "Carbos"
+		},
+		"ITEM_UNK_LOC_311_DRACO_PLATE": {
+			"item_id": 311,
+			"arr_id": 2,
+			"item_name": "Draco Plate"
+		},
+		"ITEM_UNK_LOC_38_ETHER": {
+			"item_id": 38,
+			"arr_id": 4,
+			"item_name": "Ether"
+		},
+		"ITEM_UNK_LOC_52_ZINC": {
+			"item_id": 52,
+			"arr_id": 171,
+			"item_name": "Zinc"
+		},
+		"ITEM_UNK_LOC_85_LEAF_STONE": {
+			"item_id": 85,
+			"arr_id": 212,
+			"item_name": "Leaf Stone"
+		},
+		"ITEM_UNK_LOC_34_ENERGYPOWDER": {
+			"item_id": 34,
+			"arr_id": 244,
+			"item_name": "EnergyPowder"
+		},
+		"ITEM_UNK_LOC_3_GREAT_BALL": {
+			"item_id": 3,
+			"arr_id": 188,
+			"item_name": "Great Ball"
+		},
+		"ITEM_UNK_LOC_107_SHINY_STONE": {
+			"item_id": 107,
+			"arr_id": 45,
+			"item_name": "Shiny Stone"
+		},
+		"ITEM_UNK_LOC_108_DUSK_STONE": {
+			"item_id": 108,
+			"arr_id": 10,
+			"item_name": "Dusk Stone"
+		},
+		"ITEM_UNK_LOC_88_PEARL": {
+			"item_id": 88,
+			"arr_id": 237,
+			"item_name": "Pearl"
+		},
+		"ITEM_UNK_LOC_49_CALCIUM": {
+			"item_id": 49,
+			"arr_id": 142,
+			"item_name": "Calcium"
+		},
+		"ITEM_UNK_LOC_23_FULL_RESTORE": {
+			"item_id": 23,
+			"arr_id": 179,
+			"item_name": "Full Restore"
+		},
+		"ITEM_UNK_LOC_87_BIG_MUSHROOM": {
+			"item_id": 87,
+			"arr_id": 236,
+			"item_name": "Big Mushroom"
+		}
+	},
+	"visible_items": {
+		"ITEM_UNK_LOC_329_TM02": {
+			"item_id": 329,
+			"arr_id": 173,
+			"item_name": "TM02"
+		},
+		"ITEM_UNK_LOC_84_WATER_STONE": {
+			"item_id": 84,
+			"arr_id": 78,
+			"item_name": "Water Stone"
+		},
+		"ITEM_UNK_LOC_386_TM59": {
+			"item_id": 386,
+			"arr_id": 189,
+			"item_name": "TM59"
+		},
+		"ITEM_UNK_LOC_59_X_SPEED": {
+			"item_id": 59,
+			"arr_id": 260,
+			"item_name": "X Speed"
+		},
+		"ITEM_UNK_LOC_368_TM41": {
+			"item_id": 368,
+			"arr_id": 180,
+			"item_name": "TM41"
+		},
+		"ITEM_UNK_LOC_351_TM24": {
+			"item_id": 351,
+			"arr_id": 15,
+			"item_name": "TM24"
+		},
+		"ITEM_UNK_LOC_245_POISON_BARB": {
+			"item_id": 245,
+			"arr_id": 29,
+			"item_name": "Poison Barb"
+		},
+		"ITEM_UNK_LOC_424_HM05": {
+			"item_id": 424,
+			"arr_id": 97,
+			"item_name": "HM05"
+		},
+		"ITEM_UNK_LOC_348_TM21": {
+			"item_id": 348,
+			"arr_id": 165,
+			"item_name": "TM21"
+		},
+		"ITEM_UNK_LOC_91_STAR_PIECE": {
+			"item_id": 91,
+			"arr_id": 269,
+			"item_name": "Star Piece"
+		},
+		"ITEM_UNK_LOC_332_TM05": {
+			"item_id": 332,
+			"arr_id": 74,
+			"item_name": "TM05"
+		},
+		"ITEM_UNK_LOC_61_X_SPECIAL": {
+			"item_id": 61,
+			"arr_id": 261,
+			"item_name": "X Special"
+		},
+		"ITEM_UNK_LOC_367_TM40": {
+			"item_id": 367,
+			"arr_id": 75,
+			"item_name": "TM40"
+		},
+		"ITEM_UNK_LOC_21_AWAKENING": {
+			"item_id": 21,
+			"arr_id": 252,
+			"item_name": "Awakening"
+		},
+		"ITEM_UNK_LOC_41_MAX_ELIXIR": {
+			"item_id": 41,
+			"arr_id": 217,
+			"item_name": "Max Elixir"
+		},
+		"ITEM_UNK_LOC_414_TM87": {
+			"item_id": 414,
+			"arr_id": 56,
+			"item_name": "TM87"
+		},
+		"ITEM_UNK_LOC_20_ICE_HEAL": {
+			"item_id": 20,
+			"arr_id": 259,
+			"item_name": "Ice Heal"
+		},
+		"ITEM_UNK_LOC_310_SPOOKY_PLATE": {
+			"item_id": 310,
+			"arr_id": 52,
+			"item_name": "Spooky Plate"
+		},
+		"ITEM_UNK_LOC_74_YELLOW_SHARD": {
+			"item_id": 74,
+			"arr_id": 305,
+			"item_name": "Yellow Shard"
+		},
+		"ITEM_UNK_LOC_17_POTION": {
+			"item_id": 17,
+			"arr_id": 255,
+			"item_name": "Potion"
+		},
+		"ITEM_UNK_LOC_352_TM25": {
+			"item_id": 352,
+			"arr_id": 238,
+			"item_name": "TM25"
+		},
+		"ITEM_UNK_LOC_315_ROCK_INCENSE": {
+			"item_id": 315,
+			"arr_id": 120,
+			"item_name": "Rock Incense"
+		},
+		"ITEM_UNK_LOC_328_TM01": {
+			"item_id": 328,
+			"arr_id": 3,
+			"item_name": "TM01"
+		},
+		"ITEM_UNK_LOC_305_EARTH_PLATE": {
+			"item_id": 305,
+			"arr_id": 6,
+			"item_name": "Earth Plate"
+		},
+		"ITEM_UNK_LOC_346_TM19": {
+			"item_id": 346,
+			"arr_id": 89,
+			"item_name": "TM19"
+		},
+		"ITEM_UNK_LOC_372_TM45": {
+			"item_id": 372,
+			"arr_id": 50,
+			"item_name": "TM45"
+		},
+		"ITEM_UNK_LOC_219_MENTAL_HERB": {
+			"item_id": 219,
+			"arr_id": 157,
+			"item_name": "Mental Herb"
+		},
+		"ITEM_UNK_LOC_389_TM62": {
+			"item_id": 389,
+			"arr_id": 60,
+			"item_name": "TM62"
+		},
+		"ITEM_UNK_LOC_62_X_SP_DEF": {
+			"item_id": 62,
+			"arr_id": 17,
+			"item_name": "X Sp. Def"
+		},
+		"ITEM_UNK_LOC_417_TM90": {
+			"item_id": 417,
+			"arr_id": 246,
+			"item_name": "TM90"
+		},
+		"ITEM_UNK_LOC_295_SHED_SHELL": {
+			"item_id": 295,
+			"arr_id": 226,
+			"item_name": "Shed Shell"
+		},
+		"ITEM_UNK_LOC_25_HYPER_POTION": {
+			"item_id": 25,
+			"arr_id": 132,
+			"item_name": "Hyper Potion"
+		},
+		"ITEM_UNK_LOC_24_MAX_POTION": {
+			"item_id": 24,
+			"arr_id": 288,
+			"item_name": "Max Potion"
+		},
+		"ITEM_UNK_LOC_53_PP_MAX": {
+			"item_id": 53,
+			"arr_id": 302,
+			"item_name": "PP Max"
+		},
+		"ITEM_UNK_LOC_72_RED_SHARD": {
+			"item_id": 72,
+			"arr_id": 309,
+			"item_name": "Red Shard"
+		},
+		"ITEM_UNK_LOC_416_TM89": {
+			"item_id": 416,
+			"arr_id": 133,
+			"item_name": "TM89"
+		},
+		"ITEM_UNK_LOC_280_DESTINY_KNOT": {
+			"item_id": 280,
+			"arr_id": 195,
+			"item_name": "Destiny Knot"
+		},
+		"ITEM_UNK_LOC_222_SILVERPOWDER": {
+			"item_id": 222,
+			"arr_id": 28,
+			"item_name": "SilverPowder"
+		},
+		"ITEM_UNK_LOC_366_TM39": {
+			"item_id": 366,
+			"arr_id": 11,
+			"item_name": "TM39"
+		},
+		"ITEM_UNK_LOC_250_DRAGON_FANG": {
+			"item_id": 250,
+			"arr_id": 317,
+			"item_name": "Dragon Fang"
+		},
+		"ITEM_UNK_LOC_77_MAX_REPEL": {
+			"item_id": 77,
+			"arr_id": 181,
+			"item_name": "Max Repel"
+		},
+		"ITEM_UNK_LOC_334_TM07": {
+			"item_id": 334,
+			"arr_id": 159,
+			"item_name": "TM07"
+		},
+		"ITEM_UNK_LOC_255_LAX_INCENSE": {
+			"item_id": 255,
+			"arr_id": 200,
+			"item_name": "Lax Incense"
+		},
+		"ITEM_UNK_LOC_26_SUPER_POTION": {
+			"item_id": 26,
+			"arr_id": 251,
+			"item_name": "Super Potion"
+		},
+		"ITEM_UNK_LOC_453_LUNAR_WING": {
+			"item_id": 453,
+			"arr_id": 91,
+			"item_name": "Lunar Wing"
+		},
+		"ITEM_UNK_LOC_252_UP-GRADE": {
+			"item_id": 252,
+			"arr_id": 300,
+			"item_name": "Up-Grade"
+		},
+		"ITEM_UNK_LOC_50_RARE_CANDY": {
+			"item_id": 50,
+			"arr_id": 312,
+			"item_name": "Rare Candy"
+		},
+		"ITEM_UNK_LOC_29_MAX_REVIVE": {
+			"item_id": 29,
+			"arr_id": 221,
+			"item_name": "Max Revive"
+		},
+		"ITEM_UNK_LOC_427_HM08": {
+			"item_id": 427,
+			"arr_id": 160,
+			"item_name": "HM08"
+		},
+		"ITEM_UNK_LOC_440_GALACTIC_KEY": {
+			"item_id": 440,
+			"arr_id": 236,
+			"item_name": "Galactic Key"
+		},
+		"ITEM_UNK_LOC_76_SUPER_REPEL": {
+			"item_id": 76,
+			"arr_id": 98,
+			"item_name": "Super Repel"
+		},
+		"ITEM_UNK_LOC_421_HM02": {
+			"item_id": 421,
+			"arr_id": 235,
+			"item_name": "HM02"
+		},
+		"ITEM_UNK_LOC_58_X_DEFEND": {
+			"item_id": 58,
+			"arr_id": 253,
+			"item_name": "X Defend"
+		},
+		"ITEM_UNK_LOC_319_LUCK_INCENSE": {
+			"item_id": 319,
+			"arr_id": 12,
+			"item_name": "Luck Incense"
+		},
+		"ITEM_UNK_LOC_22_PARLYZ_HEAL": {
+			"item_id": 22,
+			"arr_id": 81,
+			"item_name": "Parlyz Heal"
+		},
+		"ITEM_UNK_LOC_13_DUSK_BALL": {
+			"item_id": 13,
+			"arr_id": 139,
+			"item_name": "Dusk Ball"
+		},
+		"ITEM_UNK_LOC_60_X_ACCURACY": {
+			"item_id": 60,
+			"arr_id": 254,
+			"item_name": "X Accuracy"
+		},
+		"ITEM_UNK_LOC_57_X_ATTACK": {
+			"item_id": 57,
+			"arr_id": 256,
+			"item_name": "X Attack"
+		},
+		"ITEM_UNK_LOC_299_SPLASH_PLATE": {
+			"item_id": 299,
+			"arr_id": 124,
+			"item_name": "Splash Plate"
+		},
+		"ITEM_UNK_LOC_374_TM47": {
+			"item_id": 374,
+			"arr_id": 88,
+			"item_name": "TM47"
+		},
+		"ITEM_UNK_LOC_411_TM84": {
+			"item_id": 411,
+			"arr_id": 59,
+			"item_name": "TM84"
+		},
+		"ITEM_UNK_LOC_365_TM38": {
+			"item_id": 365,
+			"arr_id": 237,
+			"item_name": "TM38"
+		},
+		"ITEM_UNK_LOC_326_RAZOR_CLAW": {
+			"item_id": 326,
+			"arr_id": 193,
+			"item_name": "Razor Claw"
+		},
+		"ITEM_UNK_LOC_279_LAGGING_TAIL": {
+			"item_id": 279,
+			"arr_id": 205,
+			"item_name": "Lagging Tail"
+		},
+		"ITEM_UNK_LOC_243_MYSTIC_WATER": {
+			"item_id": 243,
+			"arr_id": 73,
+			"item_name": "Mystic Water"
+		},
+		"ITEM_UNK_LOC_362_TM35": {
+			"item_id": 362,
+			"arr_id": 119,
+			"item_name": "TM35"
+		},
+		"ITEM_UNK_LOC_15_QUICK_BALL": {
+			"item_id": 15,
+			"arr_id": 297,
+			"item_name": "Quick Ball"
+		},
+		"ITEM_UNK_LOC_312_DREAD_PLATE": {
+			"item_id": 312,
+			"arr_id": 245,
+			"item_name": "Dread Plate"
+		},
+		"ITEM_UNK_LOC_48_CARBOS": {
+			"item_id": 48,
+			"arr_id": 314,
+			"item_name": "Carbos"
+		},
+		"ITEM_UNK_LOC_407_TM80": {
+			"item_id": 407,
+			"arr_id": 170,
+			"item_name": "TM80"
+		},
+		"ITEM_UNK_LOC_353_TM26": {
+			"item_id": 353,
+			"arr_id": 37,
+			"item_name": "TM26"
+		},
+		"ITEM_UNK_LOC_38_ETHER": {
+			"item_id": 38,
+			"arr_id": 266,
+			"item_name": "Ether"
+		},
+		"ITEM_UNK_LOC_316_FULL_INCENSE": {
+			"item_id": 316,
+			"arr_id": 108,
+			"item_name": "Full Incense"
+		},
+		"ITEM_UNK_LOC_356_TM29": {
+			"item_id": 356,
+			"arr_id": 146,
+			"item_name": "TM29"
+		},
+		"ITEM_UNK_LOC_234_LEFTOVERS": {
+			"item_id": 234,
+			"arr_id": 196,
+			"item_name": "Leftovers"
+		},
+		"ITEM_UNK_LOC_350_TM23": {
+			"item_id": 350,
+			"arr_id": 138,
+			"item_name": "TM23"
+		},
+		"ITEM_UNK_LOC_359_TM32": {
+			"item_id": 359,
+			"arr_id": 33,
+			"item_name": "TM32"
+		},
+		"ITEM_UNK_LOC_3_GREAT_BALL": {
+			"item_id": 3,
+			"arr_id": 85,
+			"item_name": "Great Ball"
+		},
+		"ITEM_UNK_LOC_242_MAGNET": {
+			"item_id": 242,
+			"arr_id": 286,
+			"item_name": "Magnet"
+		},
+		"ITEM_UNK_LOC_246_NEVERMELTICE": {
+			"item_id": 246,
+			"arr_id": 320,
+			"item_name": "NeverMeltIce"
+		},
+		"ITEM_UNK_LOC_278_IRON_BALL": {
+			"item_id": 278,
+			"arr_id": 216,
+			"item_name": "Iron Ball"
+		},
+		"ITEM_UNK_LOC_341_TM14": {
+			"item_id": 341,
+			"arr_id": 239,
+			"item_name": "TM14"
+		},
+		"ITEM_UNK_LOC_324_DUBIOUS_DISC": {
+			"item_id": 324,
+			"arr_id": 295,
+			"item_name": "Dubious Disc"
+		},
+		"ITEM_UNK_LOC_380_TM53": {
+			"item_id": 380,
+			"arr_id": 204,
+			"item_name": "TM53"
+		},
+		"ITEM_UNK_LOC_397_TM70": {
+			"item_id": 397,
+			"arr_id": 5,
+			"item_name": "TM70"
+		},
+		"ITEM_UNK_LOC_396_TM69": {
+			"item_id": 396,
+			"arr_id": 147,
+			"item_name": "TM69"
+		},
+		"ITEM_UNK_LOC_339_TM12": {
+			"item_id": 339,
+			"arr_id": 26,
+			"item_name": "TM12"
+		},
+		"ITEM_UNK_LOC_286_GRIP_CLAW": {
+			"item_id": 286,
+			"arr_id": 41,
+			"item_name": "Grip Claw"
+		},
+		"ITEM_UNK_LOC_361_TM34": {
+			"item_id": 361,
+			"arr_id": 107,
+			"item_name": "TM34"
+		},
+		"ITEM_UNK_LOC_239_MIRACLE_SEED": {
+			"item_id": 239,
+			"arr_id": 145,
+			"item_name": "Miracle Seed"
+		},
+		"ITEM_UNK_LOC_237_SOFT_SAND": {
+			"item_id": 237,
+			"arr_id": 150,
+			"item_name": "Soft Sand"
+		},
+		"ITEM_UNK_LOC_321_PROTECTOR": {
+			"item_id": 321,
+			"arr_id": 223,
+			"item_name": "Protector"
+		},
+		"ITEM_UNK_LOC_358_TM31": {
+			"item_id": 358,
+			"arr_id": 4,
+			"item_name": "TM31"
+		},
+		"ITEM_UNK_LOC_39_MAX_ETHER": {
+			"item_id": 39,
+			"arr_id": 105,
+			"item_name": "Max Ether"
+		},
+		"ITEM_UNK_LOC_54_OLD_GATEAU": {
+			"item_id": 54,
+			"arr_id": 22,
+			"item_name": "Old Gateau"
+		},
+		"ITEM_UNK_LOC_338_TM11": {
+			"item_id": 338,
+			"arr_id": 53,
+			"item_name": "TM11"
+		},
+		"ITEM_UNK_LOC_228_SMOKE_BALL": {
+			"item_id": 228,
+			"arr_id": 116,
+			"item_name": "Smoke Ball"
+		},
+		"ITEM_UNK_LOC_47_IRON": {
+			"item_id": 47,
+			"arr_id": 313,
+			"item_name": "Iron"
+		},
+		"ITEM_UNK_LOC_377_TM50": {
+			"item_id": 377,
+			"arr_id": 215,
+			"item_name": "TM50"
+		},
+		"ITEM_UNK_LOC_233_METAL_COAT": {
+			"item_id": 233,
+			"arr_id": 319,
+			"item_name": "Metal Coat"
+		},
+		"ITEM_UNK_LOC_357_TM30": {
+			"item_id": 357,
+			"arr_id": 118,
+			"item_name": "TM30"
+		},
+		"ITEM_UNK_LOC_40_ELIXIR": {
+			"item_id": 40,
+			"arr_id": 273,
+			"item_name": "Elixir"
+		},
+		"ITEM_UNK_LOC_9_REPEAT_BALL": {
+			"item_id": 9,
+			"arr_id": 301,
+			"item_name": "Repeat Ball"
+		},
+		"ITEM_UNK_LOC_89_BIG_PEARL": {
+			"item_id": 89,
+			"arr_id": 265,
+			"item_name": "Big Pearl"
+		},
+		"ITEM_UNK_LOC_92_NUGGET": {
+			"item_id": 92,
+			"arr_id": 231,
+			"item_name": "Nugget"
+		},
+		"ITEM_UNK_LOC_314_ODD_INCENSE": {
+			"item_id": 314,
+			"arr_id": 95,
+			"item_name": "Odd Incense"
+		},
+		"ITEM_UNK_LOC_398_TM71": {
+			"item_id": 398,
+			"arr_id": 188,
+			"item_name": "TM71"
+		},
+		"ITEM_UNK_LOC_254_SEA_INCENSE": {
+			"item_id": 254,
+			"arr_id": 9,
+			"item_name": "Sea Incense"
+		},
+		"ITEM_UNK_LOC_340_TM13": {
+			"item_id": 340,
+			"arr_id": 156,
+			"item_name": "TM13"
+		},
+		"ITEM_UNK_LOC_320_PURE_INCENSE": {
+			"item_id": 320,
+			"arr_id": 100,
+			"item_name": "Pure Incense"
+		},
+		"ITEM_UNK_LOC_269_LIGHT_CLAY": {
+			"item_id": 269,
+			"arr_id": 151,
+			"item_name": "Light Clay"
+		},
+		"ITEM_UNK_LOC_223_AMULET_COIN": {
+			"item_id": 223,
+			"arr_id": 248,
+			"item_name": "Amulet Coin"
+		},
+		"ITEM_UNK_LOC_28_REVIVE": {
+			"item_id": 28,
+			"arr_id": 289,
+			"item_name": "Revive"
+		},
+		"ITEM_UNK_LOC_46_PROTEIN": {
+			"item_id": 46,
+			"arr_id": 293,
+			"item_name": "Protein"
+		},
+		"ITEM_UNK_LOC_75_GREEN_SHARD": {
+			"item_id": 75,
+			"arr_id": 304,
+			"item_name": "Green Shard"
+		},
+		"ITEM_UNK_LOC_55_GUARD_SPEC": {
+			"item_id": 55,
+			"arr_id": 23,
+			"item_name": "Guard Spec."
+		},
+		"ITEM_UNK_LOC_19_BURN_HEAL": {
+			"item_id": 19,
+			"arr_id": 32,
+			"item_name": "Burn Heal"
+		},
+		"ITEM_UNK_LOC_4_POKÉ_BALL": {
+			"item_id": 4,
+			"arr_id": 234,
+			"item_name": "Poké Ball"
+		},
+		"ITEM_UNK_LOC_8_NEST_BALL": {
+			"item_id": 8,
+			"arr_id": 101,
+			"item_name": "Nest Ball"
+		},
+		"ITEM_UNK_LOC_408_TM81": {
+			"item_id": 408,
+			"arr_id": 130,
+			"item_name": "TM81"
+		},
+		"ITEM_UNK_LOC_363_TM36": {
+			"item_id": 363,
+			"arr_id": 163,
+			"item_name": "TM36"
+		},
+		"ITEM_UNK_LOC_51_PP_UP": {
+			"item_id": 51,
+			"arr_id": 298,
+			"item_name": "PP Up"
+		},
+		"ITEM_UNK_LOC_79_REPEL": {
+			"item_id": 79,
+			"arr_id": 125,
+			"item_name": "Repel"
+		},
+		"ITEM_UNK_LOC_318_ROSE_INCENSE": {
+			"item_id": 318,
+			"arr_id": 54,
+			"item_name": "Rose Incense"
+		},
+		"ITEM_UNK_LOC_317_WAVE_INCENSE": {
+			"item_id": 317,
+			"arr_id": 117,
+			"item_name": "Wave Incense"
+		},
+		"ITEM_UNK_LOC_6_NET_BALL": {
+			"item_id": 6,
+			"arr_id": 20,
+			"item_name": "Net Ball"
+		},
+		"ITEM_UNK_LOC_354_TM27": {
+			"item_id": 354,
+			"arr_id": 93,
+			"item_name": "TM27"
+		},
+		"ITEM_UNK_LOC_73_BLUE_SHARD": {
+			"item_id": 73,
+			"arr_id": 306,
+			"item_name": "Blue Shard"
+		},
+		"ITEM_UNK_LOC_270_LIFE_ORB": {
+			"item_id": 270,
+			"arr_id": 210,
+			"item_name": "Life Orb"
+		},
+		"ITEM_UNK_LOC_409_TM82": {
+			"item_id": 409,
+			"arr_id": 27,
+			"item_name": "TM82"
+		},
+		"ITEM_UNK_LOC_11_LUXURY_BALL": {
+			"item_id": 11,
+			"arr_id": 57,
+			"item_name": "Luxury Ball"
+		},
+		"ITEM_UNK_LOC_327_RAZOR_FANG": {
+			"item_id": 327,
+			"arr_id": 243,
+			"item_name": "Razor Fang"
+		},
+		"ITEM_UNK_LOC_238_HARD_STONE": {
+			"item_id": 238,
+			"arr_id": 321,
+			"item_name": "Hard Stone"
+		},
+		"ITEM_UNK_LOC_10_TIMER_BALL": {
+			"item_id": 10,
+			"arr_id": 318,
+			"item_name": "Timer Ball"
+		},
+		"ITEM_UNK_LOC_364_TM37": {
+			"item_id": 364,
+			"arr_id": 227,
+			"item_name": "TM37"
+		},
+		"ITEM_UNK_LOC_249_CHARCOAL": {
+			"item_id": 249,
+			"arr_id": 207,
+			"item_name": "Charcoal"
+		},
+		"ITEM_UNK_LOC_345_TM18": {
+			"item_id": 345,
+			"arr_id": 179,
+			"item_name": "TM18"
+		},
+		"ITEM_UNK_LOC_45_HP_UP": {
+			"item_id": 45,
+			"arr_id": 268,
+			"item_name": "HP Up"
+		},
+		"ITEM_UNK_LOC_136_LUSTROUS_ORB": {
+			"item_id": 136,
+			"arr_id": 38,
+			"item_name": "Lustrous Orb"
+		},
+		"ITEM_UNK_LOC_109_DAWN_STONE": {
+			"item_id": 109,
+			"arr_id": 202,
+			"item_name": "Dawn Stone"
+		},
+		"ITEM_UNK_LOC_82_FIRE_STONE": {
+			"item_id": 82,
+			"arr_id": 122,
+			"item_name": "Fire Stone"
+		},
+		"ITEM_UNK_LOC_135_ADAMANT_ORB": {
+			"item_id": 135,
+			"arr_id": 36,
+			"item_name": "Adamant Orb"
+		},
+		"ITEM_UNK_LOC_355_TM28": {
+			"item_id": 355,
+			"arr_id": 115,
+			"item_name": "TM28"
+		},
+		"ITEM_UNK_LOC_110_OVAL_STONE": {
+			"item_id": 110,
+			"arr_id": 90,
+			"item_name": "Oval Stone"
+		},
+		"ITEM_UNK_LOC_2_ULTRA_BALL": {
+			"item_id": 2,
+			"arr_id": 310,
+			"item_name": "Ultra Ball"
+		},
+		"ITEM_UNK_LOC_83_THUNDERSTONE": {
+			"item_id": 83,
+			"arr_id": 176,
+			"item_name": "Thunderstone"
+		},
+		"ITEM_UNK_LOC_333_TM06": {
+			"item_id": 333,
+			"arr_id": 63,
+			"item_name": "TM06"
+		},
+		"ITEM_UNK_LOC_336_TM09": {
+			"item_id": 336,
+			"arr_id": 14,
+			"item_name": "TM09"
+		},
+		"ITEM_UNK_LOC_27_FULL_HEAL": {
+			"item_id": 27,
+			"arr_id": 241,
+			"item_name": "Full Heal"
+		},
+		"ITEM_UNK_LOC_323_MAGMARIZER": {
+			"item_id": 323,
+			"arr_id": 315,
+			"item_name": "Magmarizer"
+		},
+		"ITEM_UNK_LOC_330_TM03": {
+			"item_id": 330,
+			"arr_id": 13,
+			"item_name": "TM03"
+		},
+		"ITEM_UNK_LOC_303_FIST_PLATE": {
+			"item_id": 303,
+			"arr_id": 103,
+			"item_name": "Fist Plate"
+		},
+		"ITEM_UNK_LOC_78_ESCAPE_ROPE": {
+			"item_id": 78,
+			"arr_id": 212,
+			"item_name": "Escape Rope"
+		},
+		"ITEM_UNK_LOC_18_ANTIDOTE": {
+			"item_id": 18,
+			"arr_id": 123,
+			"item_name": "Antidote"
+		},
+		"ITEM_UNK_LOC_7_DIVE_BALL": {
+			"item_id": 7,
+			"arr_id": 178,
+			"item_name": "Dive Ball"
+		},
+		"ITEM_UNK_LOC_52_ZINC": {
+			"item_id": 52,
+			"arr_id": 277,
+			"item_name": "Zinc"
+		},
+		"ITEM_UNK_LOC_85_LEAF_STONE": {
+			"item_id": 85,
+			"arr_id": 233,
+			"item_name": "Leaf Stone"
+		},
+		"ITEM_UNK_LOC_56_DIRE_HIT": {
+			"item_id": 56,
+			"arr_id": 257,
+			"item_name": "Dire Hit"
+		},
+		"ITEM_UNK_LOC_296_BIG_ROOT": {
+			"item_id": 296,
+			"arr_id": 111,
+			"item_name": "Big Root"
+		},
+		"ITEM_UNK_LOC_14_HEAL_BALL": {
+			"item_id": 14,
+			"arr_id": 16,
+			"item_name": "Heal Ball"
+		},
+		"ITEM_UNK_LOC_406_TM79": {
+			"item_id": 406,
+			"arr_id": 187,
+			"item_name": "TM79"
+		},
+		"ITEM_UNK_LOC_373_TM46": {
+			"item_id": 373,
+			"arr_id": 24,
+			"item_name": "TM46"
+		},
+		"ITEM_UNK_LOC_325_REAPER_CLOTH": {
+			"item_id": 325,
+			"arr_id": 307,
+			"item_name": "Reaper Cloth"
+		},
+		"ITEM_UNK_LOC_376_TM49": {
+			"item_id": 376,
+			"arr_id": 164,
+			"item_name": "TM49"
+		},
+		"ITEM_UNK_LOC_412_TM85": {
+			"item_id": 412,
+			"arr_id": 82,
+			"item_name": "TM85"
+		},
+		"ITEM_UNK_LOC_107_SHINY_STONE": {
+			"item_id": 107,
+			"arr_id": 225,
+			"item_name": "Shiny Stone"
+		},
+		"ITEM_UNK_LOC_322_ELECTIRIZER": {
+			"item_id": 322,
+			"arr_id": 316,
+			"item_name": "Electirizer"
+		},
+		"ITEM_UNK_LOC_307_MIND_PLATE": {
+			"item_id": 307,
+			"arr_id": 94,
+			"item_name": "Mind Plate"
+		},
+		"ITEM_UNK_LOC_49_CALCIUM": {
+			"item_id": 49,
+			"arr_id": 311,
+			"item_name": "Calcium"
+		},
+		"ITEM_UNK_LOC_108_DUSK_STONE": {
+			"item_id": 108,
+			"arr_id": 191,
+			"item_name": "Dusk Stone"
+		},
+		"ITEM_UNK_LOC_23_FULL_RESTORE": {
+			"item_id": 23,
+			"arr_id": 294,
+			"item_name": "Full Restore"
+		},
+		"ITEM_UNK_LOC_370_TM43": {
+			"item_id": 370,
+			"arr_id": 51,
+			"item_name": "TM43"
+		}
+	}
+}
