@@ -14,10 +14,10 @@ import pkg_resources
 
 from BaseClasses import ItemClassification
 
-BASE_OFFSET = 0x38C750
+SAVE_FILE_OFFSET = 0x27E000
 FLAGS_OFFSET = 0xFEC
 PKTCH_OFFSET = 0x1163
-
+BASE_OFFSET = 0x38C750
 
 class SpeciesData:
     name: str
