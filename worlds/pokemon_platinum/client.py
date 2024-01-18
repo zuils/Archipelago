@@ -81,7 +81,7 @@ KEY_LOCATION_FLAG_MAP = {data.locations[location_name].flag: location_name for l
 
 class PokemonPlatinumClient(BizHawkClient):
     game = "Pokemon Platinum"
-    system = "GBA"
+    system = "NDS"
     patch_suffix = ".applatinum"
     local_checked_locations: Set[int]
     local_set_events: Dict[str, bool]
@@ -100,11 +100,11 @@ class PokemonPlatinumClient(BizHawkClient):
 
         try:
             # Check ROM name/patch version
-            rom_name_bytes = ((await bizhawk.read(ctx.bizhawk_ctx, [(0x108, 32, "ROM")]))[0])
+            rom_name_bytes = ((await bizhawk.read(ctx.bizhawk_ctx, [(0x0, 0x11, "ROM")]))[0])
             rom_name = bytes([byte for byte in rom_name_bytes if byte != 0]).decode("ascii")
-            if not rom_name.startswith("pokemon platinum version"):
+            if not rom_name.startswith("POKEMON PLAPCPUE01"):
                 return False
-            if rom_name == "pokemon platinum version":
+            if rom_name == "POKEMON PL CPUE01":
                 logger.info("ERROR: You appear to be running an unpatched version of Pokemon Platinum. "
                             "You need to generate a patch file and use it to create a patched ROM.")
                 return False

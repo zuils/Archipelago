@@ -52,7 +52,7 @@ class PokemonPlatinumSettings(settings.Group):
     class PokemonPlatinumRomFile(settings.UserFilePath):
         """File name of your English Pokemon Platinum ROM"""
         description = "Pokemon Platinum ROM File"
-        copy_to = "Pokemon - Platinum Version (USA, Europe).gba"
+        copy_to = "Pokemon - Platinum Version (USA).nds"
         md5s = [PokemonPlatinumDeltaPatch.hash]
 
     rom_file: PokemonPlatinumRomFile = PokemonPlatinumRomFile(PokemonPlatinumRomFile.copy_to)

@@ -23,7 +23,7 @@ class PokemonPlatinumDeltaPatch(APDeltaPatch):
     game = "Pokemon Platinum"
     hash = "605b89b67018abcea91e693a4dd25be3"
     patch_file_ending = ".applatinum"
-    result_file_ending = ".gba"
+    result_file_ending = ".nds"
 
     @classmethod
     def get_source_data(cls) -> bytes:
