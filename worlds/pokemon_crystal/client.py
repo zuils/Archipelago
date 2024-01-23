@@ -11,7 +11,6 @@ if TYPE_CHECKING:
 else:
     BizHawkClientContext = object
 
-
 EXPECTED_ROM_VERSION = 0
 
 
@@ -25,7 +24,7 @@ class PokemonCrystalClient(BizHawkClient):
     def __init__(self) -> None:
         super().__init__()
         self.local_checked_locations = set()
-        self.goal_flag = data.event_flags["EVENT_BEAT_ELITE_FOUR"]
+        self.goal_flag = None
 
     async def validate_rom(self, ctx: BizHawkClientContext) -> bool:
         from CommonClient import logger
@@ -67,11 +66,6 @@ class PokemonCrystalClient(BizHawkClient):
         ctx.auth = bytes([byte for byte in slot_name_bytes if byte != 0]).decode("utf-8")
 
     async def game_watcher(self, ctx: BizHawkClientContext) -> None:
-        if ctx.slot_data is not None:
-            if ctx.slot_data["goal"] == 0:
-                self.goal_flag = data.event_flags["EVENT_BEAT_ELITE_FOUR"]
-            else:
-                self.goal_flag = data.event_flags["EVENT_BEAT_RED"]
         try:
             overworld_guard = (data.ram_addresses["wArchipelagoSafeWrite"], [1], "WRAM")
 
@@ -113,7 +107,7 @@ class PokemonCrystalClient(BizHawkClient):
                         if location_id in ctx.server_locations:
                             local_checked_locations.add(location_id)
 
-                        if flag_id == self.goal_flag:
+                        if self.goal_flag is not None and flag_id == self.goal_flag:
                             game_clear = True
 
             if local_checked_locations != self.local_checked_locations:
@@ -134,3 +128,10 @@ class PokemonCrystalClient(BizHawkClient):
         except bizhawk.RequestFailedError:
             # Exit handler and return to main loop to reconnect
             pass
+
+    def on_package(self, ctx, cmd, args):
+        if cmd == 'Connected':
+            if "goal" in args['slot_data'] and args['slot_data']["goal"] == 0:
+                self.goal_flag = data.event_flags["EVENT_BEAT_ELITE_FOUR"]
+            else:
+                self.goal_flag = data.event_flags["EVENT_BEAT_RED"]
