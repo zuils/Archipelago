@@ -161,12 +161,12 @@ def fill_restrictive(world: MultiWorld, base_state: CollectionState, locations: 
             placements.append(spot_to_fill)
             spot_to_fill.event = item_to_place.advancement
             placed += 1
-            if not placed % 1000:
+            if not placed % 100:
                 _log_fill_progress(name, placed, total)
             if on_place:
                 on_place(spot_to_fill)
 
-    if total > 1000:
+    if total > 100:
         _log_fill_progress(name, placed, total)
 
     if cleanup_required:
@@ -264,10 +264,10 @@ def remaining_fill(world: MultiWorld,
         world.push_item(spot_to_fill, item_to_place, False)
         placements.append(spot_to_fill)
         placed += 1
-        if not placed % 1000:
+        if not placed % 100:
             _log_fill_progress("Remaining", placed, total)
 
-    if total > 1000:
+    if total > 100:
         _log_fill_progress("Remaining", placed, total)
 
     if unplaced_items and locations:

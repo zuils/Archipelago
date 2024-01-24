@@ -135,12 +135,14 @@ def local_path(*path: str) -> str:
             local_path.cached_path = sys._MEIPASS  # pylint: disable=protected-access,no-member
         else:
             # cx_Freeze
-            local_path.cached_path = os.path.dirname(os.path.abspath(sys.argv[0]))
+            local_path.cached_path = os.path.dirname(
+                os.path.abspath(sys.argv[0]))
     else:
         import __main__
         if hasattr(__main__, "__file__") and os.path.isfile(__main__.__file__):
             # we are running in a normal Python environment
-            local_path.cached_path = os.path.dirname(os.path.abspath(__main__.__file__))
+            local_path.cached_path = os.path.dirname(
+                os.path.abspath(__main__.__file__))
         else:
             # pray
             local_path.cached_path = os.path.abspath(".")
@@ -157,7 +159,8 @@ def home_path(*path: str) -> str:
         os.makedirs(home_path.cached_path, 0o700, exist_ok=True)
     else:
         # not implemented
-        home_path.cached_path = local_path()  # this will generate the same exceptions we got previously
+        # this will generate the same exceptions we got previously
+        home_path.cached_path = local_path()
 
     return os.path.join(home_path.cached_path, *path)
 
@@ -178,11 +181,14 @@ def user_path(*path: str) -> str:
                     not filecmp.cmp(local_path("manifest.json"), user_path("manifest.json"), shallow=True):
                 import shutil
                 for dn in ("Players", "data/sprites", "data/lua"):
-                    shutil.copytree(local_path(dn), user_path(dn), dirs_exist_ok=True)
+                    shutil.copytree(local_path(dn), user_path(
+                        dn), dirs_exist_ok=True)
                 if not os.path.exists(local_path("manifest.json")):
-                    warnings.warn(f"Upgrading {user_path()} from something that is not a proper install")
+                    warnings.warn(
+                        f"Upgrading {user_path()} from something that is not a proper install")
                 else:
-                    shutil.copy2(local_path("manifest.json"), user_path("manifest.json"))
+                    shutil.copy2(local_path("manifest.json"),
+                                 user_path("manifest.json"))
             os.makedirs(user_path("worlds"), exist_ok=True)
 
     return os.path.join(user_path.cached_path, *path)
@@ -194,7 +200,8 @@ def cache_path(*path: str) -> str:
         pass
     else:
         import platformdirs
-        cache_path.cached_path = platformdirs.user_cache_dir("Archipelago", False)
+        cache_path.cached_path = platformdirs.user_cache_dir(
+            "Archipelago", False)
 
     return os.path.join(cache_path.cached_path, *path)
 
@@ -202,7 +209,8 @@ def cache_path(*path: str) -> str:
 def output_path(*path: str) -> str:
     if hasattr(output_path, 'cached_path'):
         return os.path.join(output_path.cached_path, *path)
-    output_path.cached_path = user_path(get_options()["general_options"]["output_path"])
+    output_path.cached_path = user_path(
+        get_options()["general_options"]["output_path"])
     path = os.path.join(output_path.cached_path, *path)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     return path
@@ -213,7 +221,8 @@ def open_file(filename: typing.Union[str, "pathlib.Path"]) -> None:
         os.startfile(filename)
     else:
         from shutil import which
-        open_command = which("open") if is_macos else (which("xdg-open") or which("gnome-open") or which("kde-open"))
+        open_command = which("open") if is_macos else (
+            which("xdg-open") or which("gnome-open") or which("kde-open"))
         subprocess.call([open_command, filename])
 
 
@@ -224,8 +233,10 @@ class UniqueKeyLoader(SafeLoader):
         for key_node, value_node in node.value:
             key = self.construct_object(key_node, deep=deep)
             if key in mapping:
-                logging.error(f"YAML duplicates sanity check failed{key_node.start_mark}")
-                raise KeyError(f"Duplicate key {key} found in YAML. Already found keys: {mapping}.")
+                logging.error(
+                    f"YAML duplicates sanity check failed{key_node.start_mark}")
+                raise KeyError(
+                    f"Duplicate key {key} found in YAML. Already found keys: {mapping}.")
             mapping.add(key)
         return super().construct_mapping(node, deep)
 
@@ -253,16 +264,19 @@ def get_public_ipv4() -> str:
         ip = socket.gethostbyname(socket.gethostname())
     except socket.gaierror:
         # if hostname or resolvconf is not set up properly, this may fail
-        warnings.warn("Could not resolve own hostname, falling back to 127.0.0.1")
+        warnings.warn(
+            "Could not resolve own hostname, falling back to 127.0.0.1")
         ip = "127.0.0.1"
 
     ctx = get_cert_none_ssl_context()
     try:
-        ip = urllib.request.urlopen("https://checkip.amazonaws.com/", context=ctx, timeout=10).read().decode("utf8").strip()
+        ip = urllib.request.urlopen(
+            "https://checkip.amazonaws.com/", context=ctx, timeout=10).read().decode("utf8").strip()
     except Exception as e:
         # noinspection PyBroadException
         try:
-            ip = urllib.request.urlopen("https://v4.ident.me", context=ctx, timeout=10).read().decode("utf8").strip()
+            ip = urllib.request.urlopen(
+                "https://v4.ident.me", context=ctx, timeout=10).read().decode("utf8").strip()
         except Exception:
             logging.exception(e)
             pass  # we could be offline, in a local game, so no point in erroring out
@@ -282,7 +296,8 @@ def get_public_ipv6() -> str:
 
     ctx = get_cert_none_ssl_context()
     try:
-        ip = urllib.request.urlopen("https://v6.ident.me", context=ctx, timeout=10).read().decode("utf8").strip()
+        ip = urllib.request.urlopen(
+            "https://v6.ident.me", context=ctx, timeout=10).read().decode("utf8").strip()
     except Exception as e:
         logging.exception(e)
         pass  # we could be offline, in a local game, or ipv6 may not be available
@@ -294,7 +309,8 @@ OptionsType = Settings  # TODO: remove when removing get_options
 
 def get_options() -> Settings:
     # TODO: switch to Utils.deprecate after 0.4.4
-    warnings.warn("Utils.get_options() is deprecated. Use the settings API instead.", DeprecationWarning)
+    warnings.warn(
+        "Utils.get_options() is deprecated. Use the settings API instead.", DeprecationWarning)
     return get_settings()
 
 
@@ -333,7 +349,8 @@ def load_data_package_for_checksum(game: str, checksum: typing.Optional[str]) ->
     if checksum and game:
         if checksum != get_file_safe_name(checksum):
             raise ValueError(f"Bad symbols in checksum: {checksum}")
-        path = cache_path("datapackage", get_file_safe_name(game), f"{checksum}.json")
+        path = cache_path("datapackage", get_file_safe_name(
+            game), f"{checksum}.json")
         if os.path.exists(path):
             try:
                 with open(path, "r", encoding="utf-8-sig") as f:
@@ -363,6 +380,7 @@ def store_data_package_for_checksum(game: str, data: typing.Dict[str, Any]) -> N
         except Exception as e:
             logging.debug(f"Could not store data package: {e}")
 
+
 def get_default_adjuster_settings(game_name: str) -> Namespace:
     import LttPAdjuster
     adjuster_settings = Namespace()
@@ -381,7 +399,7 @@ def get_adjuster_settings(game_name: str) -> Namespace:
     default_settings = get_default_adjuster_settings(game_name)
 
     # Fill in any arguments from the argparser that we haven't seen before
-    return Namespace(**vars(adjuster_settings), **{k:v for k,v in vars(default_settings).items() if k not in vars(adjuster_settings)})
+    return Namespace(**vars(adjuster_settings), **{k: v for k, v in vars(default_settings).items() if k not in vars(adjuster_settings)})
 
 
 @cache_argsless
@@ -420,7 +438,8 @@ class RestrictedUnpickler(pickle.Unpickler):
         # Options and Plando are unpickled by WebHost -> Generate
         if module == "worlds.generic" and name in {"PlandoItem", "PlandoConnection"}:
             if not self.generic_properties_module:
-                self.generic_properties_module = importlib.import_module("worlds.generic")
+                self.generic_properties_module = importlib.import_module(
+                    "worlds.generic")
             return getattr(self.generic_properties_module, name)
         # pep 8 specifies that modules should have "all-lowercase names" (options, not Options)
         if module.lower().endswith("options"):
@@ -445,6 +464,7 @@ class ByValue:
     Mixin for enums to pickle value instead of name (restores pre-3.11 behavior). Use as left-most parent.
     See https://github.com/python/cpython/pull/26658 for why this exists.
     """
+
     def __reduce_ex__(self, prot):
         return self.__class__, (self._value_, )
 
@@ -466,7 +486,8 @@ def get_text_after(text: str, start: str) -> str:
     return text[text.index(start) + len(start):]
 
 
-loglevel_mapping = {'error': logging.ERROR, 'info': logging.INFO, 'warning': logging.WARNING, 'debug': logging.DEBUG}
+loglevel_mapping = {'error': logging.ERROR, 'info': logging.INFO,
+                    'warning': logging.WARNING, 'debug': logging.DEBUG}
 
 
 def init_logging(name: str, loglevel: typing.Union[str, int] = logging.INFO, write_mode: str = "w",
@@ -481,7 +502,8 @@ def init_logging(name: str, loglevel: typing.Union[str, int] = logging.INFO, wri
         root_logger.removeHandler(handler)
         handler.close()
     root_logger.setLevel(loglevel)
-    logging.getLogger("websockets").setLevel(loglevel)  # make sure level is applied for websockets
+    # make sure level is applied for websockets
+    logging.getLogger("websockets").setLevel(loglevel)
     if "a" not in write_mode:
         name += f"_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}"
     file_handler = logging.FileHandler(
@@ -498,11 +520,13 @@ def init_logging(name: str, loglevel: typing.Union[str, int] = logging.INFO, wri
         def filter(self, record: logging.LogRecord) -> bool:
             return self.condition(record)
 
-    file_handler.addFilter(Filter("NoStream", lambda record: not getattr(record,  "NoFile", False)))
+    file_handler.addFilter(
+        Filter("NoStream", lambda record: not getattr(record,  "NoFile", False)))
     root_logger.addHandler(file_handler)
     if sys.stdout:
         stream_handler = logging.StreamHandler(sys.stdout)
-        stream_handler.addFilter(Filter("NoFile", lambda record: not getattr(record, "NoStream", False)))
+        stream_handler.addFilter(
+            Filter("NoFile", lambda record: not getattr(record, "NoStream", False)))
         root_logger.addHandler(stream_handler)
 
     # Relay unhandled exceptions to logger.
@@ -524,7 +548,8 @@ def init_logging(name: str, loglevel: typing.Union[str, int] = logging.INFO, wri
     def _cleanup():
         for file in os.scandir(log_folder):
             if file.name.endswith(".txt"):
-                last_change = datetime.datetime.fromtimestamp(file.stat().st_mtime)
+                last_change = datetime.datetime.fromtimestamp(
+                    file.stat().st_mtime)
                 if datetime.datetime.now() - last_change > datetime.timedelta(days=7):
                     try:
                         os.unlink(file.path)
@@ -554,7 +579,8 @@ def stream_input(stream, queue):
                     queue.put_nowait(text)
 
     from threading import Thread
-    thread = Thread(target=queuer, name=f"Stream handler for {stream.name}", daemon=True)
+    thread = Thread(
+        target=queuer, name=f"Stream handler for {stream.name}", daemon=True)
     thread.start()
     return thread
 
@@ -604,7 +630,8 @@ def get_fuzzy_results(input_word: str, wordlist: typing.Sequence[str], limit: ty
     limit: int = limit if limit else len(wordlist)
     return list(
         map(
-            lambda container: (container[0], int(container[1]*100)),  # convert up to limit to int %
+            lambda container: (container[0], int(
+                container[1]*100)),  # convert up to limit to int %
             sorted(
                 map(lambda candidate:
                     (candidate,  get_fuzzy_ratio(input_word, candidate)),
@@ -625,11 +652,13 @@ def open_filename(title: str, filetypes: typing.Sequence[typing.Tuple[str, typin
         from shutil import which
         kdialog = which("kdialog")
         if kdialog:
-            k_filters = '|'.join((f'{text} (*{" *".join(ext)})' for (text, ext) in filetypes))
+            k_filters = '|'.join(
+                (f'{text} (*{" *".join(ext)})' for (text, ext) in filetypes))
             return run(kdialog, f"--title={title}", "--getopenfilename", suggest or ".", k_filters)
         zenity = which("zenity")
         if zenity:
-            z_filters = (f'--file-filter={text} ({", ".join(ext)}) | *{" *".join(ext)}' for (text, ext) in filetypes)
+            z_filters = (
+                f'--file-filter={text} ({", ".join(ext)}) | *{" *".join(ext)}' for (text, ext) in filetypes)
             selection = (f"--filename={suggest}",) if suggest else ()
             return run(zenity, f"--title={title}", "--file-selection", *z_filters, *selection)
 
@@ -665,7 +694,8 @@ def open_directory(title: str, suggest: str = "") -> typing.Optional[str]:
         zenity = which("zenity")
         if zenity:
             z_filters = ("--directory",)
-            selection = (f"--filename={os.path.abspath(suggest)}/",) if suggest else ()
+            selection = (
+                f"--filename={os.path.abspath(suggest)}/",) if suggest else ()
             return run(zenity, f"--title={title}", "--file-selection", *z_filters, *selection)
 
     # fall back to tk
@@ -714,7 +744,7 @@ def messagebox(title: str, text: str, error: bool = False) -> None:
         import ctypes
         style = 0x10 if error else 0x0
         return ctypes.windll.user32.MessageBoxW(0, text, title, style)
-    
+
     # fall back to tk
     try:
         import tkinter
@@ -774,8 +804,6 @@ def async_start(co: Coroutine[None, None, typing.Any], name: Optional[str] = Non
 
 
 def deprecate(message: str):
-    if __debug__:
-        raise Exception(message)
     import warnings
     warnings.warn(message)
 
@@ -905,25 +933,32 @@ def visualize_regions(root_region: Region, file_name: str, *,
         for exit_ in region.exits:
             if exit_.connected_region:
                 if show_entrance_names:
-                    uml.append(f"\"{fmt(region)}\" --> \"{fmt(exit_.connected_region)}\" : \"{fmt(exit_)}\"")
+                    uml.append(
+                        f"\"{fmt(region)}\" --> \"{fmt(exit_.connected_region)}\" : \"{fmt(exit_)}\"")
                 else:
                     try:
-                        uml.remove(f"\"{fmt(exit_.connected_region)}\" --> \"{fmt(region)}\"")
-                        uml.append(f"\"{fmt(exit_.connected_region)}\" <--> \"{fmt(region)}\"")
+                        uml.remove(
+                            f"\"{fmt(exit_.connected_region)}\" --> \"{fmt(region)}\"")
+                        uml.append(
+                            f"\"{fmt(exit_.connected_region)}\" <--> \"{fmt(region)}\"")
                     except ValueError:
-                        uml.append(f"\"{fmt(region)}\" --> \"{fmt(exit_.connected_region)}\"")
+                        uml.append(
+                            f"\"{fmt(region)}\" --> \"{fmt(exit_.connected_region)}\"")
             else:
                 uml.append(f"circle \"unconnected exit:\\n{fmt(exit_)}\"")
-                uml.append(f"\"{fmt(region)}\" --> \"unconnected exit:\\n{fmt(exit_)}\"")
+                uml.append(
+                    f"\"{fmt(region)}\" --> \"unconnected exit:\\n{fmt(exit_)}\"")
 
     def visualize_locations(region: Region) -> None:
         any_lock = any(location.locked for location in region.locations)
         for location in region.locations:
             lock = "<&lock-locked> " if location.locked else "<&lock-unlocked,color=transparent> " if any_lock else ""
             if location.item:
-                uml.append(f"\"{fmt(region)}\" : {{method}} {lock}{fmt(location)}: {fmt(location.item)}")
+                uml.append(
+                    f"\"{fmt(region)}\" : {{method}} {lock}{fmt(location)}: {fmt(location.item)}")
             else:
-                uml.append(f"\"{fmt(region)}\" : {{field}} {lock}{fmt(location)}")
+                uml.append(
+                    f"\"{fmt(region)}\" : {{field}} {lock}{fmt(location)}")
 
     def visualize_region(region: Region) -> None:
         uml.append(f"class \"{fmt(region)}\"")
@@ -947,7 +982,8 @@ def visualize_regions(root_region: Region, file_name: str, *,
         if (current_region := regions.popleft()) not in seen:
             seen.add(current_region)
             visualize_region(current_region)
-            regions.extend(exit_.connected_region for exit_ in current_region.exits if exit_.connected_region)
+            regions.extend(
+                exit_.connected_region for exit_ in current_region.exits if exit_.connected_region)
     if show_other_regions:
         visualize_other_regions()
     uml.append("@enduml")
