@@ -133,9 +133,9 @@ class PokemonPlatinumClient(BizHawkClient):
         if ctx.slot_data is not None:
             if ctx.slot_data["goal"] == Goal.option_champion:
                 self.goal_flag = IS_CHAMPION_FLAG
-            elif ctx.slot_data["goal"] == Goal.option_steven:
+            elif ctx.slot_data["goal"] == Goal.option_rival:
                 self.goal_flag = DEFEATED_STEVEN_FLAG
-            elif ctx.slot_data["goal"] == Goal.option_norman:
+            elif ctx.slot_data["goal"] == Goal.option_champion2:
                 self.goal_flag = DEFEATED_NORMAN_FLAG
 
         try:
@@ -145,14 +145,19 @@ class PokemonPlatinumClient(BizHawkClient):
             # Read save block address
             read_result = await bizhawk.guarded_read(
                 ctx.bizhawk_ctx,
-                [(data.ram_addresses["gSaveBlock1Ptr"], 4, "System Bus")],
+                [(data.ram_addresses["globalPointer"], 4, "System Bus")],
                 [overworld_guard]
             )
             if read_result is None:  # Not in overworld
                 return
 
+            # Resolve ASLR incase we reloaded the game
+            data.ram_addresses["globalPtr"] = int.from_bytes(await bizhawk.read(ctx.bizhawk_ctx, [(data.ram_addresses["globalPtr"], 3, "Main Memory")]))
+            versionPtr = await bizhawk.read(ctx.bizhawk_ctx, [(int.from_bytes(data.ram_addresses["globalPtr"]), 3, "Main Memory")])
+
+
             # Checks that the save block hasn't moved
-            save_block_address_guard = (data.ram_addresses["gSaveBlock1Ptr"], read_result[0], "System Bus")
+            save_block_address_guard = (data.ram_addresses["globalPoint"], read_result[0], "System Bus")
 
             save_block_address = int.from_bytes(read_result[0], "little")
 
@@ -160,7 +165,7 @@ class PokemonPlatinumClient(BizHawkClient):
             read_result = await bizhawk.guarded_read(
                 ctx.bizhawk_ctx,
                 [
-                    (save_block_address + 0x3778, 2, "System Bus"),                        # Number of received items
+                    (save_block_address + 0x700, 2, "System Bus"),                        # Number of received items
                     (data.ram_addresses["gArchipelagoReceivedItem"] + 4, 1, "System Bus")  # Received item struct full?
                 ],
                 [overworld_guard, save_block_address_guard]

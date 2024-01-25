@@ -63,6 +63,11 @@ class PokemonPlatinumData:
         self.warp_map = {}
         self.trainers = []
 
+        self.rom_addresses["globalPtr"] = 0xBA8
+        # Set on game load
+        self.rom_addresses["versionPtr"] = 0x0
+        self.rom_addresses["safefileBase"] = 0x0
+
 
 def load_json_data(data_name: str) -> Union[List[Any], Dict[str, Any]]:
     return orjson.loads(pkgutil.get_data(__name__, "data/" + data_name).decode('utf-8-sig'))

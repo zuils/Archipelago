@@ -20,8 +20,8 @@ class Goal(Choice):
     display_name = "Goal"
     default = 0
     option_champion = 0
-    option_steven = 1
-    option_norman = 2
+    option_rival = 1
+    option_champion2 = 2
 
 
 class RandomizeBadges(Choice):
@@ -66,7 +66,7 @@ class RandomizeBikes(Toggle):
     """
     Adds the mach bike and acro bike to the pool
     """
-    display_name = "Randomize Bikes"
+    display_name = "Randomize Bike"
 
 
 class RandomizeRods(Toggle):
@@ -117,7 +117,7 @@ class HiddenItemsRequireItemfinder(DefaultOnToggle):
     """
     The Itemfinder is logically required to pick up hidden items
     """
-    display_name = "Require Itemfinder"
+    display_name = "Require Dowsing Machine"
 
 
 class DarkCavesRequireFlash(DefaultOnToggle):
@@ -155,29 +155,6 @@ class EliteFourCount(Range):
     range_start = 0
     range_end = 8
     default = 8
-
-
-class NormanRequirement(Choice):
-    """
-    Sets the requirements to challenge the Petalburg Gym
-
-    Badges: Obtain some number of badges
-    Gyms: Defeat some number of gyms
-    """
-    display_name = "Norman Requirement"
-    default = 0
-    option_badges = 0
-    option_gyms = 1
-
-
-class NormanCount(Range):
-    """
-    Sets the number of badges/gyms required to challenge the Petalburg Gym
-    """
-    display_name = "Norman Count"
-    range_start = 0
-    range_end = 7
-    default = 4
 
 
 class RandomizeWildPokemon(Choice):
@@ -450,17 +427,6 @@ class BlindTrainers(Toggle):
     display_name = "Blind Trainers"
 
 
-class DoubleBattleChance(Range):
-    """
-    The percent chance that a trainer with more than 1 pokemon will be converted into a double battle.
-    If these trainers would normally approach you, they will only do so if you have 2 unfainted pokemon.
-    They can be battled by talking to them no matter what.
-    """
-    display_name = "Double Battle Chance"
-    range_start = 0
-    range_end = 100
-    default = 0
-
 
 class BetterShops(Toggle):
     """
@@ -494,14 +460,6 @@ class RemoveRoadblocks(OptionSet):
         "Aqua Hideout Grunts",
         "Seafloor Cavern Aqua Grunt"
     ])
-
-
-class ExtraBoulders(Toggle):
-    """
-    Places strength boulders on Route 115 which block access to Meteor Falls from the beach.
-    This aims to take some power away from Surf as a tool for access.
-    """
-    display_name = "Extra Boulders"
 
 
 class FreeFlyLocation(Toggle):
@@ -540,6 +498,13 @@ class ReceiveItemMessages(Choice):
     option_none = 2
 
 
+class UnlockFramerate(Choice):
+    default = 1
+    display_name = "Unlock the Framerate"
+    option_no = 0
+    option_yes = 1
+
+
 class EasterEgg(FreeText):
     """
     ???
@@ -565,8 +530,6 @@ class PokemonPlatinumOptions(PerGameCommonOptions):
     require_flash: DarkCavesRequireFlash
     elite_four_requirement: EliteFourRequirement
     elite_four_count: EliteFourCount
-    norman_requirement: NormanRequirement
-    norman_count: NormanCount
 
     wild_pokemon: RandomizeWildPokemon
     allow_wild_legendaries: AllowWildLegendaries
@@ -591,16 +554,15 @@ class PokemonPlatinumOptions(PerGameCommonOptions):
     guaranteed_catch: GuaranteedCatch
     exp_modifier: ExpModifier
     blind_trainers: BlindTrainers
-    double_battle_chance: DoubleBattleChance
     better_shops: BetterShops
 
-    enable_ferry: EnableFerry
     remove_roadblocks: RemoveRoadblocks
-    extra_boulders: ExtraBoulders
     free_fly_location: FreeFlyLocation
     fly_without_badge: FlyWithoutBadge
 
     turbo_a: TurboA
     receive_item_messages: ReceiveItemMessages
+
+    unlock_framerate: UnlockFramerate
 
     easter_egg: EasterEgg

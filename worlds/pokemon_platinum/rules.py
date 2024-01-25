@@ -26,7 +26,7 @@ def set_rules(world: "PokemonPlatinumWorld") -> None:
         return state.has("HM04 Strength", world.player) and state.has("Heat Badge", world.player)
 
     def can_flash(state: CollectionState):
-        return state.has("HM05 Flash", world.player) and state.has("Knuckle Badge", world.player)
+        return state.has("HM05 Defog", world.player) and state.has("Knuckle Badge", world.player)
 
     def can_rock_smash(state: CollectionState):
         return state.has("HM06 Rock Smash", world.player) and state.has("Dynamo Badge", world.player)

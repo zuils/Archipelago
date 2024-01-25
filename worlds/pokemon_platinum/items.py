@@ -56,17 +56,17 @@ ITEM_GROUPS = {
     "HMs": {
         "HM01 Cut", "HM02 Fly",
         "HM03 Surf", "HM04 Strength",
-        "HM05 Flash", "HM06 Rock Smash",
-        "HM07 Waterfall", "HM08 Dive"
+        "HM05 Defog", "HM06 Rock Smash",
+        "HM07 Waterfall", "HM08 Rock Climb"
     },
     "HM01": {"HM01 Cut"},
     "HM02": {"HM02 Fly"},
     "HM03": {"HM03 Surf"},
     "HM04": {"HM04 Strength"},
-    "HM05": {"HM05 Flash"},
+    "HM05": {"HM05 Defog"},
     "HM06": {"HM06 Rock Smash"},
     "HM07": {"HM07 Waterfall"},
-    "HM08": {"HM08 Dive"}
+    "HM08": {"HM08 Rock Climb"}
 }
 
 

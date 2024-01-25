@@ -296,6 +296,11 @@ def _set_bytes_little_endian(byte_array: bytearray, address: int, size: int, val
         offset += 1
         size -= 1
 
+def _patch_framerate(byte_array: bytearray) -> None:
+    # Write the 2 bytes to set the framerate counter to be unlocked
+    # https://www.pokecommunity.com/threads/d-p-pt-hg-ss-remove-the-framerate-limiter.378618/
+    _set_bytes_little_endian(byte_array, 0x4DB0, 2, 0x2563)
+
 
 def _set_encounter_tables(world: "PokemonPlatinumWorld", rom: bytearray) -> None:
     """
