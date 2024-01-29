@@ -9,8 +9,7 @@ from .options import PokemonCrystalOptions
 from .regions import create_regions
 from .items import PokemonCrystalItem, create_item_label_to_code_map, get_item_classification
 from .rules import set_rules
-from .data import (PokemonData, MoveData, TrainerData,
-                   LearnsetData, data as crystal_data)
+from .data import (PokemonData, MoveData, TrainerData, LearnsetData, data as crystal_data)
 from .rom import generate_output
 from .locations import create_locations, PokemonCrystalLocation, create_location_label_to_id_map
 from .utils import get_random_pokemon
@@ -80,8 +79,7 @@ class PokemonCrystalWorld(World):
             if location.address is not None
         ]
 
-        default_itempool = [self.create_item_by_code(
-            location.default_item_code) for location in item_locations]
+        default_itempool = [self.create_item_by_code(location.default_item_code) for location in item_locations]
         self.multiworld.itempool += default_itempool
 
     def set_rules(self) -> None:
@@ -100,8 +98,7 @@ class PokemonCrystalWorld(World):
             return self.random.choice(move_pool)
 
         def get_random_move_from_learnset(pokemon, level):
-            move_pool = [
-                move.move for move in crystal_data.pokemon[pokemon].learnset if move.level <= level]
+            move_pool = [move.move for move in crystal_data.pokemon[pokemon].learnset if move.level <= level]
             return self.random.choice(move_pool)
 
         def get_random_helditem():
@@ -126,10 +123,8 @@ class PokemonCrystalWorld(World):
                 for move in pkmn_data.learnset:
                     if move.move != "NO_MOVE":
                         learn_levels.append(move.level)
-                new_learnset = [LearnsetData(
-                    level, get_random_move()) for level in learn_levels]
-                self.generated_pokemon[pkmn_name] = self.generated_pokemon[pkmn_name]._replace(
-                    learnset=new_learnset)
+                new_learnset = [LearnsetData(level, get_random_move()) for level in learn_levels]
+                self.generated_pokemon[pkmn_name] = self.generated_pokemon[pkmn_name]._replace(learnset=new_learnset)
 
         if self.options.randomize_starters:
             for evo_line in self.generated_starters:
@@ -144,8 +139,7 @@ class PokemonCrystalWorld(World):
                                 trainer_name.startswith("RIVAL_" + evo_line[1])]
 
                 first_evolutions = crystal_data.pokemon[evo_line[0]].evolutions
-                evo_line[1] = self.random.choice(
-                    first_evolutions)[-1] if len(first_evolutions) else evo_line[0]
+                evo_line[1] = self.random.choice(first_evolutions)[-1] if len(first_evolutions) else evo_line[0]
                 for trainer_name, trainer in rival_fights:
                     set_rival_fight(trainer_name, trainer, evo_line[1])
 
@@ -167,8 +161,7 @@ class PokemonCrystalWorld(World):
                         match_types = [None, None]
                         if self.options.randomize_trainer_parties == 1:
                             match_types = crystal_data.pokemon[new_pkmn_data[1]].types
-                        new_pokemon = get_random_pokemon(
-                            self.random, match_types)
+                        new_pokemon = get_random_pokemon(self.random, match_types)
                         new_pkmn_data[1] = new_pokemon
                     if trainer_data.trainer_type in ["TRAINERTYPE_ITEM", "TRAINERTYPE_ITEM_MOVES"]:
                         new_pkmn_data[2] = get_random_helditem()
@@ -201,8 +194,7 @@ class PokemonCrystalWorld(World):
 
     def write_spoiler(self, spoiler_handle) -> None:
         if self.options.randomize_starters:
-            spoiler_handle.write(
-                f"\n\nStarter Pokemon ({self.multiworld.player_name[self.player]}):\n\n")
+            spoiler_handle.write(f"\n\nStarter Pokemon ({self.multiworld.player_name[self.player]}):\n\n")
             for evo in self.generated_starters:
                 spoiler_handle.write(f"{evo[0]} -> {evo[1]} -> {evo[2]}\n")
 

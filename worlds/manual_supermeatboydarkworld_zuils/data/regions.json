@@ -1,0 +1,32 @@
+{
+	"Chapter 1: The Forest": 	{
+		"starting": true,
+		"connects_to": [],
+		"requires": []
+	},
+	"Chapter 2: The Hospital": 	{
+		"starting": true,
+		"connects_to": [],
+		"requires": "|Chapter 1 Boss Completion|"
+	},
+	"Chapter 3: The Salt Factory": 	{
+		"starting": true,
+		"connects_to": [],
+		"requires": "|Chapter 2 Boss Completion|"
+	},
+	"Chapter 4: Hell": 	{
+		"starting": true,
+		"connects_to": [],
+		"requires": "|Chapter 3 Boss Completion|"
+	},
+	"Chapter 5: The Rapture": 	{
+		"starting": true,
+		"connects_to": [],
+		"requires": "|Chapter 4 Boss Completion|"
+	},
+	"Chapter 6: The End": 	{
+		"starting": true,
+		"connects_to": [],
+		"requires": "|Chapter 5 Boss Completion|"
+}
+}
