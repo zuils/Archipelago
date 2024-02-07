@@ -1,0 +1,363 @@
+[
+  {
+    "name": "Chapter 4",
+    "requires": []
+  },
+  {
+    "name": "Chapter 5",
+    "requires": "|Chapter 5 Unlock|"
+  },
+  {
+    "name": "Chapter 6",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock|"
+  },
+  {
+    "name": "Chapter 7",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock|"
+  },
+  {
+    "name": "Chapter 8",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock|"
+  },
+  {
+    "name": "Chapter 9",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock|"
+  },
+  {
+    "name": "Chapter 10",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock|"
+  },
+  {
+    "name": "Chapter 11",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock|"
+  },
+  {
+    "name": "Chapter 12",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock|"
+  },
+  {
+    "name": "Chapter 13",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock|"
+  },
+  {
+    "name": "Chapter 14",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock|"
+  },
+  {
+    "name": "Chapter 15",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock|"
+  },
+  {
+    "name": "Chapter 16",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock|"
+  },
+  {
+    "name": "Chapter 17",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock|"
+  },
+  {
+    "name": "Chapter 18",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock|"
+  },
+  {
+    "name": "Chapter 19",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock|"
+  },
+  {
+    "name": "Chapter 20",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock|"
+  },
+  {
+    "name": "Chapter 21",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock|"
+  },
+  {
+    "name": "Chapter 22",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock|"
+  },
+  {
+    "name": "Chapter 23",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock|"
+  },
+  {
+    "name": "Chapter 24",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock| and |Chapter 24 Unlock|"
+  },
+  {
+    "name": "Chapter 25",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock| and |Chapter 24 Unlock| and |Chapter 25 Unlock|"
+  },
+  {
+    "name": "Chapter 26",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock| and |Chapter 24 Unlock| and |Chapter 25 Unlock| and |Chapter 26 Unlock|",
+    "victory": true
+  },
+  {
+    "name": "Jean Paralogue",
+    "requires": "|Chapter 5 Unlock|"
+  },
+  {
+    "name": "Anna Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock|"
+  },
+  {
+    "name": "Lucina Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Emblem Lucina|"
+  },
+  {
+    "name": "Lyn Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Emblem Lyn|"
+  },
+  {
+    "name": "Ike Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Emblem Ike|"
+  },
+  {
+    "name": "Byleth Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Emblem Byleth|"
+  },
+  {
+    "name": "Corrin Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Emblem Corrin|"
+  },
+  {
+    "name": "Eirika Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Emblem Eirika|"
+  },
+  {
+    "name": "Leif Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Emblem Leif|"
+  },
+  {
+    "name": "Sigurd Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Emblem Sigurd|"
+  },
+  {
+    "name": "Micaiah Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Emblem Micaiah|"
+  },
+  {
+    "name": "Roy Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Emblem Roy|"
+  },
+  {
+    "name": "Celica Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Emblem Celica|"
+  },
+  {
+    "name": "Marth Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock| and |Emblem Marth|"
+  },
+  {
+    "name": "Pact Ring Paralogue",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock|"
+  },
+  {
+    "name": "Celine",
+    "requires": []
+  },
+  {
+    "name": "Louis",
+    "requires": []
+  },
+  {
+    "name": "Chloe",
+    "requires": []
+  },
+  {
+    "name": "Yunaka",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock|"
+  },
+  {
+    "name": "Jean",
+    "requires": "|Chapter 5 Unlock|"
+  },
+  {
+    "name": "Anna",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock|"
+  },
+  {
+    "name": "Alcryst",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock|"
+  },
+  {
+    "name": "Lapis",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock|"
+  },
+  {
+    "name": "Citrinne",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock|"
+  },
+  {
+    "name": "Diamant",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock|"
+  },
+  {
+    "name": "Amber",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock|"
+  },
+  {
+    "name": "Jade",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock|"
+  },
+  {
+    "name": "Ivy",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock|"
+  },
+  {
+    "name": "Zelkov",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock|"
+  },
+  {
+    "name": "Kagetsu",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock|"
+  },
+  {
+    "name": "Fogado",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock|"
+  },
+  {
+    "name": "Pandreo",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock|"
+  },
+  {
+    "name": "Bunet",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock|"
+  },
+  {
+    "name": "Timerra",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock|"
+  },
+  {
+    "name": "Merrin",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock|"
+  },
+  {
+    "name": "Panette",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock|"
+  },
+  {
+    "name": "Hortensia",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock|"
+  },
+  {
+    "name": "Seadall",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock|"
+  },
+  {
+    "name": "Rosado",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock|"
+  },
+  {
+    "name": "Goldmary",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock|"
+  },
+  {
+    "name": "Lindon",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock|"
+  },
+  {
+    "name": "Saphir",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock|"
+  },
+  {
+    "name": "Mauvier",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock|"
+  },
+  {
+    "name": "Veyle",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock|"
+  },
+  {
+    "name": "Emblem Marth",
+    "requires": []
+  },
+  {
+    "name": "Emblem Celica",
+    "requires": []
+  },
+  {
+    "name": "Emblem Sigurd",
+    "requires": []
+  },
+  {
+    "name": "Emblem Micaiah",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock|"
+  },
+  {
+    "name": "Emblem Roy",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock|"
+  },
+  {
+    "name": "Emblem Leif",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock|"
+  },
+  {
+    "name": "Emblem Lucina",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock|"
+  },
+  {
+    "name": "Emblem Lyn",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock|"
+  },
+  {
+    "name": "Emblem Ike",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock|"
+  },
+  {
+    "name": "Emblem Byleth",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock|"
+  },
+  {
+    "name": "Emblem Corrin",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock|"
+  },
+  {
+    "name": "Emblem Eirika",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock|"
+  },
+  {
+    "name": "Emblem Alear",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock| and |Chapter 15 Unlock| and |Chapter 16 Unlock| and |Chapter 17 Unlock| and |Chapter 18 Unlock| and |Chapter 19 Unlock| and |Chapter 20 Unlock| and |Chapter 21/22 Unlock| and |Chapter 23 Unlock|"
+  },
+  {
+    "name": "Marketplace",
+    "requires": []
+  },
+  {
+    "name": "Blacksmith",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock|"
+  },
+  {
+    "name": "Well",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock|"
+  },
+  {
+    "name": "Strength Training",
+    "requires": "|Chapter 5 Unlock|"
+  },
+  {
+    "name": "Wyvern Ride",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock|"
+  },
+  {
+    "name": "Flea Market",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock| and |Chapter 10/11 Unlock| and |Chapter 12 Unlock| and |Chapter 13 Unlock| and |Chapter 14 Unlock|"
+  },
+  {
+    "name": "Fishing",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock| and |Chapter 7 Unlock| and |Chapter 8 Unlock| and |Chapter 9 Unlock|"
+  },
+  {
+    "name": "Ring Chamber",
+    "requires": "|Chapter 5 Unlock|"
+  },
+  {
+    "name": "Arena",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock|"
+  },
+  {
+    "name": "Cooking",
+    "requires": "|Chapter 5 Unlock| and |Chapter 6 Unlock|"
+  }
+]
