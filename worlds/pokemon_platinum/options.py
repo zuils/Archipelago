@@ -127,6 +127,10 @@ class DarkCavesRequireFlash(DefaultOnToggle):
     display_name = "Require Flash"
 
 
+class FoggyRoutesRequireDefog(DefaultOnToggle):
+    display_name = "Require Defog"
+
+
 class EliteFourRequirement(Choice):
     """
     Sets the requirements to challenge the elite four

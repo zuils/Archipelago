@@ -1,31 +1,33 @@
 ## JSON
 - Full list of items and what flag triggers them (items.json)
-	```json
-	{
-		"tag": "ITEM_LOCATION_DESC",
-		"long_description": "Location - Item by Pond",
-		"location": "LOCATION_ROUTE",
-		"item_flag": "0",
-		"vanilla_item": 1
-	}
-	```
+```json
+{
+	"tag": "ITEM_RAVAGED_PASS_LUCK_INCENSE",
+	"long_description": "Ravaged Pass - Left Item behind Surf",
+	"location": "LOCATION_RAVAGED_PASS",
+	"item_flag": "0x402",
+	"vanilla_item": 251,
+	"requirements": ["HM_SURF", "HM_ROCK_SMASH"]
+}
+```
 - Full list of all hidden items and what flag triggers them (hidden_items.json)
-       ```json
-	{
-		"tag": "HIDDEN_ITEM_LOCATION_DESC",
-		"long_description":"Location - Hidden Item near Stairs",
-		"location": "LOCATION_ROUTE",
-		"item_flag": "0",
-		"vanilla_item": 1
-	}
-        ```
+```json
+{
+	"tag": "HIDDEN_ITEM_VICTORY_ROAD_2F_RARE_CANDY",
+	"long_description":"Victory Road 2F - Hidden Item near Ace Trainer Omar",
+	"location": "LOCATION_VICTORY_ROAD_2F",
+	"item_flag": "0x34E",
+	"vanilla_item": 50,
+	"requirements": ["HM_STRENGTH", "HM_ROCK_SMASH"]
+}
+```
 - Full list of locations and where they connect to (connections.json)
 - Please treat each and every map change as a connection for now. We may optimize this later to group them into access sections instead of just marking every connection for generation speed. I prefer full accuracy first, optimize later.
 ```json
 {
-	"tag": "LOCATION_ROUTE201",
+	"tag": "LOCATION_ROUTE_201",
 	"connections": ["LOCATION_VERITY_LAKEFRONT", "LOCATION_TWINLEAF_TOWN", "LOCATION_SANDGEM_TOWN"],
-	"access_requirements": [""]
+	"requirements": [""]
 }
 ```
 - Trigger Flags, think NPC/Button/Door activations that cause things to unlock (triggers.json)
@@ -33,16 +35,18 @@
 {
 	"tag": "TRIGGER_OREBURGH_MINES_ROARK",
 	"location": "LOCATION_OREBURGH_MINES_LOWER",
-	"trigger_flag": 0,
-	"trigger_group": "EVENT"
+	"trigger_flag": "",
+	"trigger_group": "EVENT",
+	"requirements": [""]
 }
 ```
 - Full list of ALL trainers in the game and where they are located (trainers.json)
 ```json
 {
-	"tag": "TRAINER_LASS_NAME",
-	"location": "LOCATION_TAG",
-	"trigger_flag": 0 
+	"tag": "TRAINER_ACE_TRAINER_OMAR",
+	"location": "LOCATION_VICTORY_ROAD_",
+	"trigger_flag": "0x630",
+	"requirements": ["HM_STRENGTH", "HM_ROCK_SMASH"]
 }
 ```
 ## ROM Patches

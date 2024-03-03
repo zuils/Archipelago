@@ -59,6 +59,7 @@ class ItemEntry:
     item_flag: int
     vanilla_item: int
     classification: str
+    requirements: list[str]
 
 
 class TriggerEntry:
@@ -72,3 +73,4 @@ class TrainerEntry:
     tag: str
     location: str
     flag: int
+
