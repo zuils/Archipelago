@@ -4,20 +4,25 @@ This also includes marrying automatically extracted data with manually
 defined data (like location labels or usable pokemon species), some cleanup
 and sorting, and Warp methods.
 """
-from dataclasses import dataclass
 import copy
-from enum import IntEnum
 import orjson
 from typing import Dict, List, NamedTuple, Optional, Set, FrozenSet, Tuple, Any, Union
 import pkgutil
-import pkg_resources
+from .structs import ItemEntry, LocationEntry, TriggerEntry, TrainerEntry
 
 from BaseClasses import ItemClassification
 
-SAVE_FILE_OFFSET = 0x27E000
 FLAGS_OFFSET = 0xFEC
 PKTCH_OFFSET = 0x1163
-BASE_OFFSET = 0x38C750
+
+# These are all to data 001, not 000
+# Trainer Pokemon Data
+TRPOKE_DATA_OFFSET = 0x372633C
+# Trainer Data
+TRDATA_DATA_OFFSET = 0x371FD48
+# Map Event Data (needed to change what items are given)
+EVENT_DATA_OFFSET = 0x471C2F4
+
 
 class SpeciesData:
     name: str
@@ -35,8 +40,8 @@ class PokemonPlatinumData:
     rom_addresses: Dict[str, int]
     #
     #regions: Dict[str, RegionData]
-    #locations: Dict[str, LocationData]
-    #items: Dict[int, ItemData]
+    locations: Dict[LocationEntry]
+    items: Dict[ItemEntry]
     #species: List[Optional[SpeciesData]]
     #static_encounters: List[StaticEncounterData]
     #tmhm_moves: List[int]
@@ -59,14 +64,14 @@ class PokemonPlatinumData:
         self.tmhm_moves = []
         self.abilities = []
         self.maps = []
-        self.warps = {}
-        self.warp_map = {}
+        #self.warps = {}
+        #self.warp_map = {}
         self.trainers = []
 
         self.rom_addresses["globalPtr"] = 0xBA8
         # Set on game load
         self.rom_addresses["versionPtr"] = 0x0
-        self.rom_addresses["safefileBase"] = 0x0
+        self.rom_addresses["savefileBase"] = 0x0
 
 
 def load_json_data(data_name: str) -> Union[List[Any], Dict[str, Any]]:
@@ -83,11 +88,14 @@ def create_data_copy() -> PokemonPlatinumData:
     new_copy.maps = copy.deepcopy(data.maps)
     new_copy.static_encounters = copy.deepcopy(data.static_encounters)
     new_copy.trainers = copy.deepcopy(data.trainers)
+    return new_copy
 
 
 def _init() -> None:
+    data.items = load_json_data("items.json")
+    data.items.append(load_json_data("hidden_items.json"))
+    data.locations = load_json_data("locations.json")
+    data.trainers = load_json_data("trainers.json")
     print('unimplemented')
-
-
 
 _init()
