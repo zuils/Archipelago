@@ -5,20 +5,20 @@
 		"tag": "ITEM_LOCATION_DESC",
 		"long_description": "Location - Item by Pond",
 		"location": "LOCATION_ROUTE",
-		"item_flag": 0,
+		"item_flag": "0",
 		"vanilla_item": 1
 	}
 	```
 - Full list of all hidden items and what flag triggers them (hidden_items.json)
-```json
+       ```json
 	{
 		"tag": "HIDDEN_ITEM_LOCATION_DESC",
 		"long_description":"Location - Hidden Item near Stairs",
 		"location": "LOCATION_ROUTE",
-		"item_flag": 0,
+		"item_flag": "0",
 		"vanilla_item": 1
 	}
-```
+        ```
 - Full list of locations and where they connect to (connections.json)
 - Please treat each and every map change as a connection for now. We may optimize this later to group them into access sections instead of just marking every connection for generation speed. I prefer full accuracy first, optimize later.
 ```json
