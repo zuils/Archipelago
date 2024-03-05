@@ -7,7 +7,7 @@
 	"location": "LOCATION_RAVAGED_PASS",
 	"item_flag": "0x402",
 	"vanilla_item": 251,
-	"requirements": ["HM_SURF", "HM_ROCK_SMASH"]
+	"requirements": ["HM_SURF & HM_ROCK_SMASH"]
 }
 ```
 - Full list of all hidden items and what flag triggers them (hidden_items.json)
@@ -27,7 +27,7 @@
 {
 	"tag": "LOCATION_ROUTE_201",
 	"connections": ["LOCATION_VERITY_LAKEFRONT", "LOCATION_TWINLEAF_TOWN", "LOCATION_SANDGEM_TOWN"],
-	"requirements": [""]
+	"requirements": []
 }
 ```
 - Trigger Flags, think NPC/Button/Door activations that cause things to unlock (triggers.json)
@@ -37,7 +37,7 @@
 	"location": "LOCATION_OREBURGH_MINES_LOWER",
 	"trigger_flag": "",
 	"trigger_group": "EVENT",
-	"requirements": [""]
+	"requirements": []
 }
 ```
 - Full list of ALL trainers in the game and where they are located (trainers.json)
