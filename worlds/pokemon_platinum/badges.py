@@ -4,6 +4,8 @@ from enum import Enum
 # Ref: https://projectpokemon.org/home/docs/gen-4/platinum-save-structure-r81/
 # Badge RAM Placement: 0x38C7D2
 # 0x1E offset
+
+
 class Badges(Enum):
     COAL_BADGE = 0x01,
     FOREST_BADGE = 0x02,
@@ -13,6 +15,7 @@ class Badges(Enum):
     MINE_BADGE = 0x20,
     ICICLE_BADGE = 0x40,
     BEACON_BADGE = 0x80
+
 
 class Flags(Enum):
     NPC_GIFT_RECEIVED_TM86 = 116
@@ -32,6 +35,7 @@ class Flags(Enum):
     FE_TOWNMAP_GET = 241
     FE_ACCE_CASE_GET = 242
     FE_POKETCH_GET = 243
+
 
 class PoketchApps(Enum):
     APP_DIGITAL_WATCH = 0

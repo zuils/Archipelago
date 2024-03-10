@@ -14,14 +14,16 @@ class Goal(Choice):
     Determines what your goal is to consider the game beaten
 
     Champion: Become the champion and enter the hall of fame
-    Steven: Defeat Steven in Meteor Falls
-    Norman: Defeat Norman in Petalburg Gym
+    Rival: Beat the Rival at the Survival Area
+    Champion2: Beat the E4 for the Second Time (2nd and beyond are harder than first)
+    Cyrus: Beat Cyrus in Celestic Town
     """
     display_name = "Goal"
     default = 0
     option_champion = 0
     option_rival = 1
     option_champion2 = 2
+    option_cyrus= 3
 
 
 class RandomizeBadges(Choice):
@@ -57,14 +59,14 @@ class RandomizeHms(Choice):
 class RandomizeKeyItems(DefaultOnToggle):
     """
     Adds most key items to the pool. These are usually required to unlock
-    a location or region (e.g. Devon Scope, Letter, Basement Key)
+    a location or region (e.g. the 3 Coupons, Works Key, Galactic Key)
     """
     display_name = "Randomize Key Items"
 
 
-class RandomizeBikes(Toggle):
+class RandomizeBike(Toggle):
     """
-    Adds the mach bike and acro bike to the pool
+    Adds the bike to the pool
     """
     display_name = "Randomize Bike"
 
@@ -113,46 +115,48 @@ class ItemPoolType(Choice):
     option_diverse = 2
 
 
-class HiddenItemsRequireItemfinder(DefaultOnToggle):
+class HiddenItemsRequireDowsingMachine(DefaultOnToggle):
     """
-    The Itemfinder is logically required to pick up hidden items
+    The Dowsing Machine is logically required to pick up hidden items
     """
     display_name = "Require Dowsing Machine"
 
 
 class DarkCavesRequireFlash(DefaultOnToggle):
     """
-    The lower floors of Granite Cave and Victory Road logically require use of HM05 Flash
+    The cave beneath Cycling Road logically requires Flash
     """
     display_name = "Require Flash"
 
 
 class FoggyRoutesRequireDefog(DefaultOnToggle):
+    """
+    The route to Celestic Town logically requires Defog
+    """
     display_name = "Require Defog"
 
-
+"""
+This is currently not supported for Platinum beyond default
 class EliteFourRequirement(Choice):
-    """
     Sets the requirements to challenge the elite four
 
     Badges: Obtain some number of badges
-    Gyms: Defeat some number of gyms
-    """
+    "Gyms: Defeat some number of gyms
+
     display_name = "Elite Four Requirement"
     default = 0
     option_badges = 0
-    option_gyms = 1
+   option_gyms = 1
+
 
 
 class EliteFourCount(Range):
-    """
     Sets the number of badges/gyms required to challenge the elite four
-    """
     display_name = "Elite Four Count"
     range_start = 0
     range_end = 8
     default = 8
-
+"""
 
 class RandomizeWildPokemon(Choice):
     """
@@ -182,7 +186,7 @@ class AllowWildLegendaries(DefaultOnToggle):
 
 class RandomizeStarters(Choice):
     """
-    Randomizes the starter pokemon in Professor Birch's bag
+    Randomizes the starter pokemon in Professor Rowan's bag
 
     Vanilla: Starters are unchanged
     Match Base Stats: Starters are replaced with species with approximately the same bst
@@ -252,23 +256,23 @@ class RandomizeStaticEncounters(Choice):
     option_match_base_stats_and_type = 4
     option_completely_random = 5
 
-
+"""
 class RandomizeTypes(Choice):
-    """
+   
     Randomizes the type(s) of every pokemon. Each species will have the same number of types.
 
     Vanilla: Types are unchanged
     Shuffle: Types are shuffled globally for all species (e.g. every Water-type pokemon becomes Fire-type)
     Completely Random: Each species has its type(s) randomized
     Follow Evolutions: Types are randomized per evolution line instead of per species
-    """
+    
     display_name = "Randomize Types"
     default = 0
     option_vanilla = 0
     option_shuffle = 1
     option_completely_random = 2
     option_follow_evolutions = 3
-
+"""
 
 class RandomizeAbilities(Choice):
     """
@@ -366,12 +370,12 @@ class TmCompatibility(Choice):
     option_fully_compatible = 1
     option_completely_random = 2
 
-
+"""
 class TmMoves(Toggle):
-    """
     Randomizes the moves taught by TMs
-    """
+    
     display_name = "TM Moves"
+"""
 
 
 class ReusableTms(Toggle):
@@ -397,7 +401,7 @@ class MinCatchRate(Range):
 
 class GuaranteedCatch(Toggle):
     """
-    Every throw is guaranteed to catch a wild pokemon
+    Every throw is guaranteed to catch a wild pokemon (Catch rate set to maximum)
     """
     display_name = "Guaranteed Catch"
 
@@ -424,7 +428,6 @@ class BlindTrainers(Toggle):
     display_name = "Blind Trainers"
 
 
-
 class BetterShops(Toggle):
     """
     Pokemarts sell every item that can be obtained in a pokemart (except mail, which is still unique to the relevant city)
@@ -434,28 +437,25 @@ class BetterShops(Toggle):
 
 class RemoveRoadblocks(OptionSet):
     """
-    Removes specific NPCs that normally stand in your way until certain events are completed.
+    Removes specific Checks that normally stand in your way until certain events are completed.
 
-    This can open up the world a bit and make your playthrough less linear, but careful how many you remove; it may make too much of your world accessible upon receiving Surf.
+    This can open up the world a bit and make your playthrough less linear, but careful how many you remove.
 
     Possible values are:
-    "Route 110 Aqua Grunts"
-    "Route 112 Magma Grunts"
-    "Route 119 Aqua Grunts"
-    "Safari Zone Construction Workers"
-    "Lilycove City Wailmer"
-    "Aqua Hideout Grunts"
-    "Seafloor Cavern Aqua Grunt"
+    "Jubilife City Poketch"
+    "Eterna Forest Galactic Grunts"
+    "Solaceon Town Psyducks"
+    "Route 222 Lady"
+    "Canalave City Battlers"
+
     """
     display_name = "Remove Roadblocks"
     valid_keys = frozenset([
-        "Route 110 Aqua Grunts",
-        "Route 112 Magma Grunts",
-        "Route 119 Aqua Grunts",
-        "Safari Zone Construction Workers",
-        "Lilycove City Wailmer",
-        "Aqua Hideout Grunts",
-        "Seafloor Cavern Aqua Grunt"
+        "Jubilife City Poketch"
+        "Eterna Forest Galactic Grunts"
+        "Solaceon Town Psyducks"
+        "Route 222 Lady"
+        "Canalave City Battlers"
     ])
 
 
@@ -516,17 +516,17 @@ class PokemonPlatinumOptions(PerGameCommonOptions):
     badges: RandomizeBadges
     hms: RandomizeHms
     key_items: RandomizeKeyItems
-    bikes: RandomizeBikes
+    bikes: RandomizeBike
     rods: RandomizeRods
     overworld_items: RandomizeOverworldItems
     hidden_items: RandomizeHiddenItems
     npc_gifts: RandomizeNpcGifts
     item_pool_type: ItemPoolType
 
-    require_itemfinder: HiddenItemsRequireItemfinder
+    require_itemfinder: HiddenItemsRequireDowsingMachine
     require_flash: DarkCavesRequireFlash
-    elite_four_requirement: EliteFourRequirement
-    elite_four_count: EliteFourCount
+    #elite_four_requirement: EliteFourRequirement
+    #elite_four_count: EliteFourCount
 
     wild_pokemon: RandomizeWildPokemon
     allow_wild_legendaries: AllowWildLegendaries
@@ -535,7 +535,7 @@ class PokemonPlatinumOptions(PerGameCommonOptions):
     trainer_parties: RandomizeTrainerParties
     allow_trainer_legendaries: AllowTrainerLegendaries
     static_encounters: RandomizeStaticEncounters
-    types: RandomizeTypes
+    #types: RandomizeTypes
     abilities: RandomizeAbilities
     ability_blacklist: AbilityBlacklist
 
@@ -544,7 +544,7 @@ class PokemonPlatinumOptions(PerGameCommonOptions):
     move_normal_type_bias: MoveNormalTypeBias
     tm_compatibility: TmCompatibility
     hm_compatibility: HmCompatibility
-    tm_moves: TmMoves
+    #tm_moves: TmMoves
     reusable_tms: ReusableTms
 
     min_catch_rate: MinCatchRate

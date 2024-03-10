@@ -44,6 +44,6 @@ def create_regions(world: "PokemonPlatinumWorld") -> Dict[str, Region]:
         regions[source].connect(regions[dest], name)
 
     regions["Menu"] = Region("Menu", world.player, world.multiworld)
-    regions["Menu"].connect(regions["REGION_LITTLEROOT_TOWN/MAIN"], "Start Game")
+    regions["Menu"].connect(regions["REGION_TWINLEAF_TOWN/MAIN"], "Start Game")
 
     return regions
