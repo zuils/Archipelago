@@ -184,7 +184,7 @@ class LinksAwakeningWorld(World):
         self.pre_fill_items = []
         # For any and different world, set item rule instead
         
-        for option in ["maps", "compasses", "small_keys", "nightmare_keys", "stone_beaks", "instruments"]:
+        for option in ["maps", "compasses", "small_keys", "nightmare_keys", "stone_beaks"]:
             option = "shuffle_" + option
             option = self.player_options[option]
 
@@ -197,6 +197,21 @@ class LinksAwakeningWorld(World):
             elif option.value == DungeonItemShuffle.option_different_world:
                 self.multiworld.non_local_items[self.player].value |= {
                     ladxr_item_to_la_item_name[f"{option.ladxr_item}{i}"] for i in range(1, 10)
+                }
+        
+        for option in ["instruments"]:
+            option = "shuffle_" + option
+            option = self.player_options[option]
+
+            dungeon_item_types[option.ladxr_item] = option.value
+
+            if option.value == DungeonItemShuffle.option_own_world:
+                self.multiworld.local_items[self.player].value |= {
+                    ladxr_item_to_la_item_name[f"{option.ladxr_item}{i}"] for i in range(1, 9)
+                }
+            elif option.value == DungeonItemShuffle.option_different_world:
+                self.multiworld.non_local_items[self.player].value |= {
+                    ladxr_item_to_la_item_name[f"{option.ladxr_item}{i}"] for i in range(1, 9)
                 }
         # option_original_dungeon = 0
         # option_own_dungeons = 1

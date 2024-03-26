@@ -796,7 +796,7 @@ class DeprecateDict(dict):
             deprecate(self.log_message)
         elif __debug__:
             import warnings
-            warnings.warn(self.log_message)
+            #warnings.warn(self.log_message)
         return super().__getitem__(item)
 
 
