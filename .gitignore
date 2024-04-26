@@ -18,6 +18,7 @@
 *.nes
 *.smc
 *.sms
+*.iso
 *.gb
 *.gbc
 *.gba
