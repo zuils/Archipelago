@@ -1,4 +1,4 @@
-from typing import Dict, List, Any, Tuple, TypedDict
+from typing import Dict, List, Any, Tuple, TypedDict, ClassVar, Union
 from logging import warning
 from BaseClasses import Region, Location, Item, Tutorial, ItemClassification, MultiWorld
 from .items import item_name_to_id, item_table, item_name_groups, fool_tiers, filler_items, slot_data_item_names
@@ -12,6 +12,14 @@ from .options import TunicOptions, EntranceRando, tunic_option_groups, tunic_opt
 from worlds.AutoWorld import WebWorld, World
 from Options import PlandoConnection
 from decimal import Decimal, ROUND_HALF_UP
+from settings import Group, Bool
+
+
+class TunicSettings(Group):
+    class DisableLocalSpoiler(Bool):
+        """Disallows the TUNIC client from creating a local spoiler log."""
+
+    disable_local_spoiler: Union[DisableLocalSpoiler, bool] = False
 
 
 class TunicWeb(WebWorld):
@@ -57,6 +65,7 @@ class TunicWorld(World):
 
     options: TunicOptions
     options_dataclass = TunicOptions
+    settings: ClassVar[TunicSettings]
     item_name_groups = item_name_groups
     location_name_groups = location_name_groups
 
@@ -200,7 +209,7 @@ class TunicWorld(World):
 
         # Remove filler to make room for other items
         def remove_filler(amount: int) -> None:
-            for _ in range(0, amount):
+            for _ in range(amount):
                 if not available_filler:
                     fill = "Fool Trap"
                 else:
@@ -258,7 +267,7 @@ class TunicWorld(World):
             items_to_create["Lantern"] = 0
 
         for item, quantity in items_to_create.items():
-            for i in range(0, quantity):
+            for _ in range(quantity):
                 tunic_item: TunicItem = self.create_item(item)
                 if item in slot_data_item_names:
                     self.slot_data_items.append(tunic_item)
@@ -309,10 +318,10 @@ class TunicWorld(World):
 
     def set_rules(self) -> None:
         if self.options.entrance_rando or self.options.shuffle_ladders:
-            set_er_location_rules(self, self.ability_unlocks)
+            set_er_location_rules(self)
         else:
-            set_region_rules(self, self.ability_unlocks)
-            set_location_rules(self, self.ability_unlocks)
+            set_region_rules(self)
+            set_location_rules(self)
 
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
@@ -373,7 +382,8 @@ class TunicWorld(World):
             "Hexagon Quest Holy Cross": self.ability_unlocks["Pages 42-43 (Holy Cross)"],
             "Hexagon Quest Icebolt": self.ability_unlocks["Pages 52-53 (Icebolt)"],
             "Hexagon Quest Goal": self.options.hexagon_goal.value,
-            "Entrance Rando": self.tunic_portal_pairs
+            "Entrance Rando": self.tunic_portal_pairs,
+            "disable_local_spoiler": int(self.settings.disable_local_spoiler or self.multiworld.is_race),
         }
 
         for tunic_item in filter(lambda item: item.location is not None and item.code is not None, self.slot_data_items):
@@ -387,7 +397,7 @@ class TunicWorld(World):
             if start_item in slot_data_item_names:
                 if start_item not in slot_data:
                     slot_data[start_item] = []
-                for i in range(0, self.options.start_inventory_from_pool[start_item]):
+                for _ in range(self.options.start_inventory_from_pool[start_item]):
                     slot_data[start_item].extend(["Your Pocket", self.player])
 
         for plando_item in self.multiworld.plando_items[self.player]:
