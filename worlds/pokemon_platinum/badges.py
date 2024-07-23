@@ -1,0 +1,65 @@
+from enum import Enum
+
+# These are stored in memory at 0x82 as an u8 bitfield
+# Ref: https://projectpokemon.org/home/docs/gen-4/platinum-save-structure-r81/
+# Badge RAM Placement: 0x38C7D2
+# 0x1E offset
+
+
+class Badges(Enum):
+    COAL_BADGE = 0x01,
+    FOREST_BADGE = 0x02,
+    COBBLE_BADGE = 0x04,
+    FEN_BADGE = 0x08,
+    RELIC_BADGE = 0x10,
+    MINE_BADGE = 0x20,
+    ICICLE_BADGE = 0x40,
+    BEACON_BADGE = 0x80
+
+
+class Flags(Enum):
+    NPC_GIFT_RECEIVED_TM86 = 116
+    NPC_GIFT_RECEIVED_TM76 = 117
+    NPC_GIFT_RECEIVED_TM65 = 125
+    FE_FLOWER_ITEM_GET = 128
+    FE_CYCLE_GET = 130
+    NPC_GIFT_RECEIVED_TM91 = 146
+    NPC_GIFT_RECEIVED_TM55 = 156
+    NPC_GIFT_RECEIVED_TM60 = 157
+    FE_C09_GYM_ITEM_GET = 158
+    FE_C08_GYM_ITEM_GET = 182
+    FE_COIN_CASE_GET = 188
+    FE_C01_CROWN1_TICKET = 237
+    FE_C01_CROWN2_TICKET = 238
+    FE_C01_CROWN3_TICKET = 239
+    FE_TOWNMAP_GET = 241
+    FE_ACCE_CASE_GET = 242
+    FE_POKETCH_GET = 243
+
+
+class PoketchApps(Enum):
+    APP_DIGITAL_WATCH = 0
+    APP_CALCULATOR = 1
+    APP_MEMO_PAD = 2
+    APP_PEDOMETER = 3
+    APP_PARTY = 4
+    APP_FRIENDSHIP_CHECKER = 5
+    APP_DOWSING_MACHINE = 6
+    APP_BERRY_SEARCHER = 7
+    APP_DAYCARE = 8
+    APP_HISTORY = 9
+    APP_COUNTER = 10
+    APP_ANALOG_WATCH = 11
+    APP_MARKING_MAP = 12
+    APP_LINK_SEARCHER = 13
+    APP_COIN_TOSS = 14
+    APP_MOVE_TESTER = 15
+    APP_CALENDAR = 16
+    APP_DOT_ARTIST = 17
+    APP_ROULETTE = 18
+    APP_TRAINER_COUNTER = 19
+    APP_KITCHEN_TRAINER = 20
+    APP_COLOR_CHANGER = 21
+    APP_MATCHUP_CHECKER = 22
+
+

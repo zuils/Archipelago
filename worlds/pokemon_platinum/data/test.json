@@ -1,0 +1,7 @@
+{
+ 	"tag": "ITEM_LOCATION_DESC",
+ 	"long_description": "Location - Item by Pond",
+ 	"location": "LOCATION_ROUTE",
+ 	"item_flag": "0x504",
+ 	"vanilla_item": 1
+ }

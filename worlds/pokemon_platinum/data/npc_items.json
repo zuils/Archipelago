@@ -1,0 +1,224 @@
+{
+  "BADGE_1": {
+    "label": "Oreburg Gym - Coal Badge",
+    "tags": ["Badge"]
+  },
+  "BADGE_2": {
+    "label": "Eterna Gym - Forest Badge",
+    "tags": ["Badge"]
+  },
+  "BADGE_4": {
+    "label": "Veilstone Gym - Cobble Badge",
+    "tags": ["Badge"]
+  },
+  "BADGE_5": {
+    "label": "Pastoria Gym - Fen Badge",
+    "tags": ["Badge"]
+  },
+  "BADGE_3": {
+    "label": "Hearthome Gym - Relic Badge",
+    "tags": ["Badge"]
+  },
+  "BADGE_6": {
+    "label": "Canalave Gym - Mine Badge",
+    "tags": ["Badge"]
+  },
+  "BADGE_7": {
+    "label": "Snowpoint Gym - Icicle Badge",
+    "tags": ["Badge"]
+  },
+  "BADGE_8": {
+    "label": "Sunyshore Gym - Beacon Badge",
+    "tags": ["Badge"]
+  },
+  "NPC_GIFT_RECEIVED_COUPON_1": {
+    "label": "Jublife City - Coupon 1 from Clown",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_COUPON_2": {
+    "label": "Jublife City - Coupon 2 from Clown",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_COUPON_3": {
+    "label": "Jublife City - Coupon 3 from Clown",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_EXPLORER_KIT": {
+    "label": "Eterna City - Gift from Underground Man",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECIEVED_JOURNAL": {
+    "label": "Twinleaf Town - Gift from Mom",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_VS_RECORDER": {
+    "label": "Jublife City - Gift from Looker",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_TOWN_MAP": {
+    "label": "Jublife City - Rival at Trainer's School",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_FASHION_CASE": {
+    "label": "Jublife City - Gift from Professor Assistant",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_WORKS_KEY": {
+    "label": "Floaroma Meadow - Gift from Honey Man",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_BICYCLE": {
+    "label": "Eterna City - Gift from Cycle Shop",
+    "tags": ["Bike"]
+  },
+  "NPC_GIFT_RECEIVED_VS_SEEKER": {
+    "label": "Route 207 - Gift from Professor Assistant",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_POFFIN_CASE": {
+   "label": "Hearthome City - Pokemon Fan Club",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_COIN_CASE": {
+    "label": "Veilstone City - Gift from Clown",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_SECRETPOTION": {
+    "label": "Valor Lakefront - Gift from Cynthia",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_OLD_ROD": {
+    "label": "Jubilife City - Gift from Fisherman",
+    "tags": ["Rod"]
+  },
+  "NPC_GIFT_RECEIVED_GOOD_ROD": {
+    "label": "Route 209 - Gift from Fisherman",
+    "tags": ["Rod"]
+  },
+  "NPC_GIFT_RECEIVED_SUPER_ROD": {
+    "label": "Fight Area - Gift from Fisherman",
+    "tags": ["Rod"]
+  },
+  "NPC_GIFT_RECEIVED_SEAL_CASE": {
+    "label": "Solaceon Town - Gift from Woman",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_OLD_CHARM": {
+    "label": "Route 210 - Gift from Cynthia",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_PARCEL": {
+    "label": "Twinleaf Town - Gift from Rival's Mother",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_POKE_RADAR": {
+    "label": "Sandgem Town - Gift from Rowan",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_SPRAY_DUCK": {
+    "label": "Floaroma Town - Gift from Flower Lady",
+    "tags": ["KeyItem"]
+  },
+  "NPC_GIFT_RECEIVED_HM01": {
+    "label": "Eterna City - Gift from Cynthia",
+    "tags": ["HM"]
+  },
+  "NPC_GIFT_RECEIVED_HM03": {
+    "label": "Celestic Town - Gift from Cynthia's Grandmother",
+    "tags": ["HM"]
+  },
+  "NPC_GIFT_RECEIVED_HM04": {
+    "label": "Iron Island - Gift",
+    "tags": ["HM"]
+  },
+  "NPC_GIFT_RECEIVED_HM06": {
+    "label": "Oreburg City Approach - Gift from Hiker",
+    "tags": ["HM"]
+  },
+  "NPC_GIFT_RECEIVED_HM07": {
+    "label": "Sunnyshore City - Gift from Jasmine",
+    "tags": ["HM"]
+  },
+  "NPC_GIFT_RECEIVED_TM76": {
+    "label": "Oreburgh Gym - TM from Roark",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM86": {
+    "label": "Eterna Gym - TM from Gardenia",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM60": {
+    "label": "Veilstone Gym - TM from Maylene",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM55": {
+    "label": "Pastoria Gym - TM from Wake",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM65": {
+    "label": "Hearthome Gym - TM from Fantina",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM91": {
+    "label": "Canalave Gym - TM from Byron",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM72": {
+    "label": "Snowpoint Gym - TM from Candice",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM57": {
+    "label": "Sunnyshore Gym - TM from Volkner",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM27": {
+    "label": "Sandgem Town - TM from Rowan",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_QUICK_CLAW": {
+    "label": "Jubilife City - Quick Claw from Girl",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_POTION": {
+    "label": "Jubilife City - Trainer's School Reward",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_HEAL_BALL": {
+    "label": "Oreburgh City - Man next to Poke Mart",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_GREAT_BALL": {
+    "label": "Oreburgh City - Boy below Museum",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_DUSK_BALL": {
+    "label": "Oreburgh City - Girl in NW Building",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_SUPER_POTION": {
+    "label": "Oreburgh City - Worker by Mine",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_ORAN_BERRY": {
+    "label": "Oreburgh City - Kazza",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM88": {
+    "label": "Floaroma Town - Girl by Flower Shop",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_TM67": {
+    "label": "Eterna City - Old Lady in Apartments",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_LEPPA_BERRY": {
+    "label": "Eterna City - Chatot",
+    "tags": ["NpcGift"]
+  },
+  "NPC_GIFT_RECEIVED_SHELL_BELL": {
+    "label": "Hearthome City - Woman in Hotel",
+    "tags": ["NpcGift"]
+  }
+
+
+}
