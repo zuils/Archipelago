@@ -4,9 +4,10 @@ from Options import Toggle, Choice, Range, NamedRange, TextChoice, DeathLink
 class GameVersion(Choice):
     """Select Red or Blue version."""
     display_name = "Game Version"
-    option_red = 1
-    option_blue = 0
-    default = "random"
+    option_red = 2
+    option_blue = 1
+    option_bluekaizo = 0
+    default = 2
 
 
 class TrainerName(TextChoice):

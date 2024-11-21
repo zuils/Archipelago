@@ -17,7 +17,7 @@ from .regions import create_regions
 from .options import pokemon_rb_options
 from .rom_addresses import rom_addresses
 from .text import encode_text
-from .rom import generate_output, get_base_rom_bytes, get_base_rom_path, RedDeltaPatch, BlueDeltaPatch
+from .rom import generate_output, get_base_rom_bytes, get_base_rom_path, RedDeltaPatch, BlueDeltaPatch, BlueKaizoDeltaPatch
 from .pokemon import process_pokemon_data, process_move_data, verify_hm_moves
 from .encounters import process_pokemon_locations, process_trainer_data
 from .rules import set_rules
@@ -38,9 +38,15 @@ class PokemonSettings(settings.Group):
         description = "Pokemon Blue (UE) ROM File"
         copy_to = "Pokemon Blue (UE) [S][!].gb"
         md5s = [BlueDeltaPatch.hash]
+        
+    class BlueKaizoRomFile(settings.UserFilePath):
+        description = "Pokemon Blue (UE) ROM File"
+        copy_to = "Pokemon Blue (UE) [S][!].gb"
+        md5s = [BlueKaizoDeltaPatch.hash]
 
     red_rom_file: RedRomFile = RedRomFile(RedRomFile.copy_to)
     blue_rom_file: BlueRomFile = BlueRomFile(BlueRomFile.copy_to)
+    bluekaizo_rom_file: BlueKaizoRomFile = BlueKaizoRomFile(BlueKaizoRomFile.copy_to)
 
 
 class PokemonWebWorld(WebWorld):

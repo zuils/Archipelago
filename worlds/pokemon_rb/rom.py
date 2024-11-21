@@ -524,7 +524,7 @@ def generate_output(self, output_directory: str):
     data[rom_addresses['Title_Mon_First']] = mons.pop()
     for mon in range(0, 16):
         data[rom_addresses['Title_Mons'] + mon] = mons.pop()
-    if self.multiworld.game_version[self.player].value:
+    if self.multiworld.game_version[self.player].current_key == "red":
         mons.sort(key=lambda mon: 0 if mon == self.multiworld.get_location("Oak's Lab - Starter 1", self.player).item.name
                   else 1 if mon == self.multiworld.get_location("Oak's Lab - Starter 2", self.player).item.name else
                   2 if mon == self.multiworld.get_location("Oak's Lab - Starter 3", self.player).item.name else 3)
@@ -622,8 +622,11 @@ def generate_output(self, output_directory: str):
     if self.multiworld.game_version[self.player].current_key == "red":
         patch = RedDeltaPatch(os.path.splitext(rompath)[0] + RedDeltaPatch.patch_file_ending, player=self.player,
                               player_name=self.multiworld.player_name[self.player], patched_path=rompath)
-    else:
+    elif self.multiworld.game_version[self.player].current_key == "blue":
         patch = BlueDeltaPatch(os.path.splitext(rompath)[0] + BlueDeltaPatch.patch_file_ending, player=self.player,
+                               player_name=self.multiworld.player_name[self.player], patched_path=rompath)
+    else:
+        patch = BlueKaizoDeltaPatch(os.path.splitext(rompath)[0] + BlueKaizoDeltaPatch.patch_file_ending, player=self.player,
                                player_name=self.multiworld.player_name[self.player], patched_path=rompath)
 
     patch.write()
@@ -666,6 +669,17 @@ class BlueDeltaPatch(APDeltaPatch):
     @classmethod
     def get_source_data(cls) -> bytes:
         return get_base_rom_bytes(cls.game_version, cls.hash)
+
+class BlueKaizoDeltaPatch(APDeltaPatch):
+    patch_file_ending = ".apbk"
+    hash = "50927e843568814f7ed45ec4f944bd8b"
+    game_version = "bluekaizo"
+    game = "Pokemon Red and Blue"
+    result_file_ending = ".gb"
+    @classmethod
+    def get_source_data(cls) -> bytes:
+        return get_base_rom_bytes(cls.game_version, cls.hash)
+
 
 
 class RedDeltaPatch(APDeltaPatch):

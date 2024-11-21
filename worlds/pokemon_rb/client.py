@@ -53,7 +53,7 @@ location_name_to_id = {location.name: location.address for location in location_
 
 class PokemonRBClient(BizHawkClient):
     system = ("GB", "SGB")
-    patch_suffix = (".apred", ".apblue")
+    patch_suffix = (".apred", ".apblue", ".apbk")
     game = "Pokemon Red and Blue"
 
     def __init__(self):

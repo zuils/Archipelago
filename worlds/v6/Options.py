@@ -6,7 +6,7 @@ class DoorCost(Range):
     """Amount of Trinkets required to enter Areas. Set to 0 to disable artificial locks."""
     display_name = "Door Cost"
     range_start = 0
-    range_end = 3
+    range_end = 5
     default = 3
 
 class AreaCostRandomizer(Toggle):
