@@ -1,5 +1,6 @@
 .idea
 .vscode
+.history
 
 *_Spoiler.txt
 *.bmbp
@@ -24,6 +25,7 @@
 *.wixobj
 *.lck
 *.db3
+*.iso
 *multidata
 *multisave
 *.archipelago
