@@ -21,6 +21,7 @@
 *.gb
 *.gbc
 *.gba
+*.iso
 *.wixobj
 *.lck
 *.db3
@@ -112,7 +113,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-
 
 # Flask stuff:
 instance/
