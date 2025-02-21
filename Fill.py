@@ -28,6 +28,8 @@ def _log_fill_progress(name: str, placed: int, total_items: int) -> None:
 def sweep_from_pool(base_state: CollectionState, itempool: typing.Sequence[Item] = tuple(),
                     locations: typing.Optional[typing.List[Location]] = None) -> CollectionState:
     new_state = base_state.copy()
+    print("Item Pool:", len(itempool))
+    print("Locations:", len(typing.List[Location]))
     for item in itempool:
         new_state.collect(item, True)
     new_state.sweep_for_advancements(locations=locations)

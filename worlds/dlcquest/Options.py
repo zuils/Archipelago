@@ -48,12 +48,9 @@ class CoinSanityRange(NamedRange):
         "low": 5,
         "normal": 20,
         "high": 50,
+        "suprise": -1,
+        "coin piece": -1
     }
-    if datetime.datetime.today().month == 4:
-        if datetime.datetime.today().day == 1:
-            special_range_names["surprise"] = -1
-        else:
-            special_range_names["coin piece"] = -1
 
 
 class PermanentCoins(Choice):
