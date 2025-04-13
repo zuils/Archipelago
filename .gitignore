@@ -23,6 +23,7 @@
 *.gb
 *.gbc
 *.gba
+*.iso
 *.wixobj
 *.lck
 *.db3
@@ -65,6 +66,11 @@ Output Logs/
 /data/user.kv
 /datapackage
 /custom_worlds
+/fuzz_output
+/.0.5.1
+/.0.6.0
+/.0.6.1
+fuzz.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -114,7 +120,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-
 
 # Flask stuff:
 instance/
