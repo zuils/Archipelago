@@ -64,6 +64,10 @@ Output Logs/
 /data/user.kv
 /datapackage
 /custom_worlds
+/.0.5.1
+/.0.6.0
+/fuzz_output
+fuzz.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -113,7 +117,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-
 
 # Flask stuff:
 instance/
