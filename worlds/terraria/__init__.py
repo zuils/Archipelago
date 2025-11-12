@@ -119,6 +119,8 @@ class TerrariaWorld(World):
                 # Location
                 location_count += 1
                 locations.append(rule.name)
+                if "Npc" in rule.flags:
+                    self.npcs_to_randomize.add(rule.name)
             elif (
                     "Achievement" not in rule.flags
                     and "Location" not in rule.flags
@@ -145,9 +147,6 @@ class TerrariaWorld(World):
             ):
                 # Event
                 items.append(rule.name)
-
-            if "Npc" in rule.flags:
-                self.npcs_to_randomize.add(rule.name)
 
         ordered_rewards = [
             reward
