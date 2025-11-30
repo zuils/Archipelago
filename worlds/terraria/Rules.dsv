@@ -294,7 +294,8 @@ Statigel Armor;                     Calamity | Armor Minions(1);                
 Night's Edge;                       ;                                           Evil Sword & Muramasa & Blade of Grass & Fiery Greatsword & (~@calamity | Purified Gel);
 
 // Wall of Flesh
-Wall of Flesh;                      Location | Item(Hardmode);                  Guide;
+Wall of Flesh;                      Location | Item(Hardmode) | Goal;           Guide;
+# wall_of_flesh
 Pwnhammer;                          Hammer(80);                                 #Wall of Flesh;
 Emblem;                             ;                                           #Wall of Flesh | Avenger Emblem | (@calamity & (Mechanical Glove | Celestial Emblem | Statis' Blessing));
 Fast Clock;                         ;                                           Wall of Flesh | Trifold Map | (@calamity & Wire & Pixie Dust & Soul of Light);

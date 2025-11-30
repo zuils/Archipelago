@@ -22,21 +22,22 @@ class Goal(Choice):
     """
 
     display_name = "Goal"
-    option_mechanical_bosses = 0
-    option_calamitas_clone = 1
-    option_plantera = 2
-    option_golem = 3
-    option_empress_of_light = 4
-    option_lunatic_cultist = 5
-    option_astrum_deus = 6
-    option_moon_lord = 7
-    option_providence_the_profaned_goddess = 8
-    option_devourer_of_gods = 9
-    option_yharon_dragon_of_rebirth = 10
-    option_zenith = 11
-    option_calamity_final_bosses = 12
-    option_primordial_wyrm = 13
-    option_boss_rush = 14
+    option_wall_of_flesh = 0
+    option_mechanical_bosses = 1
+    option_calamitas_clone = 2
+    option_plantera = 3
+    option_golem = 4
+    option_empress_of_light = 5
+    option_lunatic_cultist = 6
+    option_astrum_deus = 7
+    option_moon_lord = 8
+    option_providence_the_profaned_goddess = 9
+    option_devourer_of_gods = 10
+    option_yharon_dragon_of_rebirth = 11
+    option_zenith = 12
+    option_calamity_final_bosses = 13
+    option_primordial_wyrm = 14
+    option_boss_rush = 15
     default = 0
 
 
