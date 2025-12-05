@@ -473,7 +473,8 @@ To Infinity... and Beyond!;         Achievement;                                
 Autohammer;                         ;                                           Truffle & Plantera;
 Shroomite Bar;                      ;                                           Autohammer & Chlorophyte Bar;
 Shroomite Digging Claw;             Pickaxe(200);                               Hardmode Anvil & Shroomite Bar;
-Princess;                           Npc;                                        Guide & Merchant & Nurse & Demolitionist & Dye Trader & Zoologist & Angler & Painter & Stylist & Golfer & Arms Dealer & Dryad & Party Girl & Tavernkeep & Goblin Tinkerer & Witch Doctor & Clothier & Wizard & Truffle & Tax Collector & Pirate & Steampunker & Cyborg;
+Princess;                           Npc | Goal;                                 Guide & Merchant & Nurse & Demolitionist & Dye Trader & Zoologist & Angler & Painter & Stylist & Golfer & Arms Dealer & Dryad & Party Girl & Tavernkeep & Goblin Tinkerer & Witch Doctor & Clothier & Wizard & Truffle & Tax Collector & Pirate & Steampunker & Cyborg;
+# princess
 Real Estate Agent;                  Achievement;                                Princess;
 Ectoplasm;                          ;                                           (((Dungeon & Wall of Flesh) | @calamity) & Plantera) | Spectre Bar;
 Paladin's Shield;                   ;                                           Dungeon & Wall of Flesh & Plantera;

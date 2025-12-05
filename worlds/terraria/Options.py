@@ -26,18 +26,19 @@ class Goal(Choice):
     option_mechanical_bosses = 1
     option_calamitas_clone = 2
     option_plantera = 3
-    option_golem = 4
-    option_empress_of_light = 5
-    option_lunatic_cultist = 6
-    option_astrum_deus = 7
-    option_moon_lord = 8
-    option_providence_the_profaned_goddess = 9
-    option_devourer_of_gods = 10
-    option_yharon_dragon_of_rebirth = 11
-    option_zenith = 12
-    option_calamity_final_bosses = 13
-    option_primordial_wyrm = 14
-    option_boss_rush = 15
+    option_princess = 4
+    option_golem = 5
+    option_empress_of_light = 6
+    option_lunatic_cultist = 7
+    option_astrum_deus = 8
+    option_moon_lord = 9
+    option_providence_the_profaned_goddess = 10
+    option_devourer_of_gods = 11
+    option_yharon_dragon_of_rebirth = 12
+    option_zenith = 13
+    option_calamity_final_bosses = 14
+    option_primordial_wyrm = 15
+    option_boss_rush = 16
     default = 0
 
 

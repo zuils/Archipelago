@@ -81,7 +81,10 @@ class TerrariaWorld(World):
                 )
                 self.options.calamity.value = True
 
-            item = flags.get("Item") or f"Post-{location}"
+            if "Npc" in flags:
+                item = location
+            else:
+                item = flags.get("Item") or f"Post-{location}"
             ter_goals[item] = location
             goal_items.add(item)
 
