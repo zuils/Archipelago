@@ -7,6 +7,13 @@ class Calamity(Toggle):
 
     display_name = "Calamity Mod Integration"
 
+class Fargo(Toggle):
+    """
+    Fargo Souls mod bosses and events are shuffled
+    If Calamity is enabled, the Fargo Souls DLC is expected to be on
+    """
+    
+    display_name = "Fargo Souls Integration"
 
 class Getfixedboi(Toggle):
     """Generation accomodates the secret, very difficult "getfixedboi" seed"""
@@ -32,12 +39,23 @@ class Goal(Choice):
     option_moon_lord = 7
     option_providence_the_profaned_goddess = 8
     option_devourer_of_gods = 9
-    option_yharon_dragon_of_rebirth = 10
-    option_zenith = 11
-    option_calamity_final_bosses = 12
-    option_primordial_wyrm = 13
-    option_boss_rush = 14
+    option_eridanus = 10
+    option_yharon_dragon_of_rebirth = 11
+    option_zenith = 12
+    option_abominationn = 13
+    option_calamity_final_bosses = 14
+    option_primordial_wyrm = 15
+    option_mutant = 16
+    option_boss_rush = 17
     default = 0
+
+
+class RandomizeNPCs(Toggle):
+    """
+    Randomizes all NPCs, putting them into the item pool. Fulfilling a certain NPC's recruit criteria rewards a check. :)
+    """
+    display_name = "Randomize NPCs"
+    default = False
 
 
 class EarlyAchievements(DefaultOnToggle):
@@ -77,16 +95,26 @@ class FillExtraChecksWith(Choice):
     option_coins = 0
     option_useful_items = 1
     default = 1
-
+    
+class CombatLogic(DefaultOnToggle):
+    """
+    Adds combat logic to prevent you fighting bosses the second they are technically available.
+    Example is Old Duke is no longer in logic with just Post-Moon Lord.
+    """
+    
+    display_name = "Combat Logic"
 
 @dataclass
 class TerrariaOptions(PerGameCommonOptions):
     calamity: Calamity
+    fargo: Fargo
     getfixedboi: Getfixedboi
     goal: Goal
+    randomize_npcs: RandomizeNPCs
     early_achievements: EarlyAchievements
     normal_achievements: NormalAchievements
     grindy_achievements: GrindyAchievements
     fishing_achievements: FishingAchievements
     fill_extra_checks_with: FillExtraChecksWith
+    combat_logic: CombatLogic
     death_link: DeathLink

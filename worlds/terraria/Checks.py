@@ -241,6 +241,7 @@ def mark_progression(
                 not prog
                 and "Achievement" not in rule.flags
                 and "Location" not in rule.flags
+                and "Npc" not in rule.flags
                 and "Item" not in rule.flags
             ):
                 mark_progression(
@@ -555,6 +556,7 @@ def read_data() -> Tuple[
                     "Grindy",
                     "Fishing",
                     "Npc",
+                    "Pet",
                     "Pickaxe",
                     "Hammer",
                     "Minions",
@@ -584,6 +586,11 @@ def read_data() -> Tuple[
                 loc_to_item[name] = name
 
             if "Npc" in flags:
+                item_name_to_id[name] = next_id
+                next_id += 1
+                loc_to_item[name] = name
+                npcs.append(name)
+            elif "Pet" in flags:
                 npcs.append(name)
 
             if (power := flags.get("Pickaxe")) is not None:
@@ -641,6 +648,7 @@ def read_data() -> Tuple[
         prog = False
         if (
             "Npc" in rule.flags
+            or "Pet" in rule.flags
             or "Goal" in rule.flags
             or "Pickaxe" in rule.flags
             or "Hammer" in rule.flags
@@ -738,7 +746,7 @@ def read_data() -> Tuple[
     location_name_to_id = {}
 
     for rule in rules:
-        if "Location" in rule.flags or "Achievement" in rule.flags:
+        if "Location" in rule.flags or "Achievement" in rule.flags or "Npc" in rule.flags:
             if rule.name in location_name_to_id:
                 raise Exception(f"location `{rule.name}` shadows a previous location")
             location_name_to_id[rule.name] = next_id
