@@ -58,6 +58,7 @@ class TerrariaWorld(World):
     location_name_to_id = location_name_to_id
 
     calamity = False
+    fargo = False
     getfixedboi = False
 
     ter_items: List[str]
@@ -78,6 +79,11 @@ class TerrariaWorld(World):
                     f"Terraria goal `{Goal.name_lookup[self.options.goal.value]}`, which requires Calamity, was selected with Calamity disabled; enabling Calamity"
                 )
                 self.options.calamity.value = True
+            if not self.options.fargo.value and "Fargo" in flags:
+                logging.warning(
+                    f"Terraria goal `{Goal.name_lookup[self.options.goal.value]}`, which requires Fargo Souls, was selected with Fargo Souls disabled; enabling Fargo Souls"
+                )
+                self.options.fargo.value = True
 
             item = flags.get("Item") or f"Post-{location}"
             ter_goals[item] = location
@@ -97,6 +103,7 @@ class TerrariaWorld(World):
                 or (self.options.getfixedboi.value and "Not Getfixedboi" in rule.flags)
                 or (not self.options.calamity.value and "Calamity" in rule.flags)
                 or (self.options.calamity.value and "Not Calamity" in rule.flags)
+                or (not self.options.fargo.value and "Fargo" in rule.flags)
                 or (
                     self.options.getfixedboi.value
                     and self.options.calamity.value
@@ -261,6 +268,8 @@ class TerrariaWorld(World):
                 return not condition.sign
             elif condition.condition == "calamity":
                 return condition.sign == self.options.calamity.value
+            elif condition.condition == "fargo":
+                return condition.sign == self.options.fargo.value
             elif condition.condition == "grindy":
                 return condition.sign == self.options.grindy_achievements.value
             elif condition.condition == "pickaxe":
@@ -366,6 +375,7 @@ class TerrariaWorld(World):
             "deathlink": bool(self.options.death_link),
             # The rest of these are included for trackers
             "calamity": self.options.calamity.value,
+            "fargo": self.options.fargo.value,
             "getfixedboi": self.options.getfixedboi.value,
             "early_achievements": self.options.early_achievements.value,
             "normal_achievements": self.options.normal_achievements.value,

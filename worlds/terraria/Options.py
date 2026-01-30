@@ -39,7 +39,7 @@ class Goal(Choice):
     option_moon_lord = 7
     option_providence_the_profaned_goddess = 8
     option_devourer_of_gods = 9
-    option_eridanus = 10
+    option_eridanus_champion_of_cosmos = 10
     option_yharon_dragon_of_rebirth = 11
     option_zenith = 12
     option_abominationn = 13

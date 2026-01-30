@@ -210,6 +210,7 @@ def validate_conditions(
             if condition.condition not in {
                 "npc",
                 "calamity",
+                "fargo",
                 "grindy",
                 "pickaxe",
                 "hammer",
@@ -568,6 +569,7 @@ def read_data() -> Tuple[
                     "Calamity",
                     "Not Calamity",
                     "Not Calamity Getfixedboi",
+                    "Fargo",
                 }:
                     raise Exception(
                         f"rule `{name}` on line `{line + 1}` has unrecognized flag `{flag}`"
