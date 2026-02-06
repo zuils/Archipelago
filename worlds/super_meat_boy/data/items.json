@@ -1,0 +1,1349 @@
+[
+    {
+        "count": 125,
+        "name": "DW Dr. Fetus Key",
+        "category": [
+            "Boss Keys"
+        ],
+        "classification": "progression_deprioritized_skip_balancing"
+    },
+    {
+        "count": 20,
+        "name": "Chapter 1 LW Boss Key",
+        "category": [
+            "Level Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 20,
+        "name": "Chapter 2 LW Boss Key",
+        "category": [
+            "Level Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 20,
+        "name": "Chapter 3 LW Boss Key",
+        "category": [
+            "Level Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 20,
+        "name": "Chapter 4 LW Boss Key",
+        "category": [
+            "Level Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 20,
+        "name": "Chapter 5 LW Boss Key",
+        "category": [
+            "Level Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 5,
+        "name": "Chapter 6 LW Boss Key",
+        "category": [
+            "Level Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 20,
+        "name": "Chapter 7 LW Level Key",
+        "category": [
+            "Level Keys",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 20,
+        "name": "Chapter 7 DW Level Key",
+        "category": [
+            "Level Keys",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 100,
+        "name": "Bandage",
+        "category": [],
+        "classification": "progression_deprioritized_skip_balancing"
+    },
+    {
+        "count": 1,
+        "name": "Chapter 1 Key",
+        "category": [
+            "Chapter Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Chapter 2 Key",
+        "category": [
+            "Chapter Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Chapter 3 Key",
+        "category": [
+            "Chapter Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Chapter 4 Key",
+        "category": [
+            "Chapter Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Chapter 5 Key",
+        "category": [
+            "Chapter Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Chapter 6 Key",
+        "category": [
+            "Chapter Keys"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Chapter 7 Key",
+        "category": [
+            "Chapter Keys",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Meat Boy",
+        "category": [
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "8-Bit Meat Boy",
+        "category": [
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "4-Bit Meat Boy",
+        "category": [
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "4-Color Meat Boy",
+        "category": [
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "Commander Video",
+        "category": [
+            "ProgCharacters",
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Jill",
+        "category": [
+            "ProgCharacters",
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Ogmo",
+        "category": [
+            "ProgCharacters",
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Flywrench",
+        "category": [
+            "ProgCharacters",
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "The Kid",
+        "category": [
+            "ProgCharacters",
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Headcrab",
+        "category": [
+            "Characters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "Alien Hominid",
+        "category": [
+            "Characters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "Josef",
+        "category": [
+            "ProgCharacters",
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Naija",
+        "category": [
+            "ProgCharacters",
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "RunMan",
+        "category": [
+            "Characters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "Captain Viridian",
+        "category": [
+            "Characters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "Steve",
+        "category": [
+            "ProgCharacters",
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Meat Ninja",
+        "category": [
+            "Characters",
+            "StartingCharacters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "Brownie",
+        "category": [
+            "Characters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "Tofu Boy",
+        "category": [
+            "Characters"
+        ],
+        "classification": "filler"
+    },
+    {
+        "count": 1,
+        "name": "Goo Ball",
+        "category": [
+            "Characters"
+        ],
+        "classification": "useful"
+    },
+    {
+        "count": 1,
+        "name": "Bandage Girl",
+        "category": [
+            "Characters",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-1 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-2 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-3 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-4 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-5 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-6 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-7 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-8 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-9 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-10 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-11 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-12 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-13 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-14 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-15 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-16 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-17 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-18 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-19 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "1-20 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-1 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-2 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-3 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-4 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-5 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-6 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-7 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-8 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-9 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-10 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-11 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-12 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-13 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-14 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-15 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-16 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-17 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-18 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-19 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "2-20 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-1 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-2 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-3 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-4 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-5 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-6 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-7 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-8 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-9 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-10 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-11 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-12 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-13 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-14 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-15 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-16 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-17 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-18 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-19 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "3-20 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-1 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-2 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-3 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-4 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-5 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-6 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-7 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-8 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-9 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-10 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-11 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-12 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-13 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-14 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-15 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-16 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-17 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-18 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-19 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "4-20 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-1 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-2 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-3 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-4 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-5 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-6 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-7 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-8 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-9 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-10 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-11 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-12 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-13 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-14 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-15 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-16 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-17 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-18 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-19 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "5-20 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "6-1 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "6-2 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "6-3 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "6-4 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "6-5 A+ Rank",
+        "category": [
+            "A+ Rank"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-1 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-2 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-3 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-4 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-5 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-6 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-7 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-8 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-9 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-10 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-11 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-12 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-13 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-14 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-15 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-16 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-17 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-18 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-19 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "7-20 A+ Rank",
+        "category": [
+            "A+ Rank",
+            "Chapter 7"
+        ],
+        "classification": "progression"
+    }
+]

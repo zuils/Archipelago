@@ -1,0 +1,5468 @@
+[
+    {
+        "name": "Nostalgia (Unlock a retro warp zone)",
+        "category": [
+            "Achievements"
+        ]
+    },
+    {
+        "name": "Living In the Past (Complete 5 retro warp zones)",
+        "category": [
+            "Achievements"
+        ]
+    },
+    {
+        "name": "Old School (Complete 10 retro warp zones)",
+        "category": [
+            "Achievements"
+        ]
+    },
+    {
+        "name": "Retro Rampage (Complete all retro warp zones)",
+        "category": [
+            "Achievements"
+        ]
+    },
+    {
+        "name": "Well look at you! (Type \"petaphile\" on the character select screen)",
+        "category": [
+            "Achievements"
+        ]
+    },
+    {
+        "name": "The End (Beat Chapter 6 Light World)",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 6"
+    },
+    {
+        "name": "The Real End (Beat Chapter 6 Dark World)",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 6"
+    },
+    {
+        "name": "Suffragette (Beat Chapter 7 Light World)",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 7"
+    },
+    {
+        "name": "Seneca Falls (Beat Chapter 7 Dark World)",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 7",
+        "requires": "{speedrun_req(7)}"
+    },
+    {
+        "name": "The Kids Xmas!",
+        "category": [
+            "Achievements",
+            "xmas"
+        ]
+    },
+    {
+        "name": "The Golden Gift!",
+        "category": [
+            "Achievements",
+            "xmas"
+        ]
+    },
+    {
+        "name": "I Have Crabs! (Collect 10 Bandages)",
+        "category": [
+            "Achievements",
+            "Bandage"
+        ],
+        "requires": "{bandages(10)}"
+    },
+    {
+        "name": "Metalhead (Collect 30 Bandages)",
+        "category": [
+            "Achievements",
+            "Bandage"
+        ],
+        "requires": "{bandages(30)}"
+    },
+    {
+        "name": "I Smell something Fishy... (Collect 50 Bandages)",
+        "category": [
+            "Achievements",
+            "Bandage"
+        ],
+        "requires": "{bandages(50)}"
+    },
+    {
+        "name": "MS PAINT RULZ! (Collect 70 Bandages)",
+        "category": [
+            "Achievements",
+            "Bandage"
+        ],
+        "requires": "{bandages(70)}"
+    },
+    {
+        "name": "Vx6 (Collect 90 Bandages)",
+        "category": [
+            "Achievements",
+            "Bandage"
+        ],
+        "requires": "{bandages(90)}"
+    },
+    {
+        "name": "Accidental Arsonist (Collect 100 Bandages)",
+        "category": [
+            "Achievements",
+            "Bandage"
+        ],
+        "requires": "{bandages(100)}"
+    },
+    {
+        "name": "Rare (Speedrun The Forest in 265 Seconds)",
+        "category": [
+            "Achievements (Speedrun)"
+        ],
+        "region": "Chapter 1",
+        "requires": "{speedrun_req(1)}"
+    },
+    {
+        "name": "Medium Rare (Speedrun The Hospital in 460 seconds)",
+        "category": [
+            "Achievements (Speedrun)"
+        ],
+        "region": "Chapter 2",
+        "requires": "{speedrun_req(2)}"
+    },
+    {
+        "name": "Medium (Speedrun The Salt Factory in 515 seconds)",
+        "category": [
+            "Achievements (Speedrun)"
+        ],
+        "region": "Chapter 3",
+        "requires": "{speedrun_req(3)}"
+    },
+    {
+        "name": "Medium Well (Speedrun Hell in 500 seconds)",
+        "category": [
+            "Achievements (Speedrun)"
+        ],
+        "region": "Chapter 4",
+        "requires": "{speedrun_req(4)}"
+    },
+    {
+        "name": "Well Done (Speedrun The Rapture in 690 seconds)",
+        "category": [
+            "Achievements (Speedrun)"
+        ],
+        "region": "Chapter 5",
+        "requires": "{speedrun_req(5)}"
+    },
+    {
+        "name": "Wood Boy (Complete The Forest Light World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 1"
+    },
+    {
+        "name": "Needle Boy (Complete The Hospital Light World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 2"
+    },
+    {
+        "name": "Salt Boy (Complete The Salt Factory Light World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 3"
+    },
+    {
+        "name": "Brimstone Boy (Complete Hell Light World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 4"
+    },
+    {
+        "name": "Maggot Boy (Complete The Rapture Light World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 5"
+    },
+    {
+        "name": "Dead Boy (Complete The End Light World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 6"
+    },
+    {
+        "name": "Girl Boy (Complete The Cotton Alley Light World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 7"
+    },
+    {
+        "name": "Squirrel Boy (Complete The Forest Dark World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 1",
+        "requires": "{speedrun_req(1)}"
+    },
+    {
+        "name": "Blood Clot Boy (Complete The Hospital Dark World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 2",
+        "requires": "{speedrun_req(2)}"
+    },
+    {
+        "name": "Missile Boy (Complete The Salt Factory Dark World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 3",
+        "requires": "{speedrun_req(3)}"
+    },
+    {
+        "name": "Demon Boy (Complete Hell Dark World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 4",
+        "requires": "{speedrun_req(4)}"
+    },
+    {
+        "name": "Zombie Boy (Complete The Rapture Dark World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 5",
+        "requires": "{speedrun_req(5)}"
+    },
+    {
+        "name": "Dr. Fetus Boy (Complete The End Dark World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 6",
+        "requires": "{speedrun_req(6)}"
+    },
+    {
+        "name": "Impossible Boy (Complete The Cotton Alley Dark World Deathless)",
+        "category": [
+            "Achievements (Deathless)"
+        ],
+        "region": "Chapter 7",
+        "requires": "{speedrun_req(7)}"
+    },
+    {
+        "name": "I-1 Fruit Cake",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-1 Fruit Cake (A+ Rank)",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-1 Fruit Cake (Bandage)",
+        "category": [
+            "xmas",
+            "Bandage"
+        ]
+    },
+    {
+        "name": "I-2 Socks",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-2 Socks (A+ Rank)",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-2 Socks (Bandage)",
+        "category": [
+            "xmas",
+            "Bandage"
+        ]
+    },
+    {
+        "name": "I-3 Sweater",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-3 Sweater (A+ Rank)",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-3 Sweater (Bandage)",
+        "category": [
+            "xmas",
+            "Bandage"
+        ]
+    },
+    {
+        "name": "I-4 Underwear",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-4 Underwear (A+ Rank)",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-4 Underwear (Bandage)",
+        "category": [
+            "xmas",
+            "Bandage"
+        ]
+    },
+    {
+        "name": "I-5 Lump of Coal",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-5 Lump of Coal (A+ Rank)",
+        "category": [
+            "xmas"
+        ]
+    },
+    {
+        "name": "I-5 Lump of Coal (Bandage)",
+        "category": [
+            "xmas",
+            "Bandage"
+        ]
+    },
+    {
+        "name": "1-1 Hello World",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-1 Hello World (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-2 Upward",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-2 Upward (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-3 The Gap",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-3 The Gap (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-4 Nutshell",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-4 Nutshell (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-4 Nutshell (Bandage)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-5WZ Sky Pup",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-5WZ Sky Pup (Bandage 1)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-5WZ Sky Pup (Bandage 2)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-5 Holy Mountain",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-5 Holy Mountain (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-6 Bladecatcher",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-6 Bladecatcher (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-7 Diverge",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-7 Diverge (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-7 Diverge (Bandage)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-8 The Bit",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-8 The Bit (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-9 Safety Third",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-9 Safety Third (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-9 Safety Third (Bandage)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-10 The Levee",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-10 The Levee (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-11 Fired",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-11 Fired (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-11 Fired (Bandage)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-12WZ The Commander!",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-12 Resolve",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-12 Resolve (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-13 Tommy's Cabin",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-13 Tommy's Cabin (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-13 Tommy's Cabin (Bandage)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-14 Blood Mountain",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-14 Blood Mountain (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-15 Cactus Jumper",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-15 Cactus Jumper (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-16 Sidewinder",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-16 Sidewinder (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-17 Morningstar",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-17 Morningstar (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-18 Altamont",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-18 Altamont (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-18 Altamont (Bandage)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-19WZ Hand Held Hack",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-19WZ Hand Held Hack (Bandage 1)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-19WZ Hand Held Hack (Bandage 2)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-19 Intermission",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-19 Intermission (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-20 The Test",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-20 The Test (A+ Rank)",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-20 The Test (Bandage)",
+        "category": [
+            "LW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": []
+    },
+    {
+        "name": "1-Boss Lil' Slugger",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "{boss_req(1)}"
+    },
+    {
+        "name": "-1 |>'-'z|>",
+        "category": [
+            "LW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "{boss_req(1)}"
+    },
+    {
+        "name": "1-1X Oh, Hello",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-1 A+ Rank|"
+    },
+    {
+        "name": "1-1X Oh, Hello (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-1 A+ Rank|"
+    },
+    {
+        "name": "1-2X Onward",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-2 A+ Rank|"
+    },
+    {
+        "name": "1-2X Onward (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-2 A+ Rank|"
+    },
+    {
+        "name": "1-3X Bzzzzz",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-3 A+ Rank|"
+    },
+    {
+        "name": "1-3X Bzzzzz (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-3 A+ Rank|"
+    },
+    {
+        "name": "1-3X Bzzzzz (Bandage)",
+        "category": [
+            "DW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-3 A+ Rank|"
+    },
+    {
+        "name": "1-4X Plum Rain",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-4 A+ Rank|"
+    },
+    {
+        "name": "1-4X Plum Rain (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-4 A+ Rank|"
+    },
+    {
+        "name": "1-5X Creamsoda",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-5 A+ Rank|"
+    },
+    {
+        "name": "1-5X Creamsoda (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-5 A+ Rank|"
+    },
+    {
+        "name": "1-5X Creamsoda (Bandage)",
+        "category": [
+            "DW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-5 A+ Rank|"
+    },
+    {
+        "name": "1-6X I Am The Night",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-6 A+ Rank|"
+    },
+    {
+        "name": "1-6X I Am The Night (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-6 A+ Rank|"
+    },
+    {
+        "name": "1-7X Two Roads",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-7 A+ Rank|"
+    },
+    {
+        "name": "1-7X Two Roads (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-7 A+ Rank|"
+    },
+    {
+        "name": "1-8X Big Red",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-8 A+ Rank|"
+    },
+    {
+        "name": "1-8X Big Red (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-8 A+ Rank|"
+    },
+    {
+        "name": "1-9X So Close",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-9 A+ Rank|"
+    },
+    {
+        "name": "1-9X So Close (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-9 A+ Rank|"
+    },
+    {
+        "name": "1-10X Walls",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-10 A+ Rank|"
+    },
+    {
+        "name": "1-10X Walls (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-10 A+ Rank|"
+    },
+    {
+        "name": "1-10X Walls (Bandage)",
+        "category": [
+            "DW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-10 A+ Rank|"
+    },
+    {
+        "name": "1-11X Doused",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-11 A+ Rank|"
+    },
+    {
+        "name": "1-11X Doused (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-11 A+ Rank|"
+    },
+    {
+        "name": "1-12X Fireal",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-12 A+ Rank|"
+    },
+    {
+        "name": "1-12X Fireal (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-12 A+ Rank|"
+    },
+    {
+        "name": "1-13XWZ Space Boy",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-13 A+ Rank|"
+    },
+    {
+        "name": "1-13XWZ Space Boy (Bandage 1)",
+        "category": [
+            "DW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-13 A+ Rank|"
+    },
+    {
+        "name": "1-13XWZ Space Boy (Bandage 2)",
+        "category": [
+            "DW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-13 A+ Rank|"
+    },
+    {
+        "name": "1-13X Tommy's Condo",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-13 A+ Rank|"
+    },
+    {
+        "name": "1-13X Tommy's Condo (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-13 A+ Rank|"
+    },
+    {
+        "name": "1-14X Mystery Spot",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-14 A+ Rank|"
+    },
+    {
+        "name": "1-14X Mystery Spot (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-14 A+ Rank|"
+    },
+    {
+        "name": "1-14X Mystery Spot (Bandage)",
+        "category": [
+            "DW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-14 A+ Rank|"
+    },
+    {
+        "name": "1-15X Kick Machine",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-15 A+ Rank|"
+    },
+    {
+        "name": "1-15X Kick Machine (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-15 A+ Rank|"
+    },
+    {
+        "name": "1-15X Kick Machine (Bandage)",
+        "category": [
+            "DW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-15 A+ Rank|"
+    },
+    {
+        "name": "1-16X Night Game",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-16 A+ Rank|"
+    },
+    {
+        "name": "1-16X Night Game (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-16 A+ Rank|"
+    },
+    {
+        "name": "1-17X The Clock",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-17 A+ Rank|"
+    },
+    {
+        "name": "1-17X The Clock (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-17 A+ Rank|"
+    },
+    {
+        "name": "1-18X Whitewash",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-18 A+ Rank|"
+    },
+    {
+        "name": "1-18X Whitewash (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-18 A+ Rank|"
+    },
+    {
+        "name": "1-19X The Queener",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-19 A+ Rank|"
+    },
+    {
+        "name": "1-19X The Queener (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-19 A+ Rank|"
+    },
+    {
+        "name": "1-19X The Queener (Bandage)",
+        "category": [
+            "DW Chapter 1",
+            "Bandage"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-19 A+ Rank|"
+    },
+    {
+        "name": "1-20X A Perfect End",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-20 A+ Rank|"
+    },
+    {
+        "name": "1-20X A Perfect End (A+ Rank)",
+        "category": [
+            "DW Chapter 1"
+        ],
+        "region": "Chapter 1",
+        "requires": "|1-20 A+ Rank|"
+    },
+    {
+        "name": "2-1 Biohazard",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-1 Biohazard (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-2 One Down",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-2 One Down (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-2 One Down (Bandage)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-3 Memories",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-3 Memories (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-4 Blew",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-4 Blew (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-5 Big Empty",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-5 Big Empty (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-5 Big Empty (Bandage)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-6 The Grain",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-6 The Grain (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-7 Hush",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-7 Hush (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-8WZ The Bootlicker!",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-8 The Sabbath",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-8 The Sabbath (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-9 Blood Swamp",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-9 Blood Swamp (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-10 Johnny's Cage",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-10 Johnny's Cage (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-10 Johnny's Cage (Bandage)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-11 Ghost Key",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-11 Ghost Key (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-12WZ Castle Crushers",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-12WZ Castle Crushers (Bandage 1)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-12WZ Castle Crushers (Bandage 2)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-12 Above",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-12 Above (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-13 Ulcer Pop",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-13 Ulcer Pop (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-13 Ulcer Pop (Bandage)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-14 Aunt Flo",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-14 Aunt Flo (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-15WZ The Blood Shed",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-15WZ The Blood Shed (Bandage 1)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-15WZ The Blood Shed (Bandage 2)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-15 Gallbladder",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-15 Gallbladder (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-16 Synj",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-16 Synj (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-16 Synj (Bandage)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-17 Worm Food",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-17 Worm Food (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-18 Destructoid",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-18 Destructoid (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-18 Destructoid (Bandage)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-19 Six Feet",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-19 Six Feet (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-20 Day Breaker",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-20 Day Breaker (A+ Rank)",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-20 Day Breaker (Bandage)",
+        "category": [
+            "LW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": []
+    },
+    {
+        "name": "2-Boss C.H.A.D",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "{boss_req(2)}"
+    },
+    {
+        "name": "-2 |'-'|>",
+        "category": [
+            "LW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "{boss_req(2)}"
+    },
+    {
+        "name": "2-1X Back Track",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-1 A+ Rank|"
+    },
+    {
+        "name": "2-1X Back Track (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-1 A+ Rank|"
+    },
+    {
+        "name": "2-2X Pinkeye Falls",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-2 A+ Rank|"
+    },
+    {
+        "name": "2-2X Pinkeye Falls (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-2 A+ Rank|"
+    },
+    {
+        "name": "2-3X Buzzzzcut",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-3 A+ Rank|"
+    },
+    {
+        "name": "2-3X Buzzzzcut (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-3 A+ Rank|"
+    },
+    {
+        "name": "2-4X Blown",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-4 A+ Rank|"
+    },
+    {
+        "name": "2-4X Blown (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-4 A+ Rank|"
+    },
+    {
+        "name": "2-4X Blown (Bandage)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-4 A+ Rank|"
+    },
+    {
+        "name": "2-5XWZ 1977",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-5 A+ Rank|"
+    },
+    {
+        "name": "2-5XWZ 1977 (Bandage 1)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-5 A+ Rank|"
+    },
+    {
+        "name": "2-5XWZ 1977 (Bandage 2)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-5 A+ Rank|"
+    },
+    {
+        "name": "2-5X Agent Orange",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-5 A+ Rank|"
+    },
+    {
+        "name": "2-5X Agent Orange (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-5 A+ Rank|"
+    },
+    {
+        "name": "2-6X Cher Noble",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-6 A+ Rank|"
+    },
+    {
+        "name": "2-6X Cher Noble (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-6 A+ Rank|"
+    },
+    {
+        "name": "2-6X Cher Noble (Bandage)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-6 A+ Rank|"
+    },
+    {
+        "name": "2-7X The Moon",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-7 A+ Rank|"
+    },
+    {
+        "name": "2-7X The Moon (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-7 A+ Rank|"
+    },
+    {
+        "name": "2-7X The Moon (Bandage)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-7 A+ Rank|"
+    },
+    {
+        "name": "2-8X Grape Soda",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-8 A+ Rank|"
+    },
+    {
+        "name": "2-8X Grape Soda (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-8 A+ Rank|"
+    },
+    {
+        "name": "2-9X Centipede",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-9 A+ Rank|"
+    },
+    {
+        "name": "2-9X Centipede (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-9 A+ Rank|"
+    },
+    {
+        "name": "2-10X The Kracken",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-10 A+ Rank|"
+    },
+    {
+        "name": "2-10X The Kracken (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-10 A+ Rank|"
+    },
+    {
+        "name": "2-10X The Kracken (Bandage)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-10 A+ Rank|"
+    },
+    {
+        "name": "2-11X Spineless",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-11 A+ Rank|"
+    },
+    {
+        "name": "2-11X Spineless (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-11 A+ Rank|"
+    },
+    {
+        "name": "2-12X Grey Matter",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-12 A+ Rank|"
+    },
+    {
+        "name": "2-12X Grey Matter (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-12 A+ Rank|"
+    },
+    {
+        "name": "2-12X Grey Matter (Bandage)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-12 A+ Rank|"
+    },
+    {
+        "name": "2-13X Dust Bunnies",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-13 A+ Rank|"
+    },
+    {
+        "name": "2-13X Dust Bunnies (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-13 A+ Rank|"
+    },
+    {
+        "name": "2-14X Back Track",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-14 A+ Rank|"
+    },
+    {
+        "name": "2-14X Back Track (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-14 A+ Rank|"
+    },
+    {
+        "name": "2-15X Insurance?",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-15 A+ Rank|"
+    },
+    {
+        "name": "2-15X Insurance? (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-15 A+ Rank|"
+    },
+    {
+        "name": "2-15X Insurance? (Bandage)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-15 A+ Rank|"
+    },
+    {
+        "name": "2-16X P.S.Y.",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-16 A+ Rank|"
+    },
+    {
+        "name": "2-16X P.S.Y. (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-16 A+ Rank|"
+    },
+    {
+        "name": "2-16X P.S.Y. (Bandage)",
+        "category": [
+            "DW Chapter 2",
+            "Bandage"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-16 A+ Rank|"
+    },
+    {
+        "name": "2-17X Nels Box",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-17 A+ Rank|"
+    },
+    {
+        "name": "2-17X Nels Box (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-17 A+ Rank|"
+    },
+    {
+        "name": "2-18X Electrolysis",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-18 A+ Rank|"
+    },
+    {
+        "name": "2-18X Electrolysis (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-18 A+ Rank|"
+    },
+    {
+        "name": "2-19X Tenebrae",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-19 A+ Rank|"
+    },
+    {
+        "name": "2-19X Tenebrae (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-19 A+ Rank|"
+    },
+    {
+        "name": "2-20X Back Track",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-20 A+ Rank|"
+    },
+    {
+        "name": "2-20X Back Track (A+ Rank)",
+        "category": [
+            "DW Chapter 2"
+        ],
+        "region": "Chapter 2",
+        "requires": "|2-20 A+ Rank|"
+    },
+    {
+        "name": "3-1 Pit Stop",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-1 Pit Stop (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-1 Pit Stop (Bandage)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-2 The Salt Lick",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-2 The Salt Lick (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-2 The Salt Lick (Bandage)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-3 Push",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-3 Push (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-4 Transmissions",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-4 Transmissions (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-4 Transmissions (Bandage)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "{prog_character()}"
+    },
+    {
+        "name": "3-5WZ Cartridge Dump",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-5WZ Cartridge Dump (Bandage 1)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-5WZ Cartridge Dump (Bandage 2)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-5 Uptown",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-5 Uptown (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-6 The Shaft",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-6 The Shaft (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-7WZ Tunnel Vision",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "{prog_character()}"
+    },
+    {
+        "name": "3-7WZ Tunnel Vision (Bandage 1)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "{prog_character()}"
+    },
+    {
+        "name": "3-7WZ Tunnel Vision (Bandage 2)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "{prog_character()}"
+    },
+    {
+        "name": "3-7 Mind the Gap",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-7 Mind the Gap (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-8 Boomtown",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-8 Boomtown (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-9 Shotzie!",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-9 Shotzie! (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-10 Breakdown",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-10 Breakdown (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-10 Breakdown (Bandage)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-11 Box Tripper",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-11 Box Tripper (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-11 Box Tripper (Bandage)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-12 The Dumper",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-12 The Dumper (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-13 The Bend",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-13 The Bend (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-14 Gurdy",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-14 Gurdy (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-15 Vertigo",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-15 Vertigo (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-16WZ The Jump Man",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-16 Mono",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-16 Mono (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-17 Rustic",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-17 Rustic (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-18 The Grundle",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-18 The Grundle (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-18 The Grundle (Bandage)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-19 Dig",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-19 Dig (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-20 White Noise",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-20 White Noise (A+ Rank)",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-20 White Noise (Bandage)",
+        "category": [
+            "LW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": []
+    },
+    {
+        "name": "3-Boss Brownie",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "{boss_req(3)}"
+    },
+    {
+        "name": "-3 |'-'|>",
+        "category": [
+            "LW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "{boss_req(3)}"
+    },
+    {
+        "name": "3-1X Step One",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-1 A+ Rank|"
+    },
+    {
+        "name": "3-1X Step One (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-1 A+ Rank|"
+    },
+    {
+        "name": "3-2X Salt + Wound",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-2 A+ Rank|"
+    },
+    {
+        "name": "3-2X Salt + Wound (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-2 A+ Rank|"
+    },
+    {
+        "name": "3-3X The Red Room",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-3 A+ Rank|"
+    },
+    {
+        "name": "3-3X The Red Room (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-3 A+ Rank|"
+    },
+    {
+        "name": "3-3X The Red Room (Bandage)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-3 A+ Rank|"
+    },
+    {
+        "name": "3-4X Assemble",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-4 A+ Rank|"
+    },
+    {
+        "name": "3-4X Assemble (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-4 A+ Rank|"
+    },
+    {
+        "name": "3-5X Wasp",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-5 A+ Rank|"
+    },
+    {
+        "name": "3-5X Wasp (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-5 A+ Rank|"
+    },
+    {
+        "name": "3-5X Wasp (Bandage)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-5 A+ Rank|"
+    },
+    {
+        "name": "3-6X Not You Again",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-6 A+ Rank|"
+    },
+    {
+        "name": "3-6X Not You Again (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-6 A+ Rank|"
+    },
+    {
+        "name": "3-6X Not You Again (Bandage)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-6 A+ Rank|"
+    },
+    {
+        "name": "3-7X Pluck",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-7 A+ Rank|"
+    },
+    {
+        "name": "3-7X Pluck (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-7 A+ Rank|"
+    },
+    {
+        "name": "3-7X Pluck (Bandage)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-7 A+ Rank|"
+    },
+    {
+        "name": "3-8XWZ Kontra",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-8 A+ Rank|"
+    },
+    {
+        "name": "3-8XWZ Kontra (Bandage 1)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-8 A+ Rank|"
+    },
+    {
+        "name": "3-8XWZ Kontra (Bandage 2)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-8 A+ Rank|"
+    },
+    {
+        "name": "3-8X Salt Crown",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-8 A+ Rank|"
+    },
+    {
+        "name": "3-8X Salt Crown (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-8 A+ Rank|"
+    },
+    {
+        "name": "3-9X Goliath",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-9 A+ Rank|"
+    },
+    {
+        "name": "3-9X Goliath (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-9 A+ Rank|"
+    },
+    {
+        "name": "3-10X Exploder",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-10 A+ Rank|"
+    },
+    {
+        "name": "3-10X Exploder (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-10 A+ Rank|"
+    },
+    {
+        "name": "3-11X The Salt Man",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-11 A+ Rank|"
+    },
+    {
+        "name": "3-11X The Salt Man (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-11 A+ Rank|"
+    },
+    {
+        "name": "3-12X Hellevator",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-12 A+ Rank|"
+    },
+    {
+        "name": "3-12X Hellevator (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-12 A+ Rank|"
+    },
+    {
+        "name": "3-13X Black Circle",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-13 A+ Rank|"
+    },
+    {
+        "name": "3-13X Black Circle (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-13 A+ Rank|"
+    },
+    {
+        "name": "3-14X Step One",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-14 A+ Rank|"
+    },
+    {
+        "name": "3-14X Step One (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-14 A+ Rank|"
+    },
+    {
+        "name": "3-14X Step One (Bandage)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-14 A+ Rank| and {prog_character()}"
+    },
+    {
+        "name": "3-15X Vertebreaker",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-15 A+ Rank|"
+    },
+    {
+        "name": "3-15X Vertebreaker (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-15 A+ Rank|"
+    },
+    {
+        "name": "3-16X The Chaser",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-16 A+ Rank|"
+    },
+    {
+        "name": "3-16X The Chaser (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-16 A+ Rank|"
+    },
+    {
+        "name": "3-16X The Chaser (Bandage)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-16 A+ Rank|"
+    },
+    {
+        "name": "3-17X Ashes",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-17 A+ Rank|"
+    },
+    {
+        "name": "3-17X Ashes (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-17 A+ Rank|"
+    },
+    {
+        "name": "3-18X Bile Duct",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-18 A+ Rank|"
+    },
+    {
+        "name": "3-18X Bile Duct (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-18 A+ Rank|"
+    },
+    {
+        "name": "3-19X El Topo",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-19 A+ Rank|"
+    },
+    {
+        "name": "3-19X El Topo (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-19 A+ Rank|"
+    },
+    {
+        "name": "3-19X El Topo (Bandage)",
+        "category": [
+            "DW Chapter 3",
+            "Bandage"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-19 A+ Rank|"
+    },
+    {
+        "name": "3-20X Sweet Pea",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-20 A+ Rank|"
+    },
+    {
+        "name": "3-20X Sweet Pea (A+ Rank)",
+        "category": [
+            "DW Chapter 3"
+        ],
+        "region": "Chapter 3",
+        "requires": "|3-20 A+ Rank|"
+    },
+    {
+        "name": "4-1 Boilermaker",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-1 Boilermaker (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-2 Brindle",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-2 Brindle (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-2 Brindle (Bandage)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-3 Heck Hole",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-3 Heck Hole (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-4 Hex",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-4 Hex (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-5 Pyro",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-5 Pyro (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-6 Leviathan",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-6 Leviathan (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-6 Leviathan (Bandage)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-7 Rickets",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-7 Rickets (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-8WZ Brimstone",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-8WZ Brimstone (Bandage 1)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-8WZ Brimstone (Bandage 2)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-8 Weibe",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-8 Weibe (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-9 Deceiver",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-9 Deceiver (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-9 Deceiver (Bandage)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-10 Ball N Chain",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-10 Ball N Chain (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-11 Oracle",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-11 Oracle (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-12 Big Brother",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-12 Big Brother (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-13 Lazy",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-13 Lazy (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-13 Lazy (Bandage)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-14WZ The Key Master",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-14WZ The Key Master (Bandage 1)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-14WZ The Key Master (Bandage 2)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-15 Abaddon",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-15 Abaddon (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-16 Bow",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-16 Bow (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-16 Bow (Bandage)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-17 Lost Highway",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-17 Lost Highway (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-17 Lost Highway (Bandage)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-18WZ The Fly Guy!",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-18 Boris",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-18 Boris (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-19 The Hive",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-19 The Hive (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-20 Babylon",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-20 Babylon (A+ Rank)",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-20 Babylon (Bandage)",
+        "category": [
+            "LW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": []
+    },
+    {
+        "name": "4-Boss Little Horn",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "{boss_req(4)}"
+    },
+    {
+        "name": "-4 |'-'|>",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "{boss_req(4)}"
+    },
+    {
+        "name": "4-1X Gretel",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-1 A+ Rank|"
+    },
+    {
+        "name": "4-1X Gretel (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-1 A+ Rank|"
+    },
+    {
+        "name": "4-2X Brindle",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-2 A+ Rank|"
+    },
+    {
+        "name": "4-2X Brindle (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-2 A+ Rank|"
+    },
+    {
+        "name": "4-3X Char",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-3 A+ Rank|"
+    },
+    {
+        "name": "4-3X Char (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-3 A+ Rank|"
+    },
+    {
+        "name": "4-4X Altered",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-4 A+ Rank|"
+    },
+    {
+        "name": "4-4X Altered (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-4 A+ Rank|"
+    },
+    {
+        "name": "4-5X Wicked One",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-5 A+ Rank|"
+    },
+    {
+        "name": "4-5X Wicked One (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-5 A+ Rank|"
+    },
+    {
+        "name": "4-6X Leviathan",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-6 A+ Rank|"
+    },
+    {
+        "name": "4-6X Leviathan (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-6 A+ Rank|"
+    },
+    {
+        "name": "4-6X Leviathan (Bandage)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-6 A+ Rank|"
+    },
+    {
+        "name": "4-7XWZ MMMMMM",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-7 A+ Rank| and {prog_character()}"
+    },
+    {
+        "name": "4-7XWZ MMMMMM (Bandage 1)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-7 A+ Rank| and {prog_character()}"
+    },
+    {
+        "name": "4-7XWZ MMMMMM (Bandage 2)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-7 A+ Rank| and {prog_character()}"
+    },
+    {
+        "name": "4-7X Thistle",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-7 A+ Rank|"
+    },
+    {
+        "name": "4-7X Thistle (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-7 A+ Rank|"
+    },
+    {
+        "name": "4-8X Billy Boy",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-8 A+ Rank|"
+    },
+    {
+        "name": "4-8X Billy Boy (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-8 A+ Rank|"
+    },
+    {
+        "name": "4-8X Billy Boy (Bandage)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-8 A+ Rank|"
+    },
+    {
+        "name": "4-9X Glut",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-9 A+ Rank|"
+    },
+    {
+        "name": "4-9X Glut (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-9 A+ Rank|"
+    },
+    {
+        "name": "4-10X Gallow",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-10 A+ Rank|"
+    },
+    {
+        "name": "4-10X Gallow (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-10 A+ Rank|"
+    },
+    {
+        "name": "4-10X Gallow (Bandage)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-10 A+ Rank| and {prog_character()}"
+    },
+    {
+        "name": "4-11X Surrender",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-11 A+ Rank|"
+    },
+    {
+        "name": "4-11X Surrender (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-11 A+ Rank|"
+    },
+    {
+        "name": "4-12X Beholder",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-12 A+ Rank|"
+    },
+    {
+        "name": "4-12X Beholder (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-12 A+ Rank|"
+    },
+    {
+        "name": "4-13X Oblivion",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-13 A+ Rank|"
+    },
+    {
+        "name": "4-13X Oblivion (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-13 A+ Rank|"
+    },
+    {
+        "name": "4-14X Old Scratch",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-14 A+ Rank|"
+    },
+    {
+        "name": "4-14X Old Scratch (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-14 A+ Rank|"
+    },
+    {
+        "name": "4-14X Old Scratch (Bandage)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-14 A+ Rank|"
+    },
+    {
+        "name": "4-15X Bone Yard",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-15 A+ Rank|"
+    },
+    {
+        "name": "4-15X Bone Yard (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-15 A+ Rank|"
+    },
+    {
+        "name": "4-16X Starless",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-16 A+ Rank|"
+    },
+    {
+        "name": "4-16X Starless (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-16 A+ Rank|"
+    },
+    {
+        "name": "4-17X Invocation",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-17 A+ Rank|"
+    },
+    {
+        "name": "4-17X Invocation (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-17 A+ Rank|"
+    },
+    {
+        "name": "4-18X Sag Chamber",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-18 A+ Rank|"
+    },
+    {
+        "name": "4-18X Sag Chamber (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-18 A+ Rank|"
+    },
+    {
+        "name": "4-18X Sag Chamber (Bandage)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-18 A+ Rank|"
+    },
+    {
+        "name": "4-19X Long Goodbye",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-19 A+ Rank|"
+    },
+    {
+        "name": "4-19X Long Goodbye (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-19 A+ Rank|"
+    },
+    {
+        "name": "4-19X Long Goodbye (Bandage)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-19 A+ Rank|"
+    },
+    {
+        "name": "4-20X Imperial",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-1 A+ Rank|"
+    },
+    {
+        "name": "4-20X Imperial (A+ Rank)",
+        "category": [
+            "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-1 A+ Rank|"
+    },
+    {
+        "name": "5-1WZ Skyscraper",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-1WZ Skyscraper (Bandage 1)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-1WZ Skyscraper (Bandage 2)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-1 The Witness",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-1 The Witness (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-2 Evangel",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-2 Evangel (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-3 Ripe Decay",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-3 Ripe Decay (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-3 Ripe Decay (Bandage)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-4 Rise",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-4 Rise (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-5 Panic Switch",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-5 Panic Switch (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-5 Panic Switch (Bandage)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-6 Left Behind",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-6 Left Behind (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-7WZ The Guy!",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-7 The Fallen",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-7 The Fallen (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-8 Descent",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-8 Descent (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-9 Abomination",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-9 Abomination (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-9 Abomination (Bandage)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-10 Grinding Mill",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-10 Grinding Mill (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-11 Heretic",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-11 Heretic (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-12WZ Sunshine Island",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-12WZ Sunshine Island (Bandage 1)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-12WZ Sunshine Island (Bandage 2)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-13 The Lamb",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-13 The Lamb (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-14 King Carrion",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-14 King Carrion (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-15 The Flood",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-15 The Flood (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-16 Rotgut",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-16 Rotgut (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-16 Rotgut (Bandage)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-17 The Kingdom",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-17 The Kingdom (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-18 Gate of Ludd",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-18 Gate of Ludd (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-18 Gate of Ludd (Bandage)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-19 Wrath",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-19 Wrath (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-20 Judgment",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-20 Judgment (A+ Rank)",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-20 Judgment (Bandage)",
+        "category": [
+            "LW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": []
+    },
+    {
+        "name": "5-Boss Larries Lament",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "{boss_req(5)}"
+    },
+    {
+        "name": "-5 |'-'|>",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "{boss_req(5)}"
+    },
+    {
+        "name": "5-1X The Clot",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-1 A+ Rank|"
+    },
+    {
+        "name": "5-1X The Clot (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-1 A+ Rank|"
+    },
+    {
+        "name": "5-2X Loomer",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-2 A+ Rank|"
+    },
+    {
+        "name": "5-2X Loomer (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-2 A+ Rank|"
+    },
+    {
+        "name": "5-3X Spank",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-3 A+ Rank|"
+    },
+    {
+        "name": "5-3X Spank (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-3 A+ Rank|"
+    },
+    {
+        "name": "5-4X Alabaster",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-4 A+ Rank|"
+    },
+    {
+        "name": "5-4X Alabaster (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-4 A+ Rank|"
+    },
+    {
+        "name": "5-4X Alabaster (Bandage)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-4 A+ Rank|"
+    },
+    {
+        "name": "5-5X Nix",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-5 A+ Rank|"
+    },
+    {
+        "name": "5-5X Nix (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-5 A+ Rank|"
+    },
+    {
+        "name": "5-5X Nix (Bandage)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-5 A+ Rank|"
+    },
+    {
+        "name": "5-6X Ripcord",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-6 A+ Rank|"
+    },
+    {
+        "name": "5-6X Ripcord (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-6 A+ Rank|"
+    },
+    {
+        "name": "5-7X Downpour",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-7 A+ Rank|"
+    },
+    {
+        "name": "5-7X Downpour (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-7 A+ Rank|"
+    },
+    {
+        "name": "5-8X Downer",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-8 A+ Rank|"
+    },
+    {
+        "name": "5-8X Downer (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-8 A+ Rank|"
+    },
+    {
+        "name": "5-8X Downer (Bandage)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-8 A+ Rank|"
+    },
+    {
+        "name": "5-9X Swine",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-9 A+ Rank|"
+    },
+    {
+        "name": "5-9X Swine (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-9 A+ Rank|"
+    },
+    {
+        "name": "5-10X Pulp Factory",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-10 A+ Rank|"
+    },
+    {
+        "name": "5-10X Pulp Factory (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-10 A+ Rank|"
+    },
+    {
+        "name": "5-10X Pulp Factory (Bandage)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-10 A+ Rank|"
+    },
+    {
+        "name": "5-11X Blight",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-11 A+ Rank|"
+    },
+    {
+        "name": "5-11X Blight (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-11 A+ Rank|"
+    },
+    {
+        "name": "5-11X Blight (Bandage)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-11 A+ Rank|"
+    },
+    {
+        "name": "5-12X Canker",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-12 A+ Rank|"
+    },
+    {
+        "name": "5-12X Canker (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-12 A+ Rank|"
+    },
+    {
+        "name": "5-13X Halo of Flies",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-13 A+ Rank|"
+    },
+    {
+        "name": "5-13X Halo of Flies (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-13 A+ Rank|"
+    },
+    {
+        "name": "5-14X Necrosis",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-14 A+ Rank|"
+    },
+    {
+        "name": "5-14X Necrosis (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-14 A+ Rank|"
+    },
+    {
+        "name": "5-15X Choke",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-15 A+ Rank|"
+    },
+    {
+        "name": "5-15X Choke (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-15 A+ Rank|"
+    },
+    {
+        "name": "5-16X Coil",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-16 A+ Rank|"
+    },
+    {
+        "name": "5-16X Coil (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-16 A+ Rank|"
+    },
+    {
+        "name": "5-17X Millenium",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-17 A+ Rank|"
+    },
+    {
+        "name": "5-17X Millenium (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-17 A+ Rank|"
+    },
+    {
+        "name": "5-17X Millenium (Bandage)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-17 A+ Rank|"
+    },
+    {
+        "name": "5-18X Stain",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-18 A+ Rank|"
+    },
+    {
+        "name": "5-18X Stain (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-18 A+ Rank|"
+    },
+    {
+        "name": "5-18X Stain (Bandage)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-18 A+ Rank|"
+    },
+    {
+        "name": "5-19X Magog",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-19 A+ Rank|"
+    },
+    {
+        "name": "5-19X Magog (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-19 A+ Rank|"
+    },
+    {
+        "name": "5-20XWZ Meat is Death",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-20 A+ Rank|"
+    },
+    {
+        "name": "5-20XWZ Meat is Death (Bandage 1)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-20 A+ Rank|"
+    },
+    {
+        "name": "5-20XWZ Meat is Death (Bandage 2)",
+        "category": [
+            "DW Chapter 5",
+            "Bandage"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-20 A+ Rank|"
+    },
+    {
+        "name": "5-20X Quietus",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-20 A+ Rank|"
+    },
+    {
+        "name": "5-20X Quietus (A+ Rank)",
+        "category": [
+            "DW Chapter 5"
+        ],
+        "region": "Chapter 5",
+        "requires": "|5-20 A+ Rank|"
+    },
+    {
+        "name": "6-1 The Pit",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-1 The Pit (A+ Rank)",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-2 Schism",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-2 Schism (A+ Rank)",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-3 Echoes",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-3 Echoes (A+ Rank)",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-4 Gently",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-4 Gently (A+ Rank)",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-5 Omega",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-5 Omega (A+ Rank)",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": []
+    },
+    {
+        "name": "6-Boss LW Dr. Fetus",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "{lw_drfetus()}"
+    },
+    {
+        "name": "-6 |'-'|>",
+        "category": [
+            "LW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "{lw_drfetus()}"
+    },
+    {
+        "name": "6-1X Detox",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-1 A+ Rank|"
+    },
+    {
+        "name": "6-1X Detox (A+ Rank)",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-1 A+ Rank|"
+    },
+    {
+        "name": "6-2X Ghost Tomb",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-2 A+ Rank|"
+    },
+    {
+        "name": "6-2X Ghost Tomb (A+ Rank)",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-2 A+ Rank|"
+    },
+    {
+        "name": "6-3X From Beyond",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-3 A+ Rank|"
+    },
+    {
+        "name": "6-3X From Beyond (A+ Rank)",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-3 A+ Rank|"
+    },
+    {
+        "name": "6-4X Maze of Ith",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-4 A+ Rank|"
+    },
+    {
+        "name": "6-4X Maze of Ith (A+ Rank)",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-4 A+ Rank|"
+    },
+    {
+        "name": "6-5X No Quarter",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-5 A+ Rank|"
+    },
+    {
+        "name": "6-5X No Quarter (A+ Rank)",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "|6-5 A+ Rank|"
+    },
+    {
+        "name": "6-Boss DW Dr. Fetus",
+        "category": [
+            "DW Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "{dw_drfetus()}"
+    },
+    {
+        "name": "7-1 Pink Noise",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-1 Pink Noise (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-2 Run Rabbit Run",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-2 Run Rabbit Run (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-3 Spinal Tap",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-3 Spinal Tap (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-4 Stag",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-4 Stag (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-5 Tommunism",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-5 Tommunism (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-6 Panic Attack",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-6 Panic Attack (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-7 Tunnel Blower",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-7 Tunnel Blower (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-8 Pig Latin",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-8 Pig Latin (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-9 Hatch",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-9 Hatch (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-10 Bullet Bob",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-10 Bullet Bob (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-11 Train Eater",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-11 Train Eater (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-12 Peel",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-12 Peel (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-13 Pepto",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-13 Pepto (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-14 Watchtower",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-14 Watchtower (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-15 Lock Out",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-15 Lock Out (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-16 Hopscotch",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-16 Hopscotch (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-17 Lead Sheets",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-17 Lead Sheets (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-18 Oobs Revenge",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-18 Oobs Revenge (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-19 The Rash",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-19 The Rash (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-20 4 Letter Word",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-20 4 Letter Word (A+ Rank)",
+        "category": [
+            "LW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": []
+    },
+    {
+        "name": "7-1X White Noise",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-1 A+ Rank|"
+    },
+    {
+        "name": "7-1X White Noise (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-1 A+ Rank|"
+    },
+    {
+        "name": "7-2X Flipside",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-2 A+ Rank|"
+    },
+    {
+        "name": "7-2X Flipside (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-2 A+ Rank|"
+    },
+    {
+        "name": "7-3X Organ Grinder",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-3 A+ Rank|"
+    },
+    {
+        "name": "7-3X Organ Grinder (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-3 A+ Rank|"
+    },
+    {
+        "name": "7-4X The Tower",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-4 A+ Rank|"
+    },
+    {
+        "name": "7-4X The Tower (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-4 A+ Rank|"
+    },
+    {
+        "name": "7-5X Waiting Room",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-5 A+ Rank|"
+    },
+    {
+        "name": "7-5X Waiting Room (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-5 A+ Rank|"
+    },
+    {
+        "name": "7-6X Bone Machine",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-6 A+ Rank|"
+    },
+    {
+        "name": "7-6X Bone Machine (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-6 A+ Rank|"
+    },
+    {
+        "name": "7-7X Going Up",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-7 A+ Rank|"
+    },
+    {
+        "name": "7-7X Going Up (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-7 A+ Rank|"
+    },
+    {
+        "name": "7-8X In Line",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-8 A+ Rank|"
+    },
+    {
+        "name": "7-8X In Line (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-8 A+ Rank|"
+    },
+    {
+        "name": "7-9X Salt Shaker",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-9 A+ Rank|"
+    },
+    {
+        "name": "7-9X Salt Shaker (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-9 A+ Rank|"
+    },
+    {
+        "name": "7-10X Masterblaster",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-10 A+ Rank|"
+    },
+    {
+        "name": "7-10X Masterblaster (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-10 A+ Rank|"
+    },
+    {
+        "name": "7-11X Thumb",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-11 A+ Rank|"
+    },
+    {
+        "name": "7-11X Thumb (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-11 A+ Rank|"
+    },
+    {
+        "name": "7-12X Pink",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-12 A+ Rank|"
+    },
+    {
+        "name": "7-12X Pink (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-12 A+ Rank|"
+    },
+    {
+        "name": "7-13X Bleach",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-13 A+ Rank|"
+    },
+    {
+        "name": "7-13X Bleach (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-13 A+ Rank|"
+    },
+    {
+        "name": "7-14X 20/20",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-14 A+ Rank|"
+    },
+    {
+        "name": "7-14X 20/20 (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-14 A+ Rank|"
+    },
+    {
+        "name": "7-15X Patience",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-15 A+ Rank|"
+    },
+    {
+        "name": "7-15X Patience (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-15 A+ Rank|"
+    },
+    {
+        "name": "7-16X Curls",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-16 A+ Rank|"
+    },
+    {
+        "name": "7-16X Curls (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-16 A+ Rank|"
+    },
+    {
+        "name": "7-17X Bullet Proof",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-17 A+ Rank|"
+    },
+    {
+        "name": "7-17X Bullet Proof (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-17 A+ Rank|"
+    },
+    {
+        "name": "7-18X They Bite",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-18 A+ Rank|"
+    },
+    {
+        "name": "7-18X They Bite (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-18 A+ Rank|"
+    },
+    {
+        "name": "7-19X XOXO",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-19 A+ Rank|"
+    },
+    {
+        "name": "7-19X XOXO (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-19 A+ Rank|"
+    },
+    {
+        "name": "7-20X Brag Rights",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-20 A+ Rank|"
+    },
+    {
+        "name": "7-20X Brag Rights (A+ Rank)",
+        "category": [
+            "DW Chapter 7"
+        ],
+        "region": "Chapter 7",
+        "requires": "|7-20 A+ Rank|"
+    }
+]
