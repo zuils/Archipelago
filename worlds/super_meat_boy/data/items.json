@@ -1345,5 +1345,21 @@
             "Chapter 7"
         ],
         "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Victory",
+        "category": [
+            "Extras"
+        ],
+        "classification": "progression"
+    },
+    {
+        "count": 1,
+        "name": "Degraded Bandage",
+        "category": [
+            "Extras"
+        ],
+        "classification": "filler"
     }
 ]

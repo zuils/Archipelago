@@ -38,7 +38,11 @@ def parse_classification(val: str) -> ItemClassification:
 
 
 for i in items_json:
-    item_table[i["name"]] = SMBItemData(item_id + OFFSET, i["category"], parse_classification(i["classification"]), i["count"])
+    item_table[i["name"]] = SMBItemData(
+        item_id + OFFSET,
+        i["category"],
+        parse_classification(i["classification"]), 
+        i["count"])
     item_id += 1
     
     for cat in i["category"]:

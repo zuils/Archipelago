@@ -1,6 +1,7 @@
-from BaseClasses import CollectionState
+from BaseClasses import CollectionState, MultiWorld
 from typing import Any, Union, Dict, List, TYPE_CHECKING
 from .locations import location_table
+from .options import SMBOptions
 from .regions import connect_regions
 from .utils import is_location_enabled
 import re
@@ -126,18 +127,18 @@ def parse_expression(tokens: List[str]):
     return parsed
 
 
-def evaluate_requirement(node: Any, world: "SMBWorld", state: CollectionState, player: int) -> bool:
+def evaluate_requirement(world: MultiWorld, options: SMBOptions, state: CollectionState, player: int, node: Any) -> bool:
     # No requirement
     if node is None or node == {}:
         return True
 
     # Logical AND
     if isinstance(node, dict) and "and" in node:
-        return all(evaluate_requirement(child, world, state, player) for child in node["and"])
+        return all(evaluate_requirement(world, options, state, player, child) for child in node["and"])
 
     # Logical OR
     if isinstance(node, dict) and "or" in node:
-        return any(evaluate_requirement(child, world, state, player) for child in node["or"])
+        return any(evaluate_requirement(world, options, state, player, child) for child in node["or"])
 
     # Item requirement
     if isinstance(node, dict) and "item" in node:
@@ -153,46 +154,46 @@ def evaluate_requirement(node: Any, world: "SMBWorld", state: CollectionState, p
         args = node.get("args", [])
 
         func = FUNCTION_TABLE[func_name]
-        return func(world, state, player, *args)
+        return func(options, state, player, *args)
 
     raise TypeError(f"Invalid requirement node: {node}")
 
 
-def parse_requirement(world: "SMBWorld", state: CollectionState, player: int, req: str) -> bool:
+def parse_requirement(world: MultiWorld, options: SMBOptions, state: CollectionState, player: int, req: str) -> bool:
     if not req:
         return True
 
     tokens = tokenize(req)
     parsed = parse_expression(tokens)
 
-    return evaluate_requirement(parsed, world, state, player)
+    return evaluate_requirement(world, options, state, player, parsed)
 
 
-def boss_req(world: "SMBWorld", state: CollectionState, player: int, chpt: int) -> bool:
-    return state.has(f"Chapter {chpt} LW Boss Key", player, world.options.boss_req) and state.has("Meat Boy", player)
+def boss_req(options: SMBOptions, state: CollectionState, player: int, chpt: int) -> bool:
+    return state.has(f"Chapter {chpt} LW Boss Key", player, options.boss_req.value) and state.has("Meat Boy", player)
 
 
-def speedrun_req(world: "SMBWorld", state: CollectionState, player: int, chpt: int) -> bool:
+def speedrun_req(options: SMBOptions, state: CollectionState, player: int, chpt: int) -> bool:
     return state.has_all([f"{chpt}-{i} A+ Rank" for i in range(1, 21 if chpt != 6 else 6)], player)
 
 
-def lw_drfetus(world: "SMBWorld", state: CollectionState, player: int) -> bool:
-    has_boss_keys = state.has("Chapter 6 LW Boss Key", player, world.options.lw_dr_fetus_req)
-    if world.options.goal == "light_world":
+def lw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
+    has_boss_keys = state.has("Chapter 6 LW Boss Key", player, options.lw_dr_fetus_req)
+    if options.goal == "light_world":
         return state.has_all([f"Chapter {i} Key" for i in range(1, 7)], player) and has_boss_keys
 
     return has_boss_keys
 
 
-def dw_drfetus(world: "SMBWorld", state: CollectionState, player: int) -> bool:
-    has_boss_keys = state.has("DW Dr. Fetus Key", player, world.options.dw_dr_fetus_req)
-    if world.options.goal == "dark_world":
+def dw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
+    has_boss_keys = state.has("DW Dr. Fetus Key", player, options.dw_dr_fetus_req)
+    if options.goal == "dark_world":
         return state.has_all([f"Chapter {i} Key" for i in range(1, 7)], player) and has_boss_keys
     
     return has_boss_keys
 
 
-def prog_character(world: "SMBWorld", state: CollectionState, player: int) -> bool:
+def prog_character(options: SMBOptions, state: CollectionState, player: int) -> bool:
     return (
         (state.has("Josef", player) and state.has("Bandage", player, 30))
         or (state.has("Naija", player) and state.has("Bandage", player, 50))
@@ -205,11 +206,11 @@ def prog_character(world: "SMBWorld", state: CollectionState, player: int) -> bo
     )
 
 
-def bandages(world: "SMBWorld", state: CollectionState, player: int, req: int) -> bool:
+def bandages(options: SMBOptions, state: CollectionState, player: int, req: int) -> bool:
     counter: int = 0
     if state.has("Chapter 1 Key", player):
         counter += 11
-        if world.options.dark_world:
+        if options.dark_world.value:
             counter += (
                 state.has("1-3 A+ Rank", player)
                 + state.has("1-5 A+ Rank", player)
@@ -222,7 +223,7 @@ def bandages(world: "SMBWorld", state: CollectionState, player: int, req: int) -
             )
     if state.has("Chapter 2 Keys", player):
         counter += 11
-        if world.options.dark_world:
+        if options.dark_world.value:
             counter += (
                 state.has("2-4 A+ Rank", player)
                 + (state.has("2-5 A+ Rank", player) * 2)
@@ -235,7 +236,7 @@ def bandages(world: "SMBWorld", state: CollectionState, player: int, req: int) -
             )
     if state.has("Chapter 3 Key", player):
         counter += 8
-        if world.options.dark_world:
+        if options.dark_world.value:
             counter += (
                 (state.can_reach_location("3-7WZ Tunnel Vision", player) * 2)
                 + state.can_reach_location("3-4 Transmissions (Bandage)", player)
@@ -250,7 +251,7 @@ def bandages(world: "SMBWorld", state: CollectionState, player: int, req: int) -
             )
     if state.has("Chapter 4 Key", player):
         counter += 11
-        if world.options.dark_world:
+        if options.dark_world.value:
             counter += (
                 state.has("4-3 A+ Rank", player)
                 + state.has("4-4 A+ Rank", player)
@@ -263,7 +264,7 @@ def bandages(world: "SMBWorld", state: CollectionState, player: int, req: int) -
             )
     if state.has("Chapter 5 Key", player):
         counter += 11
-        if world.options.dark_world:
+        if options.dark_world.value:
             counter += (
                 state.has("5-4 A+ Rank", player)
                 + state.has("5-5 A+ Rank", player)
@@ -279,42 +280,42 @@ def bandages(world: "SMBWorld", state: CollectionState, player: int, req: int) -
 
 
 FUNCTION_TABLE = {
-    "boss_req": lambda world, state, player, chpt: boss_req(world, state, player, chpt),
-    "speedrun_req": lambda world, state, player, chpt: speedrun_req(
-        world, state, player, chpt
+    "boss_req": lambda options, state, player, chpt: boss_req(options, state, player, chpt),
+    "speedrun_req": lambda options, state, player, chpt: speedrun_req(
+        options, state, player, chpt
     ),
-    "lw_drfetus": lambda world, state, player: lw_drfetus(world, state, player),
-    "dw_drfetus": lambda world, state, player: dw_drfetus(world, state, player),
-    "prog_character": lambda world, state, player: prog_character(world, state, player),
-    "bandages": lambda world, state, player, req: bandages(world, state, player, req),
+    "lw_drfetus": lambda options, state, player: lw_drfetus(options, state, player),
+    "dw_drfetus": lambda options, state, player: dw_drfetus(options, state, player),
+    "prog_character": lambda options, state, player: prog_character(options, state, player),
+    "bandages": lambda options, state, player, req: bandages(options, state, player, req),
 }
 
 
-def set_rules(world: "SMBWorld", player: int):
+def set_rules(world: MultiWorld, options: SMBOptions, player: int):
     for name, data in location_table.items():
-        if not is_location_enabled(world, data):
+        if not is_location_enabled(options, data):
             continue
 
         req = data.requirement
 
-        world.get_location(name).access_rule = lambda state, req=req: parse_requirement(
-            world, state, player, req
+        world.get_location(name, player).access_rule = lambda state, req=req: parse_requirement(
+            world, options, state, player, req
         )
 
-    connect_regions(world, "Menu", "Initial")
+    connect_regions(world, "Menu", "Initial", player)
     for i in range(1, 6):
-        connect_regions(world, "Menu", f"Chapter {i}", lambda state: state.has(f"Chapter {i} Key", player))
+        connect_regions(world, "Menu", f"Chapter {i}", player, lambda state: state.has(f"Chapter {i} Key", player))
 
-    connect_regions(world, "Menu", "Chapter 6", lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
-    if world.options.chapter_seven:
-        connect_regions(world, "Menu", "Chapter 7", lambda state: state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))
+    connect_regions(world, "Menu", "Chapter 6", player, lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
+    if options.chapter_seven:
+        connect_regions(world, "Menu", "Chapter 7", player, lambda state: state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))
 
-    if world.options.goal == "light_world_chapter7":
-        world.multiworld.completion_condition[player] = \
+    if options.goal == "light_world_chapter7":
+        world.completion_condition[player] = \
             lambda state: state.has("Chapter 7 LW Level Key", player, 20)
-    elif world.options.goal == "dark_world_chapter7":
-        world.multiworld.completion_condition[player] = \
+    elif options.goal == "dark_world_chapter7":
+        world.completion_condition[player] = \
             lambda state: state.has("Chapter 7 DW Level Key", player, 20)
     else:
-        world.multiworld.completion_condition[player] = \
+        world.completion_condition[player] = \
             lambda state: state.has("Victory", player)

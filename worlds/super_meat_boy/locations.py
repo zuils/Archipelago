@@ -1,4 +1,4 @@
-from typing import List, Dict, NamedTuple, Optional
+from typing import List, Dict, NamedTuple
 from BaseClasses import Location
 from .utils import load_json_data
 

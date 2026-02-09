@@ -1,10 +1,10 @@
 from typing import Any, List, Dict, Union, TYPE_CHECKING
+from .options import SMBOptions
 import orjson
 import pkgutil
 
 if TYPE_CHECKING:
     from .locations import SMBLocationData
-    from . import SMBWorld
 
 
 def load_json_data(data_name: str) -> Union[List[Any], Dict[str, Any]]:
@@ -13,26 +13,26 @@ def load_json_data(data_name: str) -> Union[List[Any], Dict[str, Any]]:
     )
 
 
-def is_location_enabled(world: "SMBWorld", loc_data: "SMBLocationData") -> bool:
-    if "Bandage" in loc_data.category and not world.options.bandages.value:
+def is_location_enabled(options: SMBOptions, loc_data: "SMBLocationData") -> bool:
+    if "Bandage" in loc_data.category and not options.bandages.value:
         return False
     
-    if "xmas" in loc_data.category and not world.options.xmas.value:
+    if "xmas" in loc_data.category and not options.xmas.value:
         return False
     
-    if "Achievements" in loc_data.category and not world.options.achievements.value:
+    if "Achievements" in loc_data.category and not options.achievements:
         return False
     
-    if "Achievements (Deathless)" in loc_data.category and not world.options.deathless_achievements.value:
+    if "Achievements (Deathless)" in loc_data.category and not options.deathless_achievements.value:
         return False
     
-    if "Achievements (Speedrun)" in loc_data.category and not world.options.speedrun_achievements.value:
+    if "Achievements (Speedrun)" in loc_data.category and not options.speedrun_achievements.value:
         return False
     
-    if "Chapter 7" in loc_data.region and not world.options.chapter_seven.value:
+    if "Chapter 7" in loc_data.region and not options.chapter_seven.value:
         return False
     
-    if any(c.startswith("DW") for c in loc_data.category) and not world.options.dark_world.value:
+    if any(c.startswith("DW") for c in loc_data.category) and not options.dark_world.value:
         return False
 
     return True

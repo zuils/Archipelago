@@ -61,15 +61,15 @@ class SMBWorld(World):
         (not self.options.chapter_seven.value or self.options.goal in ("light_world_chapter7", "dark_world_chapter7"))):
             self.options.starting_chpt.value = self.multiworld.random.randint(1, 6)
             
-    def fill_slot_data(self) -> dict[str, Any]:
-        return self.options.as_dict(*[name for name in self.options_dataclass.type_hints.keys()])
+    def fill_slot_data(self) -> dict:
+        return self.options.as_dict("goal", "boss_req", "lw_dr_fetus_req", "dw_dr_fetus_req",
+                                    "chapter_keys", "bandages", "dark_world", "chapter_seven",
+                                    "starting_chpt", "achievements", "deathless_achievements",
+                                    "speedrun_achievements", "xmas", "bandage_fill")
             
-    def create_item(self, name: str) -> SMBItem:
+    def create_item(self, name: str, classification: Optional[ItemClassification] = None) -> SMBItem:
         data = item_table[name]
-        return SMBItem(name, data.classification, data.item_id, self.player)
-    
-    def create_misc_item(self, item: str, classification: ItemClassification = ItemClassification.progression) -> SMBItem:
-        return SMBItem(item, classification, None, self.player)
+        return SMBItem(name, data.classification if classification is None else classification, data.item_id, self.player)
     
     def create_items(self) -> None:
         item_pool: List[SMBItem] = []
@@ -85,66 +85,70 @@ class SMBWorld(World):
         
         # If our goal is to complete LW Dr. Fetus, create Victory event and put it on the boss
         if self.options.goal == "light_world":
-            self.multiworld.get_location("6-Boss LW Dr. Fetus", self.player).place_locked_item(self.create_misc_item("Victory"))
+            self.multiworld.get_location("6-Boss LW Dr. Fetus", self.player).place_locked_item(self.create_item("Victory"))
             
         # If our goal is to complete DW Dr. Fetus, create Victory event and put it on the boss
         if self.options.goal == "dark_world":
-            self.multiworld.get_location("6-Boss DW Dr. Fetus", self.player).place_locked_item(self.create_misc_item("Victory"))
+            self.multiworld.get_location("6-Boss DW Dr. Fetus", self.player).place_locked_item(self.create_item("Victory"))
         
-        for item in map(self.create_item, item_table):
-            # Don't put starting character in the item pool
-            if item.name == char:
-                continue
-            
-            # Don't put starting chapter in the item pool
-            if item.name == f"Chapter {starting_chpt} Key":
-                continue
-            
-            # Don't put Chapter 7 LW/DW Level Keys or Bandage Girl 
-            # or Chapter 7 A+ Ranks in the pool if Chapter 7 levels are not enabled
-            if (
-                not self.options.chapter_seven.value and 
-                item.name in self.multiworld.worlds[self.player].item_name_groups["Chapter 7"]
-            ):
-                continue
-            
-            # If dark world levels are off, don't put A+ Ranks from the item pool
-            if (
-                not self.options.dark_world.value and
-                item.name in self.multiworld.worlds[self.player].item_name_groups["A+ Rank"]
-            ):
-                continue
-            
-            # If our goal is to complete LW Chapter 7, put Chapter 7 LW Level Keys on LW Chapter 7 levels
-            # If our goal is not to complete LW Chapter 7, change Chapter 7 LW Level Keys to filler
-            if item.name == "Chapter 7 LW Level Key":
-                if self.options.goal == "light_world_chapter7":
-                    # all patterns that are 7-<num> Level Name (excludes A+ Ranks)
-                    pattern = re.compile(rf"^7-\d+\b(?!X).*?(?<!\(A\+ Rank\))$")
-                    for _ in range(20):
-                        location = next(l for l in self.multiworld.get_unfilled_locations(self.player) if pattern.match(l.name))
-                        location.place_locked_item(item)
-                    
+        for name, data in item_table.items():
+            for _ in range(data.count):
+                item = self.create_item(name)
+                # Don't put starting character in the item pool
+                if item.name == char:
                     continue
-                else:
-                    item.classification = ItemClassification.filler
-
-
-            # If our goal is to complete DW Chapter 7, put Chapter 7 DW Level Keys on DW Chapter 7 levels
-            # If our goal is not to complete DW Chapter 7, don't put Chapter 7 DW Level Keys in the pool
-            if item.name == "Chapter 7 DW Level Key":
-                if self.options.goal == "dark_world_chapter7":
-                    # all patterns that are 7-<num>X Level Name (excludes A+ Ranks)
-                    pattern = re.compile(rf"^7-\d+X\b(?!.*\(A\+ Rank\))")
-                    for _ in range(20):
+                
+                # Don't put starting chapter in the item pool
+                if item.name == f"Chapter {starting_chpt} Key":
+                    continue
+                
+                # Don't put victory in the item pool
+                if item.name == "Victory":
+                    continue
+                
+                # Don't put Chapter 7 LW/DW Level Keys or Bandage Girl 
+                # or Chapter 7 A+ Ranks in the pool if Chapter 7 levels are not enabled
+                if (
+                    not self.options.chapter_seven.value and 
+                    "Chapter 7" in data.category
+                ):
+                    continue
+                
+                # If dark world levels are off, don't put A+ Ranks from the item pool
+                if (
+                    not self.options.dark_world.value and
+                    "A+ Rank" in data.category
+                ):
+                    continue
+                
+                # If our goal is to complete LW Chapter 7, put Chapter 7 LW Level Keys on LW Chapter 7 levels
+                # If our goal is not to complete LW Chapter 7, change Chapter 7 LW Level Keys to filler
+                if item.name == "Chapter 7 LW Level Key":
+                    if self.options.goal == "light_world_chapter7":
+                        # all patterns that are 7-<num> Level Name (excludes A+ Ranks)
+                        pattern = re.compile(rf"^7-\d+\b(?!X).*?(?<!\(A\+ Rank\))$")
                         location = next(l for l in self.multiworld.get_unfilled_locations(self.player) if pattern.match(l.name))
                         location.place_locked_item(item)
+
+                        continue
+                    else:
+                        item.classification = ItemClassification.filler
+
+
+                # If our goal is to complete DW Chapter 7, put Chapter 7 DW Level Keys on DW Chapter 7 levels
+                # If our goal is not to complete DW Chapter 7, don't put Chapter 7 DW Level Keys in the pool
+                if item.name == "Chapter 7 DW Level Key":
+                    if self.options.goal == "dark_world_chapter7":
+                        # all patterns that are 7-<num>X Level Name (excludes A+ Ranks)
+                        pattern = re.compile(rf"^7-\d+X\b(?!.*\(A\+ Rank\))")
+                        location = next(l for l in self.multiworld.get_unfilled_locations(self.player) if pattern.match(l.name))
+                        location.place_locked_item(item)
+
+                    continue
                 
-                continue
-            
-            
-            item_pool.append(item)
-            
+                
+                item_pool.append(item)
+        
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))
         locations_left = total_locations - len(item_pool)
 
@@ -152,13 +156,17 @@ class SMBWorld(World):
         bandage_count = int(locations_left * bandage_ratio)
         filler_count = locations_left - bandage_count
         
-        item_pool.extend(self.create_misc_item("Bandage", ItemClassification.useful) for _ in range(bandage_count))
-        item_pool.extend(self.create_misc_item("Degraded Bandage", ItemClassification.filler) for _ in range(filler_count)) # Degraded bandages do nothing
+        print(f"Total Locations: {total_locations}")
+        print(f"Item pool size before extra: {len(item_pool)}")
+        
+        item_pool.extend(self.create_item("Bandage", ItemClassification.useful) for _ in range(bandage_count))
+        item_pool.extend(self.create_item("Degraded Bandage", ItemClassification.filler) for _ in range(filler_count)) # Degraded bandages do nothing
         
         self.multiworld.itempool += item_pool
         
+        
     def create_regions(self):
-        return create_regions(self)
+        return create_regions(self.multiworld, self.options, self.player)
     
     def set_rules(self):
-        return set_rules(self, self.player)
+        return set_rules(self.multiworld, self.options, self.player)
