@@ -812,7 +812,7 @@
         "requires": "{boss_req(1)}"
     },
     {
-        "name": "-1 |>'-'z|>",
+        "name": "-1 |>'-'|>",
         "category": [
             "LW Chapter 1"
         ],

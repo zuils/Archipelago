@@ -34,7 +34,7 @@ def create_region(world: MultiWorld, player: int, reg_name: str, reg_data: SMBRe
 
     return region
 
-def connect_regions(world: MultiWorld, source: str, target: List[str], player, rule = None) -> None:
+def connect_regions(world: MultiWorld, source: str, target: str, player, rule = None) -> None:
     source_region = world.get_region(source, player)
     target_region = world.get_region(target, player)
     source_region.connect(target_region, rule=rule)

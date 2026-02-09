@@ -69,6 +69,7 @@ Output Logs/
 /.0.6.0
 /fuzz_output
 fuzz.py
+meta.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

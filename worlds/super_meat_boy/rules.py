@@ -304,7 +304,7 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
 
     connect_regions(world, "Menu", "Initial", player)
     for i in range(1, 6):
-        connect_regions(world, "Menu", f"Chapter {i}", player, lambda state: state.has(f"Chapter {i} Key", player))
+        connect_regions(world, "Menu", f"Chapter {i}", player, lambda state, i=i: state.has(f"Chapter {i} Key", player))
 
     connect_regions(world, "Menu", "Chapter 6", player, lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
     if options.chapter_seven:
