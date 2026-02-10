@@ -47,6 +47,7 @@ EnemizerCLI/
 /sni-*/
 /appimagetool*
 /host.yaml
+/meta.yaml
 /options.yaml
 /config.yaml
 /logs/
@@ -69,7 +70,6 @@ Output Logs/
 /.0.6.0
 /fuzz_output
 fuzz.py
-meta.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
