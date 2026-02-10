@@ -327,15 +327,21 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
             connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
                 state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))
 
-
+    # First 4 bosses
     boss_tokens_amount = 4
-    if options.goal in ("light_world", "bandages") or options.chapter_six.value:
+    
+    # Larries
+    if options.chapter_six.value:
         boss_tokens_amount += 1
     
-    if options.goal in ("dark_world", "bandages"):
+    # LW Dr. Fetus
+    if options.goal == "dark_world" or (
+        options.chapter_six.value and options.goal != "light_world"):
         boss_tokens_amount += 1
-        
-    if options.dark_world.value and options.goal in ("light_world_chapter7", "dark_world_chapter7", "bandages"):
+    
+    # DW Dr. Fetus
+    if options.dark_world.value and options.chapter_six.value and \
+        options.goal in ("light_world_chapter7", "dark_world_chapter7", "bandages"):
         boss_tokens_amount += 1
     
     if options.goal == "bandages":

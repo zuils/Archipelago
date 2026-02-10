@@ -133,9 +133,9 @@ class StartingChar(Choice):
 
     display_name = "Starting Character"
     option_meat_boy = 0
-    option_8_bit_meat_boy = 1
-    option_4_bit_meat_boy = 2
-    option_4_color_meat_boy = 3
+    option_8bit_meat_boy = 1
+    option_4bit_meat_boy = 2
+    option_4color_meat_boy = 3
     option_commander_video = 4
     option_jill = 5
     option_ogmo = 6

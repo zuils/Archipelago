@@ -91,9 +91,9 @@ class SMBWorld(World):
         starting_chpt = self.options.starting_chpt.value
         starting_characters = [
             "Meat Boy",
-            "8Bit Meat Boy",
-            "4Bit Meat Boy",
-            "4Color Meat Boy",
+            "8-Bit Meat Boy",
+            "4-Bit Meat Boy",
+            "4-Color Meat Boy",
             "Commander Video",
             "Jill",
             "Ogmo",
@@ -105,8 +105,6 @@ class SMBWorld(World):
             "Steve",
             "Meat Ninja"
         ]
-        
-        # noticed during testing that items can't have hyphens
         
         if starting_chpt == 7:
             char = "Bandage Girl"
@@ -172,7 +170,7 @@ class SMBWorld(World):
                 count = 100
                 
             # Cap bandages if dark world levels are disabled
-            if self.options.goal == "bandages" and not self.options.dark_world.value and name == "Bandages":
+            if self.options.goal == "bandages" and not self.options.dark_world.value and name == "Bandage":
                 count = 52
                 
             for _ in range(count):
