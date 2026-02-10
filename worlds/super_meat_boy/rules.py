@@ -1,5 +1,6 @@
 from BaseClasses import CollectionState, MultiWorld
 from typing import Any, Union, Dict, List, TYPE_CHECKING
+from .items import item_name_groups
 from .locations import location_table
 from .options import SMBOptions
 from .regions import connect_regions
@@ -146,7 +147,19 @@ def evaluate_requirement(world: MultiWorld, options: SMBOptions, state: Collecti
 
     # Category requirement
     if isinstance(node, dict) and "category" in node:
-        return state.has_group(node["category"], player, node.get("count", 1))
+        category = node["category"]
+        needed = node.get("count", 1)
+        
+        item_names = item_name_groups.get(category, [])
+        
+        # Count how many items from this group the player has
+        total = 0
+        for item in item_names:
+            total += state.count(item, player)
+            if total >= needed:
+                return True
+            
+        return False
 
     # Function requirement
     if isinstance(node, dict) and "function" in node:
@@ -170,39 +183,34 @@ def parse_requirement(world: MultiWorld, options: SMBOptions, state: CollectionS
 
 
 def boss_req(options: SMBOptions, state: CollectionState, player: int, chpt: int) -> bool:
-    return state.has(f"Chapter {chpt} LW Boss Key", player, options.boss_req.value) and state.has("Meat Boy", player)
+    return state.has(f"Chapter {chpt} Boss Key", player, options.boss_req.value) and state.has("Meat Boy", player)
 
 
 def speedrun_req(options: SMBOptions, state: CollectionState, player: int, chpt: int) -> bool:
     return state.has_all([f"{chpt}-{i} A+ Rank" for i in range(1, 21 if chpt != 6 else 6)], player)
 
 
-def lw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    has_boss_keys = state.has("Chapter 6 LW Boss Key", player, options.lw_dr_fetus_req)
-    if options.goal == "light_world":
-        return state.has_all([f"Chapter {i} Key" for i in range(1, 7)], player) and has_boss_keys
+def larries(options: SMBOptions, state: CollectionState, player: int) -> bool:
+    return boss_req(options, state, player, 5) and (
+        not options.boss_tokens.value
+        or options.goal != "larries"
+        or state.has("Boss Token", player, 4)
+    )
 
-    return has_boss_keys
+
+def lw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
+    return state.has("Chapter 5 Boss Key", player, options.lw_dr_fetus_req.value) and (
+        not options.boss_tokens.value
+        or options.goal != "light_world"
+        or state.has("Boss Token", player, 5)
+    )
 
 
 def dw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    has_boss_keys = state.has("DW Dr. Fetus Key", player, options.dw_dr_fetus_req)
-    if options.goal == "dark_world":
-        return state.has_all([f"Chapter {i} Key" for i in range(1, 7)], player) and has_boss_keys
-    
-    return has_boss_keys
-
-
-def prog_character(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    return (
-        (state.has("Josef", player) and state.has("Bandage", player, 30))
-        or (state.has("Naija", player) and state.has("Bandage", player, 50))
-        or (state.has("Steve", player) and state.has("Bandage", player, 100))
-        or state.has("Commander Video", player)
-        or state.has("Jill", player)
-        or state.has("Ogmo", player)
-        or state.has("Flywrench", player)
-        or state.has("The Kid", player)
+    return state.has("DW Dr. Fetus Key", player, options.dw_dr_fetus_req.value) and (
+        not options.boss_tokens.value
+        or options.goal != "dark_world"
+        or state.has("Boss Token", player, 6)
     )
 
 
@@ -284,16 +292,20 @@ FUNCTION_TABLE = {
     "speedrun_req": lambda options, state, player, chpt: speedrun_req(
         options, state, player, chpt
     ),
+    "larries": lambda options, state, player: larries(options, state, player),
     "lw_drfetus": lambda options, state, player: lw_drfetus(options, state, player),
     "dw_drfetus": lambda options, state, player: dw_drfetus(options, state, player),
-    "prog_character": lambda options, state, player: prog_character(options, state, player),
-    "bandages": lambda options, state, player, req: bandages(options, state, player, req),
+    "bandages": lambda options, state, player, req: bandages(options, state, player, req)
 }
 
 
 def set_rules(world: MultiWorld, options: SMBOptions, player: int):
     for name, data in location_table.items():
         if not is_location_enabled(options, data):
+            continue
+        
+        # Post goal location
+        if options.goal == "larries" and name == "-5 |'-'|>":
             continue
 
         req = data.requirement
@@ -308,14 +320,35 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
 
     connect_regions(world, "Menu", "Chapter 6", player, lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
     if options.chapter_seven:
-        connect_regions(world, "Menu", "Chapter 7", player, lambda state: state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))
+        if options.goal in ("light_world_chapter7", "dark_world_chapter7"):
+            connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
+                state.has_group("Chapter Keys", player, 7) and state.has("Bandage Girl", player))
+        else:
+            connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
+                state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))
 
-    if options.goal == "light_world_chapter7":
-        world.completion_condition[player] = \
-            lambda state: state.has("Chapter 7 LW Level Key", player, 20)
+
+    boss_tokens_amount = 4
+    if options.goal in ("light_world", "bandages") or options.chapter_six.value:
+        boss_tokens_amount += 1
+    
+    if options.goal in ("dark_world", "bandages"):
+        boss_tokens_amount += 1
+        
+    if options.dark_world.value and options.goal in ("light_world_chapter7", "dark_world_chapter7", "bandages"):
+        boss_tokens_amount += 1
+    
+    if options.goal == "bandages":
+        world.completion_condition[player] = lambda state: state.has("Bandage", player, options.bandages_amount.value) and (
+            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
+        )
+    elif options.goal == "light_world_chapter7":
+        world.completion_condition[player] = lambda state: state.has("Chapter 7 LW Level Key", player, 20) and (
+            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
+        )
     elif options.goal == "dark_world_chapter7":
-        world.completion_condition[player] = \
-            lambda state: state.has("Chapter 7 DW Level Key", player, 20)
+        world.completion_condition[player] = lambda state: state.has("Chapter 7 DW Level Key", player, 20) and (
+            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
+        )
     else:
-        world.completion_condition[player] = \
-            lambda state: state.has("Victory", player)
+        world.completion_condition[player] = lambda state: state.has("Victory", player)

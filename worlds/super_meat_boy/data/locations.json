@@ -2176,7 +2176,7 @@
             "Bandage"
         ],
         "region": "Chapter 3",
-        "requires": "{prog_character()}"
+        "requires": "|@ProgCharacters|"
     },
     {
         "name": "3-5WZ Cartridge Dump",
@@ -2242,7 +2242,7 @@
             "LW Chapter 3"
         ],
         "region": "Chapter 3",
-        "requires": "{prog_character()}"
+        "requires": "|@ProgCharacters|"
     },
     {
         "name": "3-7WZ Tunnel Vision (Bandage 1)",
@@ -2251,7 +2251,7 @@
             "Bandage"
         ],
         "region": "Chapter 3",
-        "requires": "{prog_character()}"
+        "requires": "|@ProgCharacters|"
     },
     {
         "name": "3-7WZ Tunnel Vision (Bandage 2)",
@@ -2260,7 +2260,7 @@
             "Bandage"
         ],
         "region": "Chapter 3",
-        "requires": "{prog_character()}"
+        "requires": "|@ProgCharacters|"
     },
     {
         "name": "3-7 Mind the Gap",
@@ -2839,7 +2839,7 @@
             "Bandage"
         ],
         "region": "Chapter 3",
-        "requires": "|3-14 A+ Rank| and {prog_character()}"
+        "requires": "|3-14 A+ Rank| and |@ProgCharacters|"
     },
     {
         "name": "3-15X Vertebreaker",
@@ -3509,7 +3509,7 @@
             "DW Chapter 4"
         ],
         "region": "Chapter 4",
-        "requires": "|4-7 A+ Rank| and {prog_character()}"
+        "requires": "|4-7 A+ Rank| and |@ProgCharacters|"
     },
     {
         "name": "4-7XWZ MMMMMM (Bandage 1)",
@@ -3518,7 +3518,7 @@
             "Bandage"
         ],
         "region": "Chapter 4",
-        "requires": "|4-7 A+ Rank| and {prog_character()}"
+        "requires": "|4-7 A+ Rank| and |@ProgCharacters|"
     },
     {
         "name": "4-7XWZ MMMMMM (Bandage 2)",
@@ -3527,7 +3527,7 @@
             "Bandage"
         ],
         "region": "Chapter 4",
-        "requires": "|4-7 A+ Rank| and {prog_character()}"
+        "requires": "|4-7 A+ Rank| and |@ProgCharacters|"
     },
     {
         "name": "4-7X Thistle",
@@ -3609,7 +3609,7 @@
             "Bandage"
         ],
         "region": "Chapter 4",
-        "requires": "|4-10 A+ Rank| and {prog_character()}"
+        "requires": "|4-10 A+ Rank| and |@ProgCharacters|"
     },
     {
         "name": "4-11X Surrender",
@@ -4222,7 +4222,7 @@
             "LW Chapter 5"
         ],
         "region": "Chapter 5",
-        "requires": "{boss_req(5)}"
+        "requires": "{larries()}"
     },
     {
         "name": "-5 |'-'|>",

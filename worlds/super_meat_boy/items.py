@@ -1,5 +1,5 @@
-from typing import List, Dict, NamedTuple, TYPE_CHECKING
 from BaseClasses import Item, ItemClassification
+from typing import List, Dict, NamedTuple, TYPE_CHECKING
 from .utils import load_json_data
 
 if TYPE_CHECKING:

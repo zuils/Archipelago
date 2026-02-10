@@ -29,6 +29,9 @@ def is_location_enabled(options: SMBOptions, loc_data: "SMBLocationData") -> boo
     if "Achievements (Speedrun)" in loc_data.category and not options.speedrun_achievements.value:
         return False
     
+    if "Chapter 6" in loc_data.region and not options.chapter_six.value:
+        return False
+    
     if "Chapter 7" in loc_data.region and not options.chapter_seven.value:
         return False
     
