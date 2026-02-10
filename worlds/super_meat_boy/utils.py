@@ -35,7 +35,7 @@ def is_location_enabled(options: SMBOptions, loc_data: "SMBLocationData") -> boo
     if "Chapter 7" in loc_data.region and not options.chapter_seven.value:
         return False
     
-    if any(c.startswith("DW") for c in loc_data.category) and not options.dark_world.value:
+    if (any(c.startswith("DW") for c in loc_data.category) or "Dark World" in loc_data.category) and not options.dark_world.value:
         return False
 
     return True

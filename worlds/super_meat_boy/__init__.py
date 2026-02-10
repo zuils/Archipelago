@@ -47,6 +47,10 @@ class SMBWorld(World):
         if not self.options.chapter_six.value:
             self.options.chapter_seven.value = 0
             
+        # Likewise do the opposite
+        if self.options.chapter_seven.value:
+            self.options.chapter_six.value = 1
+            
         # Force dark world levels enabled if our goal is in dark world
         if self.options.goal in ("dark_world", "dark_world_chapter7"):
             self.options.dark_world.value = 1
@@ -60,6 +64,10 @@ class SMBWorld(World):
             self.options.dw_dr_fetus_req.value = min(self.options.dw_dr_fetus_req.value, 100)
         elif not self.options.chapter_seven.value:
             self.options.dw_dr_fetus_req.value = min(self.options.dw_dr_fetus_req.value, 105)
+            
+        # Cap Bandages if dark world levels aren't enabled
+        if self.options.goal == "bandages" and not self.options.dark_world.value:
+            self.options.bandages_amount.value = min(self.options.dark_world.value, 52)
 
         # If starting chapter is 7 but our goal is to complete all of lw/dw chapter 7
         # or chapter 7 levels aren't enabled, select a random chapter
@@ -83,9 +91,9 @@ class SMBWorld(World):
         starting_chpt = self.options.starting_chpt.value
         starting_characters = [
             "Meat Boy",
-            "8-Bit Meat Boy",
-            "4-Bit Meat Boy",
-            "4-Color Meat Boy",
+            "8Bit Meat Boy",
+            "4Bit Meat Boy",
+            "4Color Meat Boy",
             "Commander Video",
             "Jill",
             "Ogmo",
@@ -97,6 +105,8 @@ class SMBWorld(World):
             "Steve",
             "Meat Ninja"
         ]
+        
+        # noticed during testing that items can't have hyphens
         
         if starting_chpt == 7:
             char = "Bandage Girl"
@@ -141,13 +151,11 @@ class SMBWorld(World):
             if self.options.goal != "larries":
                 bosses.append("5-Boss Larries Lament")
             
-            print(self.options.chapter_six.value)
-            
             if self.options.chapter_six.value:
                 if self.options.goal != "light_world":
                     bosses.append("6-Boss LW Dr. Fetus")
 
-                if self.options.goal != "dark_world":
+                if self.options.goal != "dark_world" and self.options.dark_world.value:
                     bosses.append("6-Boss DW Dr. Fetus")
                 
             for boss in bosses:
@@ -162,6 +170,10 @@ class SMBWorld(World):
             # If chapter 6 is disabled, change DW Dr. Fetus Key count
             if not self.options.chapter_six.value and name == "DW Dr. Fetus Key":
                 count = 100
+                
+            # Cap bandages if dark world levels are disabled
+            if self.options.goal == "bandages" and not self.options.dark_world.value and name == "Bandages":
+                count = 52
                 
             for _ in range(count):
                 item = self.create_item(name)
@@ -219,24 +231,19 @@ class SMBWorld(World):
                         pattern = re.compile(rf"^7-\d+X\b(?!.*\(A\+ Rank\))")
                         location = next(l for l in self.multiworld.get_unfilled_locations(self.player) if pattern.match(l.name))
                         location.place_locked_item(item)
-
-                    continue
-                
+                    
+                    continue                
                 
                 item_pool.append(item)
-        
-        total_locations = len(self.multiworld.get_unfilled_locations(self.player))
-        locations_left = total_locations - len(item_pool)
 
+        locations_left = len(self.multiworld.get_unfilled_locations(self.player)) - len(item_pool)
         bandage_ratio = self.options.bandage_fill.value / 100
         bandage_count = int(locations_left * bandage_ratio)
         filler_count = locations_left - bandage_count
         
-        print(f"Total Locations: {total_locations}")
-        print(f"Item pool size before extra: {len(item_pool)}")
-        
         item_pool.extend(self.create_item("Bandage", ItemClassification.useful) for _ in range(bandage_count))
-        item_pool.extend(self.create_item("Degraded Bandage" if self.options.goal == "bandages" else "Bandage", ItemClassification.filler) for _ in range(filler_count)) # Filler item does nothing
+        item_pool.extend(self.create_item("Degraded Bandage" if self.options.goal == "bandages" else "Bandage", 
+                                        ItemClassification.filler) for _ in range(filler_count)) # Filler item does nothing
         
         self.multiworld.itempool += item_pool
         

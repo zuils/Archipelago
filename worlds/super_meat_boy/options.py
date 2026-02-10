@@ -60,7 +60,8 @@ class DWDrFetusReq(Range):
 class BandagesAmount(Range):
     """
     If your goal is bandages, how many are required to goal
-    There are 100 in the pool
+    If there are dark world levels, there are 100 in the pool
+    If there are no dark world levels, there are 52 in the pool
     """
     display_name = "Bandages Amount"
     range_start = 1

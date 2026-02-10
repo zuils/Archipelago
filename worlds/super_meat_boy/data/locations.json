@@ -14,13 +14,15 @@
     {
         "name": "Old School (Complete 10 retro warp zones)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Dark World"
         ]
     },
     {
         "name": "Retro Rampage (Complete all retro warp zones)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Dark World"
         ]
     },
     {
@@ -39,7 +41,8 @@
     {
         "name": "The Real End (Beat Chapter 6 Dark World)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Dark World"
         ],
         "region": "Chapter 6"
     },
@@ -53,7 +56,8 @@
     {
         "name": "Seneca Falls (Beat Chapter 7 Dark World)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Dark World"
         ],
         "region": "Chapter 7",
         "requires": "{speedrun_req(7)}"
@@ -100,7 +104,8 @@
         "name": "MS PAINT RULZ! (Collect 70 Bandages)",
         "category": [
             "Achievements",
-            "Bandage"
+            "Bandage",
+            "Dark World"
         ],
         "requires": "{bandages(70)}"
     },
@@ -108,7 +113,8 @@
         "name": "Vx6 (Collect 90 Bandages)",
         "category": [
             "Achievements",
-            "Bandage"
+            "Bandage",
+            "Dark World"
         ],
         "requires": "{bandages(90)}"
     },
@@ -116,14 +122,16 @@
         "name": "Accidental Arsonist (Collect 100 Bandages)",
         "category": [
             "Achievements",
-            "Bandage"
+            "Bandage",
+            "Dark World"
         ],
         "requires": "{bandages(100)}"
     },
     {
         "name": "Rare (Speedrun The Forest in 265 Seconds)",
         "category": [
-            "Achievements (Speedrun)"
+            "Achievements (Speedrun)",
+            "Dark World"
         ],
         "region": "Chapter 1",
         "requires": "{speedrun_req(1)}"
@@ -131,7 +139,8 @@
     {
         "name": "Medium Rare (Speedrun The Hospital in 460 seconds)",
         "category": [
-            "Achievements (Speedrun)"
+            "Achievements (Speedrun)",
+            "Dark World"
         ],
         "region": "Chapter 2",
         "requires": "{speedrun_req(2)}"
@@ -139,7 +148,8 @@
     {
         "name": "Medium (Speedrun The Salt Factory in 515 seconds)",
         "category": [
-            "Achievements (Speedrun)"
+            "Achievements (Speedrun)",
+            "Dark World"
         ],
         "region": "Chapter 3",
         "requires": "{speedrun_req(3)}"
@@ -147,7 +157,8 @@
     {
         "name": "Medium Well (Speedrun Hell in 500 seconds)",
         "category": [
-            "Achievements (Speedrun)"
+            "Achievements (Speedrun)",
+            "Dark World"
         ],
         "region": "Chapter 4",
         "requires": "{speedrun_req(4)}"
@@ -155,7 +166,8 @@
     {
         "name": "Well Done (Speedrun The Rapture in 690 seconds)",
         "category": [
-            "Achievements (Speedrun)"
+            "Achievements (Speedrun)",
+            "Dark World"
         ],
         "region": "Chapter 5",
         "requires": "{speedrun_req(5)}"
@@ -212,7 +224,8 @@
     {
         "name": "Squirrel Boy (Complete The Forest Dark World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Dark World"
         ],
         "region": "Chapter 1",
         "requires": "{speedrun_req(1)}"
@@ -220,7 +233,8 @@
     {
         "name": "Blood Clot Boy (Complete The Hospital Dark World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Dark World"
         ],
         "region": "Chapter 2",
         "requires": "{speedrun_req(2)}"
@@ -228,7 +242,8 @@
     {
         "name": "Missile Boy (Complete The Salt Factory Dark World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Dark World"
         ],
         "region": "Chapter 3",
         "requires": "{speedrun_req(3)}"
@@ -236,7 +251,8 @@
     {
         "name": "Demon Boy (Complete Hell Dark World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Dark World"
         ],
         "region": "Chapter 4",
         "requires": "{speedrun_req(4)}"
@@ -244,7 +260,8 @@
     {
         "name": "Zombie Boy (Complete The Rapture Dark World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Dark World"
         ],
         "region": "Chapter 5",
         "requires": "{speedrun_req(5)}"
@@ -252,7 +269,8 @@
     {
         "name": "Dr. Fetus Boy (Complete The End Dark World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Dark World"
         ],
         "region": "Chapter 6",
         "requires": "{speedrun_req(6)}"
@@ -260,7 +278,8 @@
     {
         "name": "Impossible Boy (Complete The Cotton Alley Dark World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Dark World"
         ],
         "region": "Chapter 7",
         "requires": "{speedrun_req(7)}"

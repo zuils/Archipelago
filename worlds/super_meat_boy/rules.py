@@ -229,7 +229,7 @@ def bandages(options: SMBOptions, state: CollectionState, player: int, req: int)
                 + state.has("1-17 A+ Rank", player)
                 + state.has("1-19 A+ Rank", player)
             )
-    if state.has("Chapter 2 Keys", player):
+    if state.has("Chapter 2 Key", player):
         counter += 11
         if options.dark_world.value:
             counter += (
@@ -322,7 +322,7 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
     if options.chapter_seven:
         if options.goal in ("light_world_chapter7", "dark_world_chapter7"):
             connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
-                state.has_group("Chapter Keys", player, 7) and state.has("Bandage Girl", player))
+                state.has_all([f"Chapter {i} Key" for i in range(1, 8)], player) and state.has("Bandage Girl", player))
         else:
             connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
                 state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))
