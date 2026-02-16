@@ -42,14 +42,6 @@ class SMBWorld(World):
         # Force chapter 6 levels if our goal is either lw/dw dr. fetus or in chapter 7
         elif self.options.goal not in ("larries", "bandages"):
             self.options.chapter_six.value = 1
-        
-        # Force chapter 7 levels to be disabled if we don't have chapter 7 levels enabled
-        if not self.options.chapter_six.value:
-            self.options.chapter_seven.value = 0
-            
-        # Likewise do the opposite
-        if self.options.chapter_seven.value:
-            self.options.chapter_six.value = 1
             
         # Force dark world levels enabled if our goal is in dark world
         if self.options.goal in ("dark_world", "dark_world_chapter7"):
@@ -59,10 +51,8 @@ class SMBWorld(World):
         if self.options.goal != "bandages":
             self.options.bandage_fill.value = 0
             
-        # Cap DW Dr. Fetus Keys Amount if we don't have chapter 6/7 levels enabled
-        if not self.options.chapter_six.value:
-            self.options.dw_dr_fetus_req.value = min(self.options.dw_dr_fetus_req.value, 100)
-        elif not self.options.chapter_seven.value:
+        # Cap DW Dr. Fetus Keys Amount if we don't have chapter 7 levels enabled
+        if not self.options.chapter_seven.value:
             self.options.dw_dr_fetus_req.value = min(self.options.dw_dr_fetus_req.value, 105)
             
         # Cap Bandages if dark world levels aren't enabled
@@ -113,21 +103,8 @@ class SMBWorld(World):
         else:
             char = starting_characters[self.options.starting_char.value]
             
-        self.multiworld.push_precollected(self.create_item(char))
+        self.multiworld.push_precollected(self.create_item(char, ItemClassification.progression))
         self.multiworld.push_precollected(self.create_item(f"Chapter {starting_chpt} Key"))
-        
-        if self.options.debug.value:
-            highest = 5
-            
-            if self.options.chapter_six.value:
-                highest += 1
-            
-            if self.options.chapter_seven.value:
-                highest += 1
-                
-            for i in range(1, highest + 1):
-                for j in range(1, 21 if i != 6 else 6):
-                    self.multiworld.push_precollected(self.create_item(f"{i}-{j} A+ Rank"))
         
         # Put victory on boss depending on our goal
         if self.options.goal == "larries":
@@ -165,10 +142,6 @@ class SMBWorld(World):
             if not self.options.chapter_seven.value and name == "DW Dr. Fetus Key":
                 count = 105
             
-            # If chapter 6 is disabled, change DW Dr. Fetus Key count
-            if not self.options.chapter_six.value and name == "DW Dr. Fetus Key":
-                count = 100
-                
             # Cap bandages if dark world levels are disabled
             if self.options.goal == "bandages" and not self.options.dark_world.value and name == "Bandage":
                 count = 52
@@ -202,9 +175,6 @@ class SMBWorld(World):
                 # If dark world levels are off, don't put A+ Ranks or DW Dr. Fetus Key in the item pool
                 if not self.options.dark_world.value and (
                     "A+ Rank" in data.category or name == "DW Dr. Fetus Key"):
-                    continue
-                
-                if self.options.debug.value and "A+ Rank" in data.category:
                     continue
                 
                 # If our goal is to complete LW Chapter 7, put Chapter 7 LW Level Keys on LW Chapter 7 levels

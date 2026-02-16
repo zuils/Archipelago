@@ -331,17 +331,15 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
     boss_tokens_amount = 4
     
     # Larries
-    if options.chapter_six.value:
+    if options.goal != "larries":
         boss_tokens_amount += 1
     
     # LW Dr. Fetus
-    if options.goal == "dark_world" or (
-        options.chapter_six.value and options.goal != "light_world"):
+    if options.chapter_six.value and options.goal != "light_world":
         boss_tokens_amount += 1
     
     # DW Dr. Fetus
-    if options.dark_world.value and options.chapter_six.value and \
-        options.goal in ("light_world_chapter7", "dark_world_chapter7", "bandages"):
+    if options.dark_world.value and options.chapter_six.value and options.goal != "dark_world":
         boss_tokens_amount += 1
     
     if options.goal == "bandages":
@@ -357,4 +355,6 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
             not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
         )
     else:
-        world.completion_condition[player] = lambda state: state.has("Victory", player)
+        world.completion_condition[player] = lambda state: state.has("Victory", player) and (
+            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
+        )

@@ -205,12 +205,6 @@ class DeathLinkAmnesty(Range):
     default = 10
 
 
-class Debug(Toggle):
-    """
-    Gives you every A+ Rank at the start
-    """
-
-
 @dataclass
 class SMBOptions(PerGameCommonOptions):
     goal: Goal
@@ -232,4 +226,3 @@ class SMBOptions(PerGameCommonOptions):
     bandage_fill: BandageFill
     # death_link: DeathLink
     # death_link_amnesty: DeathLinkAmnesty
-    debug: Debug
