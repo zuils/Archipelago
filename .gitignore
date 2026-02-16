@@ -70,6 +70,7 @@ Output Logs/
 /.0.6.0
 /fuzz_output
 fuzz.py
+/hooks
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
