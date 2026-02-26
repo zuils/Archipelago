@@ -16,7 +16,7 @@ Stop! Hammer Time!;                 Achievement | Early;
 Matching Attire;                    Achievement | Early;
 Fashion Statement;                  Achievement | Early;
 Ooo! Shiny!;                        Achievement | Early;
-No Hobo;                            Achievement | Early; // When NPC shuffling is added, this shouldn't be considered early
+No Hobo;                            Achievement;                                @npc(1);
 Merchant;                           Npc;
 Bug Net;                            ;                                           @calamity | Merchant;
 Heavy Metal;                        Achievement | Early;
