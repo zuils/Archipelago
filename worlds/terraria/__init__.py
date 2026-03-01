@@ -48,7 +48,6 @@ class TerrariaWorld(World):
     Terraria is a 2D multiplayer sandbox game featuring mining, building, exploration, and combat.
     Features 18 bosses and 4 classes.
     """
-
     game = "Terraria"
     web = TerrariaWeb()
     options_dataclass = TerrariaOptions
@@ -68,6 +67,8 @@ class TerrariaWorld(World):
     ter_goals: Dict[str, str]
     goal_items: Set[str]
     goal_locations: Set[str]
+
+    required_client_version = (0, 6, 61)
 
     def generate_early(self) -> None:
         goal, goal_locations = goals[self.options.goal.value]
