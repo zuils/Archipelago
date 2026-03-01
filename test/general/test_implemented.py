@@ -37,14 +37,17 @@ class TestImplemented(unittest.TestCase):
 
     def test_slot_data(self):
         """Tests that if a world creates slot data, it's json serializable."""
-        for game_name, world_type in AutoWorldRegister.world_types.items():
-            # has an await for generate_output which isn't being called
-            if game_name in {"Ocarina of Time"}:
-                continue
+        # has an await for generate_output which isn't being called
+        excluded_games = ("Ocarina of Time",)
+        worlds_to_test = {game: world
+                          for game, world in AutoWorldRegister.world_types.items() if game not in excluded_games}
+        for game_name, world_type in worlds_to_test.items():
             multiworld = setup_solo_multiworld(world_type)
             with self.subTest(game=game_name, seed=multiworld.seed):
                 distribute_items_restrictive(multiworld)
                 call_all(multiworld, "post_fill")
+                call_all(multiworld, "finalize_multiworld")
+                call_all(multiworld, "pre_output")
                 for key, data in multiworld.worlds[1].fill_slot_data().items():
                     self.assertIsInstance(key, str, "keys in slot data must be a string")
                     convert_to_base_types(data)  # only put base data types into slot data
@@ -92,6 +95,7 @@ class TestImplemented(unittest.TestCase):
             with self.subTest(game=game_name, seed=multiworld.seed):
                 distribute_items_restrictive(multiworld)
                 call_all(multiworld, "post_fill")
+                call_all(multiworld, "finalize_multiworld")
 
                 # Note: `multiworld.get_spheres()` iterates a set of locations, so the order that locations are checked
                 # is nondeterministic and may vary between runs with the same seed.
