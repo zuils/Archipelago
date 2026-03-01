@@ -19,6 +19,9 @@ class Goal(Choice):
     The victory condition for your run. Stuff after the goal will not be shuffled.
     Primordial Wyrm and Boss Rush are accessible relatively early, so consider "Items" or
     "Locations" accessibility to avoid getting stuck on the goal.
+
+    FOR THE BETA: Note that the Wall of Flesh goal is intended to be played with NPC Rando on.
+    Otherwise, the generated game will be immediately goal-able.
     """
 
     display_name = "Goal"

@@ -75,6 +75,10 @@ class TerrariaWorld(World):
         ter_goals = {}
         goal_items = set()
         for location in goal_locations:
+            if location == "Wall of Flesh" and not self.options.randomize_npcs.value:
+                logging.warning(
+                    f"Terraria goal 'Wall of Flesh' was enabled was selected with NPC Randomization disabled. The resulting game will be goalable from Sphere 1."
+                )
             flags = rules[rule_indices[location]].flags
             if not self.options.calamity.value and "Calamity" in flags:
                 logging.warning(
