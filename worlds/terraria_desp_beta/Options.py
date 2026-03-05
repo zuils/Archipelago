@@ -50,7 +50,7 @@ class RandomizeNPCs(Toggle):
     Randomizes all vanilla NPCs, putting them into the item pool. Fulfilling a certain NPC's recruit criteria rewards a check.
     """
     display_name = "Randomize NPCs"
-    default = False
+    default = True
 
 
 class EarlyAchievements(DefaultOnToggle):
