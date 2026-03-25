@@ -1,5 +1,6 @@
 from Options import Choice, Range, Toggle, DefaultOnToggle, DeathLink, PerGameCommonOptions
 from dataclasses import dataclass
+from worlds.AutoWorld import World
 
 
 class Goal(Choice):
@@ -99,7 +100,6 @@ class ChapterSix(DefaultOnToggle):
     """
     Enables Chapter 6 levels
     This setting will be always on if your goal is NOT to beat larries or bandages
-    Chapter 7 levels will automatically be disabled if this is off
     """
     display_name = "Enable Chapter 6 Levels"
 
@@ -126,7 +126,7 @@ class StartingChpt(Range):
 
 class StartingChar(Choice):
     """
-    Choose Starting Chapter
+    Choose Starting Character
     If you start in Chapter 6, your character will be Meat Boy
     If you start in Chapter 7, your character will be Bandage Girl
     """
@@ -177,6 +177,7 @@ class SpeedrunAchievements(Toggle):
 class Xmas(Toggle):
     """
     Puts all the xmas levels into the pool
+    DO NOT ENABLE THIS SETTING IT IS NOT IMPLEMENTED
     """
 
     display_name = "Xmas"
@@ -196,7 +197,7 @@ class BandageFill(Range):
 class DeathLinkAmnesty(Range):
     """
     How many death links should it take to send a DeathLink
-    NOT YET IMPLEMENTED
+    DEATHLINK IS NOT YET IMPLEMENTED
     """
 
     display_name = "Death Link Amnesty"
@@ -204,6 +205,33 @@ class DeathLinkAmnesty(Range):
     range_end = 20
     default = 10
 
+
+def resolve_options(world: World):
+    # Force chapter 7 levels to be on if our goal is in chapter 7 or if our starting chapter is 7
+    if world.options.goal in ("light_world_chapter7", "dark_world_chapter7") or world.options.starting_chpt.value == 7:
+        world.options.chapter_seven.value = 1
+    # Force chapter 6 levels to be on if starting chapter is 6 or our goal is either light world or dark world
+    if world.options.starting_chpt.value == 6 or world.options.goal in ("light_world", "dark_world"):
+        world.options.chapter_six.value = 1
+        
+    # Force dark world levels enabled if our goal is in dark world
+    if world.options.goal in ("dark_world", "dark_world_chapter7"):
+        world.options.dark_world.value = 1
+        
+    # Set bandage fill to 0 if our goal isn't bandages
+    if world.options.goal != "bandages":
+        world.options.bandage_fill.value = 0
+        
+    # Cap DW Dr. Fetus Keys Amount if we don't have chapter 7 levels enabled
+    if not world.options.chapter_seven.value:
+        world.options.dw_dr_fetus_req.value = min(world.options.dw_dr_fetus_req.value, 105)
+        
+    # Cap Bandages if dark world levels aren't enabled
+    if world.options.goal == "bandages" and not world.options.dark_world.value:
+        world.options.bandages_amount.value = min(world.options.bandages_amount.value, 52)
+    # If starting chapter is 7 but our goal is to complete all of lw/dw chapter 7, select a random chapter
+    if (world.options.starting_chpt.value == 7 and world.options.goal in ("light_world_chapter7", "dark_world_chapter7")):
+        world.options.starting_chpt.value = world.multiworld.random.randint(1, 7 if world.options.chapter_six.value else 6)
 
 @dataclass
 class SMBOptions(PerGameCommonOptions):
@@ -224,5 +252,5 @@ class SMBOptions(PerGameCommonOptions):
     speedrun_achievements: SpeedrunAchievements
     xmas: Xmas
     bandage_fill: BandageFill
-    # death_link: DeathLink
-    # death_link_amnesty: DeathLinkAmnesty
+    death_link: DeathLink
+    death_link_amnesty: DeathLinkAmnesty

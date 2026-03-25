@@ -286,6 +286,31 @@ def bandages(options: SMBOptions, state: CollectionState, player: int, req: int)
 
     return counter >= req
 
+def warp_zone(options: SMBOptions, state: CollectionState, player: int, req: int) -> bool:
+    counter: int = 0
+    if state.has("Chapter 1 Key", player):
+        counter += 3
+        if options.dark_world.value:
+            counter += state.has("1-13 A+ Rank", player)
+    if state.has("Chapter 2 Key", player):
+        counter += 3
+        if options.dark_world.value:
+            counter += state.has("2-5 A+ Rank", player)
+    if state.has("Chapter 3 Key", player):
+        counter += 2
+        counter += state.can_reach_location("3-7WZ Tunnel Vision", player)
+        if options.dark_world.value:
+            counter += state.has("3-8 A+ Rank", player)
+    if state.has("Chapter 4 Key", player):
+        counter += 3
+        if options.dark_world.value:
+            counter += state.can_reach_location("4-7XWZ MMMMMM", player)
+    if state.has("Chapter 5 Key", player):
+        counter += 3
+        if options.dark_world.value:
+            counter += state.has("5-20 A+ Rank", player)
+    
+    return counter >= req
 
 FUNCTION_TABLE = {
     "boss_req": lambda options, state, player, chpt: boss_req(options, state, player, chpt),
@@ -295,7 +320,8 @@ FUNCTION_TABLE = {
     "larries": lambda options, state, player: larries(options, state, player),
     "lw_drfetus": lambda options, state, player: lw_drfetus(options, state, player),
     "dw_drfetus": lambda options, state, player: dw_drfetus(options, state, player),
-    "bandages": lambda options, state, player, req: bandages(options, state, player, req)
+    "bandages": lambda options, state, player, req: bandages(options, state, player, req),
+    "warp_zone": lambda options, state, player, req: warp_zone(options, state, player, req)
 }
 
 
@@ -319,10 +345,15 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
         connect_regions(world, "Menu", f"Chapter {i}", player, lambda state, i=i: state.has(f"Chapter {i} Key", player))
 
     connect_regions(world, "Menu", "Chapter 6", player, lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
+    
     if options.chapter_seven:
+        chpt_seven_goal = [f"Chapter {i} Key" for i in range(1, 8)]
+        if not options.chapter_six:
+            chpt_seven_goal.remove("Chapter 6 Key")
+
         if options.goal in ("light_world_chapter7", "dark_world_chapter7"):
             connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
-                state.has_all([f"Chapter {i} Key" for i in range(1, 8)], player) and state.has("Bandage Girl", player))
+                state.has_all(chpt_seven_goal, player) and state.has("Bandage Girl", player))
         else:
             connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
                 state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))

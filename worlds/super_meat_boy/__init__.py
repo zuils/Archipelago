@@ -3,7 +3,7 @@ from typing import Any, List, Optional
 from worlds.AutoWorld import WebWorld, World
 from .items import item_table, item_name_groups, SMBItem
 from .locations import location_table
-from .options import SMBOptions
+from .options import SMBOptions, resolve_options
 from .regions import create_regions
 from .rules import set_rules
 import re
@@ -34,36 +34,7 @@ class SMBWorld(World):
     location_name_to_id = {name: data.location_id for name, data in location_table.items()}
     
     def generate_early(self):
-        # Finalize options to avoid errors        
-        # Force chapter 6 and 7 levels to be on if our goal is in chapter 7
-        if self.options.goal in ("light_world_chapter7", "dark_world_chapter7"):
-            self.options.chapter_six.value = 1
-            self.options.chapter_seven.value = 1
-        # Force chapter 6 levels if our goal is either lw/dw dr. fetus or in chapter 7
-        elif self.options.goal not in ("larries", "bandages"):
-            self.options.chapter_six.value = 1
-            
-        # Force dark world levels enabled if our goal is in dark world
-        if self.options.goal in ("dark_world", "dark_world_chapter7"):
-            self.options.dark_world.value = 1
-            
-        # Set bandage fill to 0 if our goal isn't bandages
-        if self.options.goal != "bandages":
-            self.options.bandage_fill.value = 0
-            
-        # Cap DW Dr. Fetus Keys Amount if we don't have chapter 7 levels enabled
-        if not self.options.chapter_seven.value:
-            self.options.dw_dr_fetus_req.value = min(self.options.dw_dr_fetus_req.value, 105)
-            
-        # Cap Bandages if dark world levels aren't enabled
-        if self.options.goal == "bandages" and not self.options.dark_world.value:
-            self.options.bandages_amount.value = min(self.options.dark_world.value, 52)
-
-        # If starting chapter is 7 but our goal is to complete all of lw/dw chapter 7
-        # or chapter 7 levels aren't enabled, select a random chapter
-        if (self.options.starting_chpt.value == 7 and
-        (not self.options.chapter_seven.value or self.options.goal in ("light_world_chapter7", "dark_world_chapter7"))):
-            self.options.starting_chpt.value = self.multiworld.random.randint(1, 6)
+        resolve_options(self)
             
     def fill_slot_data(self) -> dict:
         return self.options.as_dict("goal", "boss_req", "lw_dr_fetus_req", "dw_dr_fetus_req",
@@ -189,7 +160,6 @@ class SMBWorld(World):
                         continue
                     else:
                         item.classification = ItemClassification.filler
-
 
                 # If our goal is to complete DW Chapter 7, put Chapter 7 DW Level Keys on DW Chapter 7 levels
                 # If our goal is not to complete DW Chapter 7, don't put Chapter 7 DW Level Keys in the pool

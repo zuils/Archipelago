@@ -3,40 +3,46 @@
         "name": "Nostalgia (Unlock a retro warp zone)",
         "category": [
             "Achievements"
-        ]
+        ],
+        "requires": "{warp_zone(1)}"
     },
     {
         "name": "Living In the Past (Complete 5 retro warp zones)",
         "category": [
             "Achievements"
-        ]
+        ],
+        "requires": "{warp_zone(5)}"
     },
     {
         "name": "Old School (Complete 10 retro warp zones)",
         "category": [
             "Achievements",
             "Dark World"
-        ]
+        ],
+        "requires": "{warp_zone(10)}"
     },
     {
         "name": "Retro Rampage (Complete all retro warp zones)",
         "category": [
             "Achievements",
             "Dark World"
-        ]
+        ],
+        "requires": "{warp_zone(20)}"
     },
     {
         "name": "Well look at you! (Type \"petaphile\" on the character select screen)",
         "category": [
             "Achievements"
-        ]
+        ],
+        "requires": "|Chapter 1 Key| or |Chapter 2 Key| or |Chapter 3 Key| or |Chapter 4 Key| or |Chapter 5 Key|"
     },
     {
         "name": "The End (Beat Chapter 6 Light World)",
         "category": [
             "Achievements"
         ],
-        "region": "Chapter 6"
+        "region": "Chapter 6",
+        "requires": "{lw_drfetus()}"
     },
     {
         "name": "The Real End (Beat Chapter 6 Dark World)",
@@ -44,7 +50,8 @@
             "Achievements",
             "Dark World"
         ],
-        "region": "Chapter 6"
+        "region": "Chapter 6",
+        "requires": "{dw_drfetus()}"
     },
     {
         "name": "Suffragette (Beat Chapter 7 Light World)",
