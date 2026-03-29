@@ -282,6 +282,8 @@ class TerrariaWorld(World):
                             return condition.sign
 
                 return not condition.sign
+            elif condition.condition == "npc_rando":
+                return condition.sign == self.options.randomize_npcs.value
             elif condition.condition == "calamity":
                 return condition.sign == self.options.calamity.value
             elif condition.condition == "grindy":

@@ -209,6 +209,7 @@ def validate_conditions(
         elif condition.type == COND_FN:
             if condition.condition not in {
                 "npc",
+                "npc_rando",
                 "calamity",
                 "grindy",
                 "pickaxe",
