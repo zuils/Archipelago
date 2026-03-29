@@ -469,7 +469,7 @@ Tiki Armor;                         Armor Minions(4);                           
 Hercules Beetle;                    ;                                           Witch Doctor & Wall of Flesh & Plantera;
 You and What Army?;                 Achievement;                                @minions(8);
 Cyborg;                             Npc;                                        Wall of Flesh & Plantera;
-To Infinity... and Beyond!;         Achievement;                                Cyborg;
+To Infinity... and Beyond!;         Achievement;                                Wall of Flesh & Cyborg;
 Autohammer;                         ;                                           Truffle & Plantera;
 Shroomite Bar;                      ;                                           Autohammer & Chlorophyte Bar;
 Shroomite Digging Claw;             Pickaxe(200);                               Hardmode Anvil & Shroomite Bar;
