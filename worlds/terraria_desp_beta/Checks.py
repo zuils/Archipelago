@@ -217,6 +217,7 @@ def validate_conditions(
                 "mech_boss",
                 "minions",
                 "getfixedboi",
+                "shimmer_skips"
             }:
                 raise Exception(
                     f"function `{condition.condition}` in `{rule}` is not defined"
@@ -569,6 +570,7 @@ def read_data() -> Tuple[
                     "Calamity",
                     "Not Calamity",
                     "Not Calamity Getfixedboi",
+                    "Shimmer",
                 }:
                     raise Exception(
                         f"rule `{name}` on line `{line + 1}` has unrecognized flag `{flag}`"

@@ -112,6 +112,7 @@ class TerrariaWorld(World):
                             and self.options.calamity.value
                             and "Not Calamity Getfixedboi" in rule.flags
                     )
+                    or (not self.options.shimmer_skips.value and "Shimmer" in rule.flags)
                     or (not self.options.early_achievements.value and early)
                     or (
                             not self.options.normal_achievements.value
@@ -338,6 +339,8 @@ class TerrariaWorld(World):
                 return not condition.sign
             elif condition.condition == "getfixedboi":
                 return condition.sign == self.options.getfixedboi.value
+            elif condition.condition == "shimmer_skips":
+                return condition.sign == self.options.shimmer_skips.value
             else:
                 raise Exception(f"Unknown function {condition.condition}")
         elif condition.type == COND_GROUP:
