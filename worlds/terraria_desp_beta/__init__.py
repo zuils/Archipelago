@@ -388,6 +388,7 @@ class TerrariaWorld(World):
         return {
             "goal": list(self.goal_locations),
             "deathlink": bool(self.options.death_link),
+            "version": self.required_client_version,
             # The rest of these are included for trackers
             "calamity": self.options.calamity.value,
             "getfixedboi": self.options.getfixedboi.value,
