@@ -1363,6 +1363,14 @@
         "classification": "progression"
     },
     {
+        "count": 47,
+        "name": "Achievement Token",
+        "category": [
+            "Extras"
+        ],
+        "classification": "progression"
+    },
+    {
         "count": 1,
         "name": "Degraded Bandage",
         "category": [

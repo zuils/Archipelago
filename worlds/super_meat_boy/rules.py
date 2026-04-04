@@ -344,14 +344,15 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
     for i in range(1, 6):
         connect_regions(world, "Menu", f"Chapter {i}", player, lambda state, i=i: state.has(f"Chapter {i} Key", player))
 
-    connect_regions(world, "Menu", "Chapter 6", player, lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
+    if options.chapter_six:
+        connect_regions(world, "Menu", "Chapter 6", player, lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
     
     if options.chapter_seven:
         chpt_seven_goal = [f"Chapter {i} Key" for i in range(1, 8)]
         if not options.chapter_six:
             chpt_seven_goal.remove("Chapter 6 Key")
 
-        if options.goal in ("light_world_chapter7", "dark_world_chapter7"):
+        if options.goal in ("light_world_chapter7", "dark_world_chapter7") and not options.boss_tokens.value:
             connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
                 state.has_all(chpt_seven_goal, player) and state.has("Bandage Girl", player))
         else:
@@ -377,6 +378,10 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
         world.completion_condition[player] = lambda state: state.has("Bandage", player, options.bandages_amount.value) and (
             not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
         )
+    elif options.goal == "achievements":
+        world.completion_condition[player] = lambda state: state.has("Achievement Token", player, options.achievement_tokens.value) and (
+            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
+        )
     elif options.goal == "light_world_chapter7":
         world.completion_condition[player] = lambda state: state.has("Chapter 7 LW Level Key", player, 20) and (
             not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
@@ -389,3 +394,4 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
         world.completion_condition[player] = lambda state: state.has("Victory", player) and (
             not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
         )
+        

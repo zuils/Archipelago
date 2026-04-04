@@ -106,6 +106,56 @@ class SMBWorld(World):
                 
             for boss in bosses:
                 location = self.multiworld.get_location(boss, self.player).place_locked_item(self.create_item("Boss Token"))
+                
+        # Achievement tokens
+        achievement_locations = []
+        valid_achievements = []
+
+        if self.options.goal == "achievements":
+            required_achievements = set()
+
+            if "normal" in self.options.achievement_goals.value:
+                required_achievements.add("Achievements")
+
+            if "speedrun" in self.options.achievement_goals.value:
+                required_achievements.add("Achievements (Speedrun)")
+
+            if "deathless" in self.options.achievement_goals.value:
+                required_achievements.add("Achievements (Deathless)")
+
+            if self.options.chapter_six.value:
+                valid_achievements.append("Chapter 6")
+
+            if self.options.chapter_seven.value:
+                valid_achievements.append("Chapter 7")
+
+            if self.options.bandages.value:
+                valid_achievements.append("Bandage")
+
+            if self.options.dark_world.value:
+                valid_achievements.append("Dark World")
+
+            if self.options.xmas.value:
+                valid_achievements.append("xmas")
+
+            allowed_achievements = set(valid_achievements) | required_achievements
+
+            for name, data in location_table.items():
+                categories = data.category
+
+                # All required achievement categories must be present
+                if not required_achievements.issubset(categories):
+                    continue
+                
+                # Every category on this location must be enabled
+                if not categories.issubset(allowed_achievements):
+                    continue
+                
+                achievement_locations.append(name)
+                
+            for location in achievement_locations:
+                print(location)
+                self.multiworld.get_location(location, self.player).place_locked_item(self.create_item("Achievement Token"))
         
         for name, data in item_table.items():
             count = data.count

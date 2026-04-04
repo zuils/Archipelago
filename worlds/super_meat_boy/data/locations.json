@@ -37,9 +37,94 @@
         "requires": "|Chapter 1 Key| or |Chapter 2 Key| or |Chapter 3 Key| or |Chapter 4 Key| or |Chapter 5 Key|"
     },
     {
-        "name": "The End (Beat Chapter 6 Light World)",
+        "name": "N#7*<1!23 (Beat -1 |>'-'|>)",
         "category": [
             "Achievements"
+        ],
+        "region": "Chapter 1",
+        "requires": "{boss_req(1)}"
+    },
+    {
+        "name": "[[&*>?1$]] (Beat -2 |>'-'|>)",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 2",
+        "requires": "{boss_req(2)}"
+    },
+    {
+        "name": "(=+66&1$ (Beat -3 |>'-'|>)",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 3",
+        "requires": "{boss_req(3)}"
+    },
+    {
+        "name": "^**5%_=+12 (Beat -4 |>'-'|>)",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 4",
+        "requires": "{boss_req(4)}"
+    },
+    {
+        "name": "-0&& (Beat -5 |>'-'|>)",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 5",
+        "requires": "{boss_req(5)}"
+    },
+    {
+        "name": "N&8^2^%$1`` (Beat -6 |>'-'|>)",
+        "category": [
+            "Achievements",
+            "Chapter 6"
+        ],
+        "region": "Chapter 6",
+        "requires": "{lw_drfetus()}"
+    },
+    {
+        "name": "The Commander",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 1"
+    },
+    {
+        "name": "The Bootlicker",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 2"
+    },
+    {
+        "name": "The Jump man",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 3"
+    },
+    {
+        "name": "The Fly Guy",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 4"
+    },
+    {
+        "name": "The Kid",
+        "category": [
+            "Achievements"
+        ],
+        "region": "Chapter 5"
+    },
+    {
+        "name": "The End (Beat Chapter 6 Light World)",
+        "category": [
+            "Achievements",
+            "Chapter 6"
         ],
         "region": "Chapter 6",
         "requires": "{lw_drfetus()}"
@@ -48,7 +133,8 @@
         "name": "The Real End (Beat Chapter 6 Dark World)",
         "category": [
             "Achievements",
-            "Dark World"
+            "Dark World",
+            "Chapter 6"
         ],
         "region": "Chapter 6",
         "requires": "{dw_drfetus()}"
@@ -56,7 +142,8 @@
     {
         "name": "Suffragette (Beat Chapter 7 Light World)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 7"
         ],
         "region": "Chapter 7"
     },
@@ -64,7 +151,8 @@
         "name": "Seneca Falls (Beat Chapter 7 Dark World)",
         "category": [
             "Achievements",
-            "Dark World"
+            "Dark World",
+            "Chapter 7"
         ],
         "region": "Chapter 7",
         "requires": "{speedrun_req(7)}"
@@ -217,14 +305,16 @@
     {
         "name": "Dead Boy (Complete The End Light World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Chapter 6"
         ],
         "region": "Chapter 6"
     },
     {
         "name": "Girl Boy (Complete The Cotton Alley Light World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Chapter 7"
         ],
         "region": "Chapter 7"
     },
@@ -277,7 +367,8 @@
         "name": "Dr. Fetus Boy (Complete The End Dark World Deathless)",
         "category": [
             "Achievements (Deathless)",
-            "Dark World"
+            "Dark World",
+            "Chapter 6"
         ],
         "region": "Chapter 6",
         "requires": "{speedrun_req(6)}"
@@ -286,7 +377,8 @@
         "name": "Impossible Boy (Complete The Cotton Alley Dark World Deathless)",
         "category": [
             "Achievements (Deathless)",
-            "Dark World"
+            "Dark World",
+            "Chapter 7"
         ],
         "region": "Chapter 7",
         "requires": "{speedrun_req(7)}"

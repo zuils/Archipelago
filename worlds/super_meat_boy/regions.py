@@ -19,8 +19,8 @@ def create_regions(world: MultiWorld, options: SMBOptions, player: int) -> None:
         if not is_location_enabled(options, loc_data):
             continue
         
-        # Post goal location
-        if options.goal == "larries" and loc_name == "-5 |'-'|>":
+        # Post goal locations
+        if options.goal == "larries" and loc_name in ("-5 |'-'|>", "-0&& (Beat -5 |>'-'|>)"):
             continue
         
         region_table[loc_data.region].locations.append(loc_name)
