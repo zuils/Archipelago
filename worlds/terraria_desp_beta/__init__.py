@@ -74,6 +74,11 @@ class TerrariaWorld(World):
         goal, goal_locations = goals[self.options.goal.value]
         ter_goals = {}
         goal_items = set()
+
+        if self.options.getfixedboi and self.options.randomize_npcs:
+            logging.warning("Terraria's getfixedboi mode was selected with NPC rando enabled; disabling NPC rando")
+            self.options.randomize_npcs.value = False
+
         for location in goal_locations:
             if location == "Wall of Flesh" and not self.options.randomize_npcs.value:
                 logging.warning(

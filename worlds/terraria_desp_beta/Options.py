@@ -9,7 +9,12 @@ class Calamity(Toggle):
 
 
 class Getfixedboi(Toggle):
-    """Generation accomodates the secret, very difficult "getfixedboi" seed"""
+    """
+    Generation accomodates the secret, very difficult "getfixedboi" seed
+
+    FOR THE BETA: NPC Rando is incompatible with GFB.
+    If both options are selected on generation, NPC rando will be disabled.
+    """
 
     display_name = """"getfixedboi" Seed"""
 
