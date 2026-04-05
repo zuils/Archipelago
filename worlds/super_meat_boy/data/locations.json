@@ -3370,6 +3370,13 @@
         "requires": []
     },
     {
+        "name": "4-14 Adversary",
+        "category": [
+            "LW Chapter 4"
+        ],
+        "region": "Chapter 4"
+    },
+    {
         "name": "4-15 Abaddon",
         "category": [
             "LW Chapter 4"
@@ -4178,6 +4185,13 @@
         ],
         "region": "Chapter 5",
         "requires": []
+    },
+    {
+        "name": "5-12 10 Horns",
+        "category": [
+            "LW Chapter 5"
+        ],
+        "region": "Chapter 5"
     },
     {
         "name": "5-13 The Lamb",
