@@ -194,7 +194,7 @@ def larries(options: SMBOptions, state: CollectionState, player: int) -> bool:
     return boss_req(options, state, player, 5) and (
         not options.boss_tokens.value
         or options.goal != "larries"
-        or state.has("Boss Token", player, 4)
+        or state.has("Boss Token", player, options.boss_tokens.value)
     )
 
 
@@ -202,16 +202,17 @@ def lw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool
     return state.has("Chapter 5 Boss Key", player, options.lw_dr_fetus_req.value) and (
         not options.boss_tokens.value
         or options.goal != "light_world"
-        or state.has("Boss Token", player, 5)
+        or state.has("Boss Token", player, options.boss_tokens.value)
     )
 
 
 def dw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    return state.has("DW Dr. Fetus Key", player, options.dw_dr_fetus_req.value) and (
-        not options.boss_tokens.value
-        or options.goal != "dark_world"
-        or state.has("Boss Token", player, 6)
-    )
+    return state.has("DW Dr. Fetus Key", player, options.dw_dr_fetus_req.value) and \
+        state.has_all([f"6-{i} A+ Rank" for i in range(1, 6)], player) and (
+            not options.boss_tokens.value
+            or options.goal != "dark_world"
+            or state.has("Boss Token", player, options.boss_tokens.value)
+        )
 
 
 def bandages(options: SMBOptions, state: CollectionState, player: int, req: int) -> bool:
@@ -331,7 +332,7 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
             continue
         
         # Post goal location
-        if options.goal == "larries" and name == "-5 |'-'|>":
+        if options.goal == "larries" and name in ("-5 |'-'|>", "-0&& (Beat -5 |>'-'|>)"):
             continue
 
         req = data.requirement

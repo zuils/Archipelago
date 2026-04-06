@@ -275,26 +275,23 @@
         "category": [
             "Characters"
         ],
-        "classification": "useful"
+        "classification": "filler"
     },
     {
         "count": 1,
         "name": "Steve",
         "category": [
-            "ProgCharacters",
-            "Characters",
-            "StartingCharacters"
+            "Characters"
         ],
-        "classification": "progression"
+        "classification": "filler"
     },
     {
         "count": 1,
         "name": "Meat Ninja",
         "category": [
-            "Characters",
-            "StartingCharacters"
+            "Characters"
         ],
-        "classification": "useful"
+        "classification": "filler"
     },
     {
         "count": 1,

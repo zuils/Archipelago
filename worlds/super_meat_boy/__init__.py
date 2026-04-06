@@ -39,7 +39,7 @@ class SMBWorld(World):
     def fill_slot_data(self) -> dict:
         return self.options.as_dict("goal", "boss_req", "lw_dr_fetus_req", "dw_dr_fetus_req",
                                     "bandages_amount", "boss_tokens", "bandages", "dark_world", 
-                                    "chapter_six", "chapter_seven", "starting_chpt", "starting_char", 
+                                    "chapter_six", "chapter_seven", "starting_chpt", 
                                     "achievements", "deathless_achievements", "speedrun_achievements", 
                                     "xmas", "bandage_fill")
             
@@ -72,7 +72,8 @@ class SMBWorld(World):
         elif starting_chpt == 6:
             char = "Meat Boy"
         else:
-            char = starting_characters[self.options.starting_char.value]
+            # char = starting_characters[self.options.starting_char.value]
+            char = "Meat Boy"
             
         self.multiworld.push_precollected(self.create_item(char, ItemClassification.progression))
         self.multiworld.push_precollected(self.create_item(f"Chapter {starting_chpt} Key"))
@@ -144,17 +145,16 @@ class SMBWorld(World):
                 categories = data.category
 
                 # All required achievement categories must be present
-                if not required_achievements.issubset(categories):
+                if not required_achievements.intersection(categories):
                     continue
                 
                 # Every category on this location must be enabled
-                if not categories.issubset(allowed_achievements):
+                if not set(categories).issubset(allowed_achievements):
                     continue
                 
                 achievement_locations.append(name)
                 
             for location in achievement_locations:
-                print(location)
                 self.multiworld.get_location(location, self.player).place_locked_item(self.create_item("Achievement Token"))
         
         for name, data in item_table.items():

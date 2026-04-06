@@ -1789,7 +1789,7 @@
         "requires": "{boss_req(2)}"
     },
     {
-        "name": "-2 |'-'|>",
+        "name": "-2 |>'-'|>",
         "category": [
             "LW Chapter 2"
         ],
@@ -2657,7 +2657,7 @@
         "requires": "{boss_req(3)}"
     },
     {
-        "name": "-3 |'-'|>",
+        "name": "-3 |>'-'|>",
         "category": [
             "LW Chapter 3"
         ],
@@ -3516,7 +3516,7 @@
         "requires": "{boss_req(4)}"
     },
     {
-        "name": "-4 |'-'|>",
+        "name": "-4 |>'-'|>",
         "category": [
             "LW Chapter 4"
         ],
@@ -4357,7 +4357,7 @@
         "requires": "{larries()}"
     },
     {
-        "name": "-5 |'-'|>",
+        "name": "-5 |>'-'|>",
         "category": [
             "LW Chapter 5"
         ],
@@ -4862,7 +4862,7 @@
         "requires": "{lw_drfetus()}"
     },
     {
-        "name": "-6 |'-'|>",
+        "name": "-6 |>'-'|>",
         "category": [
             "LW Chapter 6"
         ],

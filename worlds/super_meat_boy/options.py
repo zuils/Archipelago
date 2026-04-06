@@ -121,7 +121,7 @@ class StartingChpt(Range):
 
     display_name = "Starting Chapter"
     range_start = 1
-    range_end = 7
+    range_end = 6
     default = 1
 
 
@@ -351,7 +351,7 @@ class SMBOptions(PerGameCommonOptions):
     chapter_six: ChapterSix
     chapter_seven: ChapterSeven
     starting_chpt: StartingChpt
-    starting_char: StartingChar
+    # starting_char: StartingChar
     achievements: Achievements
     deathless_achievements: DeathlessAchievements
     speedrun_achievements: SpeedrunAchievements
