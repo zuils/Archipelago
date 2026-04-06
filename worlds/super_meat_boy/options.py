@@ -251,15 +251,15 @@ class DeathLinkAmnesty(Range):
 def resolve_options(world: World):
     # Force chapter 7 levels to be on if our goal is in chapter 7 or if our starting chapter is 7
     if world.options.goal in ("light_world_chapter7", "dark_world_chapter7") or world.options.starting_chpt.value == 7:
-        world.options.chapter_seven.value = 1
+        world.options.chapter_seven.value = Toggle.option_true
     
     # Force chapter 6 levels to be on if starting chapter is 6 or our goal is either light world or dark world
     if world.options.starting_chpt.value == 6 or world.options.goal in ("light_world", "dark_world"):
-        world.options.chapter_six.value = 1
+        world.options.chapter_six.value = Toggle.option_true
         
     # Force dark world levels enabled if our goal is in dark world
     if world.options.goal in ("dark_world", "dark_world_chapter7"):
-        world.options.dark_world.value = 1
+        world.options.dark_world.value = Toggle.option_true
         
     # Set bandage fill to 0 if our goal isn't bandages
     if world.options.goal != "bandages":
@@ -283,19 +283,19 @@ def resolve_options(world: World):
         
     # If our goal is achievements and normal is enabled, enable normal achievements
     if world.options.goal == "achievements" and "normal" in world.options.achievement_goals.value:
-        world.options.achievements.value = 1
+        world.options.achievements.value = Toggle.option_true
         
     # If our goal is achievements and deathless is enabled, enable deathless achievements
     if world.options.goal == "achievements" and "deathless" in world.options.achievement_goals.value:
-        world.options.deathless_achievements.value = 1
+        world.options.deathless_achievements.value = Toggle.option_true
     
     # If our goal is achievements and speedrun is enabled, enable speedrun achievements
     if world.options.goal == "achievements" and "speedrun" in world.options.achievement_goals.value:
-        world.options.speedrun_achievements.value = 1
+        world.options.speedrun_achievements.value = Toggle.option_true
         
     # If speedrun achievements are enabled, enable dark world levels
     if world.options.speedrun_achievements.value:
-        world.options.dark_world.value = 1
+        world.options.dark_world.value = Toggle.option_true
         
     # Cap Achievement Token amount if our goal is achievements
     if world.options.goal == "achievements":
