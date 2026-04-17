@@ -65,7 +65,7 @@ class DWDrFetusReq(Range):
 class BandagesAmount(Range):
     """
     If your goal is bandages, how many are required to goal
-    If there are no dark world levels, the max amount is 52.
+    For each chapter enabled there are 11 bandages in LW (8 if its chapter 3) and 9 bandages in DW (12 if its chapter 3)
     """
     
     display_name = "Bandages Amount"
