@@ -153,7 +153,7 @@ class StartingChpt(Range):
 
     display_name = "Starting Chapter"
     range_start = 1
-    range_end = 6
+    range_end = 7
     default = 1
 
 
