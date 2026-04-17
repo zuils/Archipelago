@@ -1,9 +1,6 @@
 from BaseClasses import Item, ItemClassification
-from typing import List, Dict, NamedTuple, TYPE_CHECKING
+from typing import List, Dict, NamedTuple
 from .utils import load_json_data
-
-if TYPE_CHECKING:
-    from . import SMBWorld
 
 OFFSET: int = 20101130000
 

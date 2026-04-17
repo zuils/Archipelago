@@ -2,14 +2,16 @@
     {
         "name": "Nostalgia (Unlock a retro warp zone)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Warp Zone"
         ],
         "requires": "{warp_zone(1)}"
     },
     {
         "name": "Living In the Past (Complete 5 retro warp zones)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Warp Zone"
         ],
         "requires": "{warp_zone(5)}"
     },
@@ -17,7 +19,7 @@
         "name": "Old School (Complete 10 retro warp zones)",
         "category": [
             "Achievements",
-            "Dark World"
+            "Warp Zone"
         ],
         "requires": "{warp_zone(10)}"
     },
@@ -25,21 +27,27 @@
         "name": "Retro Rampage (Complete all retro warp zones)",
         "category": [
             "Achievements",
-            "Dark World"
+            "Warp Zone"
         ],
         "requires": "{warp_zone(20)}"
     },
     {
         "name": "Well look at you! (Type \"petaphile\" on the character select screen)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 1",
+            "Chapter 2",
+            "Chapter 3",
+            "Chapter 4",
+            "Chapter 5"
         ],
         "requires": "|Chapter 1 Key| or |Chapter 2 Key| or |Chapter 3 Key| or |Chapter 4 Key| or |Chapter 5 Key|"
     },
     {
         "name": "N#7*<1!23 (Beat -1 |>'-'|>)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 1"
         ],
         "region": "Chapter 1",
         "requires": "{boss_req(1)}"
@@ -47,7 +55,8 @@
     {
         "name": "[[&*>?1$]] (Beat -2 |>'-'|>)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 2"
         ],
         "region": "Chapter 2",
         "requires": "{boss_req(2)}"
@@ -55,7 +64,8 @@
     {
         "name": "(=+66&1$ (Beat -3 |>'-'|>)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 3"
         ],
         "region": "Chapter 3",
         "requires": "{boss_req(3)}"
@@ -63,7 +73,8 @@
     {
         "name": "^**5%_=+12 (Beat -4 |>'-'|>)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 4"
         ],
         "region": "Chapter 4",
         "requires": "{boss_req(4)}"
@@ -71,7 +82,8 @@
     {
         "name": "-0&& (Beat -5 |>'-'|>)",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 5"
         ],
         "region": "Chapter 5",
         "requires": "{boss_req(5)}"
@@ -88,35 +100,40 @@
     {
         "name": "The Commander",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 1"
         ],
         "region": "Chapter 1"
     },
     {
         "name": "The Bootlicker",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 2"
         ],
         "region": "Chapter 2"
     },
     {
         "name": "The Jump man",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 3"
         ],
         "region": "Chapter 3"
     },
     {
         "name": "The Fly Guy",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 4"
         ],
         "region": "Chapter 4"
     },
     {
         "name": "The Kid",
         "category": [
-            "Achievements"
+            "Achievements",
+            "Chapter 5"
         ],
         "region": "Chapter 5"
     },
@@ -175,7 +192,12 @@
         "name": "I Have Crabs! (Collect 10 Bandages)",
         "category": [
             "Achievements",
-            "Bandage"
+            "Bandage",
+            "Chapter 1",
+            "Chapter 2",
+            "Chapter 3",
+            "Chapter 4",
+            "Chapter 5"
         ],
         "requires": "{bandages(10)}"
     },
@@ -183,7 +205,12 @@
         "name": "Metalhead (Collect 30 Bandages)",
         "category": [
             "Achievements",
-            "Bandage"
+            "Bandage",
+            "Chapter 1",
+            "Chapter 2",
+            "Chapter 3",
+            "Chapter 4",
+            "Chapter 5"
         ],
         "requires": "{bandages(30)}"
     },
@@ -191,7 +218,12 @@
         "name": "I Smell something Fishy... (Collect 50 Bandages)",
         "category": [
             "Achievements",
-            "Bandage"
+            "Bandage",
+            "Chapter 1",
+            "Chapter 2",
+            "Chapter 3",
+            "Chapter 4",
+            "Chapter 5"
         ],
         "requires": "{bandages(50)}"
     },
@@ -200,7 +232,12 @@
         "category": [
             "Achievements",
             "Bandage",
-            "Dark World"
+            "Dark World",
+            "Chapter 1",
+            "Chapter 2",
+            "Chapter 3",
+            "Chapter 4",
+            "Chapter 5"
         ],
         "requires": "{bandages(70)}"
     },
@@ -209,7 +246,12 @@
         "category": [
             "Achievements",
             "Bandage",
-            "Dark World"
+            "Dark World",
+            "Chapter 1",
+            "Chapter 2",
+            "Chapter 3",
+            "Chapter 4",
+            "Chapter 5"
         ],
         "requires": "{bandages(90)}"
     },
@@ -218,7 +260,12 @@
         "category": [
             "Achievements",
             "Bandage",
-            "Dark World"
+            "Dark World",
+            "Chapter 1",
+            "Chapter 2",
+            "Chapter 3",
+            "Chapter 4",
+            "Chapter 5"
         ],
         "requires": "{bandages(100)}"
     },
@@ -226,7 +273,8 @@
         "name": "Rare (Speedrun The Forest in 265 Seconds)",
         "category": [
             "Achievements (Speedrun)",
-            "Dark World"
+            "Dark World",
+            "Chapter 1"
         ],
         "region": "Chapter 1",
         "requires": "{speedrun_req(1)}"
@@ -235,7 +283,8 @@
         "name": "Medium Rare (Speedrun The Hospital in 460 seconds)",
         "category": [
             "Achievements (Speedrun)",
-            "Dark World"
+            "Dark World",
+            "Chapter 2"
         ],
         "region": "Chapter 2",
         "requires": "{speedrun_req(2)}"
@@ -244,7 +293,8 @@
         "name": "Medium (Speedrun The Salt Factory in 515 seconds)",
         "category": [
             "Achievements (Speedrun)",
-            "Dark World"
+            "Dark World",
+            "Chapter 3"
         ],
         "region": "Chapter 3",
         "requires": "{speedrun_req(3)}"
@@ -253,7 +303,8 @@
         "name": "Medium Well (Speedrun Hell in 500 seconds)",
         "category": [
             "Achievements (Speedrun)",
-            "Dark World"
+            "Dark World",
+            "Chapter 4"
         ],
         "region": "Chapter 4",
         "requires": "{speedrun_req(4)}"
@@ -262,7 +313,8 @@
         "name": "Well Done (Speedrun The Rapture in 690 seconds)",
         "category": [
             "Achievements (Speedrun)",
-            "Dark World"
+            "Dark World",
+            "Chapter 5"
         ],
         "region": "Chapter 5",
         "requires": "{speedrun_req(5)}"
@@ -270,35 +322,40 @@
     {
         "name": "Wood Boy (Complete The Forest Light World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Chapter 1"
         ],
         "region": "Chapter 1"
     },
     {
         "name": "Needle Boy (Complete The Hospital Light World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Chapter 2"
         ],
         "region": "Chapter 2"
     },
     {
         "name": "Salt Boy (Complete The Salt Factory Light World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Chapter 3"
         ],
         "region": "Chapter 3"
     },
     {
         "name": "Brimstone Boy (Complete Hell Light World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Chapter 4"
         ],
         "region": "Chapter 4"
     },
     {
         "name": "Maggot Boy (Complete The Rapture Light World Deathless)",
         "category": [
-            "Achievements (Deathless)"
+            "Achievements (Deathless)",
+            "Chapter 5"
         ],
         "region": "Chapter 5"
     },
@@ -322,7 +379,8 @@
         "name": "Squirrel Boy (Complete The Forest Dark World Deathless)",
         "category": [
             "Achievements (Deathless)",
-            "Dark World"
+            "Dark World",
+            "Chapter 1"
         ],
         "region": "Chapter 1",
         "requires": "{speedrun_req(1)}"
@@ -331,7 +389,8 @@
         "name": "Blood Clot Boy (Complete The Hospital Dark World Deathless)",
         "category": [
             "Achievements (Deathless)",
-            "Dark World"
+            "Dark World",
+            "Chapter 2"
         ],
         "region": "Chapter 2",
         "requires": "{speedrun_req(2)}"
@@ -340,7 +399,8 @@
         "name": "Missile Boy (Complete The Salt Factory Dark World Deathless)",
         "category": [
             "Achievements (Deathless)",
-            "Dark World"
+            "Dark World",
+            "Chapter 3"
         ],
         "region": "Chapter 3",
         "requires": "{speedrun_req(3)}"
@@ -349,7 +409,8 @@
         "name": "Demon Boy (Complete Hell Dark World Deathless)",
         "category": [
             "Achievements (Deathless)",
-            "Dark World"
+            "Dark World",
+            "Chapter 4"
         ],
         "region": "Chapter 4",
         "requires": "{speedrun_req(4)}"
@@ -358,7 +419,8 @@
         "name": "Zombie Boy (Complete The Rapture Dark World Deathless)",
         "category": [
             "Achievements (Deathless)",
-            "Dark World"
+            "Dark World",
+            "Chapter 5"
         ],
         "region": "Chapter 5",
         "requires": "{speedrun_req(5)}"

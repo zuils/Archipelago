@@ -7,18 +7,15 @@ from .regions import connect_regions
 from .utils import is_location_enabled
 import re
 
-if TYPE_CHECKING:
-    from . import SMBWorld
-
 TOKEN_REGEX = re.compile(
     r"""
-    (\|.*?\|) |              # Items inside pipes
-    (\{.*?\}) |              # Functions inside braces
-    (\band\b|\bor\b) |       # Logical operators
-    (\() | (\))              # Parentheses
-""",
-    re.VERBOSE,
-)
+        (\|.*?\|) |              # Items inside pipes
+        (\{.*?\}) |              # Functions inside braces
+        (\band\b|\bor\b) |       # Logical operators
+        (\() | (\))              # Parentheses
+    """,
+        re.VERBOSE,
+    )
 
 
 def tokenize(s: str) -> List[str]:
@@ -191,19 +188,19 @@ def speedrun_req(options: SMBOptions, state: CollectionState, player: int, chpt:
 
 
 def larries(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    return boss_req(options, state, player, 5) and (
+    return boss_req(options, state, player, 5) and state.has("Meat Boy", player) and (
         not options.boss_tokens.value
         or options.goal != "larries"
-        or state.has("Boss Token", player, options.boss_tokens.value)
+        or state.has("Boss Token", player, options.boss_token_req.value)
     )
 
 
 def lw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    return state.has("Chapter 5 Boss Key", player, options.lw_dr_fetus_req.value) and (
-        not options.boss_tokens.value
-        or options.goal != "light_world"
-        or state.has("Boss Token", player, options.boss_tokens.value)
-    )
+    return state.has("Chapter 6 Boss Key", player, options.lw_dr_fetus_req.value) and (
+            not options.boss_tokens.value
+            or options.goal != "light_world"
+            or state.has("Boss Token", player, options.boss_token_req.value)
+        )
 
 
 def dw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
@@ -211,7 +208,7 @@ def dw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool
         state.has_all([f"6-{i} A+ Rank" for i in range(1, 6)], player) and (
             not options.boss_tokens.value
             or options.goal != "dark_world"
-            or state.has("Boss Token", player, options.boss_tokens.value)
+            or state.has("Boss Token", player, options.boss_token_req.value)
         )
 
 
@@ -331,8 +328,10 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
         if not is_location_enabled(options, data):
             continue
         
-        # Post goal location
-        if options.goal == "larries" and name in ("-5 |'-'|>", "-0&& (Beat -5 |>'-'|>)"):
+        # Post goal locations
+        if options.goal == "larries" and name in ("-5 |>'-'|>", "-0&& (Beat -5 |>'-'|>)"):
+            continue
+        if options.goal == "light_world" and name in ("-6 |>'-'|>", "N&8^2^%$1`` (Beat -6 |>'-'|>)", "The End (Beat Chapter 6 Light World)"):
             continue
 
         req = data.requirement
@@ -343,15 +342,14 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
 
     connect_regions(world, "Menu", "Initial", player)
     for i in range(1, 6):
-        connect_regions(world, "Menu", f"Chapter {i}", player, lambda state, i=i: state.has(f"Chapter {i} Key", player))
+        if str(i) in options.chapters.value:
+            connect_regions(world, "Menu", f"Chapter {i}", player, lambda state, i=i: state.has(f"Chapter {i} Key", player))
 
-    if options.chapter_six:
+    if "6" in options.chapters.value:
         connect_regions(world, "Menu", "Chapter 6", player, lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
     
-    if options.chapter_seven:
-        chpt_seven_goal = [f"Chapter {i} Key" for i in range(1, 8)]
-        if not options.chapter_six:
-            chpt_seven_goal.remove("Chapter 6 Key")
+    if "7" in options.chapters.value:
+        chpt_seven_goal = [f"Chapter {i} Key" for i in range(1, 8) if str(i) in options.chapters.value]
 
         if options.goal in ("light_world_chapter7", "dark_world_chapter7") and not options.boss_tokens.value:
             connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
@@ -360,19 +358,23 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
             connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
                 state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))
 
-    # First 4 bosses
-    boss_tokens_amount = 4
+    boss_tokens_amount: int = 0
+    
+    # First 4 chapters
+    for i in range(4):
+        if str(i + 1) in options.chapters.value:
+            boss_tokens_amount += 1
     
     # Larries
-    if options.goal != "larries":
+    if "5" in options.chapters.value and options.goal != "larries":
         boss_tokens_amount += 1
     
     # LW Dr. Fetus
-    if options.chapter_six.value and options.goal != "light_world":
+    if "6" in options.chapters.value and options.goal != "light_world":
         boss_tokens_amount += 1
     
     # DW Dr. Fetus
-    if options.dark_world.value and options.chapter_six.value and options.goal != "dark_world":
+    if "6" in options.chapters.value and options.dark_world.value and options.goal != "dark_world":
         boss_tokens_amount += 1
     
     if options.goal == "bandages":
@@ -383,6 +385,8 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
         world.completion_condition[player] = lambda state: state.has("Achievement Token", player, options.achievement_tokens.value) and (
             not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
         )
+    elif options.goal == "boss_tokens":
+        world.completion_condition[player] = lambda state: state.has("Boss Token", player, boss_tokens_amount)
     elif options.goal == "light_world_chapter7":
         world.completion_condition[player] = lambda state: state.has("Chapter 7 LW Level Key", player, 20) and (
             not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)

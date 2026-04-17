@@ -6,6 +6,7 @@ from .locations import location_table
 from .options import SMBOptions, resolve_options
 from .regions import create_regions
 from .rules import set_rules
+from .utils import get_achievements
 import re
 
 class SMBWeb(WebWorld):
@@ -38,10 +39,11 @@ class SMBWorld(World):
             
     def fill_slot_data(self) -> dict:
         return self.options.as_dict("goal", "boss_req", "lw_dr_fetus_req", "dw_dr_fetus_req",
-                                    "bandages_amount", "boss_tokens", "bandages", "dark_world", 
-                                    "chapter_six", "chapter_seven", "starting_chpt", 
+                                    "bandages_amount", "boss_tokens", "boss_token_req", "bandages", 
+                                    "dark_world", "chapters", "starting_chpt", "starting_char",
                                     "achievements", "deathless_achievements", "speedrun_achievements", 
-                                    "xmas", "bandage_fill")
+                                    "achievement_goals", "achievement_tokens", "bandage_fill",
+                                    "death_link", "death_link_amnesty")
             
     def create_item(self, name: str, classification: Optional[ItemClassification] = None) -> SMBItem:
         data = item_table[name]
@@ -64,7 +66,8 @@ class SMBWorld(World):
             "Naija",
             "RunMan",
             "Steve",
-            "Meat Ninja"
+            "Meat Ninja",
+            "Brownie"
         ]
         
         if starting_chpt == 7:
@@ -72,8 +75,7 @@ class SMBWorld(World):
         elif starting_chpt == 6:
             char = "Meat Boy"
         else:
-            # char = starting_characters[self.options.starting_char.value]
-            char = "Meat Boy"
+            char = starting_characters[self.options.starting_char.value]
             
         self.multiworld.push_precollected(self.create_item(char, ItemClassification.progression))
         self.multiworld.push_precollected(self.create_item(f"Chapter {starting_chpt} Key"))
@@ -89,83 +91,60 @@ class SMBWorld(World):
         # If boss tokens are enabled, put boss tokens on bosses
         if self.options.boss_tokens.value:
             bosses = [
-                "1-Boss Lil' Slugger",
-                "2-Boss C.H.A.D",
-                "3-Boss Brownie",
-                "4-Boss Little Horn"
+                ("1", "1-Boss Lil' Slugger"),
+                ("2", "2-Boss C.H.A.D"),
+                ("3", "3-Boss Brownie"),
+                ("4", "4-Boss Little Horn")
             ]
             
             if self.options.goal != "larries":
-                bosses.append("5-Boss Larries Lament")
+                bosses.append(("5", "5-Boss Larries Lament"))
             
-            if self.options.chapter_six.value:
-                if self.options.goal != "light_world":
-                    bosses.append("6-Boss LW Dr. Fetus")
-
-                if self.options.goal != "dark_world" and self.options.dark_world.value:
-                    bosses.append("6-Boss DW Dr. Fetus")
+            if self.options.goal != "light_world":
+                bosses.append(("6", "6-Boss LW Dr. Fetus"))
+            if self.options.goal != "dark_world" and self.options.dark_world.value:
+                bosses.append(("6", "6-Boss DW Dr. Fetus"))
                 
-            for boss in bosses:
-                location = self.multiworld.get_location(boss, self.player).place_locked_item(self.create_item("Boss Token"))
+            for chapter, boss in bosses:
+                if chapter in self.options.chapters.value:
+                    location = self.multiworld.get_location(boss, self.player).place_locked_item(self.create_item("Boss Token"))
                 
         # Achievement tokens
-        achievement_locations = []
-        valid_achievements = []
-
         if self.options.goal == "achievements":
-            required_achievements = set()
+            achievement_locs = get_achievements(self.options, location_table)
+            # achievement_locs = [name for name in achievement_locs if name in location_table and is_location_enabled(self.options, location_table)]
 
-            if "normal" in self.options.achievement_goals.value:
-                required_achievements.add("Achievements")
-
-            if "speedrun" in self.options.achievement_goals.value:
-                required_achievements.add("Achievements (Speedrun)")
-
-            if "deathless" in self.options.achievement_goals.value:
-                required_achievements.add("Achievements (Deathless)")
-
-            if self.options.chapter_six.value:
-                valid_achievements.append("Chapter 6")
-
-            if self.options.chapter_seven.value:
-                valid_achievements.append("Chapter 7")
-
-            if self.options.bandages.value:
-                valid_achievements.append("Bandage")
-
-            if self.options.dark_world.value:
-                valid_achievements.append("Dark World")
-
-            if self.options.xmas.value:
-                valid_achievements.append("xmas")
-
-            allowed_achievements = set(valid_achievements) | required_achievements
-
-            for name, data in location_table.items():
-                categories = data.category
-
-                # All required achievement categories must be present
-                if not required_achievements.intersection(categories):
-                    continue
-                
-                # Every category on this location must be enabled
-                if not set(categories).issubset(allowed_achievements):
-                    continue
-                
-                achievement_locations.append(name)
-                
-            for location in achievement_locations:
+            for location in achievement_locs:
                 self.multiworld.get_location(location, self.player).place_locked_item(self.create_item("Achievement Token"))
         
         for name, data in item_table.items():
             count = data.count
-            # If chapter 7 is disabled, change DW Dr. Fetus Key count
-            if not self.options.chapter_seven.value and name == "DW Dr. Fetus Key":
-                count = 105
             
-            # Cap bandages if dark world levels are disabled
-            if self.options.goal == "bandages" and not self.options.dark_world.value and name == "Bandage":
-                count = 52
+            # Cap Dr. Fetus Keys
+            if name == "DW Dr. Fetus Key":
+                dr_fetus_cap: int = 0
+                if "6" in self.options.chapters.value and self.options.dark_world.value:
+                    for chpt in self.options.chapters.value:
+                        if chpt == "6":
+                            dr_fetus_cap += 5
+                        else:
+                            dr_fetus_cap += 20
+                            
+                count = min(count, dr_fetus_cap)
+            
+            # Cap bandages
+            if self.options.goal == "bandages" and name == "Bandage":
+                bandages_cap: int = 0
+                for i in range(1, 6):
+                    if str(i) in self.options.chapters.value:
+                        if i == 3:
+                            bandages_cap += 8
+                            bandages_cap += self.options.dark_world.value * 12
+                        else:
+                            bandages_cap += 11
+                            bandages_cap += self.options.dark_world.value * 9
+                            
+                count = min(count, bandages_cap)
                 
             for _ in range(count):
                 item = self.create_item(name)
@@ -181,21 +160,19 @@ class SMBWorld(World):
                 if "Extras" in data.category:
                     continue
                 
-                # If Chapter 6 is off, don't put chapter 6 items into the pool
-                if not self.options.chapter_six.value and "Chapter 6" in data.category:
-                    continue
-                
-                # If Chapter 7 is off, don't put chapter 7 items into the pool
-                if not self.options.chapter_seven.value and "Chapter 7" in data.category:
+                # Don't put certain chapter items in the pool if they aren't enabled
+                if any(
+                    not str(i) in self.options.chapters.value and f"Chapter {i}" in data.category
+                    for i in range(1, 8)
+                ):
                     continue
                 
                 # If goal is not bandages, skip bandages from being added into the pool
                 if self.options.goal != "bandages" and name == "Bandage":
                     continue
                 
-                # If dark world levels are off, don't put A+ Ranks or DW Dr. Fetus Key in the item pool
-                if not self.options.dark_world.value and (
-                    "A+ Rank" in data.category or name == "DW Dr. Fetus Key"):
+                # If dark world levels are off, don't put A+ Ranks or DW Dr. Fetus Token in the item pool
+                if not self.options.dark_world.value and ("A+ Rank" in data.category or name == "DW Dr. Fetus Token"):
                     continue
                 
                 # If our goal is to complete LW Chapter 7, put Chapter 7 LW Level Keys on LW Chapter 7 levels

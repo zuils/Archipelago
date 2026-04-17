@@ -20,7 +20,9 @@ def create_regions(world: MultiWorld, options: SMBOptions, player: int) -> None:
             continue
         
         # Post goal locations
-        if options.goal == "larries" and loc_name in ("-5 |'-'|>", "-0&& (Beat -5 |>'-'|>)"):
+        if options.goal == "larries" and loc_name in ("-5 |>'-'|>", "-0&& (Beat -5 |>'-'|>)"):
+            continue
+        if options.goal == "light_world" and loc_name in ("-6 |>'-'|>", "N&8^2^%$1`` (Beat -6 |>'-'|>)", "The End (Beat Chapter 6 Light World)"):
             continue
         
         region_table[loc_data.region].locations.append(loc_name)
