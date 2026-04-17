@@ -24,6 +24,18 @@ def create_regions(world: MultiWorld, options: SMBOptions, player: int) -> None:
             continue
         if options.goal == "light_world" and loc_name in ("-6 |>'-'|>", "N&8^2^%$1`` (Beat -6 |>'-'|>)", "The End (Beat Chapter 6 Light World)"):
             continue
+        if options.goal == "dark_world" and loc_name == "The Real End (Beat Chapter 6 Dark World)":
+            continue
+        if options.goal == "light_world_chapter7" and loc_name in (
+            "Suffragette (Beat Chapter 7 Light World)",
+            "Girl Boy (Complete The Cotton Alley Light World Deathless)"
+        ):
+            continue
+        if options.goal == "dark_world_chapter7" and loc_name in (
+            "Seneca Falls (Beat Chapter 7 Dark World)",
+            "Impossible Boy (Complete The Cotton Alley Dark World Deathless)"
+        ):
+            continue
         
         region_table[loc_data.region].locations.append(loc_name)
         

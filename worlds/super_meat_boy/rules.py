@@ -333,6 +333,18 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
             continue
         if options.goal == "light_world" and name in ("-6 |>'-'|>", "N&8^2^%$1`` (Beat -6 |>'-'|>)", "The End (Beat Chapter 6 Light World)"):
             continue
+        if options.goal == "dark_world" and name == "The Real End (Beat Chapter 6 Dark World)":
+            continue
+        if options.goal == "light_world_chapter7" and name in (
+            "Suffragette (Beat Chapter 7 Light World)",
+            "Girl Boy (Complete The Cotton Alley Light World Deathless)"
+        ):
+            continue
+        if options.goal == "dark_world_chapter7" and name in (
+            "Seneca Falls (Beat Chapter 7 Dark World)",
+            "Impossible Boy (Complete The Cotton Alley Dark World Deathless)"
+        ):
+            continue
 
         req = data.requirement
 
