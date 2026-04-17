@@ -317,11 +317,11 @@ def resolve_options(world: World):
 
     # If goal requires a specific chapter that's not enabled, default to boss tokens
     if world.options.goal == "larries" and "5" not in world.options.chapters.value:
-        world.options.goal.value = 5
+        world.options.goal.value = Goal.option_boss_tokens
     elif world.options.goal in ("light_world", "dark_world") and "6" not in world.options.chapters.value:
-        world.options.goal.value = 5
+        world.options.goal.value = Goal.option_boss_tokens
     elif world.options.goal in ("light_world_chapter7", "dark_world_chapter7") and "7" not in world.options.chapters.value:
-        world.options.goal.value = 5
+        world.options.goal.value = Goal.option_boss_tokens
     
     # If goal is boss tokens, force enable boss tokens
     if world.options.goal == "boss_tokens":
