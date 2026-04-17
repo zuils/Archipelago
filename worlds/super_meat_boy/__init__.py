@@ -117,6 +117,40 @@ class SMBWorld(World):
             for location in achievement_locs:
                 self.multiworld.get_location(location, self.player).place_locked_item(self.create_item("Achievement Token"))
         
+        # Put LW/DW Chapter 7 Keys on Chapter 7 levels if our goal is in chapter 7
+        # This is done outside of the main for loop to reduce gen time
+        if self.options.goal in ("light_world_chapter7", "dark_world_chapter7"):
+            unfilled_locations = self.multiworld.get_unfilled_locations(self.player)
+
+            lw_ch7 = []
+            dw_ch7 = []
+
+            # All levels that are 7-<num> Level Name (excludes A+ Ranks)
+            lw_pattern = re.compile(r"^7-\d+\b(?!X).*?(?<!\(A\+ Rank\))$")
+            # All levels that are 7-<num>X Level Name (excludes A+ Ranks)
+            dw_pattern = re.compile(r"^7-\d+X\b(?!.*\(A\+ Rank\))")
+
+            for loc in unfilled_locations:
+                if lw_pattern.match(loc.name):
+                    lw_ch7.append(loc)
+                elif dw_pattern.match(loc.name):
+                    dw_ch7.append(loc)
+
+            lw_iter = iter(lw_ch7)
+            dw_iter = iter(dw_ch7)
+
+            if self.options.goal == "light_world_chapter7":
+                for _ in range(len(lw_ch7)):
+                    item = self.create_item("Chapter 7 LW Level Key")
+                    location = next(lw_iter)
+                    location.place_locked_item(item)
+
+            if self.options.goal == "dark_world_chapter7":
+                for _ in range(len(dw_ch7)):
+                    item = self.create_item("Chapter 7 DW Level Key")
+                    location = next(dw_iter)
+                    location.place_locked_item(item)
+        
         for name, data in item_table.items():
             count = data.count
             
@@ -175,28 +209,15 @@ class SMBWorld(World):
                 if not self.options.dark_world.value and ("A+ Rank" in data.category or name == "DW Dr. Fetus Token"):
                     continue
                 
-                # If our goal is to complete LW Chapter 7, put Chapter 7 LW Level Keys on LW Chapter 7 levels
-                # If our goal is not to complete LW Chapter 7, change Chapter 7 LW Level Keys to filler
+                # Skip Chapter 7 LW Level Keys if our goal is lw chapter 7, else change them to filler items
                 if item.name == "Chapter 7 LW Level Key":
                     if self.options.goal == "light_world_chapter7":
-                        # all patterns that are 7-<num> Level Name (excludes A+ Ranks)
-                        pattern = re.compile(rf"^7-\d+\b(?!X).*?(?<!\(A\+ Rank\))$")
-                        location = next(l for l in self.multiworld.get_unfilled_locations(self.player) if pattern.match(l.name))
-                        location.place_locked_item(item)
-
                         continue
                     else:
                         item.classification = ItemClassification.filler
 
-                # If our goal is to complete DW Chapter 7, put Chapter 7 DW Level Keys on DW Chapter 7 levels
-                # If our goal is not to complete DW Chapter 7, don't put Chapter 7 DW Level Keys in the pool
+                # Skip Chapter 7 DW Level Keys since we already put them on all the chapter 7 dw levels if needed
                 if item.name == "Chapter 7 DW Level Key":
-                    if self.options.goal == "dark_world_chapter7":
-                        # all patterns that are 7-<num>X Level Name (excludes A+ Ranks)
-                        pattern = re.compile(rf"^7-\d+X\b(?!.*\(A\+ Rank\))")
-                        location = next(l for l in self.multiworld.get_unfilled_locations(self.player) if pattern.match(l.name))
-                        location.place_locked_item(item)
-                    
                     continue                
                 
                 item_pool.append(item)
