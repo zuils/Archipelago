@@ -2252,7 +2252,7 @@
         "requires": "|2-19 A+ Rank|"
     },
     {
-        "name": "2-20X Back Track",
+        "name": "2-20X Solemnity",
         "category": [
             "DW Chapter 2"
         ],
@@ -2260,7 +2260,7 @@
         "requires": "|2-20 A+ Rank|"
     },
     {
-        "name": "2-20X Back Track (A+ Rank)",
+        "name": "2-20X Solemnity (A+ Rank)",
         "category": [
             "DW Chapter 2"
         ],
@@ -3641,6 +3641,15 @@
         "requires": "|4-3 A+ Rank|"
     },
     {
+        "name": "4-3X Char (Bandage)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-3 A+ Rank|"
+    },
+    {
         "name": "4-4X Altered",
         "category": [
             "DW Chapter 4"
@@ -3652,6 +3661,15 @@
         "name": "4-4X Altered (A+ Rank)",
         "category": [
             "DW Chapter 4"
+        ],
+        "region": "Chapter 4",
+        "requires": "|4-4 A+ Rank|"
+    },
+    {
+        "name": "4-4X Altered (Bandage)",
+        "category": [
+            "DW Chapter 4",
+            "Bandage"
         ],
         "region": "Chapter 4",
         "requires": "|4-4 A+ Rank|"
@@ -3684,15 +3702,6 @@
         "name": "4-6X Leviathan (A+ Rank)",
         "category": [
             "DW Chapter 4"
-        ],
-        "region": "Chapter 4",
-        "requires": "|4-6 A+ Rank|"
-    },
-    {
-        "name": "4-6X Leviathan (Bandage)",
-        "category": [
-            "DW Chapter 4",
-            "Bandage"
         ],
         "region": "Chapter 4",
         "requires": "|4-6 A+ Rank|"
