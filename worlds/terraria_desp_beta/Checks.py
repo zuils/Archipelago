@@ -173,6 +173,9 @@ class Condition:
         self.condition = condition
         self.argument = argument
 
+    def __str__(self):
+        return self.condition
+
 
 class Rule:
     def __init__(
@@ -188,6 +191,9 @@ class Rule:
         self.flags = flags
         self.operator = operator
         self.conditions = conditions
+
+    def __str__(self):
+        return self.name
 
 
 def validate_conditions(
