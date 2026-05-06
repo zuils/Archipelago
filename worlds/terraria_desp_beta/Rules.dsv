@@ -401,7 +401,7 @@ Skeletron Prime;                    Location | Item | Mech Boss;                
 // The Twins
 Soul of Sight;                      ;                                           #The Twins | Avenger Emblem | (@calamity & (Mechanical Glove | Celestial Emblem));
 Steampunker;                        Npc;                                        @mech_boss(1);
-Hammush;                            ;                                           Truffle & @mech_boss(1);
+Hammush;                            Hammer(80);                                 Truffle & @mech_boss(1);
 Rainbow Rod;                        ;                                           Hardmode Anvil & Crystal Shard & Unicorn Horn & Pixie Dust & Soul of Light & Soul of Sight;
 Prismancer;                         Achievement;                                Rainbow Rod;
 Long Ranged Sensor Array;           Calamity;                                   Hardmode Anvil & Mysterious Circuitry & Dubious Plating & Mythril Bar & Wire & Decryption Computer & Codebreaker Base;
