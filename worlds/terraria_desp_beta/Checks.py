@@ -173,6 +173,19 @@ class Condition:
         self.condition = condition
         self.argument = argument
 
+    def __str__(self):
+        prefix = "NOT " if not self.sign else ""
+        if type(self.condition) is str:
+            return prefix + str(self.condition)
+        operator, cond_group = self.condition
+        if operator:
+            prefix += "ANY "
+        elif operator is not None:
+            prefix += "ALL "
+        return prefix + str(cond_group)
+
+    __repr__ = __str__
+
 
 class Rule:
     def __init__(
@@ -188,6 +201,11 @@ class Rule:
         self.flags = flags
         self.operator = operator
         self.conditions = conditions
+
+    def __str__(self):
+        return self.name
+
+    __repr__ = __str__
 
 
 def validate_conditions(
