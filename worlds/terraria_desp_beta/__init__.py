@@ -104,6 +104,8 @@ class TerrariaWorld(World):
         item_count = 0
         items = []
 
+        events = []
+
         def mark_progression(conditions):
             for condition in conditions:
                 if condition.type == COND_ITEM:
@@ -153,13 +155,12 @@ class TerrariaWorld(World):
             if (
                     "Npc" in rule.flags
                     or "Pet" in rule.flags
-                    or "Goal" in rule.flags
                     or "Pickaxe" in rule.flags
                     or "Hammer" in rule.flags
                     or "Mech Boss" in rule.flags
-                    or "Final Boss" in rule.flags
                     or "Minions" in rule.flags
                     or "Armor Minions" in rule.flags
+                    or rule.name in goal_locations
             ):
                 self.progression.add(loc_to_item[rule.name])
                 mark_progression(rule.conditions)
@@ -171,7 +172,6 @@ class TerrariaWorld(World):
                 locations.append(rule.name)
                 if "Npc" in rule.flags:
                     self.npcs_to_randomize.add(rule.name)
-                self.progression.add(loc_to_item[rule.name])
                 mark_progression(rule.conditions)
             elif (
                     "Achievement" not in rule.flags
@@ -181,6 +181,7 @@ class TerrariaWorld(World):
             ):
                 # Event
                 locations.append(rule.name)
+                events.append(rule.name)
 
             if ("Item" in rule.flags
                 or ("Npc" in rule.flags and self.options.randomize_npcs.value)
@@ -200,9 +201,7 @@ class TerrariaWorld(World):
                 # Event
                 items.append(rule.name)
 
-        pointless_events = [event for event in locations
-                            if loc_to_item[event] in items
-                            and loc_to_item[event] not in self.progression]
+        pointless_events = [event for event in events if loc_to_item[event] not in self.progression]
         for event in pointless_events:
             locations.remove(event)
             items.remove(loc_to_item[event])
