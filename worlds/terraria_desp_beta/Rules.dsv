@@ -393,6 +393,9 @@ Mechanical Skull;                   ;                                           
 Ocram's Razor;                      Getfixedboi;                                (@calamity | Hardmode Anvil) & Mechanical Eye & Mechanical Worm & Mechanical Skull;
 The Twins;                          Location | Item | Mech Boss;                (~@getfixedboi & Mechanical Eye) | (@getfixedboi & Ocram's Razor);
 Brimstone Elemental;                Calamity | Location | Item;                 Soul of Night & Essence of Havoc & Unholy Core;
+Infernal Suevite;                   Calamity;                                   @pickaxe(150) | Brimstone Elemental;
+Unholy Core;                        Calamity;                                   (Infernal Suevite & Hellstone) | Brimstone Elemental;
+Ruin Medallion;                     Calamity;                                   (Hardmode Anvil & Coin of Deceit & Unholy Core & Essence of Havoc) | Dark Matter Sheath;
 The Destroyer;                      Location | Item | Mech Boss;                (~@getfixedboi & Mechanical Worm) | (@getfixedboi & Ocram's Razor);
 Cryogen;                            Calamity | Location | Item;                 Soul of Night & Soul of Light & Essence of Eleum;
 Skeletron Prime;                    Location | Item | Mech Boss;                (~@getfixedboi & Mechanical Skull) | (@getfixedboi & Ocram's Razor);
@@ -410,11 +413,6 @@ Life Fruit;                         ;                                           
 Get a Life;                         Achievement;                                Life Fruit;
 Topped Off;                         Achievement;                                Life Fruit;
 Old One's Army Tier 2;              Location | Item;                            #Old One's Army Tier 1 & ((Wall of Flesh & @mech_boss(1)) | #Old One's Army Tier 3);
-
-// Brimstone Elemental
-Infernal Suevite;                   Calamity;                                   @pickaxe(150) | Brimstone Elemental;
-Unholy Core;                        Calamity;                                   (Infernal Suevite & Hellstone) | Brimstone Elemental;
-Ruin Medallion;                     Calamity;                                   (Hardmode Anvil & Coin of Deceit & Unholy Core & Essence of Havoc) | Dark Matter Sheath;
 
 // The Destroyer
 Soul of Might;                      ;                                           #The Destroyer | Avenger Emblem | Light Disc | (@calamity & (Mechanical Glove | Celestial Emblem));
