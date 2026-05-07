@@ -15,6 +15,7 @@ from .Checks import (
     rewards,
     item_name_to_id,
     location_name_to_id,
+    loc_to_item,
     COND_ITEM,
     COND_LOC,
     COND_FN,
@@ -23,7 +24,6 @@ from .Checks import (
     pickaxes,
     hammers,
     mech_bosses,
-    progression,
     armor_minions,
     accessory_minions,
 )
@@ -59,6 +59,7 @@ class TerrariaWorld(World):
     calamity = False
     getfixedboi = False
 
+    progression = set()
     npcs_to_randomize = set()
 
     ter_items: List[str]
@@ -92,16 +93,37 @@ class TerrariaWorld(World):
                 self.options.calamity.value = True
 
             if "Npc" in flags:
-                item = location
+                event = location
             else:
-                item = flags.get("Item") or f"Post-{location}"
-            ter_goals[item] = location
-            goal_items.add(item)
+                event = flags.get("Item") or f"Post-{location}"
+            ter_goals[event] = location
+            goal_items.add(event)
 
         location_count = 0
         locations = []
         item_count = 0
         items = []
+
+        def mark_progression(conditions):
+            for condition in conditions:
+                if condition.type == COND_ITEM:
+                    prog = condition.condition in self.progression
+                    self.progression.add(loc_to_item[condition.condition])
+                    rule = rules[rule_indices[condition.condition]]
+                    if (
+                            not prog
+                            and "Achievement" not in rule.flags
+                            and "Location" not in rule.flags
+                            and "Npc" not in rule.flags
+                            and "Item" not in rule.flags
+                    ):
+                        mark_progression(rule.conditions)
+                elif condition.type == COND_LOC:
+                    mark_progression(rules[rule_indices[condition.condition]].conditions)
+                elif condition.type == COND_GROUP:
+                    _, conditions = condition.condition
+                    mark_progression(conditions)
+
         for rule in rules[:goal]:
             early = "Early" in rule.flags
             grindy = "Grindy" in rule.flags
@@ -127,6 +149,21 @@ class TerrariaWorld(World):
             ) and rule.name not in goal_locations:
                 continue
 
+            # Special events
+            if (
+                    "Npc" in rule.flags
+                    or "Pet" in rule.flags
+                    or "Goal" in rule.flags
+                    or "Pickaxe" in rule.flags
+                    or "Hammer" in rule.flags
+                    or "Mech Boss" in rule.flags
+                    or "Final Boss" in rule.flags
+                    or "Minions" in rule.flags
+                    or "Armor Minions" in rule.flags
+            ):
+                self.progression.add(loc_to_item[rule.name])
+                mark_progression(rule.conditions)
+
             if "Location" in rule.flags or "Achievement" in rule.flags or (
                     "Npc" in rule.flags and self.options.randomize_npcs.value):
                 # Location
@@ -134,6 +171,8 @@ class TerrariaWorld(World):
                 locations.append(rule.name)
                 if "Npc" in rule.flags:
                     self.npcs_to_randomize.add(rule.name)
+                self.progression.add(loc_to_item[rule.name])
+                mark_progression(rule.conditions)
             elif (
                     "Achievement" not in rule.flags
                     and "Location" not in rule.flags
@@ -160,6 +199,15 @@ class TerrariaWorld(World):
             ):
                 # Event
                 items.append(rule.name)
+
+        pointless_events = [event for event in locations
+                            if loc_to_item[event] in items
+                            and loc_to_item[event] not in self.progression]
+        for event in pointless_events:
+            locations.remove(event)
+            items.remove(loc_to_item[event])
+            location_count -= 1
+            item_count -= 1
 
         ordered_rewards = [
             reward
@@ -218,7 +266,7 @@ class TerrariaWorld(World):
         self.multiworld.regions.append(menu)
 
     def create_item(self, item: str) -> TerrariaItem:
-        if item in progression:
+        if item in self.progression:
             classification = ItemClassification.progression
         else:
             classification = ItemClassification.filler
@@ -246,7 +294,7 @@ class TerrariaWorld(World):
             rule = rules[rule_indices[location]]
             if "Location" not in rule.flags and "Achievement" not in rule.flags \
                     and not ("Npc" in rule.flags and self.options.randomize_npcs.value):
-                if location in progression:
+                if location in self.progression:
                     classification = ItemClassification.progression
                 else:
                     classification = ItemClassification.useful

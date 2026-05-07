@@ -244,42 +244,6 @@ def validate_conditions(
             validate_conditions(rule, rule_indices, conditions)
 
 
-def mark_progression(
-    conditions: List[Condition],
-    progression: Set[str],
-    rules: list,
-    rule_indices: dict,
-    loc_to_item: dict,
-):
-    for condition in conditions:
-        if condition.type == COND_ITEM:
-            prog = condition.condition in progression
-            progression.add(loc_to_item[condition.condition])
-            rule = rules[rule_indices[condition.condition]]
-            if (
-                not prog
-                and "Achievement" not in rule.flags
-                and "Location" not in rule.flags
-                and "Npc" not in rule.flags
-                and "Item" not in rule.flags
-            ):
-                mark_progression(
-                    rule.conditions, progression, rules, rule_indices, loc_to_item
-                )
-        elif condition.type == COND_LOC:
-
-            mark_progression(
-                rules[rule_indices[condition.condition]].conditions,
-                progression,
-                rules,
-                rule_indices,
-                loc_to_item,
-            )
-        elif condition.type == COND_GROUP:
-            _, conditions = condition.condition
-            mark_progression(conditions, progression, rules, rule_indices, loc_to_item)
-
-
 def read_data() -> Tuple[
     # Goal to rule index that ends that goal's range and the locations required
     List[Tuple[int, Set[str]]],
@@ -295,6 +259,8 @@ def read_data() -> Tuple[
     Dict[str, int],
     # Location name to ID
     Dict[str, int],
+    # Location name to Item name
+    Dict[str, str],
     # NPCs
     List[str],
     # Pickaxe to pick power
@@ -305,8 +271,6 @@ def read_data() -> Tuple[
     List[str],
     # Calamity final bosses
     List[str],
-    # Progression rules
-    Set[str],
     # Armor to minion count,
     Dict[str, int],
     # Accessory to minion count,
@@ -663,26 +627,6 @@ def read_data() -> Tuple[
     for rule in rules:
         validate_conditions(rule.name, rule_indices, rule.conditions)
 
-    for rule in rules:
-        prog = False
-        if (
-            "Npc" in rule.flags
-            or "Pet" in rule.flags
-            or "Goal" in rule.flags
-            or "Pickaxe" in rule.flags
-            or "Hammer" in rule.flags
-            or "Mech Boss" in rule.flags
-            or "Final Boss" in rule.flags
-            or "Minions" in rule.flags
-            or "Armor Minions" in rule.flags
-        ):
-            progression.add(loc_to_item[rule.name])
-            prog = True
-        if prog or "Location" in rule.flags or "Achievement" in rule.flags:
-            mark_progression(
-                rule.conditions, progression, rules, rule_indices, loc_to_item
-            )
-
     # Will be randomized via `slot_randoms` / `self.multiworld.random`
     label = None
     labels = {}
@@ -779,12 +723,12 @@ def read_data() -> Tuple[
         rewards,
         item_name_to_id,
         location_name_to_id,
+        loc_to_item,
         npcs,
         pickaxes,
         hammers,
         mech_bosses,
         final_bosses,
-        progression,
         armor_minions,
         accessory_minions,
     )
@@ -798,12 +742,12 @@ def read_data() -> Tuple[
     rewards,
     item_name_to_id,
     location_name_to_id,
+    loc_to_item,
     npcs,
     pickaxes,
     hammers,
     mech_bosses,
     final_bosses,
-    progression,
     armor_minions,
     accessory_minions,
 ) = read_data()
