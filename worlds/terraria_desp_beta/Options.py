@@ -21,7 +21,7 @@ class Getfixedboi(Toggle):
 
 class Goal(Choice):
     """
-    The victory condition for your run. Stuff after the goal will not be shuffled.
+    The victory condition for your run. Stuff after the goal will not be shuffled (if Shuffle Up To is default).
     Primordial Wyrm and Boss Rush are accessible relatively early, so consider "Items" or
     "Locations" accessibility to avoid getting stuck on the goal.
 
@@ -49,6 +49,25 @@ class Goal(Choice):
     option_boss_rush = 16
     default = 0
 
+
+class ShuffleUpTo(Choice):
+    """
+    Allows you to randomize checks past the set goal.
+    Note that certain configurations may result in some checks only being accessible post-goal.
+    """
+    display_name = "Shuffle Up To"
+    default = 0
+    option_disable = 0
+    option_mechanical_bosses = 1
+    option_plantera = 3
+    option_golem = 5
+    option_lunatic_cultist = 7
+    option_moon_lord = 9
+    option_providence_the_profaned_goddess = 10
+    option_devourer_of_gods = 11
+    option_yharon_dragon_of_rebirth = 12
+    option_calamity_final_bosses = 14
+    option_all = -1
 
 class RandomizeNPCs(Toggle):
     """
@@ -108,6 +127,7 @@ class TerrariaOptions(PerGameCommonOptions):
     calamity: Calamity
     getfixedboi: Getfixedboi
     goal: Goal
+    shuffle_to: ShuffleUpTo
     randomize_npcs: RandomizeNPCs
     early_achievements: EarlyAchievements
     normal_achievements: NormalAchievements

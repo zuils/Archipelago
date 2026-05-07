@@ -73,6 +73,13 @@ class TerrariaWorld(World):
 
     def generate_early(self) -> None:
         goal, goal_locations = goals[self.options.goal.value]
+        match self.options.shuffle_to.value:
+            case 0:
+                pass
+            case -1:
+                goal = 0
+            case _:
+                goal, _ = goals[self.options.shuffle_to.value]
         ter_goals = {}
         goal_items = set()
 
@@ -125,8 +132,8 @@ class TerrariaWorld(World):
                 elif condition.type == COND_GROUP:
                     _, conditions = condition.condition
                     mark_progression(conditions)
-
-        for rule in rules[:goal]:
+        valid_rules = rules[:goal] if goal != 0 else rules
+        for rule in valid_rules:
             early = "Early" in rule.flags
             grindy = "Grindy" in rule.flags
             fishing = "Fishing" in rule.flags
