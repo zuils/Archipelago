@@ -96,6 +96,12 @@ class FillExtraChecksWith(Choice):
     option_useful_items = 1
     default = 1
 
+class ShimmerSkips(Toggle):
+    """
+    Enables sequence breaks in logic requiring the use of Shimmer to transmute/uncraft items.
+    """
+
+    display_name = "Shimmer Skips"
 
 @dataclass
 class TerrariaOptions(PerGameCommonOptions):
@@ -108,4 +114,5 @@ class TerrariaOptions(PerGameCommonOptions):
     grindy_achievements: GrindyAchievements
     fishing_achievements: FishingAchievements
     fill_extra_checks_with: FillExtraChecksWith
+    shimmer_skips: ShimmerSkips
     death_link: DeathLink
