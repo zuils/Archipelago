@@ -120,7 +120,7 @@ Flinx Fur Coat;                     Armor Minions(1);
 Stormlion Mandible;                 Calamity;
 Golfer;                             Npc;
 Party Girl;                         Npc;                                        @npc(14);
-Jolly Jamboree;                     Achievement | Grindy;                       Party Girl;
+Jolly Jamboree;                     Achievement;                                Party Girl;
 Cool Slime;                         Pet;                                        Party Girl;
 
 // Sunken Sea
