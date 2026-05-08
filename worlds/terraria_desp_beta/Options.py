@@ -92,8 +92,28 @@ class NormalAchievements(DefaultOnToggle):
     display_name = "Normal Achievements"
 
 
+class RareAchievements(Toggle):
+    """Adds checks upon collecting grindy achievements involving rare enemies/drops"""
+
+    display_name = "Rare Achievements"
+
+
+class TimeAchievements(Toggle):
+    """
+    Adds checks upon collecting grindy achievements based on random time-based events, such as windy weather
+    """
+
+    display_name = "Time-based Achievements"
+
+
+class CraftingAchievements(Toggle):
+    """Adds checks upon collecting grindy achievements dedicated to crafting complex items"""
+
+    display_name = "Crafting Achievements"
+
+
 class GrindyAchievements(Toggle):
-    """Adds checks upon collecting grindy achievements"""
+    """Adds checks upon collecting grindy achievements that otherwise require a lot of repetitive work"""
 
     display_name = "Grindy Achievements"
 
@@ -131,6 +151,9 @@ class TerrariaOptions(PerGameCommonOptions):
     randomize_npcs: RandomizeNPCs
     early_achievements: EarlyAchievements
     normal_achievements: NormalAchievements
+    rare_achievements: RareAchievements
+    time_achievements: TimeAchievements
+    crafting_achievements: CraftingAchievements
     grindy_achievements: GrindyAchievements
     fishing_achievements: FishingAchievements
     fill_extra_checks_with: FillExtraChecksWith

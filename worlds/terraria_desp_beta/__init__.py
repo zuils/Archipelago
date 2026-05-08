@@ -135,6 +135,9 @@ class TerrariaWorld(World):
         valid_rules = rules[:goal] if goal != 0 else rules
         for rule in valid_rules:
             early = "Early" in rule.flags
+            rare = "Rare" in rule.flags
+            time = "Time" in rule.flags
+            crafting = "Crafting" in rule.flags
             grindy = "Grindy" in rule.flags
             fishing = "Fishing" in rule.flags
 
@@ -154,6 +157,9 @@ class TerrariaWorld(World):
                             not self.options.normal_achievements.value
                             and "Achievement" in rule.flags
                     )
+                    or (not self.options.rare_achievements.value and rare)
+                    or (not self.options.time_achievements.value and time)
+                    or (not self.options.crafting_achievements.value and crafting)
                     or (not self.options.grindy_achievements.value and grindy)
                     or (not self.options.fishing_achievements.value and fishing)
             ) and rule.name not in goal_locations:
@@ -346,8 +352,8 @@ class TerrariaWorld(World):
                 return condition.sign == self.options.randomize_npcs.value
             elif condition.condition == "calamity":
                 return condition.sign == self.options.calamity.value
-            elif condition.condition == "grindy":
-                return condition.sign == self.options.grindy_achievements.value
+            elif condition.condition == "rare":
+                return condition.sign == self.options.rare_achievements.value
             elif condition.condition == "pickaxe":
                 if type(condition.argument) is not int:
                     raise Exception("@pickaxe requires an integer argument")
