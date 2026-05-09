@@ -500,7 +500,7 @@ Temple Raider;                      Achievement;                                
 Lihzahrd Temple;                    ;                                           #Plantera | (Plantera & Actuator) | @pickaxe(210) | (@calamity & Hardmode Anvil & Soul of Light & Soul of Night);
 Lihzahrd Furniture;                 ;                                           Lihzahrd Temple;
 Bohldohr;                           Calamity;                                   Lihzahrd Temple;
-Solar Eclipse;                      ;                                           Lihzahrd Temple & Wall of Flesh;
+Solar Eclipse;                      ;                                           Wall of Flesh & (Lihzahrd Temple | (@time & @mech_boss(1)));
 Broken Hero Sword;                  ;                                           Solar Eclipse & Plantera & @mech_boss(3);
 Terra Blade;                        ;                                           Hardmode Anvil & True Night's Edge & True Excalibur & Broken Hero Sword & (~@calamity | Living Shard);
 Sword of the Hero;                  Achievement | Crafting;                     Terra Blade;
