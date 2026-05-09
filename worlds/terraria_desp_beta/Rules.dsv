@@ -664,7 +664,7 @@ Twisting Nether;                    Calamity;                                   
 // Polterghast
 Polterghast;                        Calamity | Location | Item;                 Dungeon & ((Ancient Manipulator & Polterplasm) | Moon Lord);
 Ruinous Soul;                       Calamity;                                   #Polterghast;
-Bloodflare Armor;                   Calamity | Armor Minions(3);                Ancient Manipulator & Bloodstone Core & Ruinous Soul;
+Bloodflare Armor;                   Calamity | Armor Minions(3);                Hardmode Anvil & Bloodstone Core & Ruinous Soul;
 Reaper Tooth;                       Calamity;                                   Polterghast;
 Omega Blue Armor;                   Calamity | Armor Minions(2);                Ancient Manipulator & Reaper Tooth & Depth Cells & Ruinous Soul;
 
