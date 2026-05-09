@@ -474,10 +474,7 @@ Princess;                           Npc | Goal;                                 
 Real Estate Agent;                  Achievement;                                #Princess & Princess;
 Ectoplasm;                          ;                                           (Plantera & (Calamitas Clone | (Wall of Flesh & (Skeletron | @calamity)))) | (Shimmer & (Spectre Bar | Fleshy Geode | Necromantic Geode));  // various cores
 Paladin's Shield;                   ;                                           Dungeon & Wall of Flesh & Plantera;
-Core of Sunlight;                   Calamity;                                   (Hardmode Anvil & Essence of Sunlight & Ectoplasm) | Fleshy Geode | Necromantic Geode | (Shimmer & (Core of Calamity | Statis' Blessing));
-Core of Eleum;                      Calamity;                                   (Hardmode Anvil & Essence of Eleum & Ectoplasm) | Fleshy Geode | Necromantic Geode | (Shimmer & Core of Calamity);
-Core of Havoc;                      Calamity;                                   (Hardmode Anvil & Essence of Havoc & Ectoplasm) | Fleshy Geode | Necromantic Geode | (Shimmer & Core of Calamity);
-Core of Calamity;                   Calamity;                                   (Hardmode Anvil & Core of Sunlight & Core of Eleum & Core of Havoc & Ashes of Calamity) | Necromantic Geode | (Shimmer & Deadshot Brooch);
+Core of Calamity;                   Calamity;                                   (Hardmode Anvil & Essence of Sunlight & Essence of Eleum & Essence of Havoc & Ashes of Calamity & Ectoplasm) | Necromantic Geode | (Shimmer & Deadshot Brooch);
 Deadshot Brooch;                    Calamity;                                   (Hardmode Anvil & Emblem & Core of Calamity) | (Shimmer & Elemental Quiver);
 Spectre Bar;                        ;                                           Hardmode Forge & Chlorophyte Bar & Ectoplasm;
 Spectre Pickaxe;                    Pickaxe(200);                               Hardmode Anvil & Spectre Bar;
@@ -508,7 +505,7 @@ Neptune's Shell;                    ;                                           
 Kill the Sun;                       Achievement;                                Solar Eclipse;
 
 // Great Sand Shark
-Great Sand Shark;                   Calamity | Location | Item;                 Hardmode Anvil & Forbidden Fragment & Core of Sunlight;
+Great Sand Shark;                   Calamity | Location | Item;                 Hardmode Anvil & Forbidden Fragment & Core of Calamity;
 Grand Scale;                        Calamity;                                   #Great Sand Shark | (Shimmer & Sand Shark Tooth Necklace);
 Sand Shark Tooth Necklace;          Calamity;                                   (Tinkerer's Workshop & Shark Tooth Necklace & Avenger Emblem & Grand Scale) | (@getfixedboi & #Desert Scourge);
 
@@ -531,7 +528,7 @@ Lihzahrd Brick;                     ;                                           
 Scoria Ore;                         Calamity;                                   Golem | @pickaxe(210) | (Shimmer & (Astral Ore | Luminite | Scoria Bar));
 Scoria Bar;                         Calamity;                                   (Hardmode Forge & Scoria Ore) | Fleshy Geode | Necromantic Geode | (Shimmer & (Life Alloy | Sigil of Calamitas | Fire Gauntlet));
 Seismic Hampick;                    Calamity | Pickaxe(210) | Hammer(95);       Hardmode Anvil & Scoria Bar;
-Hydrothermic Armor;                 Calamity | Armor Minions(2);                Hardmode Anvil & Scoria Bar & Core of Havoc;
+Hydrothermic Armor;                 Calamity | Armor Minions(2);                Hardmode Anvil & Scoria Bar & Essence of Havoc;
 Fire Gauntlet;                      ;                                           (Tinkerer's Workshop & Magma Stone & Mechanical Glove & (~@calamity | Scoria Bar)) | (@calamity & Shimmer & Elemental Gauntlet);
 Sigil of Calamitas;                 Calamity;                                   (Hardmode Anvil & Celestial Emblem & Scoria Bar & Ashes of Calamity) | (Shimmer & Ethereal Talisman);
 Life Alloy;                         Calamity;                                   (Hardmode Anvil & Cryonic Bar & Perennial Bar & Scoria Bar) | Necromantic Geode | (Shimmer & Star-Tainted Generator) | (@getfixedboi & #Yharon, Dragon of Rebirth);
@@ -560,7 +557,7 @@ Spooky Armor;                       Armor Minions(4);                           
 Mourning Wood;                      Location | Item;                            Pumpkin Moon;
 Necromantic Scroll;                 Minions(1);                                 #Mourning Wood;
 Papyrus Scarab;                     Minions(1);                                 (Tinkerer's Workshop & Hercules Beetle & Necromantic Scroll) | (@calamity & Statis' Blessing);
-Statis' Blessing;                   Calamity;                                   (Hardmode Anvil & Papyrus Scarab & Pygmy Necklace & Emblem & Holy Water & Core of Sunlight) | Statis' Curse;
+Statis' Blessing;                   Calamity;                                   (Hardmode Anvil & Papyrus Scarab & Pygmy Necklace & Emblem & Holy Water & Essence of Sunlight) | Statis' Curse;
 Pumpking;                           Location | Item;                            Pumpkin Moon;
 The Horseman's Blade;               ;                                           #Pumpking;
 Baleful Harvest;                    Achievement;                                Pumpkin Moon;
@@ -709,7 +706,7 @@ Infinity +1 Sword;                  Achievement | Crafting | Item(Has Zenith) | 
 # zenith
 
 // Exo Mechs
-Auric Quantum Cooling Cell;         Calamity;                                   Cosmic Anvil & Auric Bar & Mysterious Circuitry & Dubious Plating & Endothermic Energy & Core of Eleum & Voltage Regulation System;
+Auric Quantum Cooling Cell;         Calamity;                                   Cosmic Anvil & Auric Bar & Mysterious Circuitry & Dubious Plating & Endothermic Energy & Essence of Eleum & Voltage Regulation System;
 Exo Mechs;                          Calamity | Location | Item | Final Boss;    Codebreaker Base & Decryption Computer & Auric Quantum Cooling Cell;
 // XB-Infinity Hekate;                 Getfixedboi | Calamity;                     Codebreaker Base & Decryption Computer & Auric Quantum Cooling Cell & Blood Sample; // Currently, this boss doesn't affect logic at all
 Supreme Witch, Calamitas;           Calamity | Location | Item | Final Boss;    (Cosmic Anvil & Brimstone Slag & Auric Bar & Core of Calamity & Ashes of Calamity) | (@getfixedboi & #Supreme Alchemist, Cirrus);
