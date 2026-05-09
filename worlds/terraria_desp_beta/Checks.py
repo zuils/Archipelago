@@ -230,6 +230,7 @@ def validate_conditions(
                 "npc_rando",
                 "calamity",
                 "rare",
+                "time",
                 "pickaxe",
                 "hammer",
                 "mech_boss",

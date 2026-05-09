@@ -354,6 +354,8 @@ class TerrariaWorld(World):
                 return condition.sign == self.options.calamity.value
             elif condition.condition == "rare":
                 return condition.sign == self.options.rare_achievements.value
+            elif condition.condition == "time":
+                return condition.sign == self.options.time_achievements.value
             elif condition.condition == "pickaxe":
                 if type(condition.argument) is not int:
                     raise Exception("@pickaxe requires an integer argument")
