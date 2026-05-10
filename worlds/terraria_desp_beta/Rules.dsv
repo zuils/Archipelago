@@ -512,7 +512,7 @@ Sand Shark Tooth Necklace;          Calamity;                                   
 // Leviathan and Anahita
 Leviathan and Anahita;              Calamity | Location | Item;
 Depth Cells;                        Calamity;                                   Calamitas Clone | (Shimmer & Abyssal Mirror);
-Lumenyl;                            Calamity;                                   Calamitas Clone | (Shimmer & Abyssal Mirror);
+Lumenyl;                            Calamity;                                   Leviathan and Anahita | (Shimmer & Abyssal Mirror);
 Abyssal Mirror;                     Calamity;                                   (Hardmode Anvil & Mirage Mirror & Ink Bomb & Depth Cells & Lumenyl) | (Shimmer & Eclipse Mirror);
 Fathom Swarmer Armor;               Calamity | Armor Minions(2);                Hardmode Anvil & Sea Remains & Depth Cells;
 
