@@ -624,13 +624,13 @@ Sick Throw;                         Achievement | Rare;                         
 Meowmere;                           ;                                           #Moon Lord;
 Star Wrath;                         ;                                           #Moon Lord;
 Exodium Cluster;                    Calamity;                                   (Moon Lord & (Wall of Flesh | @pickaxe(225))) | (Shimmer & Uelibloom Ore);
-Normality Relocator;                Calamity;                                   Ancient Manipulator & Rod of Discord & Exodium Cluster & Fragment;
+Normality Relocator;                Calamity;                                   Hardmode Anvil & Rod of Discord & Exodium Cluster & Fragment;
 Unholy Essence;                     Calamity;                                   Moon Lord | #Providence, the Profaned Goddess | (@getfixedboi & Plantera);
 Polterplasm;                        Calamity;                                   (Moon Lord & Wall of Flesh) | (Dungeon & (Polterghast | Moon Lord)) | #Polterghast | (Shimmer & #The Devourer of Gods);
 Eldritch Soul Artifact;             Calamity | Minions(1);                      Exodium Cluster & Navyplate & Polterplasm;
 
 // Profaned Guardians
-Profaned Guardians;                 Calamity | Location | Item;                 Ancient Manipulator & Unholy Essence & Luminite Bar;
+Profaned Guardians;                 Calamity | Location | Item;                 Hardmode Anvil & Unholy Essence & Luminite Bar;
 
 // Dragonfolly
 The Dragonfolly;                    Calamity | Location | Item;                 (Ancient Manipulator & Unholy Essence & Luminite Bar) | (@getfixedboi & #Supreme Alchemist, Cirrus);
@@ -644,10 +644,10 @@ Profaned Soul Artifact;             Calamity | Minions(1);                      
 Rune of Kos;                        Calamity;                                   #Providence, the Profaned Goddess;
 Uelibloom Ore;                      Calamity;                                   Providence, the Profaned Goddess | (Shimmer & (Auric Ore | Uelibloom Bar));
 Uelibloom Bar;                      Calamity;                                   (Hardmode Forge & Uelibloom Ore) | Providence, the Profaned Goddess;
-Grax;                               Calamity | Hammer(110);                     Ancient Manipulator & Inferna Cutter & Luminite Hamaxe & Uelibloom Bar;
-Blossom Pickaxe;                    Calamity | Pickaxe(250);                    Ancient Manipulator & Uelibloom Bar;
-Voltage Regulation System;          Calamity;                                   Ancient Manipulator & Mysterious Circuitry & Dubious Plating & Uelibloom Bar & Luminite Bar & Advanced Display;
-Tarragon Armor;                     Calamity | Armor Minions(3);                Ancient Manipulator & Uelibloom Bar & Divine Geode;
+Grax;                               Calamity | Hammer(110);                     Hardmode Anvil & Inferna Cutter & Luminite Hamaxe & Uelibloom Bar;
+Blossom Pickaxe;                    Calamity | Pickaxe(250);                    Hardmode Anvil & Uelibloom Bar;
+Voltage Regulation System;          Calamity;                                   Hardmode Anvil & Mysterious Circuitry & Dubious Plating & Uelibloom Bar & Luminite Bar & Advanced Display;
+Tarragon Armor;                     Calamity | Armor Minions(3);                Hardmode Anvil & Uelibloom Bar & Divine Geode;
 Necromantic Geode;                  Calamity;                                   #Ravager & Providence, the Profaned Goddess;
 Bloodstone;                         Calamity;                                   Providence, the Profaned Goddess | Necromantic Geode;
 Bloodstone Core;                    Calamity;                                   Hardmode Anvil & Bloodstone & Polterplasm;
@@ -661,11 +661,11 @@ Signus, Envoy of the Devourer;      Calamity | Location | Item;                 
 Twisting Nether;                    Calamity;                                   #Signus, Envoy of the Devourer;
 
 // Polterghast
-Polterghast;                        Calamity | Location | Item;                 Dungeon & ((Ancient Manipulator & Polterplasm) | Moon Lord);
+Polterghast;                        Calamity | Location | Item;                 Dungeon & ((Hardmode Anvil & Polterplasm) | Moon Lord);
 Ruinous Soul;                       Calamity;                                   #Polterghast;
 Bloodflare Armor;                   Calamity | Armor Minions(3);                Hardmode Anvil & Bloodstone Core & Ruinous Soul;
 Reaper Tooth;                       Calamity;                                   Polterghast;
-Omega Blue Armor;                   Calamity | Armor Minions(2);                Ancient Manipulator & Reaper Tooth & Depth Cells & Ruinous Soul;
+Omega Blue Armor;                   Calamity | Armor Minions(2);                Hardmode Anvil & Reaper Tooth & Depth Cells & Ruinous Soul;
 
 // The Old Duke
 Mauler;                             Calamity | Location | Item;                 Acid Rain Tier 3;
@@ -684,7 +684,7 @@ Endothermic Energy;                 Calamity;                                   
 Darksun Fragment;                   Calamity;                                   (Solar Eclipse & The Devourer of Gods) | (Shimmer & Eclipse Mirror);
 Dark Sun Ring;                      Calamity;                                   Cosmic Anvil & Uelibloom Bar & Darksun Fragment;
 Eclipse Mirror;                     Calamity;                                   (Cosmic Anvil & Abyssal Mirror & Dark Matter Sheath & Darksun Fragment) | (@getfixedboi & #Ceaseless Void);
-Ascendant Spirit Essence;           Calamity;                                   (Ancient Manipulator & Polterplasm & Nightmare Fuel & Endothermic Energy & Darksun Fragment) | (@getfixedboi & #Providence, the Profaned Goddess) | (Shimmer & (Elemental Gauntlet | Elemental Quiver | Nucleogenesis | Nanotech | Ethereal Talisman));
+Ascendant Spirit Essence;           Calamity;                                   (Hardmode Anvil & Polterplasm & Nightmare Fuel & Endothermic Energy & Darksun Fragment) | (@getfixedboi & #Providence, the Profaned Goddess) | (Shimmer & (Elemental Gauntlet | Elemental Quiver | Nucleogenesis | Nanotech | Ethereal Talisman));
 Fearmonger Armor;                   Calamity | Armor Minions(2);                Cosmic Anvil & Spooky Armor & Cosmilite Bar & Soul of Fright & Ascendant Spirit Essence;
 Silva Armor;                        Calamity | Armor Minions(5);                Cosmic Anvil & Effulgent Feather & Ascendant Spirit Essence;
 Elemental Gauntlet;                 Calamity;                                   (Cosmic Anvil & Fire Gauntlet & Luminite Bar & Galactica Singularity & Ascendant Spirit Essence) | (@getfixedboi & #Storm Weaver);
@@ -694,7 +694,7 @@ Nanotech;                           Calamity;                                   
 Ethereal Talisman;                  Calamity;                                   (Cosmic Anvil & Sigil of Calamitas & Mana Flower & Luminite Bar & Galactica Singularity & Ascendant Spirit Essence) | (@getfixedboi & #Signus, Envoy of the Devourer);
 
 // Yharon, Dragon of Rebirth
-Yharon, Dragon of Rebirth;          Calamity | Location | Item | Goal;          Ancient Manipulator & Effulgent Feather & Life Alloy;
+Yharon, Dragon of Rebirth;          Calamity | Location | Item | Goal;          Hardmode Anvil & Effulgent Feather & Life Alloy;
 # yharon_dragon_of_rebirth
 Yharon Soul Fragment;               Calamity;                                   #Yharon, Dragon of Rebirth | (Shimmer & (The Wand | Auric Bar));
 The Wand;                           Calamity;                                   (Cosmic Anvil & Wand of Sparking & Yharon Soul Fragment) | (@getfixedboi & #The Devourer of Gods);
