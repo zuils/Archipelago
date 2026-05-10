@@ -472,7 +472,7 @@ Shroomite Digging Claw;             Pickaxe(200);                               
 Princess;                           Npc | Goal;                                 Guide & Merchant & Nurse & Demolitionist & Dye Trader & Zoologist & Angler & Painter & Stylist & Golfer & Arms Dealer & Dryad & Party Girl & Tavernkeep & Goblin Tinkerer & Mechanic & Witch Doctor & Clothier & Wizard & Truffle & Tax Collector & Pirate & Steampunker & Cyborg;
 # princess
 Real Estate Agent;                  Achievement;                                #Princess & Princess;
-Ectoplasm;                          ;                                           (Plantera & (Calamitas Clone | (Wall of Flesh & (Skeletron | @calamity)))) | (Shimmer & (Spectre Bar | Fleshy Geode | Necromantic Geode));  // various cores
+Ectoplasm;                          ;                                           (Plantera & (Calamitas Clone | (Wall of Flesh & (Skeletron | @calamity)))) | (Shimmer & (Spectre Bar | Core of Calamity));  // various cores
 Paladin's Shield;                   ;                                           Dungeon & Wall of Flesh & Plantera;
 Core of Calamity;                   Calamity;                                   (Hardmode Anvil & Essence of Sunlight & Essence of Eleum & Essence of Havoc & Ashes of Calamity & Ectoplasm) | Necromantic Geode | (Shimmer & Deadshot Brooch);
 Deadshot Brooch;                    Calamity;                                   (Hardmode Anvil & Emblem & Core of Calamity) | (Shimmer & Elemental Quiver);
