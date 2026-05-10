@@ -8,7 +8,7 @@ Guide;                              Npc;
 Squire Slime;                       Pet;
 Traveling Merchant;                 ;                                           @npc(2);
 Lifeform Analyzer;                  ;                                           Traveling Merchant;
-DPS Meter;                          ;                                           Traveling Merchant | (@calamity & Wire);
+DPS Meter;                          ;                                           Traveling Merchant;
 Stopwatch;                          ;                                           Traveling Merchant;
 Timber!!;                           Achievement | Early;
 Benched;                            Achievement | Early;
@@ -18,7 +18,7 @@ Fashion Statement;                  Achievement | Early;
 Ooo! Shiny!;                        Achievement | Early;
 No Hobo;                            Achievement;                                @npc(1);
 Merchant;                           Npc;
-Bug Net;                            ;                                           @calamity | Merchant;
+Bug Net;                            ;                                           Merchant;  // TODO: add angler if fishing logic is enabled
 Heavy Metal;                        Achievement | Early;
 Dye Trader;                         Npc;                                        @npc(4);
 Dye Hard;                           Achievement;                                Dye Trader;
@@ -218,7 +218,7 @@ Fiery Greatsword;                   ;                                           
 Molten Hamaxe;                      Hammer(70);                                 Hellstone Bar;
 Molten Pickaxe;                     Pickaxe(100);                               Hellstone Bar;
 Miner for Fire;                     Achievement;                                Molten Pickaxe;
-Hot Reels!;                         Achievement;                                Hellstone Bar & (@calamity | Bug Net);
+Hot Reels!;                         Achievement;                                Hellstone Bar & Bug Net;
 Brimstone Slag;                     Calamity;                                   @pickaxe(100);
 
 // Goblin Army
@@ -300,18 +300,18 @@ Wall of Flesh;                      Location | Item(Hardmode) | Goal;           
 # wall_of_flesh
 Pwnhammer;                          Hammer(80);                                 #Wall of Flesh;
 Emblem;                             ;                                           #Wall of Flesh | (Shimmer & (Avenger Emblem | (@calamity & (Mechanical Glove | Celestial Emblem | Statis' Blessing))));
-Fast Clock;                         ;                                           Wall of Flesh | (Shimmer & Trifold Map) | (@calamity & Wire & Pixie Dust & Soul of Light);
+Fast Clock;                         ;                                           Wall of Flesh | (Shimmer & Trifold Map);
 Wizard;                             Npc;                                        Wall of Flesh;
 Titan Glove;                        ;                                           Wall of Flesh | (Shimmer & Power Glove);
 Power Glove;                        ;                                           Tinkerer's Workshop & Titan Glove & Feral Claws;
 Magic Quiver;                       ;                                           Wall of Flesh | (@calamity & Shimmer & Elemental Quiver);
 Hallowed Seeds;                     ;                                           (Wall of Flesh & Dryad) | Holy Water;
-Armor Polish;                       ;                                           Wall of Flesh | (Shimmer & Vitamins) | (@calamity & Bone & Ancient Bone Dust);
-Adhesive Bandage;                   ;                                           @calamity | Wall of Flesh;
+Armor Polish;                       ;                                           Wall of Flesh;
+Adhesive Bandage;                   ;                                           Wall of Flesh;
 Medicated Bandage;                  ;                                           Tinkerer's Workshop & Bezoar & Adhesive Bandage;
-Megaphone;                          ;                                           Wall of Flesh | (Shimmer & Nazar) | (@calamity & Wire & Cobalt Bar);
-Pocket Mirror;                      ;                                           Wall of Flesh | (Shimmer & Blindfold) | (@calamity & Crystal Shard & Soul of Night);
-Trifold Map;                        ;                                           Wall of Flesh | (Shimmer & Fast Clock) | (@calamity & Soul of Light & Soul of Night);
+Megaphone;                          ;                                           Wall of Flesh | (Shimmer & Nazar);
+Pocket Mirror;                      ;                                           Wall of Flesh | (Shimmer & Blindfold);
+Trifold Map;                        ;                                           Wall of Flesh | (Shimmer & Fast Clock);
 The Plan;                           ;                                           Tinkerer's Workshop & Trifold Map & Fast Clock;
 Tax Collector;                      Npc;                                        (Purification Powder & Wall of Flesh) | @getfixedboi;
 Spider Fangs;                       ;                                           Wall of Flesh;
@@ -323,11 +323,11 @@ Cobalt Ore;                         ;                                           
 Extra Shiny!;                       Achievement;                                Cobalt Ore | Mythril Ore | Adamantite Ore | Chlorophyte Ore;
 Cobalt Bar;                         ;                                           Cobalt Ore | (@calamity & Shimmer & Lunic Eye) | Wall of Flesh;
 Cobalt Pickaxe;                     Pickaxe(110);                               Cobalt Bar;
-Blindfold;                          ;                                           @calamity | Wall of Flesh | (Shimmer & Pocket Mirror);
+Blindfold;                          ;                                           Wall of Flesh | (Shimmer & Pocket Mirror);
 Reflective Shades;                  ;                                           Tinkerer's Workshop & Blindfold & Pocket Mirror;
 Vitamins;                           ;                                           Wall of Flesh | (Shimmer & Armor Polish) | (@calamity & Alchemy Table & Blood Orb);
 Armor Bracing;                      ;                                           Tinkerer's Workshop & Vitamins & Armor Polish;
-Nazar;                              ;                                           Wall of Flesh | (Shimmer & Megaphone) | (@calamity & Soul of Night);
+Nazar;                              ;                                           Wall of Flesh | (Shimmer & Megaphone);
 Countercurse Mantra;                ;                                           Tinkerer's Workshop & Nazar & Megaphone;
 Ankh Charm;                         ;                                           Tinkerer's Workshop & Reflective Shades & Armor Bracing & Medicated Bandage & Countercurse Mantra & The Plan;
 Ankh Shield;                        ;                                           Tinkerer's Workshop & Obsidian Shield & Ankh Charm;
@@ -440,8 +440,8 @@ Pickaxe Axe;                        Pickaxe(200);                               
 Drax Attax;                         Achievement;                                Pickaxe Axe;
 True Night's Edge;                  ;                                           Hardmode Anvil & Night's Edge & Soul of Fright & Soul of Might & Soul of Sight;
 Avenger Emblem;                     ;                                           (Tinkerer's Workshop & Emblem & Soul of Might & Soul of Sight & Soul of Fright) | (Shimmer & ((@calamity & (Sand Shark Tooth Necklace | Sigil of Calamitas)) | (~@calamity & (Mechanical Glove | Celestial Emblem))));
-Mechanical Glove;                   ;                                           (Power Glove & ((~@calamity & Tinkerer's Workshop & Avenger Emblem) | (@calamity & Emblem & Soul of Fright & Soul of Might & Soul of Sight))) | (Shimmer & Fire Gauntlet);
-Celestial Emblem;                   ;                                           (Celestial Magnet & ((~@calamity & Tinkerer's Workshop & Avenger Emblem) | (@calamity & Emblem & Soul of Fright & Soul of Might & Soul of Sight))) | (Shimmer & Sigil of Calamitas);
+Mechanical Glove;                   ;                                           (Power Glove & Tinkerer's Workshop & Avenger Emblem) | (Shimmer & Fire Gauntlet);
+Celestial Emblem;                   ;                                           (Celestial Magnet & Tinkerer's Workshop & Avenger Emblem) | (Shimmer & Sigil of Calamitas);
 Light Disc;                         ;                                           (Hallowed Bar & Soul of Light & Soul of Might) | (@getfixedboi & @calamity & #Evil Boss);
 Chlorophyte Ore;                    ;                                           (Wall of Flesh & @pickaxe(200)) | (Shimmer & ((~@calamity & Luminite) | Chlorophyte Bar | (@calamity & Perennial Ore)));
 Photosynthesis;                     Achievement;                                Chlorophyte Ore;
@@ -494,7 +494,7 @@ Beastial Pickaxe;                   Calamity | Pickaxe(200);                    
 
 // Solar Eclipse
 Temple Raider;                      Achievement;                                #Plantera;
-Lihzahrd Temple;                    ;                                           #Plantera | (Plantera & Actuator) | @pickaxe(210) | (@calamity & Hardmode Anvil & Soul of Light & Soul of Night);
+Lihzahrd Temple;                    ;                                           #Plantera | (Plantera & Actuator) | @pickaxe(210);
 Lihzahrd Furniture;                 ;                                           Lihzahrd Temple;
 Bohldohr;                           Calamity;                                   Lihzahrd Temple;
 Solar Eclipse;                      ;                                           Wall of Flesh & (Lihzahrd Temple | (@time & @mech_boss(1)));
@@ -521,7 +521,7 @@ Astrum Aureus;                      Calamity | Location | Item;                 
 Starbuster Core;                    Calamity | Minions(1);                      Astrum Aureus & Astral Infection;
 
 // Golem
-Golem;                              Location | Item | Goal;                     (Wall of Flesh & Plantera & Lihzahrd Temple) | (@calamity & Hardmode Anvil & Lihzahrd Temple & Essence of Sunlight);
+Golem;                              Location | Item | Goal;                     Wall of Flesh & Plantera & Lihzahrd Temple;
 # golem
 Picksaw;                            Pickaxe(210);                               #Golem;
 Lihzahrd Brick;                     ;                                           @pickaxe(210) | (Lihzahrd Furniture & Golem) | Bohldohr;
