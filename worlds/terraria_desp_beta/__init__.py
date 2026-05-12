@@ -26,6 +26,7 @@ from .Checks import (
     mech_bosses,
     armor_minions,
     accessory_minions,
+    health_upgrades,
 )
 from .Options import TerrariaOptions, Goal
 
@@ -174,6 +175,7 @@ class TerrariaWorld(World):
                     or "Mech Boss" in rule.flags
                     or "Minions" in rule.flags
                     or "Armor Minions" in rule.flags
+                    or "Health" in rule.flags
                     or rule.name in goal_locations
             ):
                 self.progression.add(loc_to_item[rule.name])
@@ -404,6 +406,21 @@ class TerrariaWorld(World):
                             return condition.sign
 
                 return not condition.sign
+            elif condition.condition == "health":
+                if type(condition.argument) is not int:
+                    raise Exception("@health requires an integer argument")
+
+                if not self.options.health_logic.value:
+                    return condition.sign
+
+                health_required = condition.argument - self.options.health_logic_handicap.value
+                if not self.options.calamity.value and health_required > 2:
+                    health_required = 2
+                for i in range(health_required):
+                    if not state.has(health_upgrades[i], self.player):
+                        return not condition.sign
+
+                return condition.sign
             elif condition.condition == "getfixedboi":
                 return condition.sign == self.options.getfixedboi.value
             elif condition.condition == "shimmer_skips":

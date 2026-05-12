@@ -236,7 +236,8 @@ def validate_conditions(
                 "mech_boss",
                 "minions",
                 "getfixedboi",
-                "shimmer_skips"
+                "shimmer_skips",
+                "health",
             }:
                 raise Exception(
                     f"function `{condition.condition}` in `{rule}` is not defined"
@@ -277,6 +278,8 @@ def read_data() -> Tuple[
     Dict[str, int],
     # Accessory to minion count,
     Dict[str, int],
+    # Health upgrades (in order)
+    List[str],
 ]:
     next_id = 0x7E0000
     item_name_to_id = {}
@@ -296,6 +299,7 @@ def read_data() -> Tuple[
     final_bosses = []
     armor_minions = {}
     accessory_minions = {}
+    health_upgrades = []
 
     progression = set()
 
@@ -557,6 +561,7 @@ def read_data() -> Tuple[
                     "Not Calamity",
                     "Not Calamity Getfixedboi",
                     "Shimmer",
+                    "Health",
                 }:
                     raise Exception(
                         f"rule `{name}` on line `{line + 1}` has unrecognized flag `{flag}`"
@@ -601,6 +606,9 @@ def read_data() -> Tuple[
 
             if (minions := flags.get("Minions")) is not None:
                 accessory_minions[name] = minions
+
+            if "Health" in flags:
+                health_upgrades.append(name)
 
         if goal:
             if goal in goal_indices:
@@ -737,6 +745,7 @@ def read_data() -> Tuple[
         final_bosses,
         armor_minions,
         accessory_minions,
+        health_upgrades,
     )
 
 
@@ -756,4 +765,5 @@ def read_data() -> Tuple[
     final_bosses,
     armor_minions,
     accessory_minions,
+    health_upgrades,
 ) = read_data()

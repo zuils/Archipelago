@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Choice, DeathLink, PerGameCommonOptions, Toggle, DefaultOnToggle
+from Options import Choice, DeathLink, PerGameCommonOptions, Toggle, DefaultOnToggle, Range
 
 
 class Calamity(Toggle):
@@ -142,6 +142,25 @@ class ShimmerSkips(Toggle):
 
     display_name = "Shimmer Skips"
 
+class HealthLogic(Toggle):
+    """
+    Guarantees you will not have to fight a boss/event without access to prior health upgrades.
+    For each boss, this amount based on the minimum amount of health upgrades a player can have in an unrandomized world
+    before fighting them. (This does not prevent Anahita, Primordial Wyrm, etc. from being early!)
+    """
+    display_name = "Health Logic"
+
+class HealthLogicHandicap(Range):
+    """
+    If health logic is on, this option allows you to reduce how much health is needed before a boss.
+    For example, if set to 0, Moon Lord will require Life Crystals/Fruits, Sanguine Tangerine, and Miracle Fruit.
+    If set to -2, Miracle Fruit and Sanguine Tangerine will not be required.
+    """
+    display_name = "Health Handicap"
+    range_start = -6
+    range_end = 0
+    default = 0
+
 @dataclass
 class TerrariaOptions(PerGameCommonOptions):
     calamity: Calamity
@@ -158,4 +177,6 @@ class TerrariaOptions(PerGameCommonOptions):
     fishing_achievements: FishingAchievements
     fill_extra_checks_with: FillExtraChecksWith
     shimmer_skips: ShimmerSkips
+    health_logic: HealthLogic
+    health_logic_handicap: HealthLogicHandicap
     death_link: DeathLink
