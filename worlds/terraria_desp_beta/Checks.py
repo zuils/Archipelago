@@ -236,7 +236,7 @@ def validate_conditions(
                 "mech_boss",
                 "minions",
                 "getfixedboi",
-                "shimmer_skips"
+                "shimmer_skips",
             }:
                 raise Exception(
                     f"function `{condition.condition}` in `{rule}` is not defined"
