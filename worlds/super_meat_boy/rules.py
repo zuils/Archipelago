@@ -197,19 +197,29 @@ def larries(options: SMBOptions, state: CollectionState, player: int) -> bool:
 
 def lw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
     return state.has("Chapter 6 Boss Key", player, options.lw_dr_fetus_req.value) and (
-            not options.boss_tokens.value
-            or options.goal != "light_world"
-            or state.has("Boss Token", player, options.boss_token_req.value)
-        )
+        not options.boss_tokens.value
+        or options.goal != "light_world"
+        or state.has("Boss Token", player, options.boss_token_req.value)
+    )
 
 
 def dw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    return state.has("DW Dr. Fetus Key", player, options.dw_dr_fetus_req.value) and \
-        state.has_all([f"6-{i} A+ Rank" for i in range(1, 6)], player) and (
-            not options.boss_tokens.value
-            or options.goal != "dark_world"
-            or state.has("Boss Token", player, options.boss_token_req.value)
-        )
+    counter: int = 0
+    for i in range(1, 6):
+        if state.has(f"Chapter {i} Key", player):
+            counter += state.count_from_list([f"{i}-{j} A+ Rank" for j in range(1, 21)], player)
+    
+    if state.has_all(["Chapter 6 Key", "Meat Boy"], player):
+        counter += state.count_from_list([f"6-{i} A+ Rank" for i in range(1, 6)], player)
+
+    if state.has_all(["Chapter 7 Key", "Bandage Girl"], player):
+        counter += state.count_from_list([f"7-{i} A+ Rank" for i in range(1, 21)], player)
+        
+    return counter >= 85 and (
+        not options.boss_tokens.value
+        or options.goal != "dark_world"
+        or state.has("Boss Token", player, options.boss_token_req.value)
+    )
 
 
 def bandages(options: SMBOptions, state: CollectionState, player: int, req: int) -> bool:

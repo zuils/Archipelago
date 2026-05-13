@@ -38,7 +38,7 @@ class SMBWorld(World):
         resolve_options(self)
             
     def fill_slot_data(self) -> dict:
-        return self.options.as_dict("goal", "boss_req", "lw_dr_fetus_req", "dw_dr_fetus_req",
+        return self.options.as_dict("goal", "boss_req", "lw_dr_fetus_req",
                                     "bandages_amount", "boss_tokens", "boss_token_req", "bandages", 
                                     "dark_world", "chapters", "starting_chpt", "starting_char",
                                     "achievements", "deathless_achievements", "speedrun_achievements", 

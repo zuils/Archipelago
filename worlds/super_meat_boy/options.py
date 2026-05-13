@@ -8,7 +8,7 @@ class Goal(Choice):
     """
     Larries: Beat the Larries in Chapter 5
     Light World: Beat LW Dr. Fetus after collecting the 6 chapter keys
-    Dark World: Beat DW Dr. Fetus after collecting the 6 chapter keys
+    Dark World: Beat DW Dr. Fetus after completing 85 DW levels
     Light World Chapter 7: Beat all of Light World Chapter 7
     Dark World Chapter 7: Beat all of Dark World Chapter 7
     Boss Tokens: Collect all the boss tokens
@@ -47,19 +47,6 @@ class LWDrFetusReq(Range):
     range_start = 0
     range_end = 5
     default = 5
-
-
-class DWDrFetusReq(Range):
-    """
-    How many DW Dr. Fetus Keys should be required to fight DW Dr. Fetus
-    This setting does nothing if you do not have dark world levels enabled
-    For every chapter you enable, the max amount will increase by 20 (expect for chapter 6, which increases by 5)
-    """
-
-    display_name = "DW Dr. Fetus Requirement"
-    range_start = 0
-    range_end = 125
-    default = 85
 
 
 class BandagesAmount(Range):
@@ -117,11 +104,11 @@ class Chapters(OptionSet):
     """
     Which chapters should be in the pool
     Enter any number between 1-7 for the respective chapter to be in the pool
-    Enter "Random-X" with X being a number between 1-3 random chapter(s)
-    Enter "Random-X+" with X being a number between 1-5 random chapter(s) with the inclusion of the last 2 chapters
+    Enter "Random-X" with X being a number between 1-4 random chapter(s)
+    Enter "Random-X+" with X being a number between 1-6 random chapter(s) with the inclusion of the last 2 chapters
     If you enter ["5", "Random-4+"] then chapter 5 and 4 other random chapters will be selected.
     If any of the last 3 chapters aren't in the pool, your goal will be boss tokens.
-    If you only have one chapter enabled and its either of the last 2 chapters, then one random chapter between 1-5 will be added.
+    If DW Dr. Fetus is a location, a random number of chapters between 1-5 will be added to assure you can beat at least 85 DW levels.
     """
     
     display_name = "Chapters"
@@ -136,11 +123,13 @@ class Chapters(OptionSet):
         "Random-1",
         "Random-2",
         "Random-3",
+        "Random-4",
         "Random-1+",
         "Random-2+",
         "Random-3+",
         "Random-4+",
-        "Random-5+"
+        "Random-5+",
+        "Random-6+"
         }
     default = ["1", "2", "3", "4", "5", "6"]
 
@@ -266,13 +255,7 @@ class DeathLinkAmnesty(Range):
 
 
 def resolve_options(world: World):
-    # Add chapters, add random amount based on available left
-    # First add 1 random chapter if you only have either of the last 2 chapters enabled
-    if world.options.chapters.value.issubset({"6", "7"}):
-        available_low = {"1", "2", "3", "4", "5"} - world.options.chapters.value
-        if available_low:
-            world.options.chapters.value.add(world.multiworld.random.choice(list(available_low)))
-    
+    # Add chapters, add random amount based on available left    
     all_chpts = {str(i) for i in range(1, 8)}
 
     selected_chpts = set()
@@ -327,10 +310,13 @@ def resolve_options(world: World):
     if world.options.goal == "boss_tokens":
         world.options.boss_tokens.value = Toggle.option_true
         
-        # make sure there are at least 2 chapters if your only chapter is 5
-        if world.options.chapters.value == {"5"}:
-            while len(world.options.chapters.value) < 2:
-                world.options.chapters.value.add(str(world.multiworld.random.randint(1, 6)))
+        # Ensure there are enough chapters for boss tokens if there is at most 1 chapter
+        if len(world.options.chapters.value) <= 1:
+            available_chpts = all_chpts - world.options.chapters.value
+            while len(world.options.chapters.value) < 2 and available_chpts:
+                new_chpt = str(world.multiworld.random.choice(list(available_chpts)))
+                world.options.chapters.value.add(new_chpt)
+                available_chpts.discard(new_chpt)
         
     # cap boss tokens
     boss_token_max: int = 0
@@ -351,7 +337,10 @@ def resolve_options(world: World):
     
     # Ensure starting_chpt is in the enabled chapters
     if str(world.options.starting_chpt.value) not in world.options.chapters.value:
-        world.options.starting_chpt.value = int(world.multiworld.random.choice(list(world.options.chapters.value)))
+        if not world.options.chapters.value:
+            world.options.chapters.value.add(str(world.options.starting_chpt.value))
+        else:
+            world.options.starting_chpt.value = int(world.multiworld.random.choice(list(world.options.chapters.value)))
         
     # Force dark world levels enabled if our goal is in dark world
     if world.options.goal in ("dark_world", "dark_world_chapter7"):
@@ -360,16 +349,6 @@ def resolve_options(world: World):
     # Set bandage fill to 0 if our goal isn't bandages
     if world.options.goal != "bandages":
         world.options.bandage_fill.value = 0
-        
-    # Cap DW Dr. Fetus Keys Amount
-    dr_fetus_cap: int = 0
-    for chpt in world.options.chapters.value:
-        if chpt == "6":
-            dr_fetus_cap += 5
-        else:
-            dr_fetus_cap += 20
-    
-    world.options.dw_dr_fetus_req.value = min(world.options.dw_dr_fetus_req.value, dr_fetus_cap)
         
     # Cap Bandages
     # if world.options.goal == "bandages" and not world.options.dark_world.value:
@@ -390,6 +369,9 @@ def resolve_options(world: World):
 
     # If starting chapter is 7 but our goal is to complete all of lw/dw chapter 7, select a random chapter
     if world.options.starting_chpt.value == 7 and world.options.goal in ("light_world_chapter7", "dark_world_chapter7"):
+        while len(world.options.chapters.value) < 2:
+            world.options.chapters.value.add(str(world.multiworld.random.randint(1, 6)))
+
         while world.options.starting_chpt.value == 7:
             world.options.starting_chpt.value = int(world.multiworld.random.choice(list(world.options.chapters.value)))
         
@@ -417,13 +399,27 @@ def resolve_options(world: World):
     if world.options.goal == "achievements":
         locs = len(get_achievements(world.options, location_table))
         world.options.achievement_tokens.value = min(world.options.achievement_tokens.value, locs)
+    
+    # If chapter 6 and DW is in the pool, add random amount of chapters until there is at least 85 dw levels
+    if "6" in world.options.chapters.value and world.options.dark_world.value:
+        counter: int = 0
+        for i in world.options.chapters.value:
+            if i == "6":
+                counter += 5
+            else:
+                counter += 20
+        
+        while counter < 85:
+            chpt = str(world.multiworld.random.randint(1, 5))
+            if chpt not in world.options.chapters.value:
+                world.options.chapters.value.add(chpt)
+                counter += 20
 
 @dataclass
 class SMBOptions(PerGameCommonOptions):
     goal: Goal
     boss_req: BossReq
     lw_dr_fetus_req: LWDrFetusReq
-    dw_dr_fetus_req: DWDrFetusReq
     bandages_amount: BandagesAmount
     boss_tokens: BossTokens
     boss_token_req: BossTokenReq
