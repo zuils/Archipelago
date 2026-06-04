@@ -69,7 +69,7 @@ class TerrariaWorld(World):
     goal_items: Set[str]
     goal_locations: Set[str]
 
-    required_client_version = (0, 6, 70)
+    required_client_version = (0, 6, 80)
 
     def generate_early(self) -> None:
         goal, goal_locations = goals[self.options.goal.value]
