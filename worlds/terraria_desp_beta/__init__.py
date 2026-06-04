@@ -79,7 +79,10 @@ class TerrariaWorld(World):
             case -1:
                 goal = 0
             case _:
-                goal, _ = goals[self.options.shuffle_to.value]
+                if self.options.shuffle_to.value < self.options.goal.value:
+                    logging.warning(f"Terraria \"Shuffle To\" value ({Goal.name_lookup[self.options.shuffle_to.value]}) was set earlier than the goal ({Goal.name_lookup[self.options.goal.value]}); ignoring")
+                else:
+                    goal, _ = goals[self.options.shuffle_to.value]
         ter_goals = {}
         goal_items = set()
 
