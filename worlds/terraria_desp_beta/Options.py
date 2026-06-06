@@ -152,9 +152,9 @@ class HealthLogic(Toggle):
 
 class HealthLogicHandicap(Range):
     """
-    If health logic is on, this option allows you to reduce how much health is needed before a boss.
+    If health logic is on, this option allows you to reduce how many types of health consumables are needed before a boss.
     For example, if set to 0, Moon Lord will require Life Crystals/Fruits, Sanguine Tangerine, and Miracle Fruit.
-    If set to -2, Miracle Fruit and Sanguine Tangerine will not be required.
+    If set to -1, Miracle Fruit will not be required. If set to -2, Sanguine Tangerine will also not be required.
     """
     display_name = "Health Handicap"
     range_start = -6
