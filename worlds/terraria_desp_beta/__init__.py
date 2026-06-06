@@ -70,33 +70,37 @@ class TerrariaWorld(World):
     goal_items: Set[str]
     goal_locations: Set[str]
 
-    required_client_version = (0, 6, 70)
+    required_client_version = (0, 6, 80)
 
     def generate_early(self) -> None:
         goal, goal_locations = goals[self.options.goal.value]
+        slot_name = self.multiworld.player_name[self.player]
         match self.options.shuffle_to.value:
             case 0:
                 pass
             case -1:
                 goal = 0
             case _:
-                goal, _ = goals[self.options.shuffle_to.value]
+                if self.options.shuffle_to.value < self.options.goal.value:
+                    logging.warning(f"SLOT {slot_name}: \"Shuffle To\" value ({Goal.name_lookup[self.options.shuffle_to.value]}) was set earlier than the goal ({Goal.name_lookup[self.options.goal.value]}); ignoring")
+                else:
+                    goal, _ = goals[self.options.shuffle_to.value]
         ter_goals = {}
         goal_items = set()
 
         if self.options.getfixedboi and self.options.randomize_npcs:
-            logging.warning("Terraria's getfixedboi mode was selected with NPC rando enabled; disabling NPC rando")
+            logging.warning(f"SLOT {slot_name}: getfixedboi mode was selected with NPC rando enabled; disabling NPC rando")
             self.options.randomize_npcs.value = False
 
         for location in goal_locations:
             if location == "Wall of Flesh" and not self.options.randomize_npcs.value:
                 logging.warning(
-                    f"Terraria goal 'Wall of Flesh' was enabled was selected with NPC Randomization disabled. The resulting game will be goalable from Sphere 1."
+                    f"SLOT {slot_name}: goal 'Wall of Flesh' was enabled was selected with NPC Randomization disabled. The resulting game will be goalable from Sphere 1."
                 )
             flags = rules[rule_indices[location]].flags
             if not self.options.calamity.value and "Calamity" in flags:
                 logging.warning(
-                    f"Terraria goal `{Goal.name_lookup[self.options.goal.value]}`, which requires Calamity, was selected with Calamity disabled; enabling Calamity"
+                    f"SLOT {slot_name}: goal `{Goal.name_lookup[self.options.goal.value]}`, which requires Calamity, was selected with Calamity disabled; enabling Calamity"
                 )
                 self.options.calamity.value = True
 
