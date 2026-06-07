@@ -89,7 +89,7 @@ class TerrariaWorld(World):
 
         if self.options.getfixedboi and self.options.randomize_npcs:
             logging.warning(f"SLOT {slot_name}: getfixedboi mode was selected with NPC rando enabled; disabling NPC rando")
-            self.options.randomize_npcs.value = False
+            self.options.randomize_npcs.value = 0
 
         for location in goal_locations:
             if location == "Wall of Flesh" and not self.options.randomize_npcs.value:
@@ -101,7 +101,7 @@ class TerrariaWorld(World):
                 logging.warning(
                     f"SLOT {slot_name}: goal `{Goal.name_lookup[self.options.goal.value]}`, which requires Calamity, was selected with Calamity disabled; enabling Calamity"
                 )
-                self.options.calamity.value = True
+                self.options.calamity.value = 1
 
             if "Npc" in flags:
                 event = location
