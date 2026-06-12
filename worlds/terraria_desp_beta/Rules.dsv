@@ -503,6 +503,8 @@ Terra Blade;                        ;                                           
 Sword of the Hero;                  Achievement | Crafting;                     Terra Blade;
 Neptune's Shell;                    ;                                           Solar Eclipse;
 Kill the Sun;                       Achievement;                                Solar Eclipse;
+Solar Veil;                         Calamity;                                   Solar Eclipse & Calamitas Clone;
+Vampiric Talisman;                  Calamity;                                   Hardmode Anvil & Raider's Talisman & Eye of Cthulhu & Solar Veil;
 
 // Great Sand Shark
 Great Sand Shark;                   Calamity | Location | Item;                 #Plantera | (Hardmode Anvil & Forbidden Fragment & Core of Calamity);
@@ -591,12 +593,11 @@ Ancient Manipulator;                ;                                           
 
 // Lunar Events
 Lunar Events;                       Location | Item;                            #Lunatic Cultist;
-Fragment;                           ;                                           #Lunar Events | #Astrum Deus | (Ancient Manipulator & (Nebula Fragment | Stardust Fragment)) | (@calamity & Shimmer & Galactica Singularity);
+Fragment;                           ;                                           #Lunar Events | #Astrum Deus | (Ancient Manipulator & (Nebula Fragment | Stardust Fragment));
 Nebula Fragment;                    ;                                           Fragment | (@calamity & Shimmer & Eye of Magnus);
 Eye of Magnus;                      Calamity;                                   (Ancient Manipulator & Lunic Eye & Nebula Fragment) | (@getfixedboi & #Wall of Flesh);
 Stardust Fragment;                  ;                                           Fragment | (@calamity & Shimmer & Statis' Curse);
 Statis' Curse;                      Calamity;                                   (Ancient Manipulator & Statis' Blessing & The First Shadowflame & Stardust Fragment) | Nucleogenesis;
-Galactica Singularity;              Calamity;                                   (Ancient Manipulator & Fragment) | (Shimmer & (#The Devourer of Gods | Elemental Gauntlet | Elemental Quiver | Nucleogenesis | Moonstone Crown | Ethereal Talisman));
 Meld Blob;                          Calamity;                                   #Lunar Events | #Astrum Deus;
 Dark Matter Sheath;                 Calamity;                                   (Ancient Manipulator & Silencing Sheath & Ruin Medallion & Meld Blob) | (Shimmer & Eclipse Mirror);
 
@@ -617,7 +618,7 @@ Luminite Hamaxe;                    Hammer(100);                                
 Luminite Pickaxe;                   Pickaxe(225);                               Ancient Manipulator & Fragment & Luminite Bar;
 Genesis Pickaxe;                    Calamity | Pickaxe(225);                    Ancient Manipulator & Meld Blob & Luminite Bar;
 Stardust Armor;                     Armor Minions(5);                           Ancient Manipulator & Fragment & Luminite Bar;
-Moonstone Crown;                    Calamity;                                   (Ancient Manipulator & Feather Crown & Luminite Bar & Galactica Singularity) | (Shimmer & Nanotech);
+Moonstone Crown;                    Calamity;                                   (Ancient Manipulator & Feather Crown & Luminite Bar & Fragment & Core of Calamity) | (Shimmer & Nanotech);
 Terrarian;                          ;                                           #Moon Lord;
 Sick Throw;                         Achievement | Rare;                         Terrarian;
 Meowmere;                           ;                                           #Moon Lord;
@@ -673,10 +674,10 @@ Acid Rain Tier 3;                   Calamity;                                   
 The Old Duke;                       Calamity | Location | Item;                 Acid Rain Tier 3 | (Bug Net & Moon Lord) | (Sea King & The Old Duke) | (@getfixedboi & #The Destroyer);
 
 // The Devourer of Gods
-The Devourer of Gods;               Calamity | Location | Item | Goal;          Hardmode Anvil & ((Armored Shell & Twisting Nether & Dark Plasma) | (Luminite Bar & Galactica Singularity & Polterplasm));
+The Devourer of Gods;               Calamity | Location | Item | Goal;          Hardmode Anvil & ((Armored Shell & Twisting Nether & Dark Plasma) | (Luminite Bar & Fragment & Meld Blob & Polterplasm));
 # the_devourer_of_gods
 Cosmilite Bar;                      Calamity;                                   #The Devourer of Gods;
-Cosmic Anvil;                       Calamity;                                   Ancient Manipulator & Hardmode Anvil & Cosmilite Bar & Luminite Bar & Galactica Singularity & Exodium Cluster;
+Cosmic Anvil;                       Calamity;                                   Ancient Manipulator & Hardmode Anvil & Cosmilite Bar & Luminite Bar & Fragment & Meld Blob & Exodium Cluster;
 Nightmare Fuel;                     Calamity;                                   Pumpkin Moon & The Devourer of Gods;
 Occult Skull Crown;                 Calamity | Getfixedboi;                     @getfixedboi & #Evil Boss; // Revengeance or getfixedboi
 Endothermic Energy;                 Calamity;                                   Frost Moon & The Devourer of Gods;
@@ -687,9 +688,9 @@ Ascendant Spirit Essence;           Calamity;                                   
 Fearmonger Armor;                   Calamity | Armor Minions(2);                Cosmic Anvil & Spooky Armor & Cosmilite Bar & Soul of Fright & Ascendant Spirit Essence;
 Silva Armor;                        Calamity | Armor Minions(5);                Cosmic Anvil & Effulgent Feather & Ascendant Spirit Essence;
 Elemental Gauntlet;                 Calamity;                                   (Cosmic Anvil & Fire Gauntlet & Ascendant Spirit Essence) | (@getfixedboi & #Storm Weaver);
-Elemental Quiver;                   Calamity;                                   (Cosmic Anvil & Magic Quiver & Deadshot Brooch & Luminite Bar & Galactica Singularity & Ascendant Spirit Essence) | (@getfixedboi & #Storm Weaver);
+Elemental Quiver;                   Calamity;                                   (Cosmic Anvil & Magic Quiver & Deadshot Brooch & Ascendant Spirit Essence) | (@getfixedboi & #Storm Weaver);
 Nucleogenesis;                      Calamity;                                   (Cosmic Anvil & Star-Tainted Generator & Statis' Curse & Ascendant Spirit Essence) | (@getfixedboi & #Ceaseless Void);
-Nanotech;                           Calamity;                                   (Emblem & Raider's Talisman & Moonstone Crown & Electrician's Glove & Luminite Bar & Galactica Singularity & Ascendant Spirit Essence) | (@getfixedboi & #Signus, Envoy of the Devourer);
+Nanotech;                           Calamity;                                   (Emblem & Vampiric Talisman & Electrician's Glove & Luminite Bar & Ascendant Spirit Essence) | (@getfixedboi & #Signus, Envoy of the Devourer);
 Ethereal Talisman;                  Calamity;                                   (Cosmic Anvil & Sigil of Calamitas & Mana Flower & Ascendant Spirit Essence) | (@getfixedboi & #Signus, Envoy of the Devourer);
 
 // Yharon, Dragon of Rebirth
