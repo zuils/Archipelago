@@ -350,7 +350,7 @@ Head in the Clouds;                 Achievement;                                
 Bunny;                              Pet;                                        Zoologist & Wall of Flesh; // Extremely simplified
 Forbidden Fragment;                 ;                                           Sandstorm & Wall of Flesh;
 Astral Infection;                   Calamity;                                   Wall of Flesh | Astrum Aureus;
-Stardust;                           Calamity;                                   Astral Infection | #Astrum Aureus | #Astrum Deus | (Shimmer & (Eye of Magnus | Meld Construct));
+Stardust;                           Calamity;                                   Astral Infection | #Astrum Aureus | #Astrum Deus | (Shimmer & Eye of Magnus);
 Lunic Eye;                          Calamity;                                   (Cobalt Bar & Stardust) | (Shimmer & Eye of Magnus);
 Titan Heart;                        Calamity;                                   Astral Infection;
 Essence of Sunlight;                Calamity;                                   Wall of Flesh | #Golem;
@@ -597,9 +597,8 @@ Eye of Magnus;                      Calamity;                                   
 Stardust Fragment;                  ;                                           Fragment | (@calamity & Shimmer & Statis' Curse);
 Statis' Curse;                      Calamity;                                   (Ancient Manipulator & Statis' Blessing & The First Shadowflame & Stardust Fragment) | Nucleogenesis;
 Galactica Singularity;              Calamity;                                   (Ancient Manipulator & Fragment) | (Shimmer & (#The Devourer of Gods | Elemental Gauntlet | Elemental Quiver | Nucleogenesis | Moonstone Crown | Ethereal Talisman));
-Meld Blob;                          Calamity;                                   #Lunar Events | #Astrum Deus | (Shimmer & Meld Construct);
-Meld Construct;                     Calamity;                                   (Ancient Manipulator & Meld Blob & Stardust) | (Shimmer & Dark Matter Sheath);
-Dark Matter Sheath;                 Calamity;                                   (Ancient Manipulator & Silencing Sheath & Ruin Medallion & Meld Construct) | (Shimmer & Eclipse Mirror);
+Meld Blob;                          Calamity;                                   #Lunar Events | #Astrum Deus;
+Dark Matter Sheath;                 Calamity;                                   (Ancient Manipulator & Silencing Sheath & Ruin Medallion & Meld Blob) | (Shimmer & Eclipse Mirror);
 
 // Astrum Deus
 Astral Ore;                         Calamity;                                   (Astral Infection & Astrum Deus) | (Shimmer & Astral Bar); // No pick needed; Astral Slime drops it
@@ -616,7 +615,7 @@ Luminite;                           ;                                           
 Luminite Bar;                       ;                                           (Ancient Manipulator & Luminite) | (Shimmer & @calamity & (#The Devourer of Gods | Elemental Gauntlet | Elemental Quiver | Nucleogenesis | Moonstone Crown | Ethereal Talisman));
 Luminite Hamaxe;                    Hammer(100);                                Ancient Manipulator & Fragment & Luminite Bar;
 Luminite Pickaxe;                   Pickaxe(225);                               Ancient Manipulator & Fragment & Luminite Bar;
-Genesis Pickaxe;                    Calamity | Pickaxe(225);                    Ancient Manipulator & Meld Construct & Luminite Bar;
+Genesis Pickaxe;                    Calamity | Pickaxe(225);                    Ancient Manipulator & Meld Blob & Luminite Bar;
 Stardust Armor;                     Armor Minions(5);                           Ancient Manipulator & Fragment & Luminite Bar;
 Moonstone Crown;                    Calamity;                                   (Ancient Manipulator & Feather Crown & Luminite Bar & Galactica Singularity) | (Shimmer & Nanotech);
 Terrarian;                          ;                                           #Moon Lord;
