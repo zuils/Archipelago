@@ -452,7 +452,7 @@ Chlorophyte Warhammer;              Hammer(90);                                 
 
 // Calamitas Clone
 Calamitas Clone;                    Calamity | Location | Item | Goal;          Hardmode Anvil & Hellstone Bar & Essence of Havoc;
-Plantera;                           Location | Item | Goal;                     Wall of Flesh & (@mech_boss(3) | (@calamity & Essence of Sunlight));
+Plantera;                           Location | Item | Goal;                     Wall of Flesh & (@mech_boss(3) | @calamity);  // Vernal Pass
 # calamitas_clone
 # plantera
 Ashes of Calamity;                  Calamity;                                   #Calamitas Clone | (Shimmer & Sigil of Calamitas);
@@ -530,7 +530,7 @@ Lihzahrd Brick;                     ;                                           
 Scoria Ore;                         Calamity;                                   Golem | @pickaxe(210) | (Shimmer & (Astral Ore | Luminite | Scoria Bar));
 Scoria Bar;                         Calamity;                                   (Hardmode Forge & Scoria Ore) | Fleshy Geode | Necromantic Geode | (Shimmer & (Life Alloy | Sigil of Calamitas | Fire Gauntlet));
 Seismic Hampick;                    Calamity | Pickaxe(210) | Hammer(95);       Hardmode Anvil & Scoria Bar;
-Hydrothermic Armor;                 Calamity | Armor Minions(2);                Hardmode Anvil & Scoria Bar & Essence of Havoc;
+Hydrothermic Armor;                 Calamity | Armor Minions(2);                Hardmode Anvil & Scoria Bar;
 Fire Gauntlet;                      ;                                           (Tinkerer's Workshop & Magma Stone & Mechanical Glove & (~@calamity | Scoria Bar)) | (@calamity & Shimmer & Elemental Gauntlet);
 Sigil of Calamitas;                 Calamity;                                   (Hardmode Anvil & Celestial Emblem & Scoria Bar & Ashes of Calamity) | (Shimmer & Ethereal Talisman);
 Life Alloy;                         Calamity;                                   (Hardmode Anvil & Cryonic Bar & Perennial Bar & Scoria Bar) | Necromantic Geode | (Shimmer & Star-Tainted Generator) | (@getfixedboi & #Yharon, Dragon of Rebirth);
