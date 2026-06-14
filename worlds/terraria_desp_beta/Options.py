@@ -142,7 +142,7 @@ class ShimmerSkips(Toggle):
 
     display_name = "Shimmer Skips"
 
-class HealthLogic(Toggle):
+class HealthLogic(DefaultOnToggle):
     """
     Guarantees you will not have to fight a boss/event without access to prior health upgrades.
     For each boss, this amount based on the minimum amount of health upgrades a player can have in an unrandomized world
