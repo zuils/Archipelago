@@ -272,7 +272,7 @@ Tally Counter;                      ;                                           
 R.E.K. 3000;                        ;                                           Tinkerer's Workshop & Radar & Tally Counter & Lifeform Analyzer;
 PDA;                                ;                                           Tinkerer's Workshop & GPS & R.E.K. 3000 & Goblin Tech & Fish Finder;
 Cell Phone;                         ;                                           (Tinkerer's Workshop & Magic Mirror & PDA) | (@getfixedboi & @calamity & #Polterghast);
-Black Mirror;                       Achievement | Crafting;                     Cell Phone;
+Black Mirror;                       Achievement | Fishing | Crafting;           Cell Phone;
 Bewitching Table;                   Minions(1);                                 Dungeon | (Witch Doctor & Wizard) | (Shimmer & Alchemy Table);
 Alchemy Table;                      ;                                           Dungeon | (Shimmer & Bewitching Table);
 Mechanic;                           Npc;                                        Dungeon;
