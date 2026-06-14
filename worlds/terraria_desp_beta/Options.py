@@ -145,8 +145,8 @@ class ShimmerSkips(Toggle):
 class HealthLogic(DefaultOnToggle):
     """
     Guarantees you will not have to fight a boss/event without access to prior health upgrades.
-    For each boss, this amount based on the minimum amount of health upgrades a player can have in an unrandomized world
-    before fighting them. (This does not prevent Anahita, Primordial Wyrm, etc. from being early!)
+    For each boss, the amount of health required is based on how much health the player is expected to have before fighting them.
+    Mainly alters Calamity logic, and is based off the health recommendations made by the official wiki.
     """
     display_name = "Health Logic"
 
@@ -154,7 +154,7 @@ class HealthLogicHandicap(Range):
     """
     If health logic is on, this option allows you to reduce how many types of health consumables are needed before a boss.
     For example, if set to 0, Moon Lord will require Life Crystals/Fruits, Sanguine Tangerine, and Miracle Fruit.
-    If set to -1, Miracle Fruit will not be required. If set to -2, Sanguine Tangerine will also not be required.
+    If set to -1, you only need Sanguine Tangerine or Miracle Fruit. If set to -2, neither are required.
     """
     display_name = "Health Handicap"
     range_start = -6
