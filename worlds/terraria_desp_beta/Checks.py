@@ -278,7 +278,9 @@ def read_data() -> Tuple[
     Dict[str, int],
     # Accessory to minion count,
     Dict[str, int],
-    # Health upgrades (in order)
+    # Health upgrades
+    List[str],
+    # Calamity health upgrades that are unordered and give 25 health each
     List[str],
 ]:
     next_id = 0x7E0000
@@ -300,6 +302,7 @@ def read_data() -> Tuple[
     armor_minions = {}
     accessory_minions = {}
     health_upgrades = []
+    quarter_fruits = []
 
     progression = set()
 
@@ -562,6 +565,7 @@ def read_data() -> Tuple[
                     "Not Calamity Getfixedboi",
                     "Shimmer",
                     "Health",
+                    "Quarter Fruit",
                 }:
                     raise Exception(
                         f"rule `{name}` on line `{line + 1}` has unrecognized flag `{flag}`"
@@ -609,6 +613,9 @@ def read_data() -> Tuple[
 
             if "Health" in flags:
                 health_upgrades.append(name)
+
+            if "Quarter Fruit" in flags:
+                quarter_fruits.append(name)
 
         if goal:
             if goal in goal_indices:
@@ -746,6 +753,7 @@ def read_data() -> Tuple[
         armor_minions,
         accessory_minions,
         health_upgrades,
+        quarter_fruits,
     )
 
 
@@ -766,4 +774,5 @@ def read_data() -> Tuple[
     armor_minions,
     accessory_minions,
     health_upgrades,
+    quarter_fruits,
 ) = read_data()

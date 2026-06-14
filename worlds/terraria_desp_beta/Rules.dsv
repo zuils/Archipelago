@@ -162,14 +162,14 @@ Illegal Gun Parts;                  ;                                           
 Ink Bomb;                           Calamity;
 
 // King Slime
-King Slime;                         Location | Item;
+King Slime;                         Location | Item;                            @health(1);
 Sticky Situation;                   Not Getfixedboi | Achievement | Time;
 The Cavalry;                        Achievement;
 Solidifier;                         ;                                           #King Slime;
 Nerdy Slime;                        Pet;                                        #King Slime;
 
 // Desert Scourge
-Desert Scourge;                     Calamity | Location | Item;
+Desert Scourge;                     Calamity | Location | Item;                 @health(1);
 Pearl Shard;                        Calamity;                                   #Desert Scourge;
 Sea Remains;                        Calamity;                                   Pearl Shard;
 Reefclaw Hamaxe;                    Calamity | Hammer(60);                      Sea Remains;
@@ -178,37 +178,38 @@ Sandstorm;                          ;                                           
 Voltaic Jelly;                      Calamity | Minions(1);                      Desert Scourge | Jelly-Charged Battery; // Jelly-Charged Battery doesn't stack. This is the case for all Calamity minion accessory upgrades. This is also why they are exempt from being marked as Shimmerable.
 
 // Giant Clam
-Giant Clam;                         Calamity | Location | Item;                 Desert Scourge;
+Giant Clam;                         Calamity | Location | Item;                 Desert Scourge & @health(1);
 Sea King;                           Calamity;                                   Desert Scourge & Giant Clam;
 
 // Blood Moon
-Bloodbath;                          Achievement | Time;
-Blood Orb;                          Calamity;
-Shark Tooth Necklace;
-Til Death...;                       Achievement | Rare;
+Blood Moon;                         ;                                           @health(1);
+Bloodbath;                          Achievement | Time;                         Blood Moon;
+Blood Orb;                          Calamity;                                   Blood Moon;
+Shark Tooth Necklace;               ;                                           Blood Moon;
+Til Death...;                       Achievement | Rare;  // No blood moon requirement—grooms and brides can spawn in graveyards
 Quiet Neighborhood;                 Achievement | Early;
-Surly Slime;                        Pet;
+Surly Slime;                        Pet;                                        Blood Moon;
 
 // Eye of Cthulhu
-Eye of Cthulhu;                     Location | Item;
+Eye of Cthulhu;                     Location | Item;                            @health(1);
 Dryad;                              Npc;                                        Eye of Cthulhu | Evil Boss | Skeletron;
 Pumpkin Seeds;                      ;                                           Dryad;
 Pumpkin;                            ;                                           Pumpkin Seeds | Cactus;
 Purification Powder;                ;                                           (~@getfixedboi & Dryad) | (Shimmer & Evil Powder);
 Mystic Slime;                       Pet;                                        Purification Powder;
 And Good Riddance!;                 Achievement | Grindy;                       Dryad;
-Acid Rain Tier 1;                   Calamity | Location | Item;                 Eye of Cthulhu | Wall of Flesh | Aquatic Scourge;
+Acid Rain Tier 1;                   Calamity | Location | Item;                 (Eye of Cthulhu | Wall of Flesh | Aquatic Scourge) & @health(1);
 
 // Crabulon
-Crabulon;                           Calamity | Location | Item;
+Crabulon;                           Calamity | Location | Item;                 @health(1);
 
 // Evil Boss
-Evil Boss;                          Location | Item;
+Evil Boss;                          Location | Item;                            @health(1);
 Evil Boss Part;                     ;                                           #Evil Boss;
 Evil Pickaxe;                       Pickaxe(65);                                Evil Boss Part;
 Obsidian Armor;                     Armor Minions(1);                           Obsidian & Evil Boss Part;
 Tavernkeep;                         Npc;                                        Evil Boss;
-Old One's Army Tier 1;              Location | Item;                            Tavernkeep;
+Old One's Army Tier 1;              Location | Item;                            Tavernkeep & @health(1);
 Meteorite;                          ;                                           #Evil Boss | Evil Boss | (Shimmer & Meteorite Bar);
 Meteorite Bar;                      ;                                           Meteorite | (Shimmer & Meteor Staff);
 Meteor Hamaxe;                      Hammer(60);                                 Meteorite Bar;
@@ -223,7 +224,7 @@ Hot Reels!;                         Achievement;                                
 Brimstone Slag;                     Calamity;                                   @pickaxe(100);
 
 // Goblin Army
-Goblin Army;                        Location | Item;
+Goblin Army;                        Location | Item;                            @health(1);
 Goblin Tinkerer;                    Npc;                                        Goblin Army;
 Tinkerer's Workshop;                ;                                           Goblin Tinkerer;
 Mana Flower;                        ;                                           (Tinkerer's Workshop & Nature's Gift) | (@calamity & (Shimmer & Ethereal Talisman));
@@ -242,7 +243,7 @@ Diving Gear;                        ;                                           
 
 // Queen Bee
 Where's My Honey?;                  Achievement;
-Queen Bee;                          Location | Item;
+Queen Bee;                          Location | Item;                            @health(1);
 Bee Keeper;                         ;                                           #Queen Bee;
 Bee Wax;                            ;                                           #Queen Bee;
 Bee Armor;                          Armor Minions(2);                           Bee Wax;
@@ -251,8 +252,8 @@ Witch Doctor;                       Npc;                                        
 Pygmy Necklace;                     Minions(1);                                 Witch Doctor | (@calamity & Statis' Blessing);
 
 // Calamity Evil Boss
-The Hive Mind;                      Calamity | Location | Item;
-The Perforators;                    Calamity | Location | Item;
+The Hive Mind;                      Calamity | Location | Item;                 @health(1);
+The Perforators;                    Calamity | Location | Item;                 @health(1);
 Bloody Vein;                        Calamity;                                   #The Perforators;
 Aerialite Ore;                      Calamity;                                   The Hive Mind | The Perforators | (Shimmer & (Cobalt Ore | Aerialite Bar)); // No pick needed; Aero Slime drops it
 Aerialite Bar;                      Calamity;                                   Aerialite Ore | (Shimmer & Feather Crown);
@@ -262,7 +263,7 @@ Aerospec Armor;                     Calamity | Armor Minions(1);                
 Feather Crown;                      Calamity;                                   Aerialite Bar | (Shimmer & Moonstone Crown);
 
 // Skeletron
-Skeletron;                          Location | Item;                            ~@npc_rando | Clothier; // If NPCs are shuffled, Skeletron cannot be summoned if Post-Skeletron is received & The Clothier is not
+Skeletron;                          Location | Item;                            (~@npc_rando | Clothier) & @health(1); // If NPCs are shuffled, Skeletron cannot be summoned if Post-Skeletron is received & The Clothier is not
 Clothier;                           Npc;                                        Skeletron;
 Dungeon;                            ;                                           Skeletron;
 Dungeon Heist;                      Achievement;                                Dungeon;
@@ -286,10 +287,10 @@ Elder Slime;                        Pet;                                        
 Bandit;                             Calamity;                                   Skeletron;
 
 // Deerclops
-Deerclops;                          Location | Item;
+Deerclops;                          Location | Item;                            @health(1);
 
 // The Slime God
-The Slime God;                      Calamity | Location | Item;                 Blighted Gel;
+The Slime God;                      Calamity | Location | Item;                 Blighted Gel & @health(1);
 Purified Gel;                       Calamity;                                   #The Slime God | (Shimmer & Jelly-Charged Battery);
 Jelly-Charged Battery;              Calamity;                                   (Wulfrum Battery & Voltaic Jelly & Purified Gel & Stormlion Mandible) | (Shimmer & Star-Tainted Generator);
 Static Refiner;                     Calamity;                                   Purified Gel & Solidifier;
@@ -298,7 +299,7 @@ Statigel Armor;                     Calamity | Armor Minions(1);                
 Night's Edge;                       ;                                           Evil Sword & Muramasa & Blade of Grass & Fiery Greatsword & (~@calamity | Purified Gel);
 
 // Wall of Flesh
-Wall of Flesh;                      Location | Item(Hardmode) | Goal;           Guide;
+Wall of Flesh;                      Location | Item(Hardmode) | Goal;           Guide & @health(1);
 # wall_of_flesh
 Pwnhammer;                          Hammer(80);                                 #Wall of Flesh;
 Emblem;                             ;                                           #Wall of Flesh | (Shimmer & (Avenger Emblem | (@calamity & (Mechanical Glove | Celestial Emblem | Statis' Blessing))));
@@ -357,24 +358,27 @@ Titan Heart;                        Calamity;                                   
 Essence of Sunlight;                Calamity;                                   Wall of Flesh | #Golem;
 Essence of Eleum;                   Calamity;                                   Wall of Flesh | #Frost Legion | Cryogen | #Cryogen | (@getfixedboi & #Duke Fishron);
 Essence of Havoc;                   Calamity;                                   Wall of Flesh | #Calamitas Clone | #Brimstone Elemental | (Shimmer & Ruin Medallion);
-Dreadnautilus;                      Calamity | Location | Item;                 Wall of Flesh;
-Don't Dread on Me;                  Not Calamity | Achievement | Time;          Wall of Flesh;
+Dreadnautilus;                      Calamity | Location | Item;                 Wall of Flesh & @health(1);
+Don't Dread on Me;                  Not Calamity | Achievement | Time;          Wall of Flesh & @health(1);
 Hardmode Giant Clam;                Calamity | Location | Item;                 #Giant Clam & Wall of Flesh;
 Truffle;                            Npc;                                        Wall of Flesh;
 It Can Talk?!;                      Achievement;                                Truffle;
 The First Shadowflame;              Calamity | Minions(1);                      Goblin Army | Wall of Flesh;
 
 // Pirate Invasion
-Pirate Invasion;                    Location | Item;                            Wall of Flesh;
+Pirate Invasion;                    Location | Item;                            Wall of Flesh & @health(1);
 Pirate;                             Npc;                                        Pirate Invasion;
 
 // Queen Slime
-Queen Slime;                        Location | Item;                            Hallow;
+Queen Slime;                        Location | Item;                            Hallow & @health(1);
 Sparkle Slime Balloon;              ;                                           #Queen Slime;
 Diva Slime;                         Pet;                                        Sparkle Slime Balloon & Aether;
 The Great Slime Mitosis;            Achievement | Time | Rare;                  Nerdy Slime & Cool Slime & Elder Slime & Clumsy Slime & Diva Slime & Surly Slime & Mystic Slime & Squire Slime;
 
 // Aquatic Scourge
+Life Fruit;                         Health;                                     (@mech_boss(1) & Wall of Flesh) | (@calamity & (Living Shard | Wall of Flesh | (@getfixedboi & #Plantera)));
+Get a Life;                         Achievement;                                Life Fruit;
+Topped Off;                         Achievement;                                Life Fruit;
 Mythril Ore;                        ;                                           (((~@calamity & Altar) | (@calamity & @mech_boss(1))) & @pickaxe(110)) | Wall of Flesh | (Shimmer & (Adamantite Ore | Mythril Bar));
 Mythril Bar;                        ;                                           Mythril Ore | Wall of Flesh | (@calamity & Shimmer & Electrician's Glove);
 Hardmode Anvil;                     ;                                           Mythril Bar;
@@ -388,19 +392,19 @@ Forbidden Armor;                    Armor Minions(2);                           
 Infernal Suevite;                   Calamity;                                   @pickaxe(150) | Brimstone Elemental;
 Unholy Core;                        Calamity;                                   Infernal Suevite & Hellstone;
 Ruin Medallion;                     Calamity;                                   (Hardmode Anvil & Coin of Deceit & Unholy Core & Essence of Havoc) | (Shimmer & Dark Matter Sheath);
-Aquatic Scourge;                    Calamity | Location | Item;
-Cragmaw Mire;                       Calamity | Location | Item;                 #Acid Rain Tier 2;
+Aquatic Scourge;                    Calamity | Location | Item;                 @health(2);
+Cragmaw Mire;                       Calamity | Location | Item;                 #Acid Rain Tier 2 & @health(2);
 Nuclear Fuel Rod;                   Calamity | Minions(1);                      #Cragmaw Mire | Star-Tainted Generator;
-Acid Rain Tier 2;                   Calamity | Location | Item;                 #Acid Rain Tier 1 & (Aquatic Scourge | Acid Rain Tier 3);
+Acid Rain Tier 2;                   Calamity | Location | Item;                 #Acid Rain Tier 1 & (Aquatic Scourge | Acid Rain Tier 3) & @health(2);
 Mechanical Eye;                     ;                                           (@calamity | Hardmode Anvil) & Soul of Light;
 Mechanical Worm;                    ;                                           (@calamity | Hardmode Anvil) & Soul of Night;
 Mechanical Skull;                   ;                                           (@calamity | Hardmode Anvil) & Soul of Night & Soul of Light & Bone;
 Ocram's Razor;                      Getfixedboi;                                (@calamity | Hardmode Anvil) & Mechanical Eye & Mechanical Worm & Mechanical Skull;
-The Twins;                          Location | Item | Mech Boss;                (~@getfixedboi & Mechanical Eye) | (@getfixedboi & Ocram's Razor);
-Brimstone Elemental;                Calamity | Location | Item;                 Soul of Night & Essence of Havoc & Unholy Core;
-The Destroyer;                      Location | Item | Mech Boss;                (~@getfixedboi & Mechanical Worm) | (@getfixedboi & Ocram's Razor);
-Cryogen;                            Calamity | Location | Item;                 Soul of Night & Soul of Light & Essence of Eleum;
-Skeletron Prime;                    Location | Item | Mech Boss;                (~@getfixedboi & Mechanical Skull) | (@getfixedboi & Ocram's Razor);
+The Twins;                          Location | Item | Mech Boss;                ((~@getfixedboi & Mechanical Eye) | (@getfixedboi & Ocram's Razor)) & @health(1);
+Brimstone Elemental;                Calamity | Location | Item;                 Soul of Night & Essence of Havoc & Unholy Core & @health(2);
+The Destroyer;                      Location | Item | Mech Boss;                ((~@getfixedboi & Mechanical Worm) | (@getfixedboi & Ocram's Razor)) & @health(1);
+Cryogen;                            Calamity | Location | Item;                 Soul of Night & Soul of Light & Essence of Eleum & @health(2);
+Skeletron Prime;                    Location | Item | Mech Boss;                ((~@getfixedboi & Mechanical Skull) | (@getfixedboi & Ocram's Razor)) & @health(1);
 # mechanical_bosses
 
 // The Twins
@@ -411,10 +415,7 @@ Rainbow Rod;                        ;                                           
 Prismancer;                         Achievement;                                Rainbow Rod;
 Long Ranged Sensor Array;           Calamity;                                   Hardmode Anvil & Mysterious Circuitry & Dubious Plating & Mythril Bar & Wire & Decryption Computer & Codebreaker Base;
 Hydraulic Volt Crusher;             Calamity;                                   Hardmode Anvil & Mysterious Circuitry & Dubious Plating & Mythril Bar & Soul of Sight;
-Life Fruit;                         Health;                                     (@mech_boss(1) & Wall of Flesh) | (@calamity & (Living Shard | Wall of Flesh | (@getfixedboi & #Plantera)));
-Get a Life;                         Achievement;                                Life Fruit;
-Topped Off;                         Achievement;                                Life Fruit;
-Old One's Army Tier 2;              Location | Item;                            #Old One's Army Tier 1 & ((Wall of Flesh & @mech_boss(1)) | #Old One's Army Tier 3);
+Old One's Army Tier 2;              Location | Item;                            (#Old One's Army Tier 1 & ((Wall of Flesh & @mech_boss(1)) | #Old One's Army Tier 3)) & @health(2);
 
 // The Destroyer
 Soul of Might;                      ;                                           #The Destroyer | (Shimmer & (Avenger Emblem | Light Disc | (@calamity & (Mechanical Glove | Celestial Emblem))));
@@ -438,7 +439,7 @@ Hallowed Bar;                       ;                                           
 Hallowed Armor;                     Armor Minions(3);                           Hardmode Anvil & Hallowed Bar;
 Excalibur;                          ;                                           Hardmode Anvil & Hallowed Bar;
 Pickaxe Axe;                        Pickaxe(200);                               Hardmode Anvil & Hallowed Bar & Soul of Fright & Soul of Might & Soul of Sight;
-Sanguine Tangerine;                 Calamity | Health;                          Hardmode Anvil & Life Fruit & Blood Orb & Soul of Fright & Soul of Might & Soul of Sight;
+Sanguine Tangerine;                 Calamity | Quarter Fruit;                   Hardmode Anvil & Life Fruit & Blood Orb & Soul of Fright & Soul of Might & Soul of Sight;
 Drax Attax;                         Achievement;                                Pickaxe Axe;
 True Night's Edge;                  ;                                           Hardmode Anvil & Night's Edge & Soul of Fright & Soul of Might & Soul of Sight;
 Avenger Emblem;                     ;                                           (Tinkerer's Workshop & Emblem & Soul of Might & Soul of Sight & Soul of Fright) | (Shimmer & ((@calamity & (Sand Shark Tooth Necklace | Sigil of Calamitas)) | (~@calamity & (Mechanical Glove | Celestial Emblem))));
@@ -453,8 +454,8 @@ Chlorophyte Pickaxe;                Pickaxe(200);                               
 Chlorophyte Warhammer;              Hammer(90);                                 Hardmode Anvil & Chlorophyte Bar;
 
 // Calamitas Clone
-Calamitas Clone;                    Calamity | Location | Item | Goal;          Hardmode Anvil & Hellstone Bar & Essence of Havoc;
-Plantera;                           Location | Item | Goal;                     Wall of Flesh & (@mech_boss(3) | @calamity);  // Vernal Pass
+Calamitas Clone;                    Calamity | Location | Item | Goal;          Hardmode Anvil & Hellstone Bar & Essence of Havoc & @health(3);
+Plantera;                           Location | Item | Goal;                     Wall of Flesh & (@mech_boss(3) | @calamity) & @health(3);  // Vernal Pass
 # calamitas_clone
 # plantera
 Ashes of Calamity;                  Calamity;                                   #Calamitas Clone | (Shimmer & Sigil of Calamitas);
@@ -499,7 +500,7 @@ Temple Raider;                      Achievement;                                
 Lihzahrd Temple;                    ;                                           #Plantera | (Plantera & Actuator) | @pickaxe(210);
 Lihzahrd Furniture;                 ;                                           Lihzahrd Temple;
 Bohldohr;                           Calamity;                                   Lihzahrd Temple;
-Solar Eclipse;                      ;                                           Wall of Flesh & (Lihzahrd Temple | (@time & @mech_boss(1)));
+Solar Eclipse;                      ;                                           Wall of Flesh & (Lihzahrd Temple | (@time & @mech_boss(1))) & @health(2);
 Broken Hero Sword;                  ;                                           Solar Eclipse & Plantera & @mech_boss(3);
 Terra Blade;                        ;                                           Hardmode Anvil & True Night's Edge & True Excalibur & Broken Hero Sword & (~@calamity | Living Shard);
 Sword of the Hero;                  Achievement | Crafting;                     Terra Blade;
@@ -509,23 +510,23 @@ Solar Veil;                         Calamity;                                   
 Vampiric Talisman;                  Calamity;                                   Hardmode Anvil & Raider's Talisman & Eye of Cthulhu & Solar Veil;
 
 // Great Sand Shark
-Great Sand Shark;                   Calamity | Location | Item;                 #Plantera | (Hardmode Anvil & Forbidden Fragment & Core of Calamity);
+Great Sand Shark;                   Calamity | Location | Item;                 (#Plantera | (Hardmode Anvil & Forbidden Fragment & Core of Calamity)) & @health(3);
 Grand Scale;                        Calamity;                                   #Great Sand Shark | (Shimmer & Sand Shark Tooth Necklace);
 Sand Shark Tooth Necklace;          Calamity;                                   (Tinkerer's Workshop & Shark Tooth Necklace & Avenger Emblem & Grand Scale) | (@getfixedboi & #Desert Scourge);
 
 // Leviathan and Anahita
-Leviathan and Anahita;              Calamity | Location | Item;
+Leviathan and Anahita;              Calamity | Location | Item;                 @health(3);
 Depth Cells;                        Calamity;                                   Calamitas Clone | (Shimmer & Abyssal Mirror);
 Lumenyl;                            Calamity;                                   Leviathan and Anahita | (Shimmer & Abyssal Mirror);
 Abyssal Mirror;                     Calamity;                                   (Hardmode Anvil & Mirage Mirror & Ink Bomb & Depth Cells & Lumenyl) | (Shimmer & Eclipse Mirror);
 Fathom Swarmer Armor;               Calamity | Armor Minions(2);                Hardmode Anvil & Sea Remains & Depth Cells;
 
 // Astrum Aureus
-Astrum Aureus;                      Calamity | Location | Item;                 Hardmode Anvil & Stardust & Astral Infection & Decryption Computer;
+Astrum Aureus;                      Calamity | Location | Item;                 Hardmode Anvil & Stardust & Astral Infection & Decryption Computer & @health(3);
 Starbuster Core;                    Calamity | Minions(1);                      Astrum Aureus & Astral Infection;
 
 // Golem
-Golem;                              Location | Item | Goal;                     Wall of Flesh & Plantera & Lihzahrd Temple;
+Golem;                              Location | Item | Goal;                     Wall of Flesh & Plantera & Lihzahrd Temple & @health(3);
 # golem
 Picksaw;                            Pickaxe(210);                               #Golem;
 Lihzahrd Brick;                     ;                                           @pickaxe(210) | (Lihzahrd Furniture & Golem) | Bohldohr;
@@ -536,28 +537,28 @@ Hydrothermic Armor;                 Calamity | Armor Minions(2);                
 Fire Gauntlet;                      ;                                           (Tinkerer's Workshop & Magma Stone & Mechanical Glove & (~@calamity | Scoria Bar)) | (@calamity & Shimmer & Elemental Gauntlet);
 Sigil of Calamitas;                 Calamity;                                   (Hardmode Anvil & Celestial Emblem & Scoria Bar & Ashes of Calamity) | (Shimmer & Ethereal Talisman);
 Life Alloy;                         Calamity;                                   (Hardmode Anvil & Cryonic Bar & Perennial Bar & Scoria Bar) | Necromantic Geode | (Shimmer & Star-Tainted Generator) | (@getfixedboi & #Yharon, Dragon of Rebirth);
-Miracle Fruit;                      Calamity | Health;                          Hardmode Anvil & Life Fruit & Life Alloy & Living Shard;
+Miracle Fruit;                      Calamity | Quarter Fruit;                   Hardmode Anvil & Life Fruit & Life Alloy & Living Shard;
 Advanced Display;                   Calamity;                                   Hardmode Anvil & Mysterious Circuitry & Dubious Plating & Life Alloy & Long Ranged Sensor Array;
 Star-Tainted Generator;             Calamity;                                   (Hardmode Anvil & Jelly-Charged Battery & Nuclear Fuel Rod & Starbuster Core & Life Alloy) | Nucleogenesis;
-Old One's Army Tier 3;              Location | Item;                            #Old One's Army Tier 1 & Wall of Flesh & Golem;
+Old One's Army Tier 3;              Location | Item;                            #Old One's Army Tier 1 & Wall of Flesh & Golem & @health(4);
 
 // Martian Madness
-Martian Madness;                    Location | Item;                            Wall of Flesh & Golem;
+Martian Madness;                    Location | Item;                            Wall of Flesh & Golem & @health(4);
 Laser Drill;                        Pickaxe(220);                               #Martian Madness;
 Influx Waver;                       ;                                           #Martian Madness;
 
 // The Plaguebringer Goliath
 Plague Cell Canister;               Calamity;                                   Golem | (Shimmer & Alchemical Flask) | (@getfixedboi & #Queen Bee);
 Alchemical Flask;                   Calamity;                                   (Hardmode Anvil & Bee Wax & Plague Cell Canister) | (@getfixedboi & #Queen Bee);
-The Plaguebringer Goliath;          Calamity | Location | Item;                 Hardmode Anvil & Plague Cell Canister & Long Ranged Sensor Array;
+The Plaguebringer Goliath;          Calamity | Location | Item;                 Hardmode Anvil & Plague Cell Canister & Long Ranged Sensor Array & @health(4);
 Infected Armor Plating;             Calamity;                                   #The Plaguebringer Goliath;
 Plaguebringer Armor;                Calamity | Armor Minions(3);                Hardmode Anvil & Bee Armor & Alchemical Flask & Plague Cell Canister & Infected Armor Plating;
 
 // Duke Fishron
-Duke Fishron;                       Location | Item;                            (Bug Net & Wall of Flesh) | (@getfixedboi & @calamity & #Astrum Deus);
+Duke Fishron;                       Location | Item;                            ((Bug Net & Wall of Flesh) | (@getfixedboi & @calamity & #Astrum Deus)) & @health(4);
 
 // Pumpkin Moon
-Pumpkin Moon;                       ;                                           Hardmode Anvil & Pumpkin & Ectoplasm & (@calamity | Hallowed Bar);
+Pumpkin Moon;                       ;                                           Hardmode Anvil & Pumpkin & Ectoplasm & (@calamity | Hallowed Bar) & @health(3);
 Spooky Armor;                       Armor Minions(4);                           Pumpkin Moon;
 Mourning Wood;                      Location | Item;                            Pumpkin Moon;
 Necromantic Scroll;                 Minions(1);                                 #Mourning Wood;
@@ -568,7 +569,7 @@ The Horseman's Blade;               ;                                           
 Baleful Harvest;                    Achievement;                                Pumpkin Moon;
 
 // Frost Moon
-Frost Moon;                         ;                                           Hardmode Anvil & Ectoplasm & (@calamity | Soul of Fright);
+Frost Moon;                         ;                                           Hardmode Anvil & Ectoplasm & (@calamity | Soul of Fright) & @health(3);
 Everscream;                         Location | Item;                            Frost Moon;
 Santa-NK1;                          Location | Item;                            Frost Moon;
 Ice Queen;                          Location | Item;                            Frost Moon;
@@ -576,26 +577,26 @@ Ice Scream;                         Achievement;                                
 Christmas;                          ;                                           Frost Moon;
 
 // Frost Legion
-Frost Legion;                       Location | Item;                            (Wall of Flesh & Christmas) | (@calamity & Soul of Light & Soul of Night);
+Frost Legion;                       Location | Item;                            ((Wall of Flesh & Christmas) | (@calamity & Soul of Light & Soul of Night)) & @health(2);
 Santa Claus;                        Npc;                                        Frost Legion & Christmas;
 
 // Ravager
-Ravager;                            Calamity | Location | Item;                 Lihzahrd Temple & Lihzahrd Brick;
+Ravager;                            Calamity | Location | Item;                 Lihzahrd Temple & Lihzahrd Brick & @health(4);
 Fleshy Geode;                       Calamity;                                   #Ravager;
 
 // Empress of Light
-Empress of Light;                   Location | Item | Goal;                     (Wall of Flesh & Hallow & (@calamity | Plantera));
+Empress of Light;                   Location | Item | Goal;                     (Wall of Flesh & Hallow & (@calamity | Plantera)) & @health(4);
 # empress_of_light
 
 // Lunatic Cultist
-Lunatic Cultist;                    Location | Item | Goal;                     ((@calamity | (Dungeon & Golem)) & Wall of Flesh) | (@calamity & Calamitas Clone);
-Astrum Deus;                        Calamity | Location | Item | Goal;          Titan Heart;
+Lunatic Cultist;                    Location | Item | Goal;                     (((@calamity | (Dungeon & Golem)) & Wall of Flesh) | (@calamity & Calamitas Clone)) & @health(4);
+Astrum Deus;                        Calamity | Location | Item | Goal;          Titan Heart & @health(4);
 # lunatic_cultist
 # astrum_deus
 Ancient Manipulator;                ;                                           #Lunatic Cultist;
 
 // Lunar Events
-Lunar Events;                       Location | Item;                            #Lunatic Cultist;
+Lunar Events;                       Location | Item;                            #Lunatic Cultist & @health(4);
 Fragment;                           ;                                           #Lunar Events | #Astrum Deus | (Ancient Manipulator & (Nebula Fragment | Stardust Fragment));
 Nebula Fragment;                    ;                                           Fragment | (@calamity & Shimmer & Eye of Magnus);
 Eye of Magnus;                      Calamity;                                   (Ancient Manipulator & Lunic Eye & Nebula Fragment) | (@getfixedboi & #Wall of Flesh);
@@ -612,7 +613,7 @@ Astral Pickaxe;                     Calamity | Pickaxe(220);                    
 Astral Armor;                       Calamity | Armor Minions(3);                Ancient Manipulator & Astral Bar & Meteorite Bar;
 
 // Moon Lord
-Moon Lord;                          Location | Item | Goal;                     #Lunar Events;
+Moon Lord;                          Location | Item | Goal;                     #Lunar Events & @health(4);
 # moon_lord
 Slayer of Worlds;                   Achievement;                                #Evil Boss & #The Destroyer & #Duke Fishron & #Eye of Cthulhu & #Golem & #King Slime & #Lunatic Cultist & #Moon Lord & #Plantera & #Queen Bee & #Skeletron & #Skeletron Prime & #The Twins & #Wall of Flesh;
 Luminite;                           ;                                           #Moon Lord | (Shimmer & ((@calamity & Exodium Cluster) | Luminite Bar));
@@ -633,7 +634,7 @@ Polterplasm;                        Calamity;                                   
 Eldritch Soul Artifact;             Calamity | Minions(1);                      Hardmode Anvil & Exodium Cluster & Navyplate & Polterplasm;
 
 // Profaned Guardians
-Profaned Guardians;                 Calamity | Location | Item;                 Hardmode Anvil & Unholy Essence & Luminite Bar;
+Profaned Guardians;                 Calamity | Location | Item;                 Hardmode Anvil & Unholy Essence & Luminite Bar & @health(4);
 
 // Dragonfolly
 The Dragonfolly;                    Calamity | Location | Item;                 (Ancient Manipulator & Unholy Essence & Luminite Bar);
@@ -643,7 +644,7 @@ Effulgent Feather;                  Calamity;                                   
 Providence, the Profaned Goddess;   Calamity | Location | Item | Goal;          #Profaned Guardians;
 # providence_the_profaned_goddess
 Divine Geode;                       Calamity;                                   #Providence, the Profaned Goddess | (@getfixedboi & #Profaned Guardians);
-Tainted Cloudberry;                 Calamity | Health;                          Hardmode Anvil & Life Fruit & Uelibloom Bar & Divine Geode;
+Tainted Cloudberry;                 Calamity | Quarter Fruit;                   Hardmode Anvil & Life Fruit & Uelibloom Bar & Divine Geode;
 Profaned Soul Artifact;             Calamity | Minions(1);                      Hardmode Anvil & Exodium Cluster & Havocplate & Divine Geode;
 Rune of Kos;                        Calamity;                                   #Providence, the Profaned Goddess;
 Uelibloom Ore;                      Calamity;                                   Providence, the Profaned Goddess | (Shimmer & (Auric Ore | Uelibloom Bar));
@@ -657,15 +658,15 @@ Bloodstone;                         Calamity;                                   
 Bloodstone Core;                    Calamity;                                   Hardmode Anvil & Bloodstone & Polterplasm;
 
 // Sentinels of the Devourer
-Storm Weaver;                       Calamity | Location | Item;                 Rune of Kos;
+Storm Weaver;                       Calamity | Location | Item;                 Rune of Kos & @health(5);
 Armored Shell;                      Calamity;                                   #Storm Weaver;
-Ceaseless Void;                     Calamity | Location | Item;                 Dungeon & Rune of Kos;
+Ceaseless Void;                     Calamity | Location | Item;                 Dungeon & Rune of Kos & @health(5);
 Dark Plasma;                        Calamity;                                   #Ceaseless Void;
-Signus, Envoy of the Devourer;      Calamity | Location | Item;                 Rune of Kos;
+Signus, Envoy of the Devourer;      Calamity | Location | Item;                 Rune of Kos & @health(5);
 Twisting Nether;                    Calamity;                                   #Signus, Envoy of the Devourer | (Shimmer & Occult Skull Crown);
 
 // Polterghast
-Polterghast;                        Calamity | Location | Item;                 Dungeon & ((Hardmode Anvil & Polterplasm) | Moon Lord);
+Polterghast;                        Calamity | Location | Item;                 Dungeon & ((Hardmode Anvil & Polterplasm) | Moon Lord) & @health(5);
 Ruinous Soul;                       Calamity;                                   #Polterghast;
 Bloodflare Armor;                   Calamity | Armor Minions(3);                Hardmode Anvil & Bloodstone Core & Ruinous Soul;
 Reaper Tooth;                       Calamity;                                   Polterghast;
@@ -674,11 +675,11 @@ Omega Blue Armor;                   Calamity | Armor Minions(2);                
 // The Old Duke
 Mauler;                             Calamity | Location | Item;                 Acid Rain Tier 3;
 Nuclear Terror;                     Calamity | Location | Item;                 Acid Rain Tier 3;
-Acid Rain Tier 3;                   Calamity;                                   #Acid Rain Tier 1 & Polterghast;
-The Old Duke;                       Calamity | Location | Item;                 Acid Rain Tier 3 | (Bug Net & Moon Lord) | (Sea King & The Old Duke) | (@getfixedboi & #The Destroyer);
+Acid Rain Tier 3;                   Calamity;                                   #Acid Rain Tier 1 & Polterghast & @health(5);
+The Old Duke;                       Calamity | Location | Item;                 (Acid Rain Tier 3 | (Bug Net & Moon Lord) | (Sea King & The Old Duke) | (@getfixedboi & #The Destroyer)) & @health(5);
 
 // The Devourer of Gods
-The Devourer of Gods;               Calamity | Location | Item | Goal;          Hardmode Anvil & ((Armored Shell & Twisting Nether & Dark Plasma) | (Luminite Bar & Fragment & Meld Blob & Polterplasm));
+The Devourer of Gods;               Calamity | Location | Item | Goal;          Hardmode Anvil & ((Armored Shell & Twisting Nether & Dark Plasma) | (Luminite Bar & Fragment & Meld Blob & Polterplasm)) & @health(5);
 # the_devourer_of_gods
 Cosmilite Bar;                      Calamity;                                   #The Devourer of Gods;
 Cosmic Anvil;                       Calamity;                                   Ancient Manipulator & Hardmode Anvil & Cosmilite Bar & Luminite Bar & Fragment & Meld Blob & Exodium Cluster;
@@ -698,10 +699,10 @@ Nanotech;                           Calamity;                                   
 Ethereal Talisman;                  Calamity;                                   (Cosmic Anvil & Sigil of Calamitas & Mana Flower & Ascendant Spirit Essence) | (@getfixedboi & #Signus, Envoy of the Devourer);
 
 // Yharon, Dragon of Rebirth
-Yharon, Dragon of Rebirth;          Calamity | Location | Item | Goal;          Hardmode Anvil & Effulgent Feather & Life Alloy;
+Yharon, Dragon of Rebirth;          Calamity | Location | Item | Goal;          Hardmode Anvil & Effulgent Feather & Life Alloy & @health(5);
 # yharon_dragon_of_rebirth
 Yharon Soul Fragment;               Calamity;                                   #Yharon, Dragon of Rebirth | (Shimmer & (The Wand | Auric Bar));
-Sacred Strawberry;                  Calamity | Health;                          Cosmic Anvil & Life Fruit & Yharon Soul Fragment & Ascendant Spirit Essence;
+Sacred Strawberry;                  Calamity | Quarter Fruit;                   Cosmic Anvil & Life Fruit & Yharon Soul Fragment & Ascendant Spirit Essence;
 The Wand;                           Calamity;                                   (Cosmic Anvil & Wand of Sparking & Yharon Soul Fragment) | (@getfixedboi & #The Devourer of Gods);
 Auric Ore;                          Calamity;                                   (Yharon, Dragon of Rebirth & @pickaxe(250)) | (Shimmer & (Auric Bar | Yharon Soul Fragment));
 Auric Bar;                          Calamity;                                   (Hardmode Forge & Auric Ore & Yharon Soul Fragment) | (Shimmer & Shadowspec Bar);
@@ -711,10 +712,10 @@ Infinity +1 Sword;                  Achievement | Crafting | Item(Has Zenith) | 
 
 // Exo Mechs
 Auric Quantum Cooling Cell;         Calamity;                                   Cosmic Anvil & Auric Bar & Mysterious Circuitry & Dubious Plating & Endothermic Energy & Essence of Eleum & Voltage Regulation System;
-Exo Mechs;                          Calamity | Location | Item | Final Boss;    Codebreaker Base & Decryption Computer & Auric Quantum Cooling Cell;
+Exo Mechs;                          Calamity | Location | Item | Final Boss;    Codebreaker Base & Decryption Computer & Auric Quantum Cooling Cell & @health(6);
 // XB-Infinity Hekate;                 Getfixedboi | Calamity;                     Codebreaker Base & Decryption Computer & Auric Quantum Cooling Cell & Bloody Vein; // Currently, this boss doesn't affect logic at all
-Supreme Witch, Calamitas;           Calamity | Location | Item | Final Boss;    Hardmode Anvil & Brimstone Slag & Auric Bar & Core of Calamity & Ashes of Calamity;
-THE LORDE;                          Getfixedboi | Calamity;                     Lihzahrd Temple;
+Supreme Witch, Calamitas;           Calamity | Location | Item | Final Boss;    Hardmode Anvil & Brimstone Slag & Auric Bar & Core of Calamity & Ashes of Calamity & @health(6);
+THE LORDE;                          Getfixedboi | Calamity;                     Lihzahrd Temple & @health(6);
 # calamity_final_bosses
 Exo Prism;                          Calamity;                                   #Exo Mechs | (Shimmer & Shadowspec Bar);
 Draedon's Forge;                    Calamity;                                   Cosmic Anvil & Hardmode Forge & Tinkerer's Workshop & Ancient Manipulator & Auric Bar & Exo Prism & Ascendant Spirit Essence;
@@ -728,9 +729,9 @@ Demonshade Armor;                   Calamity | Armor Minions(10);               
 Brimstone Witch;                    Calamity;                                   Supreme Witch, Calamitas;
 
 // Primordial Wyrm
-Primordial Wyrm;                    Calamity | Location | Item | Goal;          Rod of Discord | Normality Relocator;
+Primordial Wyrm;                    Calamity | Location | Item | Goal;          (Rod of Discord | Normality Relocator) & @health(6);
 # primordial_wyrm
 
 // Boss Rush
-Boss Rush;                          Calamity | Location | Item | Goal;          Diving Gear | Neptune's Shell | (Aquatic Heart & Skeletron); // Might be obtainable earlier with Midas' Blessing
+Boss Rush;                          Calamity | Location | Item | Goal;          (Diving Gear | Neptune's Shell | (Aquatic Heart & Skeletron)) & @health(6); // Might be obtainable earlier with Midas' Blessing
 # boss_rush

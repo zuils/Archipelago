@@ -27,6 +27,7 @@ from .Checks import (
     armor_minions,
     accessory_minions,
     health_upgrades,
+    quarter_fruits,
 )
 from .Options import TerrariaOptions, Goal, ter_option_groups
 
@@ -181,6 +182,7 @@ class TerrariaWorld(World):
                     or "Minions" in rule.flags
                     or "Armor Minions" in rule.flags
                     or "Health" in rule.flags
+                    or "Quarter Fruit" in rule.flags
                     or rule.name in goal_locations
             ):
                 self.progression.add(loc_to_item[rule.name])
@@ -419,11 +421,19 @@ class TerrariaWorld(World):
                     return condition.sign
 
                 health_required = condition.argument - self.options.health_logic_handicap.value
-                if not self.options.calamity.value and health_required > 2:
-                    health_required = 2
-                for i in range(health_required):
+
+                for i in range(min(health_required, 2)):
                     if not state.has(health_upgrades[i], self.player):
                         return not condition.sign
+
+                quarter_fruits_required = health_required - 2
+                if not self.options.calamity.value or quarter_fruits_required < 1:
+                    return condition.sign
+
+                if state.count_from_list(quarter_fruits, self.player) >= quarter_fruits_required:
+                     return condition.sign
+                else:
+                    return not condition.sign
 
                 return condition.sign
             elif condition.condition == "getfixedboi":
