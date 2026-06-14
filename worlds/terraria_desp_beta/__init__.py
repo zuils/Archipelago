@@ -387,14 +387,7 @@ class TerrariaWorld(World):
                 if type(condition.argument) is not int:
                     raise Exception("@mech_boss requires an integer argument")
 
-                boss_count = 0
-                for boss in mech_bosses:
-                    if state.has(boss, self.player):
-                        boss_count += 1
-                        if boss_count >= condition.argument:
-                            return condition.sign
-
-                return not condition.sign
+                return state.count_from_list(mech_bosses, self.player) >= condition.argument
             elif condition.condition == "minions":
                 if type(condition.argument) is not int:
                     raise Exception("@minions requires an integer argument")
