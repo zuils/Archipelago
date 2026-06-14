@@ -28,7 +28,7 @@ from .Checks import (
     accessory_minions,
     health_upgrades,
 )
-from .Options import TerrariaOptions, Goal
+from .Options import TerrariaOptions, Goal, ter_option_groups
 
 
 class TerrariaWeb(WebWorld):
@@ -42,6 +42,7 @@ class TerrariaWeb(WebWorld):
             ["Seldom"],
         )
     ]
+    option_groups = ter_option_groups
 
 
 class TerrariaWorld(World):

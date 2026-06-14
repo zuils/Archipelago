@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Choice, DeathLink, PerGameCommonOptions, Toggle, DefaultOnToggle, Range
+from Options import Choice, DeathLink, PerGameCommonOptions, Toggle, DefaultOnToggle, Range, OptionGroup
 
 
 class Calamity(Toggle):
@@ -160,6 +160,33 @@ class HealthLogicHandicap(Range):
     range_start = -6
     range_end = 0
     default = 0
+
+ter_option_groups = [
+    OptionGroup("Gamemode and Content", [
+        Calamity,
+        Getfixedboi,
+        Goal,
+        ShuffleUpTo,
+    ]),
+    OptionGroup("Checks", [
+        RandomizeNPCs,
+        EarlyAchievements,
+        NormalAchievements,
+        RareAchievements,
+        TimeAchievements,
+        CraftingAchievements,
+        GrindyAchievements,
+        FishingAchievements,
+    ]),
+    OptionGroup("Items", [
+        FillExtraChecksWith,
+    ]),
+    OptionGroup("Logic", [
+        ShimmerSkips,
+        HealthLogic,
+        HealthLogicHandicap,
+    ]),
+]
 
 @dataclass
 class TerrariaOptions(PerGameCommonOptions):
