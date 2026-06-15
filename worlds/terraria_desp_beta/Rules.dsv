@@ -194,7 +194,7 @@ Surly Slime;                        Pet;                                        
 Eye of Cthulhu;                     Location | Item;                            @health(1);
 Dryad;                              Npc;                                        Eye of Cthulhu | Evil Boss | Skeletron;
 Pumpkin Seeds;                      ;                                           Dryad;
-Pumpkin;                            ;                                           Pumpkin Seeds | Cactus;
+Pumpkin;                            ;                                           Pumpkin Seeds | (Shimmer & Cactus);
 Purification Powder;                ;                                           (~@getfixedboi & Dryad) | (Shimmer & Evil Powder);
 Mystic Slime;                       Pet;                                        Purification Powder;
 And Good Riddance!;                 Achievement | Grindy;                       Dryad;
