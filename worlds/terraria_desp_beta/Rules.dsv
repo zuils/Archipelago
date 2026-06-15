@@ -543,7 +543,7 @@ Star-Tainted Generator;             Calamity;                                   
 Old One's Army Tier 3;              Location | Item;                            #Old One's Army Tier 1 & Wall of Flesh & Golem & @health(4);
 
 // Martian Madness
-Martian Madness;                    Location | Item;                            Wall of Flesh & Golem & @health(4);
+Martian Madness;                    Location | Item;                            (Wall of Flesh | (@calamity & Cyborg)) & Golem & @health(4);
 Laser Drill;                        Pickaxe(220);                               #Martian Madness;
 Influx Waver;                       ;                                           #Martian Madness;
 
