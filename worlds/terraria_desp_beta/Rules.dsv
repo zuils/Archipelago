@@ -526,7 +526,7 @@ Astrum Aureus;                      Calamity | Location | Item;                 
 Starbuster Core;                    Calamity | Minions(1);                      Astrum Aureus & Astral Infection;
 
 // Golem
-Golem;                              Location | Item | Goal;                     Wall of Flesh & Plantera & Lihzahrd Temple & @health(3);
+Golem;                              Location | Item | Goal;                     Wall of Flesh & Lihzahrd Temple & @health(3);
 # golem
 Picksaw;                            Pickaxe(210);                               #Golem;
 Lihzahrd Brick;                     ;                                           @pickaxe(210) | (Lihzahrd Furniture & Golem) | Bohldohr;
