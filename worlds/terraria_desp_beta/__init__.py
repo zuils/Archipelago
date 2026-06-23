@@ -413,7 +413,7 @@ class TerrariaWorld(World):
                 if not self.options.health_logic.value:
                     return condition.sign
 
-                health_required = condition.argument - self.options.health_logic_handicap.value
+                health_required = max(condition.argument + self.options.health_logic_handicap.value, 1)
 
                 for i in range(min(health_required, 2)):
                     if not state.has(health_upgrades[i], self.player):
