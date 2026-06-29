@@ -2,5 +2,7 @@
 	"game": "Super Meat Boy",
 	"minimum_ap_version": "0.6.4",
 	"world_version": "1.1.0",
-	"authors": ["zuils", "PixelShake92"]
+	"authors": ["zuils", "PixelShake92"],
+	"compatible_version": 7,
+	"version": 7
 }
