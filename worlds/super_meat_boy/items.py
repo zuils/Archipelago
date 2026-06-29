@@ -24,6 +24,8 @@ item_name_groups: Dict[str, list[str]] = {}
 def parse_classification(val: str) -> ItemClassification:
     if val == "progression_deprioritized_skip_balancing":
         return ItemClassification.progression_deprioritized_skip_balancing
+    elif val == "progression_deprioritized":
+        return ItemClassification.progression_deprioritized
     elif val == "progression":
         return ItemClassification.progression
     elif val == "useful":

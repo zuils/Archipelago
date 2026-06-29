@@ -6,7 +6,7 @@
             "Level Keys",
             "Chapter 1"
         ],
-        "classification": "progression"
+        "classification": "progression_deprioritized"
     },
     {
         "count": 20,
@@ -15,7 +15,7 @@
             "Level Keys",
             "Chapter 2"
         ],
-        "classification": "progression"
+        "classification": "progression_deprioritized"
     },
     {
         "count": 20,
@@ -24,7 +24,7 @@
             "Level Keys",
             "Chapter 3"
         ],
-        "classification": "progression"
+        "classification": "progression_deprioritized"
     },
     {
         "count": 20,
@@ -33,7 +33,7 @@
             "Level Keys",
             "Chapter 4"
         ],
-        "classification": "progression"
+        "classification": "progression_deprioritized"
     },
     {
         "count": 20,
@@ -42,7 +42,7 @@
             "Level Keys",
             "Chapter 5"
         ],
-        "classification": "progression"
+        "classification": "progression_deprioritized"
     },
     {
         "count": 5,
@@ -51,7 +51,7 @@
             "Level Keys",
             "Chapter 6"
         ],
-        "classification": "progression"
+        "classification": "progression_deprioritized"
     },
     {
         "count": 20,

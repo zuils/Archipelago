@@ -154,18 +154,6 @@ class SMBWorld(World):
         for name, data in item_table.items():
             count = data.count
             
-            # Cap Dr. Fetus Keys
-            if name == "DW Dr. Fetus Key":
-                dr_fetus_cap: int = 0
-                if "6" in self.options.chapters.value and self.options.dark_world.value:
-                    for chpt in self.options.chapters.value:
-                        if chpt == "6":
-                            dr_fetus_cap += 5
-                        else:
-                            dr_fetus_cap += 20
-                            
-                count = min(count, dr_fetus_cap)
-            
             # Cap bandages
             if self.options.goal == "bandages" and name == "Bandage":
                 bandages_cap: int = 0
@@ -205,8 +193,8 @@ class SMBWorld(World):
                 if self.options.goal != "bandages" and name == "Bandage":
                     continue
                 
-                # If dark world levels are off, don't put A+ Ranks or DW Dr. Fetus Token in the item pool
-                if not self.options.dark_world.value and ("A+ Rank" in data.category or name == "DW Dr. Fetus Token"):
+                # If dark world levels are off, don't put A+ Ranks in the item pool
+                if not self.options.dark_world.value and "A+ Rank" in data.category:
                     continue
                 
                 # Skip Chapter 7 LW Level Keys if our goal is lw chapter 7, else change them to filler items
