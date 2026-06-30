@@ -630,7 +630,7 @@ Star Wrath;                         ;                                           
 Exodium Cluster;                    Calamity;                                   (Moon Lord & (Wall of Flesh | @pickaxe(225))) | (Shimmer & Uelibloom Ore);
 Normality Relocator;                Calamity;                                   Hardmode Anvil & Rod of Discord & Exodium Cluster & Fragment;
 Unholy Essence;                     Calamity;                                   Moon Lord | #Providence, the Profaned Goddess | (@getfixedboi & Plantera);
-Polterplasm;                        Calamity;                                   (Moon Lord & Wall of Flesh) | (Dungeon & (Polterghast | Moon Lord)) | #Polterghast | (Shimmer & #The Devourer of Gods);
+Polterplasm;                        Calamity;                                   (Moon Lord & (Dungeon | Wall of Flesh)) | #Polterghast | (Shimmer & #The Devourer of Gods);
 Eldritch Soul Artifact;             Calamity | Minions(1);                      Hardmode Anvil & Exodium Cluster & Navyplate & Polterplasm;
 
 // Profaned Guardians
