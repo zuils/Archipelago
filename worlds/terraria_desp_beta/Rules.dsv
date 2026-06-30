@@ -637,7 +637,7 @@ Eldritch Soul Artifact;             Calamity | Minions(1);                      
 Profaned Guardians;                 Calamity | Location | Item;                 Hardmode Anvil & Unholy Essence & Luminite Bar & @health(4);
 
 // Dragonfolly
-The Dragonfolly;                    Calamity | Location | Item;                 (Ancient Manipulator & Unholy Essence & Luminite Bar);
+The Dragonfolly;                    Calamity | Location | Item;                 Ancient Manipulator & Life Alloy & Fragment;
 Effulgent Feather;                  Calamity;                                   Moon Lord | #The Dragonfolly | (@getfixedboi & #Yharon, Dragon of Rebirth);
 
 // Providence, the Profaned Goddess
