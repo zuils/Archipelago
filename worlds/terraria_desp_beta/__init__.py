@@ -1,9 +1,15 @@
 # Look at `Rules.dsv` first to get an idea for how this works
-
+import dataclasses
 import logging
-from typing import Union, Tuple, List, Dict, Set
+from typing import Union, Tuple, List, Dict, Set, override
+
+from Options import NumericOption
+from rule_builder.cached_world import CachedRuleBuilderWorld
+from rule_builder.field_resolvers import FromWorldAttr
 from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, ItemClassification, Tutorial, CollectionState
+from rule_builder.options import OptionFilter
+from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule, TWorld, HasFromList, Filtered
 from .Checks import (
     TerrariaItem,
     TerrariaLocation,
@@ -29,7 +35,8 @@ from .Checks import (
     health_upgrades,
     quarter_fruits,
 )
-from .Options import TerrariaOptions, Goal, ter_option_groups
+from .Options import TerrariaOptions, Goal, ter_option_groups, RandomizeNPCs, Calamity, RareAchievements, \
+    TimeAchievements, HealthLogic, Getfixedboi, ShimmerSkips
 
 
 class TerrariaWeb(WebWorld):
@@ -46,7 +53,7 @@ class TerrariaWeb(WebWorld):
     option_groups = ter_option_groups
 
 
-class TerrariaWorld(World):
+class TerrariaWorld(CachedRuleBuilderWorld):
     """
     Terraria is a 2D multiplayer sandbox game featuring mining, building, exploration, and combat.
     Features 18 bosses and 4 classes.
@@ -64,6 +71,9 @@ class TerrariaWorld(World):
 
     progression = set()
     npcs_to_randomize = set()
+
+    armor_minions_tuple: Tuple[Tuple[str, int]]
+    accessory_minions_tuple: Tuple[Tuple[str, int]]
 
     ter_items: List[str]
     ter_locations: List[str]
@@ -296,6 +306,16 @@ class TerrariaWorld(World):
         return TerrariaItem(item, classification, item_name_to_id[item], self.player)
 
     def create_items(self) -> None:
+        # TODO: do this thing in checks
+        armor_minion_list = []
+        accessory_minion_list = []
+        for pair in armor_minions.items():
+            armor_minion_list.append(pair)
+        for pair in accessory_minions.items():
+            accessory_minion_list.append(pair)
+        armor_minion_list_sort = sorted(armor_minion_list, key=lambda pair: pair[1], reverse=True)
+        self.armor_minions_tuple = tuple(armor_minion_list_sort)
+        self.accessory_minions_tuple = tuple(accessory_minion_list)
         for item in self.ter_items:
             if (rule_index := rule_indices.get(item)) is not None:
                 rule = rules[rule_index]
@@ -330,118 +350,8 @@ class TerrariaWorld(World):
         for location, item in locked_items.items():
             self.multiworld.get_location(location, self.player).place_locked_item(item)
 
-    def check_condition(self, state, condition: Condition) -> bool:
-        if condition.type == COND_ITEM:
-            rule = rules[rule_indices[condition.condition]]
-            if "Item" in rule.flags:
-                name = rule.flags.get("Item") or f"Post-{condition.condition}"
-            else:
-                name = condition.condition
-
-            return condition.sign == state.has(name, self.player)
-        elif condition.type == COND_LOC:
-            rule = rules[rule_indices[condition.condition]]
-            return condition.sign == self.check_conditions(
-                state, rule.operator, rule.conditions
-            )
-        elif condition.type == COND_FN:
-            if condition.condition == "npc":
-                if type(condition.argument) is not int:
-                    raise Exception("@npc requires an integer argument")
-
-                npc_count = 0
-                for npc in npcs:
-                    if state.has(npc, self.player):
-                        npc_count += 1
-                        if npc_count >= condition.argument:
-                            return condition.sign
-
-                return not condition.sign
-            elif condition.condition == "npc_rando":
-                return condition.sign == self.options.randomize_npcs.value
-            elif condition.condition == "calamity":
-                return condition.sign == self.options.calamity.value
-            elif condition.condition == "rare":
-                return condition.sign == self.options.rare_achievements.value
-            elif condition.condition == "time":
-                return condition.sign == self.options.time_achievements.value
-            elif condition.condition == "pickaxe":
-                if type(condition.argument) is not int:
-                    raise Exception("@pickaxe requires an integer argument")
-
-                for pickaxe, power in pickaxes.items():
-                    if power >= condition.argument and state.has(pickaxe, self.player):
-                        return condition.sign
-
-                return not condition.sign
-            elif condition.condition == "hammer":
-                if type(condition.argument) is not int:
-                    raise Exception("@hammer requires an integer argument")
-
-                for hammer, power in hammers.items():
-                    if power >= condition.argument and state.has(hammer, self.player):
-                        return condition.sign
-
-                return not condition.sign
-            elif condition.condition == "mech_boss":
-                if type(condition.argument) is not int:
-                    raise Exception("@mech_boss requires an integer argument")
-
-                return state.count_from_list(mech_bosses, self.player) >= condition.argument
-            elif condition.condition == "minions":
-                if type(condition.argument) is not int:
-                    raise Exception("@minions requires an integer argument")
-
-                minion_count = 1
-                for armor, minions in armor_minions.items():
-                    if state.has(armor, self.player) and minions + 1 > minion_count:
-                        minion_count = minions + 1
-                        if minion_count >= condition.argument:
-                            return condition.sign
-
-                for accessory, minions in accessory_minions.items():
-                    if state.has(accessory, self.player):
-                        minion_count += minions
-                        if minion_count >= condition.argument:
-                            return condition.sign
-
-                return not condition.sign
-            elif condition.condition == "health":
-                if type(condition.argument) is not int:
-                    raise Exception("@health requires an integer argument")
-
-                if not self.options.health_logic.value:
-                    return condition.sign
-
-                health_required = max(condition.argument + self.options.health_logic_handicap.value, 1)
-
-                for i in range(min(health_required, 2)):
-                    if not state.has(health_upgrades[i], self.player):
-                        return not condition.sign
-
-                quarter_fruits_required = health_required - 2
-                if not self.options.calamity.value or quarter_fruits_required < 1:
-                    return condition.sign
-
-                if state.count_from_list(quarter_fruits, self.player) >= quarter_fruits_required:
-                     return condition.sign
-                else:
-                    return not condition.sign
-
-                return condition.sign
-            elif condition.condition == "getfixedboi":
-                return condition.sign == self.options.getfixedboi.value
-            elif condition.condition == "shimmer_skips":
-                return condition.sign == self.options.shimmer_skips.value
-            else:
-                raise Exception(f"Unknown function {condition.condition}")
-        elif condition.type == COND_GROUP:
-            operator, conditions = condition.condition
-            return condition.sign == self.check_conditions(state, operator, conditions)
-
-    def check_conditions(
+    def create_rule_ini(
             self,
-            state,
             operator: Union[bool, None],
             conditions: List[
                 Tuple[
@@ -450,34 +360,112 @@ class TerrariaWorld(World):
                     Union[str, Tuple[Union[bool, None], list]],
                     Union[str, int, None],
                 ]
-            ],
-    ) -> bool:
+            ]
+    ) -> Rule:
         if operator is None:
             if len(conditions) == 0:
-                return True
+                return True_()
             if len(conditions) > 1:
                 raise Exception("Found multiple conditions without an operator")
-            return self.check_condition(state, conditions[0])
-        elif operator:
-            return any(
-                self.check_condition(state, condition) for condition in conditions
-            )
-        else:
-            return all(
-                self.check_condition(state, condition) for condition in conditions
-            )
+            cond = self.create_rule(conditions[0])
+            return cond if isinstance(cond, Rule) else (True_() & cond)
+        sub_rules = [self.create_rule(condition) for condition in conditions]
+        return Or(*sub_rules) if operator else And(*sub_rules)
+
+    def create_rule(self, condition: Condition) -> Rule:
+        if condition.type == COND_ITEM:
+            rule = rules[rule_indices[condition.condition]]
+            if "Item" in rule.flags:
+                name = rule.flags.get("Item") or f"Post-{condition.condition}"
+            else:
+                name = condition.condition
+
+            assert(isinstance(name, str))
+            return Has(name)
+        elif condition.type == COND_LOC:
+            rule = rules[rule_indices[condition.condition]]
+            return self.create_rule_ini(rule.operator, rule.conditions)
+        elif condition.type == COND_FN:
+            if condition.condition == "npc":
+                assert(isinstance(condition.argument, int))
+                return HasFromList(*npcs, count=condition.argument)
+            elif condition.condition == "npc_rando":
+                return True_(options=[OptionFilter(RandomizeNPCs, condition.sign)])
+            elif condition.condition == "calamity":
+                return True_(options=[OptionFilter(Calamity, condition.sign)])
+            elif condition.condition == "rare":
+                return True_(options=[OptionFilter(RareAchievements, condition.sign)])
+            elif condition.condition == "time":
+                return True_(options=[OptionFilter(TimeAchievements, condition.sign)])
+            # RESUME WORK BELOW
+            elif condition.condition == "pickaxe":
+                if type(condition.argument) is not int:
+                    raise Exception("@pickaxe requires an integer argument")
+
+                eligible_items = []
+                for pickaxe, power in pickaxes.items():
+                    if power >= condition.argument:
+                        eligible_items.append(pickaxe)
+
+                return HasAny(*eligible_items)
+            elif condition.condition == "hammer":
+                if type(condition.argument) is not int:
+                    raise Exception("@hammer requires an integer argument")
+
+                eligible_items = []
+                for hammer, power in hammers.items():
+                    if power >= condition.argument:
+                        eligible_items.append(hammer)
+
+                return HasAny(*eligible_items)
+            elif condition.condition == "mech_boss":
+                assert(isinstance(condition.argument, int))
+                return HasFromList(*mech_bosses, count=condition.argument)
+            elif condition.condition == "minions":
+                assert (isinstance(condition.argument, int))
+                return HasMinion(self.armor_minions_tuple, self.accessory_minions_tuple, condition.argument)
+            elif condition.condition == "health":
+                if type(condition.argument) is not int:
+                    raise Exception("@health requires an integer argument")
+
+                health_option = OptionFilter(HealthLogic, 1)
+                health_required = max(condition.argument + self.options.health_logic_handicap.value, 1)
+
+                if health_required == 1:
+                    return Has(health_upgrades[0], options=[health_option], filtered_resolution=True)
+                elif health_required == 2:
+                    return HasAll(*health_upgrades[:2], options=[health_option], filtered_resolution=True)
+
+                highest_base = HasAll(*health_upgrades[:2])
+                quarter_fruits_required = health_required - 2
+                quarter_fruits_rule = HasFromList(
+                    *quarter_fruits,
+                    count=quarter_fruits_required,
+                    options=[OptionFilter(Calamity, Calamity.option_true)],
+                    filtered_resolution=True
+                )
+                return Filtered((highest_base & quarter_fruits_rule), options=[health_option], filtered_resolution=True)
+            elif condition.condition == "getfixedboi":
+                return True_(options=[OptionFilter(Getfixedboi, condition.sign)])
+            elif condition.condition == "shimmer_skips":
+                return True_(options=[OptionFilter(ShimmerSkips, condition.sign)])
+            else:
+                raise Exception(f"Unknown function {condition.condition}")
+        elif condition.type == COND_GROUP:
+            operator, conditions = condition.condition
+
+            return self.create_rule_ini(operator, conditions)
 
     def set_rules(self) -> None:
-        for location in self.ter_locations:
-            def check(state: CollectionState, location=location):
-                rule = rules[rule_indices[location]]
-                return self.check_conditions(state, rule.operator, rule.conditions)
+        for location_name in self.ter_locations:
+            if location_name == "Cryonic Ore":
+                pass
+            location = self.multiworld.get_location(location_name, self.player)
+            rule = rules[rule_indices[location_name]]
+            created_rule = self.create_rule_ini(rule.operator, rule.conditions)
+            self.set_rule(location, created_rule)
 
-            self.multiworld.get_location(location, self.player).access_rule = check
-
-        self.multiworld.completion_condition[self.player] = lambda state: state.has_all(
-            self.goal_items, self.player
-        )
+        self.set_completion_rule(HasAll(*self.goal_items))
 
     def fill_slot_data(self) -> Dict[str, object]:
         return {
@@ -493,3 +481,46 @@ class TerrariaWorld(World):
             "fishing_achievements": self.options.fishing_achievements.value,
             "randomize_npcs": list(self.npcs_to_randomize),
         }
+
+@dataclasses.dataclass()
+class HasMinion(Rule["TerrariaWorld"], game=TerrariaWorld.game):
+
+    armor_minion: tuple[tuple[str, int]]
+    accessory_minion: tuple[tuple[str, int]]
+    target: int
+
+    @override
+    def _instantiate(self, world: TWorld) -> Rule.Resolved:
+        last_minion = 999
+        for armor, minion in self.armor_minion:
+            assert(last_minion >= minion)
+            last_minion = minion
+        return self.Resolved(self.armor_minion, self.accessory_minion, self.target, player=world.player, caching_enabled=False)
+
+    class Resolved(Rule.Resolved):
+        armor_minion: tuple[tuple[str, int]]
+        accessory_minion: tuple[tuple[str, int]]
+        target: int
+
+        @override
+        def _evaluate(self, state: CollectionState) -> bool:
+            count = 1
+            for armor, minion in self.armor_minion:
+                if state.has(armor, self.player):
+                    count += minion
+                    break
+            if count >= self.target:
+                return True
+            for accessory, minion in self.accessory_minion:
+                if state.has(accessory, self.player):
+                    count += minion
+                    if count >= self.target:
+                        return True
+            return False
+
+        @override
+        def item_dependencies(self) -> dict[str, set[int]]:
+            item_dict = {}
+            for item in self.armor_minion + self.accessory_minion:
+                item_dict[item] = {id(self)}
+            return item_dict
