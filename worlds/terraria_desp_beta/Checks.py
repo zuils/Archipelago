@@ -275,9 +275,9 @@ def read_data() -> Tuple[
     # Calamity final bosses
     List[str],
     # Armor to minion count,
-    Dict[str, int],
+    Tuple[Tuple[str, int]],
     # Accessory to minion count,
-    Dict[str, int],
+    Tuple[Tuple[str, int]],
     # Health upgrades
     List[str],
     # Calamity health upgrades that are unordered and give 25 health each
@@ -299,8 +299,8 @@ def read_data() -> Tuple[
     mech_bosses = []
     final_boss_loc = []
     final_bosses = []
-    armor_minions = {}
-    accessory_minions = {}
+    armor_minions_list = []
+    accessory_minions_list = []
     health_upgrades = []
     quarter_fruits = []
 
@@ -606,10 +606,10 @@ def read_data() -> Tuple[
                 final_boss_loc.append(name)
 
             if (minions := flags.get("Armor Minions")) is not None:
-                armor_minions[name] = minions
+                armor_minions_list.append((name, minions))
 
             if (minions := flags.get("Minions")) is not None:
-                accessory_minions[name] = minions
+                accessory_minions_list.append((name, minions))
 
             if "Health" in flags:
                 health_upgrades.append(name)
@@ -644,6 +644,9 @@ def read_data() -> Tuple[
 
     _, final_boss_items = goals[goal_indices["calamity_final_bosses"]]
     final_boss_items.update(final_boss_loc)
+
+    armor_minions = tuple(sorted(armor_minions_list, key=lambda item: item[1], reverse=True))
+    accessory_minions = tuple(accessory_minions_list)
 
     for rule in rules:
         validate_conditions(rule.name, rule_indices, rule.conditions)

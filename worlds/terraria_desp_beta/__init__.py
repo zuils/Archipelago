@@ -72,9 +72,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     progression = set()
     npcs_to_randomize = set()
 
-    armor_minions_tuple: Tuple[Tuple[str, int]]
-    accessory_minions_tuple: Tuple[Tuple[str, int]]
-
     ter_items: List[str]
     ter_locations: List[str]
 
@@ -306,16 +303,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
         return TerrariaItem(item, classification, item_name_to_id[item], self.player)
 
     def create_items(self) -> None:
-        # TODO: do this thing in checks
-        armor_minion_list = []
-        accessory_minion_list = []
-        for pair in armor_minions.items():
-            armor_minion_list.append(pair)
-        for pair in accessory_minions.items():
-            accessory_minion_list.append(pair)
-        armor_minion_list_sort = sorted(armor_minion_list, key=lambda pair: pair[1], reverse=True)
-        self.armor_minions_tuple = tuple(armor_minion_list_sort)
-        self.accessory_minions_tuple = tuple(accessory_minion_list)
         for item in self.ter_items:
             if (rule_index := rule_indices.get(item)) is not None:
                 rule = rules[rule_index]
@@ -423,7 +410,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 return HasFromList(*mech_bosses, count=condition.argument)
             elif condition.condition == "minions":
                 assert (isinstance(condition.argument, int))
-                return HasMinion(self.armor_minions_tuple, self.accessory_minions_tuple, condition.argument)
+                return HasMinion(condition.argument)
             elif condition.condition == "health":
                 if type(condition.argument) is not int:
                     raise Exception("@health requires an integer argument")
@@ -485,33 +472,25 @@ class TerrariaWorld(CachedRuleBuilderWorld):
 @dataclasses.dataclass()
 class HasMinion(Rule["TerrariaWorld"], game=TerrariaWorld.game):
 
-    armor_minion: tuple[tuple[str, int]]
-    accessory_minion: tuple[tuple[str, int]]
     target: int
 
     @override
     def _instantiate(self, world: TWorld) -> Rule.Resolved:
-        last_minion = 999
-        for armor, minion in self.armor_minion:
-            assert(last_minion >= minion)
-            last_minion = minion
-        return self.Resolved(self.armor_minion, self.accessory_minion, self.target, player=world.player, caching_enabled=True)
+        return self.Resolved(self.target, player=world.player, caching_enabled=True)
 
     class Resolved(Rule.Resolved):
-        armor_minion: tuple[tuple[str, int]]
-        accessory_minion: tuple[tuple[str, int]]
         target: int
 
         @override
         def _evaluate(self, state: CollectionState) -> bool:
             count = 1
-            for armor, minion in self.armor_minion:
+            for armor, minion in armor_minions:
                 if state.has(armor, self.player):
                     count += minion
                     break
             if count >= self.target:
                 return True
-            for accessory, minion in self.accessory_minion:
+            for accessory, minion in accessory_minions:
                 if state.has(accessory, self.player):
                     count += minion
                     if count >= self.target:
@@ -521,6 +500,6 @@ class HasMinion(Rule["TerrariaWorld"], game=TerrariaWorld.game):
         @override
         def item_dependencies(self) -> dict[str, set[int]]:
             item_dict = {}
-            for item in self.armor_minion + self.accessory_minion:
+            for item in armor_minions + accessory_minions:
                 item_dict[item[0]] = {id(self)}
             return item_dict
