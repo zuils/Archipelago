@@ -384,7 +384,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 return True_(options=[OptionFilter(RareAchievements, condition.sign)])
             elif condition.condition == "time":
                 return True_(options=[OptionFilter(TimeAchievements, condition.sign)])
-            # RESUME WORK BELOW
             elif condition.condition == "pickaxe":
                 if type(condition.argument) is not int:
                     raise Exception("@pickaxe requires an integer argument")
