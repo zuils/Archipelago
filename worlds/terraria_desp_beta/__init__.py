@@ -495,7 +495,7 @@ class HasMinion(Rule["TerrariaWorld"], game=TerrariaWorld.game):
         for armor, minion in self.armor_minion:
             assert(last_minion >= minion)
             last_minion = minion
-        return self.Resolved(self.armor_minion, self.accessory_minion, self.target, player=world.player, caching_enabled=False)
+        return self.Resolved(self.armor_minion, self.accessory_minion, self.target, player=world.player, caching_enabled=True)
 
     class Resolved(Rule.Resolved):
         armor_minion: tuple[tuple[str, int]]
@@ -522,5 +522,5 @@ class HasMinion(Rule["TerrariaWorld"], game=TerrariaWorld.game):
         def item_dependencies(self) -> dict[str, set[int]]:
             item_dict = {}
             for item in self.armor_minion + self.accessory_minion:
-                item_dict[item] = {id(self)}
+                item_dict[item[0]] = {id(self)}
             return item_dict
