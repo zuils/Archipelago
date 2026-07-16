@@ -372,7 +372,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             return Has(name)
         elif condition.type == COND_LOC:
             rule = rules[rule_indices[condition.condition]]
-            return CanReachLocation(location_name=rule.name, parent_region_name="Menu", skip_indirect_connection=True)
+            return CanReachLocation(location_name=rule.name, skip_indirect_connection=False)
             return self.create_rule_ini(rule.operator, rule.conditions)
         elif condition.type == COND_FN:
             if condition.condition == "npc":
