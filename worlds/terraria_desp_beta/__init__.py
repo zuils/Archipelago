@@ -9,8 +9,7 @@ from rule_builder.field_resolvers import FromWorldAttr
 from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, ItemClassification, Tutorial, CollectionState
 from rule_builder.options import OptionFilter
-from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule, TWorld, HasFromList, Filtered, \
-    CanReachLocation
+from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule, TWorld, HasFromList, Filtered
 from .Checks import (
     TerrariaItem,
     TerrariaLocation,
@@ -372,7 +371,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             return Has(name)
         elif condition.type == COND_LOC:
             rule = rules[rule_indices[condition.condition]]
-            return CanReachLocation(location_name=rule.name, skip_indirect_connection=False)
             return self.create_rule_ini(rule.operator, rule.conditions)
         elif condition.type == COND_FN:
             if condition.condition == "npc":
