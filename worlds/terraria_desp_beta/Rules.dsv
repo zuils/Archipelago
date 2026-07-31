@@ -347,7 +347,7 @@ Meteor Staff;                       ;                                           
 Blessed Apple;                      ;                                           Hallow;
 Rod of Discord;                     ;                                           Hallow;
 Gelatin World Tour;                 Achievement | Time | Rare;                  Dungeon & Wall of Flesh & Hallow & #King Slime;
-Soul of Flight;                     ;                                           Wall of Flesh;
+Soul of Flight;                     ;                                           Wall of Flesh | (@getfixedboi & #Duke Fishron);
 Head in the Clouds;                 Achievement;                                @rare | (Soul of Flight & ((Hardmode Anvil & (Soul of Light | Soul of Night | Pixie Dust | Wall of Flesh | Solar Eclipse | @mech_boss(1) | Plantera | Spectre Bar | #Golem)) | (Shroomite Bar & Autohammer) | #Mourning Wood | #Pumpking)) | Steampunker | (Wall of Flesh & Plantera & Witch Doctor) | (Solar Eclipse & Plantera) | #Everscream | #Old One's Army Tier 3 | #Empress of Light | #Duke Fishron | (Fragment & Luminite Bar & Ancient Manipulator);
 Bunny;                              Pet;                                        Zoologist & Wall of Flesh; // Extremely simplified
 Forbidden Fragment;                 ;                                           Sandstorm & Wall of Flesh;
@@ -356,7 +356,7 @@ Stardust;                           Calamity;                                   
 Lunic Eye;                          Calamity;                                   (Cobalt Bar & Stardust) | (Shimmer & Eye of Magnus);
 Titan Heart;                        Calamity;                                   Astral Infection;
 Essence of Sunlight;                Calamity;                                   Wall of Flesh | #Golem | (Shimmer & Core of Calamity);
-Essence of Eleum;                   Calamity;                                   Wall of Flesh | #Frost Legion | Cryogen | #Cryogen | (@getfixedboi & #Duke Fishron) | (Shimmer & Core of Calamity);
+Essence of Eleum;                   Calamity;                                   Wall of Flesh | #Frost Legion | Cryogen | #Cryogen | (Shimmer & Core of Calamity);
 Essence of Havoc;                   Calamity;                                   Wall of Flesh | #Calamitas Clone | #Brimstone Elemental | (Shimmer & (Core of Calamity & Ruin Medallion));
 Dreadnautilus;                      Calamity | Location | Item;                 Wall of Flesh & @health(1);
 Don't Dread on Me;                  Not Calamity | Achievement | Time;          Wall of Flesh & @health(1);
