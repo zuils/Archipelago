@@ -79,7 +79,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     goal_items: Set[str]
     goal_locations: Set[str]
 
-    required_client_version = (0, 6, 90)
+    required_client_version = (0, 6, 100)
 
     def generate_early(self) -> None:
         goal, goal_locations = goals[self.options.goal.value]
