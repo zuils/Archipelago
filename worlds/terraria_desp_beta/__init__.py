@@ -465,6 +465,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             "normal_achievements": self.options.normal_achievements.value,
             "grindy_achievements": self.options.grindy_achievements.value,
             "fishing_achievements": self.options.fishing_achievements.value,
+            "npc_rando": self.options.randomize_npcs.value,
             "randomize_npcs": list(self.npcs_to_randomize),
         }
 
