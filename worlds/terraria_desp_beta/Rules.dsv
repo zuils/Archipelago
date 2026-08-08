@@ -655,7 +655,6 @@ Voltage Regulation System;          Calamity;                                   
 Tarragon Armor;                     Calamity | Armor Minions(3);                Hardmode Anvil & Uelibloom Bar & Divine Geode;
 Necromantic Geode;                  Calamity;                                   #Ravager & Providence, the Profaned Goddess;
 Bloodstone;                         Calamity;                                   Providence, the Profaned Goddess | Necromantic Geode;
-Bloodstone Core;                    Calamity;                                   Hardmode Anvil & Bloodstone & Polterplasm;
 
 // Sentinels of the Devourer
 Storm Weaver;                       Calamity | Location | Item;                 Rune of Kos & @health(5);
@@ -668,7 +667,7 @@ Twisting Nether;                    Calamity;                                   
 // Polterghast
 Polterghast;                        Calamity | Location | Item;                 Dungeon & ((Hardmode Anvil & Polterplasm) | Moon Lord) & @health(5);
 Ruinous Soul;                       Calamity;                                   #Polterghast;
-Bloodflare Armor;                   Calamity | Armor Minions(3);                Hardmode Anvil & Bloodstone Core & Ruinous Soul;
+Bloodflare Armor;                   Calamity | Armor Minions(3);                Hardmode Anvil & Bloodstone & Blood Moon & Ruinous Soul;
 Reaper Tooth;                       Calamity;                                   Polterghast;
 Omega Blue Armor;                   Calamity | Armor Minions(2);                Hardmode Anvil & Reaper Tooth & Depth Cells & Ruinous Soul;
 
