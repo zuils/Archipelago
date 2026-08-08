@@ -610,7 +610,7 @@ Astral Ore;                         Calamity;                                   
 Astral Bar;                         Calamity;                                   Ancient Manipulator & Stardust & Astral Ore;
 Astral Hamaxe;                      Calamity | Hammer(100);                     Ancient Manipulator & Astral Bar;
 Astral Pickaxe;                     Calamity | Pickaxe(220);                    Ancient Manipulator & Astral Bar;
-Astral Armor;                       Calamity | Armor Minions(3);                Ancient Manipulator & Astral Bar & Meteorite Bar;
+Astral Armor;                       Calamity | Armor Minions(3);                Ancient Manipulator & Astral Bar;
 
 // Moon Lord
 Moon Lord;                          Location | Item | Goal;                     #Lunar Events & @health(4);
