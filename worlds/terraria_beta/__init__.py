@@ -58,7 +58,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     Terraria is a 2D multiplayer sandbox game featuring mining, building, exploration, and combat.
     Features 18 bosses and 4 classes.
     """
-    game = "Terraria_Desp_Beta"
+    game = "Terraria_Beta"
     web = TerrariaWeb()
     options_dataclass = TerrariaOptions
     options: TerrariaOptions
