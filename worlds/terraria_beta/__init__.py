@@ -121,6 +121,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     item_name_to_id = item_name_to_id
     location_name_to_id = location_name_to_id
 
+    is_ut = False
     calamity = False
     fargo = False
     getfixedboi = False
@@ -136,10 +137,18 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     goal_locations: Set[str]
 
     required_client_version = (0, 6, 100)
+    
+    OUT_OF_LOGIC = "UT Health Logic"
+    if OUT_OF_LOGIC not in item_name_to_id:
+        item_name_to_id[OUT_OF_LOGIC] = max(item_name_to_id.values()) + 1
 
     def generate_early(self) -> None:
+        self.is_ut = getattr(self.multiworld, "generation_is_fake", False)
+        
         if not isinstance(self.multiworld.spoiler, TerrariaSpoiler):
             self.multiworld.spoiler = TerrariaSpoiler(self.multiworld)
+        
+        self.glitches_item_name = self.OUT_OF_LOGIC
 
         goal, goal_locations = goals[self.options.goal.value]
         slot_name = self.multiworld.player_name[self.player]
@@ -367,7 +376,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
         self.multiworld.regions.append(menu)
 
     def create_item(self, item: str) -> TerrariaItem:
-        if item in self.progression:
+        if item in self.progression or item == self.OUT_OF_LOGIC:
             classification = ItemClassification.progression
         else:
             classification = ItemClassification.filler
@@ -500,19 +509,25 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 health_required = max(condition.argument + self.options.health_logic_handicap.value, 1)
 
                 if health_required == 1:
-                    return Has(health_upgrades[0], options=[health_option], filtered_resolution=True)
+                    health_rule = Has(health_upgrades[0])
                 elif health_required == 2:
-                    return HasAll(*health_upgrades[:2], options=[health_option], filtered_resolution=True)
-
-                highest_base = HasAll(*health_upgrades[:2])
-                quarter_fruits_required = health_required - 2
-                quarter_fruits_rule = HasFromList(
-                    *quarter_fruits,
-                    count=quarter_fruits_required,
-                    options=[OptionFilter(Mods, "Calamity", operator="contains")],
-                    filtered_resolution=True
-                )
-                return Filtered((highest_base & quarter_fruits_rule), options=[health_option], filtered_resolution=True)
+                    health_rule = HasAll(*health_upgrades[:2])
+                else:
+                    highest_base = HasAll(*health_upgrades[:2])
+                    quarter_fruits_required = health_required - 2
+                    quarter_fruits_rule = HasFromList(
+                        *quarter_fruits,
+                        count=quarter_fruits_required,
+                        options=[OptionFilter(Mods, "Calamity", operator="contains")],
+                        filtered_resolution=True
+                    )
+                    health_rule = highest_base & quarter_fruits_rule
+                
+                # Out of logic will be shown as Glitched Logic.
+                if self.is_ut:
+                    return Or(health_rule, Has(self.OUT_OF_LOGIC))
+                                
+                return Filtered(health_rule, options=[health_option], filtered_resolution=True)
             elif condition.condition == "getfixedboi":
                 return True_(options=[OptionFilter(Getfixedboi, condition.sign)])
             elif condition.condition == "shimmer_skips":
@@ -532,8 +547,15 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             rule = rules[rule_indices[location_name]]
             created_rule = self.create_rule_ini(rule.operator, rule.conditions)
             self.set_rule(location, created_rule)
-
-        self.set_completion_rule(HasAll(*self.goal_items))
+        
+        # UT won't recognize you're in go mode because it checks if you have the Post-Boss flags.
+        # To fix this we check if we can reach the goal locations.
+        if self.is_ut:
+            self.set_completion_rule(lambda state: all(
+                self.multiworld.get_location(loc, self.player).can_reach(state) for loc in self.goal_locations
+            ))
+        else:
+            self.set_completion_rule(HasAll(*self.goal_items))
 
     def fill_slot_data(self) -> Dict[str, object]:
         return {
