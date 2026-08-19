@@ -210,6 +210,10 @@ class TerrariaWorld(CachedRuleBuilderWorld):
         if self.options.getfixedboi and self.options.randomize_npcs:
             logging.warning(f"SLOT {slot_name}: getfixedboi mode and NPC rando are enabled; disabling getfixedboi.")
             self.options.getfixedboi.value = 0
+        
+        if self.options.getfixedboi and not self.options.shimmer_skips.value:
+            logging.warning(f"SLOT {slot_name}: getfixedboi mode is enabled and shimmer skips is disabled; disabling getfixedboi.")
+            self.options.getfixedboi.value = 0
 
         for location in goal_locations:
             if location == "Wall of Flesh" and not self.options.randomize_npcs.value:

@@ -18,11 +18,14 @@ class Getfixedboi(Toggle):
     """
     Generation accomodates the secret, very difficult "getfixedboi" seed
 
-    FOR THE BETA: Getfixedboi is not compatible with NPC Rando or the Fargo's Souls implementation.
-    If either option is enabled, Getfixedboi will automatically be disabled during generation.
+    FOR THE BETA: Getfixedboi is not compatible with the following settings:
+    - NPC Rando enabled
+    - Fargo's Souls enabled
+    - Shimmer Skips disabled
+    If any of these apply, Getfixedboi will automatically be disabled during generation.
     """
 
-    display_name = """"getfixedboi" Seed"""
+    display_name = "getfixedboi Seed"
 
 
 class Goal(Choice):

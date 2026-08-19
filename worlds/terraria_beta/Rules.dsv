@@ -164,12 +164,7 @@ Illegal Gun Parts;                  ;                                           
 
 // Abyss
 Ink Bomb;                           Calamity;
-Arctic Diving Gear;                 ;                                           Tinkerer's Workshop;
-Abyssal Diving Gear;                Calamity;                                   Hardmode Anvil & Arctic Diving Gear & Skeletron & Depth Cells & Lumenyl;
-Mollusk Husk;                       Calamity;                                   Wall of Flesh;
-Abyssal Diving Suit;                Calamity;                                   Hardmode Anvil & Abyssal Diving Gear & Skeletron & Luminite Bar & Mollusk Husk;
 Abyss Layer 2;                      Calamity;                                   Sea King | Tinkerer's Workshop | Victide Armor | #Aquatic Scourge | (Aquatic Heart & Skeletron); // Sea King gives you immunity, Tinkerer's Workshop for diving gear, aquatic scourge for aquatic emblem, leviathan and anahita for Aquatic heart
-Abyss Layer 4;                      Calamity;                                   Abyss Layer 2 & Abyssal Diving Suit; 
 Planty Mush;                        Calamity;                                   Abyss Layer 2;
 
 // King Slime
@@ -655,6 +650,11 @@ Normality Relocator;                Calamity;                                   
 Unholy Essence;                     Calamity;                                   Moon Lord | #Providence, the Profaned Goddess | (@getfixedboi & Plantera);
 Necroplasm;                         Calamity;                                   (Moon Lord & (Dungeon | Wall of Flesh)) | #Polterghast | (Shimmer & #The Devourer of Gods);
 Fragments of Another World;         Calamity | Minions(1);                      Hardmode Anvil & Exodium Cluster & Navyplate & Necroplasm;
+Arctic Diving Gear;                 ;                                           Tinkerer's Workshop;
+Abyssal Diving Gear;                Calamity;                                   Hardmode Anvil & Arctic Diving Gear & Skeletron & Depth Cells & Lumenyl;
+Mollusk Husk;                       Calamity;                                   Wall of Flesh;
+Abyssal Diving Suit;                Calamity;                                   Hardmode Anvil & Abyssal Diving Gear & Skeletron & Luminite Bar & Mollusk Husk;
+Abyss Layer 4;                      Calamity;                                   Abyss Layer 2 & Abyssal Diving Suit; 
 
 // Profaned Guardians
 Profaned Guardians;                 Calamity | Location | Item;                 ((@fargo & Mutant NPC & Profaned Guardians) | (Hardmode Anvil & Unholy Essence & Luminite Bar)) & @health(4);
