@@ -125,6 +125,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     calamity = False
     fargo = False
     getfixedboi = False
+    ut_can_gen_without_yaml = True
 
     progression = set()
     npcs_to_randomize = set()
@@ -141,9 +142,46 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     OUT_OF_LOGIC = "UT Health Logic"
     if OUT_OF_LOGIC not in item_name_to_id:
         item_name_to_id[OUT_OF_LOGIC] = max(item_name_to_id.values()) + 1
-
+    
+    # Yamlless UT Support
+    @staticmethod
+    def interpret_slot_data(slot_data: Dict[str, object]) -> Dict[str, object]:
+        return {
+            "goal": slot_data["goal_option"],
+            "shuffle_to": slot_data["shuffle_to_option"],
+            "death_link": slot_data["deathlink"],
+            "mods": slot_data["mods"],
+            "getfixedboi": slot_data["getfixedboi"],
+            "randomize_npcs": slot_data["npc_rando"],
+            "early_achievements": slot_data["early_achievements"],
+            "normal_achievements": slot_data["normal_achievements"],
+            "rare_achievements": slot_data["rare_achievements"],
+            "time_achievements": slot_data["time_achievements"],
+            "crafting_achievements": slot_data["crafting_achievements"],
+            "grindy_achievements": slot_data["grindy_achievements"],
+            "fishing_achievements": slot_data["fishing_achievements"],
+            "fill_extra_checks_with": slot_data["fill_extra_checks_with"],
+            "shimmer_skips": slot_data["shimmer_skips"],
+            "health_logic": slot_data["health_logic"],
+            "health_logic_handicap": slot_data["health_logic_handicap"],
+        }
+    
     def generate_early(self) -> None:
         self.is_ut = getattr(self.multiworld, "generation_is_fake", False)
+        
+        # UT passes the connected slot's options through re_gen_passthrough when
+        # generating the world without a YAML. Restore those options before generation.
+        passthrough = getattr(self.multiworld, "re_gen_passthrough", {})
+        
+        if self.game in passthrough:
+            slot_data = passthrough[self.game]
+
+            for option_name, value in slot_data.items():
+                if option_name not in self.options_dataclass.type_hints:
+                    continue
+                
+                option_type = self.options_dataclass.type_hints[option_name]
+                setattr(self.options, option_name, option_type.from_any(value))
         
         if not isinstance(self.multiworld.spoiler, TerrariaSpoiler):
             self.multiworld.spoiler = TerrariaSpoiler(self.multiworld)
@@ -562,17 +600,25 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             "goal": list(self.goal_locations),
             "deathlink": bool(self.options.death_link),
             "version": list(self.required_client_version),
-            # The rest of these are included for trackers
             "mods": list(self.options.mods.value),
             "calamity": int("Calamity" in self.options.mods.value),
             "fargo": int("Fargo" in self.options.mods.value),
             "getfixedboi": self.options.getfixedboi.value,
-            "early_achievements": self.options.early_achievements.value,
-            "normal_achievements": self.options.normal_achievements.value,
-            "grindy_achievements": self.options.grindy_achievements.value,
-            "fishing_achievements": self.options.fishing_achievements.value,
             "npc_rando": self.options.randomize_npcs.value,
             "randomize_npcs": list(self.npcs_to_randomize),
+            "goal_option": self.options.goal.value,
+            "shuffle_to_option": self.options.shuffle_to.value,
+            "early_achievements": self.options.early_achievements.value,
+            "normal_achievements": self.options.normal_achievements.value,
+            "rare_achievements": self.options.rare_achievements.value,
+            "time_achievements": self.options.time_achievements.value,
+            "crafting_achievements": self.options.crafting_achievements.value,
+            "grindy_achievements": self.options.grindy_achievements.value,
+            "fishing_achievements": self.options.fishing_achievements.value,
+            "fill_extra_checks_with": self.options.fill_extra_checks_with.value,
+            "shimmer_skips": self.options.shimmer_skips.value,
+            "health_logic": self.options.health_logic.value,
+            "health_logic_handicap": self.options.health_logic_handicap.value,
         }
 
 @dataclasses.dataclass()
