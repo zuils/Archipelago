@@ -593,9 +593,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
         # UT won't recognize you're in go mode because it checks if you have the Post-Boss flags.
         # To fix this we check if we can reach the goal locations.
         if self.is_ut:
-            self.set_completion_rule(lambda state: all(
-                self.multiworld.get_location(loc, self.player).can_reach(state) for loc in self.goal_locations
-            ))
+            self.set_completion_rule(lambda state: all(self.multiworld.get_location(loc, self.player).can_reach(state) for loc in self.goal_locations))
         else:
             self.set_completion_rule(HasAll(*self.goal_items))
 
