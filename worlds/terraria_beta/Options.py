@@ -21,7 +21,6 @@ class Getfixedboi(Toggle):
     FOR THE BETA: Getfixedboi is not compatible with the following settings:
     - NPC Rando enabled
     - Fargo's Souls enabled
-    - Shimmer Skips disabled
     If any of these apply, Getfixedboi will automatically be disabled during generation.
     """
 

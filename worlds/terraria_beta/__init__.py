@@ -137,6 +137,8 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     ter_goals: Dict[str, str]
     goal_items: Set[str]
     goal_locations: Set[str]
+    
+    disabled_rules: Set[str]
 
     required_client_version = (0, 6, 100)
     
@@ -203,18 +205,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     goal, _ = goals[self.options.shuffle_to.value]
         ter_goals = {}
         goal_items = set()
-        
-        if "Fargo" in self.options.mods.value and self.options.getfixedboi.value:
-            logging.warning(f"Slot {slot_name}: Fargo's Souls and getfixedboi mode are enabled; disabling getfixedboi.")
-            self.options.getfixedboi.value = 0
-
-        if self.options.getfixedboi and self.options.randomize_npcs:
-            logging.warning(f"SLOT {slot_name}: getfixedboi mode and NPC rando are enabled; disabling getfixedboi.")
-            self.options.getfixedboi.value = 0
-        
-        if self.options.getfixedboi and not self.options.shimmer_skips.value:
-            logging.warning(f"SLOT {slot_name}: getfixedboi mode is enabled and shimmer skips is disabled; disabling getfixedboi.")
-            self.options.getfixedboi.value = 0
+        self.disabled_rules = set()
 
         for location in goal_locations:
             if location == "Wall of Flesh" and not self.options.randomize_npcs.value:
@@ -232,6 +223,24 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     f"SLOT {slot_name}: goal `{Goal.name_lookup[self.options.goal.value]}`, which requires Fargo, was selected with Fargo disabled; enabling Fargo"
                 )
                 self.options.mods.value.add("Fargo")
+            
+            if "Fargo" in self.options.mods.value and self.options.getfixedboi.value:
+                logging.warning(f"Slot {slot_name}: Fargo's Souls and getfixedboi mode are enabled; disabling getfixedboi.")
+                self.options.getfixedboi.value = 0
+    
+            if self.options.getfixedboi.value and self.options.randomize_npcs:
+                logging.warning(f"SLOT {slot_name}: getfixedboi mode and NPC rando are enabled; disabling getfixedboi.")
+                self.options.getfixedboi.value = 0
+            
+            if self.options.getfixedboi.value and not self.options.shimmer_skips.value:
+                self.disabled_rules.update({
+                    "Purification Powder",
+                    "Mystic Slime",
+                    "The Great Slime Mitosis",
+                    "Axe of Purity",
+                    "Inferna Cutter",
+                    "Grax"
+                })
 
             if "Npc" in flags:
                 event = location
@@ -274,6 +283,9 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             crafting = "Crafting" in rule.flags
             grindy = "Grindy" in rule.flags
             fishing = "Fishing" in rule.flags
+            
+            if rule.name in self.disabled_rules:
+                continue
 
             if (
                     (not self.options.getfixedboi.value and "Getfixedboi" in rule.flags)
@@ -485,6 +497,9 @@ class TerrariaWorld(CachedRuleBuilderWorld):
 
     def create_rule(self, condition: Condition) -> Rule:
         if condition.type == COND_ITEM:
+            if condition.condition in self.disabled_rules:
+                return False_()
+            
             rule = rules[rule_indices[condition.condition]]
             if "Item" in rule.flags:
                 name = rule.flags.get("Item") or f"Post-{condition.condition}"
@@ -494,6 +509,9 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             assert(isinstance(name, str))
             return Has(name)
         elif condition.type == COND_LOC:
+            if condition.condition in self.disabled_rules:
+                return False_()
+            
             rule = rules[rule_indices[condition.condition]]
             return self.create_rule_ini(rule.operator, rule.conditions)
         elif condition.type == COND_FN:
