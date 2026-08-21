@@ -155,14 +155,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     goal, _ = goals[self.options.shuffle_to.value]
         ter_goals = {}
         goal_items = set()
-        
-        if "Fargo" in self.options.mods.value and self.options.getfixedboi.value:
-            logging.warning(f"Slot {slot_name}: Fargo's Souls and getfixedboi mode are enabled; disabling getfixedboi.")
-            self.options.getfixedboi.value = 0
-
-        if self.options.getfixedboi and self.options.randomize_npcs:
-            logging.warning(f"SLOT {slot_name}: getfixedboi mode and NPC rando are enabled; disabling getfixedboi.")
-            self.options.getfixedboi.value = 0
 
         for location in goal_locations:
             if location == "Wall of Flesh" and not self.options.randomize_npcs.value:
@@ -187,6 +179,21 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 event = flags.get("Item") or f"Post-{location}"
             ter_goals[event] = location
             goal_items.add(event)
+
+        if self.options.getfixedboi:
+            incompatible_options = []
+            if "Princess" in goal_items:
+                incompatible_options.append("Princess goal")
+            if self.options.randomize_npcs:
+                incompatible_options.append("NPC Randomization")
+            if "Fargo" in self.options.mods.value:
+                incompatible_options.append("Fargo")
+
+            if incompatible_options:
+                logging.warning(f"SLOT {slot_name}: getfixedboi mode is enabled with the following incompatible options:\n"
+                                f" - {'\n - '.join(incompatible_options)}\n"
+                                f"Disabling getfixedboi.")
+                self.options.getfixedboi.value = 0
 
         location_count = 0
         locations = []
