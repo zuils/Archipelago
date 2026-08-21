@@ -223,24 +223,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     f"SLOT {slot_name}: goal `{Goal.name_lookup[self.options.goal.value]}`, which requires Fargo, was selected with Fargo disabled; enabling Fargo"
                 )
                 self.options.mods.value.add("Fargo")
-            
-            if "Fargo" in self.options.mods.value and self.options.getfixedboi.value:
-                logging.warning(f"Slot {slot_name}: Fargo's Souls and getfixedboi mode are enabled; disabling getfixedboi.")
-                self.options.getfixedboi.value = 0
-    
-            if self.options.getfixedboi.value and self.options.randomize_npcs:
-                logging.warning(f"SLOT {slot_name}: getfixedboi mode and NPC rando are enabled; disabling getfixedboi.")
-                self.options.getfixedboi.value = 0
-            
-            if self.options.getfixedboi.value and not self.options.shimmer_skips.value:
-                self.disabled_rules.update({
-                    "Purification Powder",
-                    "Mystic Slime",
-                    "The Great Slime Mitosis",
-                    "Axe of Purity",
-                    "Inferna Cutter",
-                    "Grax"
-                })
 
             if "Npc" in flags:
                 event = location
@@ -263,6 +245,16 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                                 f" - {'\n - '.join(incompatible_options)}\n"
                                 f"Disabling getfixedboi.")
                 self.options.getfixedboi.value = 0
+        
+        if self.options.getfixedboi and not self.options.shimmer_skips.value:
+            self.disabled_rules.update({
+                "Purification Powder",
+                "Mystic Slime",
+                "The Great Slime Mitosis",
+                "Axe of Purity",
+                "Inferna Cutter",
+                "Grax"
+            })
 
         location_count = 0
         locations = []
