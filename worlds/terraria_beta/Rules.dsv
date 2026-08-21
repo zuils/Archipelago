@@ -424,7 +424,7 @@ Skeletron Prime;                    Location | Item | Mech Boss;                
 
 // The Twins
 Soul of Sight;                      ;                                           #The Twins | Avenger Emblem | (@calamity & (Mechanical Glove | Celestial Emblem));
-Steampunker;                        Npc;                                        @mech_boss(1);
+Steampunker;                        Npc;                                        @mech_boss(1) | @getfixedboi;
 Hammush;                            Hammer(80);                                 Truffle & @mech_boss(1);
 Rainbow Rod;                        ;                                           Hardmode Anvil & Crystal Shard & Unicorn Horn & Pixie Dust & Soul of Light & Soul of Sight;
 Prismancer;                         Achievement;                                Rainbow Rod;
@@ -489,7 +489,7 @@ To Infinity... and Beyond!;         Achievement;                                
 Autohammer;                         ;                                           Truffle & Plantera;
 Shroomite Bar;                      ;                                           Autohammer & Chlorophyte Bar;
 Shroomite Digging Claw;             Pickaxe(200);                               Hardmode Anvil & Shroomite Bar;
-Princess;                           Npc | Goal;                                 Guide & Merchant & Nurse & Demolitionist & Dye Trader & Zoologist & Angler & Painter & Stylist & Golfer & Arms Dealer & Dryad & Party Girl & Tavernkeep & Goblin Tinkerer & Mechanic & Witch Doctor & Clothier & Wizard & Truffle & Tax Collector & Pirate & Steampunker & Cyborg;
+Princess;                           Npc | Goal;                                 @getfixedboi | (Guide & Merchant & Nurse & Demolitionist & Dye Trader & Zoologist & Angler & Painter & Stylist & Golfer & Arms Dealer & Dryad & Party Girl & Tavernkeep & Goblin Tinkerer & Mechanic & Witch Doctor & Clothier & Wizard & Truffle & Tax Collector & Pirate & Steampunker & Cyborg);
 # princess
 Real Estate Agent;                  Achievement;                                #Princess & Princess;
 Ectoplasm;                          ;                                           (Plantera & (Calamitas Clone | (Wall of Flesh & (Skeletron | @calamity)))) | (Shimmer & (Spectre Bar | Core of Calamity | Necroplasm));  // various cores

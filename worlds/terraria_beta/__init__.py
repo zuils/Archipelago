@@ -249,6 +249,21 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             ter_goals[event] = location
             goal_items.add(event)
 
+        if self.options.getfixedboi:
+            incompatible_options = []
+            if "Princess" in goal_items:
+                incompatible_options.append("Princess goal")
+            if self.options.randomize_npcs:
+                incompatible_options.append("NPC Randomization")
+            if "Fargo" in self.options.mods.value:
+                incompatible_options.append("Fargo")
+
+            if incompatible_options:
+                logging.warning(f"SLOT {slot_name}: getfixedboi mode is enabled with the following incompatible options:\n"
+                                f" - {'\n - '.join(incompatible_options)}\n"
+                                f"Disabling getfixedboi.")
+                self.options.getfixedboi.value = 0
+
         location_count = 0
         locations = []
         item_count = 0

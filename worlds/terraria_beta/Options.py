@@ -19,6 +19,7 @@ class Getfixedboi(Toggle):
     Generation accomodates the secret, very difficult "getfixedboi" seed
 
     FOR THE BETA: Getfixedboi is not compatible with the following settings:
+    - Princess goal enabled
     - NPC Rando enabled
     - Fargo's Souls enabled
     If any of these apply, Getfixedboi will automatically be disabled during generation.
