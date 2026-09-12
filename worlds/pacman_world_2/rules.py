@@ -1,6 +1,6 @@
 from typing import Dict, List, TYPE_CHECKING
-from BaseClasses import ItemClassification, CollectionState
-from rule_builder.rules import Has, CanReachLocation, And, Or
+from BaseClasses import ItemClassification
+from rule_builder.rules import Has, And
 from .options import PacManWorld2Options
 from .items import PacManWorld2Item
 from .locations import location_table, PacManWorld2Location

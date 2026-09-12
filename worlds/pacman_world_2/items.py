@@ -1,5 +1,5 @@
 from BaseClasses import Item, ItemClassification
-from typing import List, Dict, NamedTuple
+from typing import Dict, NamedTuple
 
 
 OFFSET: int = 20020226000

@@ -1,5 +1,5 @@
-from BaseClasses import Tutorial, ItemClassification, Region
-from typing import Any, List, Optional, Dict
+from BaseClasses import Tutorial, ItemClassification
+from typing import List, Optional, Dict
 from worlds.AutoWorld import WebWorld, World
 from .items import item_table, PacManWorld2Item
 from .locations import location_table
@@ -17,6 +17,7 @@ class PacManWorld2Web(WebWorld):
         "setup/en",
         ["zuils"]
     )]
+
 
 class PacManWorld2World(World):
     """

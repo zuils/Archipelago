@@ -1,4 +1,4 @@
-from typing import Dict, NamedTuple, Optional
+from typing import Dict, NamedTuple
 from BaseClasses import Location
 
 class PacManWorld2Location(Location):

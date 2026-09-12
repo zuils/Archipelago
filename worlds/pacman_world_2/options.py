@@ -1,6 +1,5 @@
-from Options import Choice, Range, OptionList, OptionSet, Toggle, DefaultOnToggle, DeathLink, PerGameCommonOptions
+from Options import Choice, Range, Toggle, DefaultOnToggle, DeathLink, PerGameCommonOptions
 from dataclasses import dataclass
-from worlds.AutoWorld import World
 
 
 class TokenGoal(Range):
