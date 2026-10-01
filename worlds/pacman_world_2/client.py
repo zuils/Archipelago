@@ -1,5 +1,3 @@
-"""Archipelago client for Pac-Man World 2 (PCSX2 via PINE)."""
-
 import asyncio
 import logging
 import struct
@@ -43,10 +41,8 @@ TOKEN_COUNT: int = 8
 BONUS_TOKEN_1_OFFSET: int = 0x20                  # relative to TOKEN_BASE_OFFSET
 BONUS_TOKEN_2_OFFSET: int = 0x24                  # relative to TOKEN_BASE_OFFSET (Time Trial bonus token)
 
-# Time-Trial completion flag (indexed with LEVEL_STEP, see read_snapshot)
+# Time-Trial flags
 TT_FLAG_ADDR: int = 0x495C3C
-
-# Time Trial runtime state
 TT_ACTIVE_ADDR: int = 0x5B910C                    # u32: 1 = Time Trial active
 TT_TIMER_ADDR: int = 0x5B9114                     # float: Time Trial timer (seconds)
 HACK_VALUE: float = 9999.0                        # Best time written during a trial so any run beats it
@@ -203,7 +199,7 @@ class PacManWorld2Context(CommonContext):
         return self.progressive_levels >= FINAL_LEVEL_ID and self.tokens_received >= self.token_goal
 
     def enforce_progression(self) -> None:
-        """Keep all saved Level Complete bits synchronized with AP progression."""
+        """Used for level locking to prevent the player from playing the next level."""
         unlock_count = min(self.progressive_levels, FINAL_LEVEL_ID)
 
         for level_id in range(FINAL_LEVEL_ID):
@@ -380,7 +376,7 @@ class PacManWorld2Context(CommonContext):
         snapshot = self.read_snapshot(level_id)
         self.check_time_trial()
 
-        # First poll after connecting, or after changing level: just record the baseline.
+        # First poll after connecting or after changing level
         if self.just_connected:
             self.just_connected = False
             self.prev = snapshot
@@ -480,7 +476,7 @@ class PacManWorld2Context(CommonContext):
         self.status = ConnectionStatus.DISCONNECTED
 
     def poll_game_state(self) -> None:
-        """All blocking PCSX2/Pine I/O runs on the worker thread. Errors are handled by game_watcher."""
+        """Read the game state in the background. PINE errors are handled by game_watcher."""
         if not self.pine.is_connected():
             self.status = ConnectionStatus.DISCONNECTED
             self.game_connected = False

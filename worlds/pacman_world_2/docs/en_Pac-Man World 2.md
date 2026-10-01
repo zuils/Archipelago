@@ -21,3 +21,10 @@
 
 ## Notes and Limitations
 - There is 1 initial warning log about progressive levels when opening the game due to how the game is structured.
+
+## Credits
+- [Armored Core 3](https://github.com/Aleksandylmao/Armored-Core-3-PCSX2-Archipelago/). A lot of the client code was copied from it.
+- [pypine](https://github.com/evilwb/pypine/) for making the client implementation possible.
+
+## AI Usage Disclosure
+![No AI Usage](https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_jpg/cloudinary-tools-uploads/gqok2sm1gxarvoip5x0z)
