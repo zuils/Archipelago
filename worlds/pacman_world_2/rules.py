@@ -11,12 +11,14 @@ if TYPE_CHECKING:
 
 def set_rules(world: "PacManWorld2World", options: PacManWorld2Options, player: int) -> None:
     # Keep region order from location_table while removing duplicates.
-    all_regions: List[str] = list(dict.fromkeys(data.region for data in location_table.values()))
+    all_regions: List[str] = [region.name for region in world.multiworld.get_regions(player) if region.name != "Menu"]
     vanilla_order: List[str] = list(all_regions)
     shuffled_regions: List[int] = []
     
-    region_is_boss: Dict[str, bool] = {data.region: data.is_boss for data in location_table.values()}
+    region_is_boss: Dict[str, bool] = {region: any(data.is_boss for data in location_table.values() if data.region == region) for region in all_regions}
     
+    # TODO: Implement level rando
+    """
     # Only levels
     if options.level_rando.value == 1:
         shuffled_regions = [i for i, region in enumerate(all_regions) if not region_is_boss[region]]
@@ -38,6 +40,7 @@ def set_rules(world: "PacManWorld2World", options: PacManWorld2Options, player: 
         
         for i, val in zip(shuffled_regions, vals):
             all_regions[i] = val
+    """
 
     # Keep track of how the levels are ordered so we can extend the hint information and not have a bad apworld.
     world.level_locations = {region: vanilla_order[i] for i, region in enumerate(all_regions)}
@@ -57,16 +60,16 @@ def set_rules(world: "PacManWorld2World", options: PacManWorld2Options, player: 
         prev_region = region
         level_reqs += 1
     
-    final_region = all_regions[-1]
+    final_region = world.get_region(all_regions[-1])
 
-    if region_is_boss[final_region]:
-        final_location = next(name for name, data in location_table.items() if data.region == final_region)
+    if region_is_boss[final_region.name]:
+        final_location = next(loc.name for loc in final_region.locations)
         victory_name = final_location.split(": ", 1)[1]
     else:
-        final_location = f"{final_region}: Level Complete"
-        victory_name = f"Complete {final_region}"
-        
-    final_region = world.get_region(final_region)
+        final_location = next(loc.name for loc in final_region.locations if loc.name == f"{final_region.name}: Level Complete")
+        victory_name = f"Complete {final_region.name}"
+
+    world.goal_location = final_location
     victory_loc = PacManWorld2Location(player, victory_name, None, final_region)
     victory_loc.access_rule = lambda state: state.can_reach_location(final_location, player)
     victory_loc.place_locked_item(PacManWorld2Item("Victory", ItemClassification.progression, None, player))

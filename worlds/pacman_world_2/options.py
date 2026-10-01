@@ -13,6 +13,17 @@ class TokenGoal(Range):
     default = 0
 
 
+class TotalLevels(Range):
+    """
+    How many levels should be in the pool.
+    """
+    
+    display_name = "Total Levels"
+    range_start = 1
+    range_end = 25
+    default = 25
+
+
 class Tokensanity(DefaultOnToggle):
     """
     Tokens are now checks.
@@ -30,6 +41,14 @@ class PacDotsanity(Range):
     display_name = "PacDotsanity"
     range_start = 0
     range_end = 100
+
+
+class TimeTrials(Toggle):
+    """
+    Enable time trial checks
+    """
+    
+    display_name = "Time Trials"
 
 
 class LevelRando(Choice):
@@ -57,8 +76,10 @@ class SpookyRando(Toggle):
 @dataclass
 class PacManWorld2Options(PerGameCommonOptions):
     token_goal: TokenGoal
+    total_levels: TotalLevels
     tokensanity: Tokensanity
     pacdotsanity: PacDotsanity
-    level_rando: LevelRando
-    spooky_rando: SpookyRando
+    time_trials: TimeTrials
+    #level_rando: LevelRando
+    #spooky_rando: SpookyRando
     death_link: DeathLink

@@ -1,11 +1,18 @@
 from BaseClasses import Tutorial, ItemClassification
 from typing import List, Optional, Dict
 from worlds.AutoWorld import WebWorld, World
+from worlds.LauncherComponents import Component, components, Type, launch_subprocess
 from .items import item_table, PacManWorld2Item
 from .locations import location_table
 from .options import PacManWorld2Options
 from .regions import create_regions
 from .rules import set_rules
+
+def launch_client(*args: str) -> None:
+    from .client import launch
+    launch_subprocess(launch, name="Pac-Man World 2 Client", args=args)
+
+components.append(Component("Pac-Man World 2 Client", func=launch_client, component_type=Type.CLIENT))
 
 
 class PacManWorld2Web(WebWorld):
@@ -31,6 +38,8 @@ class PacManWorld2World(World):
     web = PacManWorld2Web()
     level_locations: Dict[str, str]
     region_order: List[str]
+    goal_location: str
+    goal_location_id: Optional[int] = None
     
     item_name_to_id = {name: data.item_id for name, data in item_table.items()}
     location_name_to_id = {name: data.location_id for name, data in location_table.items()}
@@ -49,6 +58,12 @@ class PacManWorld2World(World):
         location_cache.clear()
         location_cache.update(reordered)
     
+    def generate_early(self) -> None:
+        # Resolve options to avoid gen errors
+        if self.options.total_levels.value == 1:
+            self.options.token_goal.value = 0
+
+
     def create_item(self, name: str, classification: Optional[ItemClassification] = None) -> PacManWorld2Item:
         data = item_table[name]
         return PacManWorld2Item(name, data.classification if classification is None else classification, data.item_id, self.player)
@@ -57,10 +72,19 @@ class PacManWorld2World(World):
         item_pool: List[PacManWorld2Item] = []
         
         for name, data in item_table.items():
-            if name == "Token" and self.options.token_goal.value == 0:
-                continue
+            count = data.count
             
-            item_pool.extend(self.create_item(name) for _ in range(data.count))
+            if name == "Progressive Level":
+                count = self.options.total_levels.value - 1
+            
+            if name == "Token":
+                if self.options.token_goal.value == 0:
+                    continue
+                else:
+                    # We check minimum because if all levels are on then total levels * 2 will produce 1 more than the max because of Pac-Village
+                    count = min(data.count, self.options.total_levels.value * 2)
+            
+            item_pool.extend(self.create_item(name) for _ in range(count))
         
         locations_left: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(item_pool)
         item_pool.extend(self.create_filler() for _ in range(locations_left))
@@ -88,5 +112,14 @@ class PacManWorld2World(World):
             hint_data[self.player][location.address] = vanilla_level
     
     def fill_slot_data(self) -> dict:
-        return self.options.as_dict("token_goal", "tokensanity", "pacdotsanity",
-                                    "level_rando", "spooky_rando", "death_link")
+        return {
+            "token_goal": self.options.token_goal.value,
+            "total_levels": self.options.total_levels.value,
+            "tokensanity": self.options.tokensanity.value,
+            "pacdotsanity": self.options.pacdotsanity.value,
+            "time_trials": self.options.time_trials.value,
+            #"level_rando": self.options.level_rando.value,
+            #"spooky_rando": self.options.spooky_rando.value,
+            "death_link": self.options.death_link.value,
+            "goal_location": self.goal_location
+        }

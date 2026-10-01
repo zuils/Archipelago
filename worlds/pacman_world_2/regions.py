@@ -16,17 +16,25 @@ def create_regions(world: MultiWorld, options: "PacManWorld2Options", player: in
     region_table: Dict[str, PacManWorld2RegionData] = {
         "Menu": PacManWorld2RegionData(None)
     }
-    
     pacdots: Dict[str, List[str]] = {}
     
     for name, data in location_table.items():
+        if data.region not in region_table:
+            if len(region_table) - 1 >= options.total_levels:
+                continue
+            
+            region_table[data.region] = PacManWorld2RegionData([])
+        
         if "Token" in name and not options.tokensanity:
+            continue
+        
+        if name.endswith(("Time Trial Complete", "Bonus Token #2")) and not options.time_trials:
             continue
         
         if name.startswith(f"{data.region}: Pac-Dot"):
             pacdots.setdefault(data.region, []).append(name)
         else:
-            region_table.setdefault(data.region, PacManWorld2RegionData([])).locations.append(name)
+            region_table[data.region].locations.append(name)
     
     size: int = options.pacdotsanity.value
     if size:
@@ -34,7 +42,7 @@ def create_regions(world: MultiWorld, options: "PacManWorld2Options", player: in
             bundles, remainder = divmod(len(names), size)
             selected = [names[(i + 1) * size - 1] for i in range(bundles)]
             if remainder:
-                selected.append(names[-1])  # leftover partial bundle keeps the real final dot's number
+                selected.append(names[-1])  # leftover partial bundle keeps the final dot's number
             for name in selected:
                 region_table[region].locations.append(name)
     
