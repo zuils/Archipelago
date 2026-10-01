@@ -25,6 +25,8 @@
 ## Credits
 - [Armored Core 3](https://github.com/Aleksandylmao/Armored-Core-3-PCSX2-Archipelago/). A lot of the client code was copied from it.
 - [pypine](https://github.com/evilwb/pypine/) for making the client implementation possible.
+- [Ghidra](https://github.com/NationalSecurityAgency/ghidra) with this [PS2 plugin](https://github.com/chaoticgd/ghidra-emotionengine-reloaded) to help me decompile the game
+- [Retro Achievements](https://retroachievements.org/codenotes.php?g=19097) provided a lot of addresses as a baseline
 
 ## AI Usage Disclosure
 ![No AI Usage](https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_jpg/cloudinary-tools-uploads/gqok2sm1gxarvoip5x0z)
