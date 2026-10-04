@@ -32,6 +32,11 @@ GALAXIAN_ADDR: int = 0x3635F8                     # u32: Galaxian counter
 LEVEL_DATA_BASE: int = 0x49BDC0
 LEVEL_STEP: int = 0x88
 MAX_LEVEL_ID: int = 48
+LEVEL_SAVE_BASES: Dict[int, int] = {
+    0: 0x4969A8,  # Pac-Village
+    1: 0x496700,  # The Bear Basics
+    **{level: 0x496A30 + (level - 2) * LEVEL_STEP for level in range(2, 25)},
+}
 
 # Offsets inside a level's saved struct
 BEST_TIME_OFFSET: int = 0x04                      # float: best Time Trial time
@@ -169,7 +174,7 @@ class PacManWorld2Context(CommonContext):
                 self.count_received_item(item)
 
     def count_received_item(self, item: NetworkItem) -> None:
-        item_name = self.item_names.lookup_in_slot(item.item, item.player)
+        item_name = self.item_names.lookup_in_slot(item.item, self.slot)
         if item_name == "Progressive Level":
             self.progressive_levels += 1
         elif item_name == "Token":
@@ -260,11 +265,11 @@ class PacManWorld2Context(CommonContext):
         if level_id in LEVELS_WITHOUT_TOKENS:
             return None
 
-        level_complete = self.get_level_complete_address(level_id)
-        if level_complete is None:
+        level_base = LEVEL_SAVE_BASES[level_id]
+        if level_base is None:
             return None
 
-        return level_complete + TOKEN_BASE_OFFSET
+        return level_base + TOKEN_BASE_OFFSET
 
     def get_token_addresses(self, level_id: int) -> List[Tuple[str, int]]:
         """Return (location suffix, address) for every saved token flag in the level."""
@@ -273,7 +278,8 @@ class PacManWorld2Context(CommonContext):
             return []
 
         addresses = [(f"Token #{i + 1}", level_base + i * TOKEN_STEP) for i in range(TOKEN_COUNT)]
-        addresses.append(("Bonus Token #1", level_base + BONUS_TOKEN_1_OFFSET))
+        bonus_name = "Bonus Token" if level_id == 0 else "Bonus Token #1"
+        addresses.append((bonus_name, level_base + BONUS_TOKEN_1_OFFSET))
         if level_id != 0:
             addresses.append(("Bonus Token #2", level_base + BONUS_TOKEN_2_OFFSET))
 
@@ -287,14 +293,14 @@ class PacManWorld2Context(CommonContext):
         if level_id == 0 or level_id in LEVELS_WITHOUT_TOKENS:
             return None, None
 
-        level_complete = self.get_level_complete_address(level_id)
-        if level_complete is None:
+        save_base = LEVEL_SAVE_BASES[level_id]
+        if save_base is None:
             return None, None
 
-        best_time_address = level_complete + BEST_TIME_OFFSET
+        best_time_address = save_base + BEST_TIME_OFFSET
         bonus_token_address = None
         if level_id != TT_BONUS_EXCLUDED_LEVEL:
-            bonus_token_address = level_complete + TOKEN_BASE_OFFSET + BONUS_TOKEN_2_OFFSET
+            bonus_token_address = save_base + TOKEN_BASE_OFFSET + BONUS_TOKEN_2_OFFSET
 
         return best_time_address, bonus_token_address
 
@@ -343,7 +349,7 @@ class PacManWorld2Context(CommonContext):
         if not current_token & 1: # token not awarded
             self.pine.write_int32(trial.bonus_token_address, current_token | 1)
 
-        level_id = (trial.best_time_address - (LEVEL_DATA_BASE + BEST_TIME_OFFSET)) // LEVEL_STEP
+        level_id = trial.level_id
         tt_flag_addr = TT_FLAG_ADDR + level_id * LEVEL_STEP
         self.pine.write_int8(tt_flag_addr, 1)
 
@@ -387,7 +393,7 @@ class PacManWorld2Context(CommonContext):
             return
 
         new_checks = self.find_new_checks(self.prev, snapshot)
-        self.submit_checks(level_id, gate, new_checks)
+        self.send_checks(level_id, gate, new_checks)
         self.prev = snapshot
 
     def read_snapshot(self, level_id: int) -> LevelSnapshot:
@@ -423,7 +429,7 @@ class PacManWorld2Context(CommonContext):
 
         return checks
 
-    def submit_checks(self, level_id: int, gate: LevelGate, checks: List[str]) -> None:
+    def send_checks(self, level_id: int, gate: LevelGate, checks: List[str]) -> None:
         region_name = REGION_NAMES[level_id]
 
         for check in checks:
