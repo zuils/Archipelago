@@ -609,8 +609,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
 
     def set_rules(self) -> None:
         for location_name in self.ter_locations:
-            if location_name == "Cryonic Ore":
-                pass
             location = self.multiworld.get_location(location_name, self.player)
             rule = rules[rule_indices[location_name]]
             created_rule = self.create_rule_ini(rule.operator, rule.conditions)
