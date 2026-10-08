@@ -265,6 +265,9 @@ class TerrariaWorld(CachedRuleBuilderWorld):
 
         def mark_progression(conditions):
             for condition in conditions:
+                if condition.condition == "Yoyo Bag":
+                    pass
+
                 if condition.type == COND_ITEM:
                     prog = condition.condition in self.progression
                     self.progression.add(loc_to_item[condition.condition])
@@ -280,8 +283,14 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 elif condition.type == COND_LOC:
                     mark_progression(rules[rule_indices[condition.condition]].conditions)
                 elif condition.type == COND_GROUP:
-                    _, conditions = condition.condition
-                    mark_progression(conditions)
+                    operator, conds = condition.condition
+                    if not operator:
+                        rule_group = [self.create_rule(cond) for cond in conds]
+                        bad_group = any(not r.filtered_resolution and any(not o.check(self.options) for o in r.options) for r in rule_group)
+                        if bad_group:
+                            continue
+                    mark_progression(conds)
+
         valid_rules = rules[:goal] if goal != 0 else rules
         for rule in valid_rules:
             early = "Early" in rule.flags
@@ -530,13 +539,13 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             elif condition.condition == "calamity":
                 calamity_filter = OptionFilter(Mods, "Calamity", operator="contains")
                 if condition.sign:
-                    return True_(options=[calamity_filter])
+                    return True_(options=[calamity_filter], filtered_resolution=False)
                 else:
                     return False_(options=[calamity_filter], filtered_resolution=True)
             elif condition.condition == "fargo":
                 fargo_filter = OptionFilter(Mods, "Fargo", operator="contains")
                 if condition.sign:
-                    return True_(options=[fargo_filter])
+                    return True_(options=[fargo_filter], filtered_resolution=False)
                 else:
                     return False_(options=[fargo_filter], filtered_resolution=True)
             elif condition.condition == "rare":
