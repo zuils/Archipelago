@@ -65,7 +65,7 @@ Water Walking Boots;
 Aquatic Heart;                      Calamity;
 
 // Sky exploration
-Into Orbit;                         Achievement | Early;
+Into Orbit;                         Depth;
 Mysterious Circuitry;               Calamity;
 Dubious Plating;                    Calamity;
 Charging Station;                   Calamity;
@@ -148,8 +148,8 @@ A Shimmer In The Dark;              Achievement;                                
 Shimmer;                            Shimmer;                                    Aether & @shimmer_skips;
 
 // Underworld
-It's Getting Hot in Here;           Achievement;
-Rock Bottom;                        Achievement;
+It's Getting Hot in Here;           Depth;
+Rock Bottom;                        Depth;
 Obsidian Rose;
 Havocplate;                         Calamity;
 Magma Stone;

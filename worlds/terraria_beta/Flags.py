@@ -32,6 +32,7 @@ rule_flags = [
     "Shimmer",  # Unique flag for Aether access + shimmer logic
     "Health",
     "Quarter Fruit",
+    "Depth",
 ]
 
 # Flags that indicate the attached event may be necessary for progression
@@ -81,6 +82,8 @@ def invalid_flag(flags: List[str], options: TerrariaOptions):
                 valid_flag = options.grindy_achievements.value
             case "Fishing":
                 valid_flag = options.fishing_achievements.value
+            case "Depth":
+                valid_flag = options.randomize_depth.value
         if not valid_flag:
             return True
     return False
@@ -98,6 +101,8 @@ def is_location_only(flags: List[str], options: TerrariaOptions | None = None) -
                 return True
             case "Achievement":
                 return bool(options.normal_achievements.value) if options else True
+            case "Depth":
+                return bool(options.randomize_depth.value) if options else True
     return False
 
 def is_item_only(flags: List[str]) -> bool:
