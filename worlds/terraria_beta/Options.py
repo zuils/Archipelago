@@ -95,6 +95,17 @@ class RandomizeNPCs(Toggle):
     default = True
 
 
+class RandomizeDepth(Toggle):
+    """
+    Randomizes the maximum depth you are able to traverse, initially restricting you to the Surface and Space layers.
+    Receiving "Progressive Depth" items increments how many layers you can traverse downward, through the Underground, Cavern and Underworld respectively.
+    Adds checks upon collecting the achievements "Into Orbit", "It's Getting Hot in Here" and "Rock Bottom".
+    """
+
+    display_name = "Randomize Maximum Depth"
+    default = False
+
+
 class EarlyAchievements(DefaultOnToggle):
     """Adds checks upon collecting early Pre-Hardmode achievements. Adds many sphere 1 checks."""
 
@@ -200,6 +211,7 @@ ter_option_groups = [
     ]),
     OptionGroup("Checks", [
         RandomizeNPCs,
+        RandomizeDepth,
         EarlyAchievements,
         NormalAchievements,
         RareAchievements,
@@ -225,6 +237,7 @@ class TerrariaOptions(PerGameCommonOptions):
     goal: Goal
     shuffle_to: ShuffleUpTo
     randomize_npcs: RandomizeNPCs
+    randomize_depth: RandomizeDepth
     early_achievements: EarlyAchievements
     normal_achievements: NormalAchievements
     rare_achievements: RareAchievements
