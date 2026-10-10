@@ -12,6 +12,7 @@ from BaseClasses import Region, ItemClassification, Tutorial, CollectionState, S
 from rule_builder.options import OptionFilter
 from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule, TWorld, HasFromList, Filtered
 from .Flags import (
+    invalid_flag,
     is_location_is_item,
 )
 from .Checks import (
@@ -73,7 +74,7 @@ class TerrariaSpoiler(Spoiler):
             if options.health_logic.value and ("Health" in rule.flags or "Quarter Fruit" in rule.flags):
                 continue
 
-            hidden.add(loc.name)
+            hidden.add(loc.name + f" ({self.multiworld.get_player_name(loc.player)})" if self.multiworld.players > 1 else loc.name)
 
         return hidden
 
@@ -303,30 +304,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             if rule.name in self.disabled_rules:
                 continue
 
-            if (
-                    (not self.options.getfixedboi.value and "Getfixedboi" in rule.flags)
-                    or (self.options.getfixedboi.value and "Not Getfixedboi" in rule.flags)
-                    or ("Calamity" not in self.options.mods.value and "Calamity" in rule.flags)
-                    or ("Calamity" in self.options.mods.value and "Not Calamity" in rule.flags)
-                    or (
-                            self.options.getfixedboi.value
-                            and "Calamity" in self.options.mods.value
-                            and "Not Calamity Getfixedboi" in rule.flags
-                    )
-                    or ("Fargo" not in self.options.mods.value and "Fargo" in rule.flags)
-                    or ("Fargo" in self.options.mods.value and "Not Fargo" in rule.flags)
-                    or (not self.options.shimmer_skips.value and "Shimmer" in rule.flags)
-                    or (not self.options.early_achievements.value and early)
-                    or (
-                            not self.options.normal_achievements.value
-                            and "Achievement" in rule.flags
-                    )
-                    or (not self.options.rare_achievements.value and rare)
-                    or (not self.options.time_achievements.value and time)
-                    or (not self.options.crafting_achievements.value and crafting)
-                    or (not self.options.grindy_achievements.value and grindy)
-                    or (not self.options.fishing_achievements.value and fishing)
-            ) and rule.name not in goal_locations:
+            if invalid_flag(rule.flags, self.options) and rule.name not in goal_locations:
                 continue
 
             # Special events

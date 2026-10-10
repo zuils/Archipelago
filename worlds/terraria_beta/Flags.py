@@ -47,16 +47,53 @@ special_events = [
     "Quarter Fruit",
 ]
 
+def invalid_flag(flags: List[str], options: TerrariaOptions):
+    for flag in flags:
+        valid_flag = True
+        match flag:
+            case "Getfixedboi":
+                valid_flag = options.getfixedboi.value
+            case "Not Getfixedboi":
+                valid_flag = not options.getfixedboi.value
+            case "Calamity":
+                valid_flag = "Calamity" in options.mods.value
+            case "Not Calamity":
+                valid_flag = "Calamity" not in options.mods.value
+            case "Not Calamity Getfixedboi":
+                valid_flag = "Calamity" not in options.mods.value or not options.getfixedboi.value
+            case "Fargo":
+                valid_flag = "Fargo" in options.mods.value
+            case "Not Fargo":
+                valid_flag = "Fargo" not in options.mods.value
+            case "Shimmer":
+                valid_flag = options.shimmer_skips.value
+            case "Early":
+                valid_flag = options.early_achievements.value
+            case "Achievement":
+                valid_flag = options.normal_achievements.value
+            case "Rare":
+                valid_flag = options.rare_achievements.value
+            case "Time":
+                valid_flag = options.time_achievements.value
+            case "Crafting":
+                valid_flag = options.crafting_achievements.value
+            case "Grindy":
+                valid_flag = options.grindy_achievements.value
+            case "Fishing":
+                valid_flag = options.fishing_achievements.value
+        if not valid_flag:
+            return True
+    return False
+
 def is_location_is_item(flags: List[str], options: TerrariaOptions) -> Tuple[bool, bool]:
     if "Npc" in flags and options.randomize_npcs.value == 1:
         return True, True
     else:
-        return is_location_only(flags), is_item_only(flags, options)
-
+        return is_location_only(flags), is_item_only(flags)
 
 def is_location_only(flags: List[str]) -> bool:
     return ("Location" in flags
             or "Achievement" in flags)
 
-def is_item_only(flags: List[str], options: TerrariaOptions) -> bool:
+def is_item_only(flags: List[str]) -> bool:
     return "Item" in flags
