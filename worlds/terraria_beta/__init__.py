@@ -11,6 +11,10 @@ from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, ItemClassification, Tutorial, CollectionState, Spoiler, MultiWorld
 from rule_builder.options import OptionFilter
 from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule, TWorld, HasFromList, Filtered
+from .Flags import (
+    invalid_flag,
+    is_location_is_item,
+)
 from .Checks import (
     TerrariaItem,
     TerrariaLocation,
@@ -267,19 +271,13 @@ class TerrariaWorld(CachedRuleBuilderWorld):
 
         def mark_progression(conditions):
             for condition in conditions:
-                if condition.condition == "Yoyo Bag":
-                    pass
-
                 if condition.type == COND_ITEM:
                     prog = condition.condition in self.progression
                     self.progression.add(loc_to_item[condition.condition])
                     rule = rules[rule_indices[condition.condition]]
                     if (
                             not prog
-                            and "Achievement" not in rule.flags
-                            and "Location" not in rule.flags
-                            and "Npc" not in rule.flags
-                            and "Item" not in rule.flags
+                            and not any(is_location_is_item(rule.flags, self.options))
                     ):
                         mark_progression(rule.conditions)
                 elif condition.type == COND_LOC:
@@ -306,30 +304,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             if rule.name in self.disabled_rules:
                 continue
 
-            if (
-                    (not self.options.getfixedboi.value and "Getfixedboi" in rule.flags)
-                    or (self.options.getfixedboi.value and "Not Getfixedboi" in rule.flags)
-                    or ("Calamity" not in self.options.mods.value and "Calamity" in rule.flags)
-                    or ("Calamity" in self.options.mods.value and "Not Calamity" in rule.flags)
-                    or (
-                            self.options.getfixedboi.value
-                            and "Calamity" in self.options.mods.value
-                            and "Not Calamity Getfixedboi" in rule.flags
-                    )
-                    or ("Fargo" not in self.options.mods.value and "Fargo" in rule.flags)
-                    or ("Fargo" in self.options.mods.value and "Not Fargo" in rule.flags)
-                    or (not self.options.shimmer_skips.value and "Shimmer" in rule.flags)
-                    or (not self.options.early_achievements.value and early)
-                    or (
-                            not self.options.normal_achievements.value
-                            and "Achievement" in rule.flags
-                    )
-                    or (not self.options.rare_achievements.value and rare)
-                    or (not self.options.time_achievements.value and time)
-                    or (not self.options.crafting_achievements.value and crafting)
-                    or (not self.options.grindy_achievements.value and grindy)
-                    or (not self.options.fishing_achievements.value and fishing)
-            ) and rule.name not in goal_locations:
+            if invalid_flag(rule.flags, self.options) and rule.name not in goal_locations:
                 continue
 
             # Special events
@@ -348,41 +323,26 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 self.progression.add(loc_to_item[rule.name])
                 mark_progression(rule.conditions)
 
-            if "Location" in rule.flags or "Achievement" in rule.flags or (
-                    "Npc" in rule.flags and self.options.randomize_npcs.value):
-                # Location
+            is_loc, is_item = is_location_is_item(rule.flags, self.options)
+
+            if is_loc:
                 location_count += 1
                 locations.append(rule.name)
                 if "Npc" in rule.flags:
                     self.npcs_to_randomize.add(rule.name)
                 mark_progression(rule.conditions)
-            elif (
-                    "Achievement" not in rule.flags
-                    and "Location" not in rule.flags
-                    and "Item" not in rule.flags
-                    and not ("Npc" in rule.flags and self.options.randomize_npcs.value)
-            ):
-                # Event
-                locations.append(rule.name)
-                events.append(rule.name)
-
-            if ("Item" in rule.flags
-                or ("Npc" in rule.flags and self.options.randomize_npcs.value)
-            ) and not (
-                    "Achievement" in rule.flags and rule.name not in goal_locations
-            ):
+            if is_item and not ("Achievement" in rule.flags and rule.name not in goal_locations):
                 # Item
                 item_count += 1
                 if rule.name not in goal_locations:
                     items.append(rule.name)
-            elif (
-                    "Achievement" not in rule.flags
-                    and "Location" not in rule.flags
-                    and "Item" not in rule.flags
-                    and not ("Npc" in rule.flags and self.options.randomize_npcs.value)
-            ):
+            elif not is_loc and not is_item:
                 # Event
+                locations.append(rule.name)
+                events.append(rule.name)
                 items.append(rule.name)
+
+
 
         pointless_events = [event for event in events if loc_to_item[event] not in self.progression]
         for event in pointless_events:
