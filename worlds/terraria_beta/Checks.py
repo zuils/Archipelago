@@ -1,5 +1,6 @@
 from BaseClasses import Item, Location
 from typing import Tuple, Union, Set, List, Dict
+from .Flags import rule_flags
 import string
 import pkgutil
 
@@ -540,36 +541,7 @@ def read_data() -> Tuple[
             rules.append(Rule(name, flags, operator, conditions))
 
             for flag in flags:
-                if flag not in {
-                    "Location",
-                    "Item",
-                    "Goal",
-                    "Early",
-                    "Achievement",
-                    "Rare",
-                    "Time",
-                    "Crafting",
-                    "Grindy",
-                    "Fishing",
-                    "Npc",
-                    "Pet",
-                    "Pickaxe",
-                    "Hammer",
-                    "Minions",
-                    "Armor Minions",
-                    "Mech Boss",
-                    "Final Boss",
-                    "Getfixedboi",
-                    "Not Getfixedboi",
-                    "Calamity",
-                    "Not Calamity",
-                    "Not Calamity Getfixedboi",
-                    "Fargo",
-                    "Not Fargo",
-                    "Shimmer",
-                    "Health",
-                    "Quarter Fruit",
-                }:
+                if flag not in rule_flags:
                     raise Exception(
                         f"rule `{name}` on line `{line + 1}` has unrecognized flag `{flag}`"
                     )
