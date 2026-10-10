@@ -495,86 +495,87 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             rule = rules[rule_indices[condition.condition]]
             return self.create_rule_ini(rule.operator, rule.conditions)
         elif condition.type == COND_FN:
-            if condition.condition == "npc":
-                assert(isinstance(condition.argument, int))
-                return HasFromList(*npcs, count=condition.argument)
-            elif condition.condition == "npc_rando":
-                return True_(options=[OptionFilter(RandomizeNPCs, condition.sign)])
-            elif condition.condition == "calamity":
-                calamity_filter = OptionFilter(Mods, "Calamity", operator="contains")
-                if condition.sign:
-                    return True_(options=[calamity_filter], filtered_resolution=False)
-                else:
-                    return False_(options=[calamity_filter], filtered_resolution=True)
-            elif condition.condition == "fargo":
-                fargo_filter = OptionFilter(Mods, "Fargo", operator="contains")
-                if condition.sign:
-                    return True_(options=[fargo_filter], filtered_resolution=False)
-                else:
-                    return False_(options=[fargo_filter], filtered_resolution=True)
-            elif condition.condition == "rare":
-                return True_(options=[OptionFilter(RareAchievements, condition.sign)])
-            elif condition.condition == "time":
-                return True_(options=[OptionFilter(TimeAchievements, condition.sign)])
-            elif condition.condition == "pickaxe":
-                if type(condition.argument) is not int:
-                    raise Exception("@pickaxe requires an integer argument")
+            match condition.condition:
+                case "npc":
+                    assert(isinstance(condition.argument, int))
+                    return HasFromList(*npcs, count=condition.argument)
+                case "npc_rando":
+                    return True_(options=[OptionFilter(RandomizeNPCs, condition.sign)])
+                case "calamity":
+                    calamity_filter = OptionFilter(Mods, "Calamity", operator="contains")
+                    if condition.sign:
+                        return True_(options=[calamity_filter], filtered_resolution=False)
+                    else:
+                        return False_(options=[calamity_filter], filtered_resolution=True)
+                case "fargo":
+                    fargo_filter = OptionFilter(Mods, "Fargo", operator="contains")
+                    if condition.sign:
+                        return True_(options=[fargo_filter], filtered_resolution=False)
+                    else:
+                        return False_(options=[fargo_filter], filtered_resolution=True)
+                case "rare":
+                    return True_(options=[OptionFilter(RareAchievements, condition.sign)])
+                case "time":
+                    return True_(options=[OptionFilter(TimeAchievements, condition.sign)])
+                case "pickaxe":
+                    if type(condition.argument) is not int:
+                        raise Exception("@pickaxe requires an integer argument")
 
-                eligible_items = []
-                for pickaxe, power in pickaxes.items():
-                    if power >= condition.argument:
-                        eligible_items.append(pickaxe)
+                    eligible_items = []
+                    for pickaxe, power in pickaxes.items():
+                        if power >= condition.argument:
+                            eligible_items.append(pickaxe)
 
-                return HasAny(*eligible_items)
-            elif condition.condition == "hammer":
-                if type(condition.argument) is not int:
-                    raise Exception("@hammer requires an integer argument")
+                    return HasAny(*eligible_items)
+                case "hammer":
+                    if type(condition.argument) is not int:
+                        raise Exception("@hammer requires an integer argument")
 
-                eligible_items = []
-                for hammer, power in hammers.items():
-                    if power >= condition.argument:
-                        eligible_items.append(hammer)
+                    eligible_items = []
+                    for hammer, power in hammers.items():
+                        if power >= condition.argument:
+                            eligible_items.append(hammer)
 
-                return HasAny(*eligible_items)
-            elif condition.condition == "mech_boss":
-                assert(isinstance(condition.argument, int))
-                return HasFromList(*mech_bosses, count=condition.argument)
-            elif condition.condition == "minions":
-                assert (isinstance(condition.argument, int))
-                return HasMinion(condition.argument)
-            elif condition.condition == "health":
-                if type(condition.argument) is not int:
-                    raise Exception("@health requires an integer argument")
+                    return HasAny(*eligible_items)
+                case "mech_boss":
+                    assert(isinstance(condition.argument, int))
+                    return HasFromList(*mech_bosses, count=condition.argument)
+                case "minions":
+                    assert (isinstance(condition.argument, int))
+                    return HasMinion(condition.argument)
+                case "health":
+                    if type(condition.argument) is not int:
+                        raise Exception("@health requires an integer argument")
 
-                health_option = OptionFilter(HealthLogic, 1)
-                health_required = max(condition.argument + self.options.health_logic_handicap.value, 1)
+                    health_option = OptionFilter(HealthLogic, 1)
+                    health_required = max(condition.argument + self.options.health_logic_handicap.value, 1)
 
-                if health_required == 1:
-                    health_rule = Has(health_upgrades[0])
-                elif health_required == 2:
-                    health_rule = HasAll(*health_upgrades[:2])
-                else:
-                    highest_base = HasAll(*health_upgrades[:2])
-                    quarter_fruits_required = health_required - 2
-                    quarter_fruits_rule = HasFromList(
-                        *quarter_fruits,
-                        count=quarter_fruits_required,
-                        options=[OptionFilter(Mods, "Calamity", operator="contains")],
-                        filtered_resolution=True
-                    )
-                    health_rule = highest_base & quarter_fruits_rule
-                
-                # Out of logic will be shown as Glitched Logic.
-                if self.is_ut:
-                    return Or(health_rule, Has(self.OUT_OF_LOGIC))
-                                
-                return Filtered(health_rule, options=[health_option], filtered_resolution=True)
-            elif condition.condition == "getfixedboi":
-                return True_(options=[OptionFilter(Getfixedboi, condition.sign)])
-            elif condition.condition == "shimmer_skips":
-                return True_(options=[OptionFilter(ShimmerSkips, condition.sign)])
-            else:
-                raise Exception(f"Unknown function {condition.condition}")
+                    if health_required == 1:
+                        health_rule = Has(health_upgrades[0])
+                    elif health_required == 2:
+                        health_rule = HasAll(*health_upgrades[:2])
+                    else:
+                        highest_base = HasAll(*health_upgrades[:2])
+                        quarter_fruits_required = health_required - 2
+                        quarter_fruits_rule = HasFromList(
+                            *quarter_fruits,
+                            count=quarter_fruits_required,
+                            options=[OptionFilter(Mods, "Calamity", operator="contains")],
+                            filtered_resolution=True
+                        )
+                        health_rule = highest_base & quarter_fruits_rule
+
+                    # Out of logic will be shown as Glitched Logic.
+                    if self.is_ut:
+                        return Or(health_rule, Has(self.OUT_OF_LOGIC))
+
+                    return Filtered(health_rule, options=[health_option], filtered_resolution=True)
+                case "getfixedboi":
+                    return True_(options=[OptionFilter(Getfixedboi, condition.sign)])
+                case "shimmer_skips":
+                    return True_(options=[OptionFilter(ShimmerSkips, condition.sign)])
+                case _:
+                    raise Exception(f"Unknown function {condition.condition}")
         elif condition.type == COND_GROUP:
             operator, conditions = condition.condition
 
