@@ -8,7 +8,7 @@ from Options import NumericOption
 from rule_builder.cached_world import CachedRuleBuilderWorld
 from rule_builder.field_resolvers import FromWorldAttr
 from worlds.AutoWorld import WebWorld, World
-from BaseClasses import Region, ItemClassification, Tutorial, CollectionState, Spoiler
+from BaseClasses import Region, ItemClassification, Tutorial, CollectionState, Spoiler, MultiWorld
 from rule_builder.options import OptionFilter
 from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule, TWorld, HasFromList, Filtered
 from .Checks import (
@@ -124,28 +124,30 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     calamity = False
     fargo = False
     getfixedboi = False
-    
+
     is_ut = False
     ut_can_gen_without_yaml = True
-
-    progression = set()
-    npcs_to_randomize = set()
-
-    ter_items: List[str]
-    ter_locations: List[str]
-
-    ter_goals: Dict[str, str]
-    goal_items: Set[str]
-    goal_locations: Set[str]
-    
-    disabled_rules: Set[str]
 
     required_client_version = (0, 6, 200)
     
     OUT_OF_LOGIC = "UT Health Logic"
     if OUT_OF_LOGIC not in item_name_to_id:
         item_name_to_id[OUT_OF_LOGIC] = max(item_name_to_id.values()) + 1
-    
+
+    def __init__(self, multiworld: MultiWorld, player: int):
+        super().__init__(multiworld, player)
+        self.progression = set()
+        self.npcs_to_randomize = set()
+
+        self.ter_items: List[str]
+        self.ter_locations: List[str]
+
+        self.ter_goals: Dict[str, str]
+        self.goal_items: Set[str]
+        self.goal_locations: Set[str]
+
+        self.disabled_rules: Set[str]
+
     # Yamlless UT Support
     @staticmethod
     def interpret_slot_data(slot_data: Dict[str, object]) -> Dict[str, object]:
@@ -286,7 +288,8 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     operator, conds = condition.condition
                     if not operator:
                         rule_group = [self.create_rule(cond) for cond in conds]
-                        bad_group = any(not r.filtered_resolution and any(not o.check(self.options) for o in r.options) for r in rule_group)
+                        bad_group = (any(not r.filtered_resolution and any(not o.check(self.options) for o in r.options) for r in rule_group)
+                                     or any(type(r) is False_ and any(o.check(self.options) for o in r.options) for r in rule_group))
                         if bad_group:
                             continue
                     mark_progression(conds)
