@@ -1,6 +1,6 @@
 from BaseClasses import Item, Location
 from typing import Tuple, Union, Set, List, Dict
-from .Flags import rule_flags
+from .Flags import rule_flags, is_location_is_item
 import string
 import pkgutil
 
@@ -546,23 +546,24 @@ def read_data() -> Tuple[
                         f"rule `{name}` on line `{line + 1}` has unrecognized flag `{flag}`"
                     )
 
+            _, is_item = is_location_is_item(list(flags.keys()))
+            item_name = name
             if "Item" in flags:
                 item_name = flags["Item"] or f"Post-{name}"
                 if item_name in item_name_to_id:
                     raise Exception(
                         f"item `{item_name}` on line `{line + 1}` shadows a previous item"
                     )
+
+            if is_item:
                 item_name_to_id[item_name] = next_id
                 next_id += 1
-                loc_to_item[name] = item_name
-            else:
-                loc_to_item[name] = name
+
+            loc_to_item[name] = item_name
 
             if "Npc" in flags:
-                item_name_to_id[name] = next_id
-                next_id += 1
-                loc_to_item[name] = name
                 npcs.append(name)
+
             elif "Pet" in flags:
                 npcs.append(name)
 
@@ -708,7 +709,10 @@ def read_data() -> Tuple[
     location_name_to_id = {}
 
     for rule in rules:
-        if "Location" in rule.flags or "Achievement" in rule.flags or "Npc" in rule.flags:
+        if rule.name == "Squire Slime":
+            pass
+        is_loc, _ = is_location_is_item(rule.flags)
+        if is_loc:
             if rule.name in location_name_to_id:
                 raise Exception(f"location `{rule.name}` shadows a previous location")
             location_name_to_id[rule.name] = next_id

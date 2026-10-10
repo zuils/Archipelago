@@ -85,15 +85,20 @@ def invalid_flag(flags: List[str], options: TerrariaOptions):
             return True
     return False
 
-def is_location_is_item(flags: List[str], options: TerrariaOptions) -> Tuple[bool, bool]:
-    if "Npc" in flags and options.randomize_npcs.value == 1:
+def is_location_is_item(flags: List[str], options: TerrariaOptions | None = None) -> Tuple[bool, bool]:
+    if "Npc" in flags and (bool(options.randomize_npcs.value) if options else True):
         return True, True
     else:
-        return is_location_only(flags), is_item_only(flags)
+        return is_location_only(flags, options), is_item_only(flags)
 
-def is_location_only(flags: List[str]) -> bool:
-    return ("Location" in flags
-            or "Achievement" in flags)
+def is_location_only(flags: List[str], options: TerrariaOptions | None = None) -> bool:
+    for flag in flags:
+        match flag:
+            case "Location":
+                return True
+            case "Achievement":
+                return bool(options.normal_achievements.value) if options else True
+    return False
 
 def is_item_only(flags: List[str]) -> bool:
     return "Item" in flags

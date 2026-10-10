@@ -421,9 +421,10 @@ class TerrariaWorld(CachedRuleBuilderWorld):
         for item in self.ter_items:
             if (rule_index := rule_indices.get(item)) is not None:
                 rule = rules[rule_index]
+                _, is_item = is_location_is_item(rule.flags, self.options)
                 if "Item" in rule.flags:
                     name = rule.flags.get("Item") or f"Post-{item}"
-                elif "Npc" in rule.flags and self.options.randomize_npcs.value == 1:
+                elif is_item:
                     name = item
                 else:
                     continue
@@ -436,8 +437,8 @@ class TerrariaWorld(CachedRuleBuilderWorld):
 
         for location in self.ter_locations:
             rule = rules[rule_indices[location]]
-            if "Location" not in rule.flags and "Achievement" not in rule.flags \
-                    and not ("Npc" in rule.flags and self.options.randomize_npcs.value):
+            is_loc, _ = is_location_is_item(rule.flags, self.options)
+            if not is_loc:
                 if location in self.progression:
                     classification = ItemClassification.progression
                 else:
