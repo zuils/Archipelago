@@ -74,7 +74,7 @@ class TerrariaSpoiler(Spoiler):
             if options.health_logic.value and ("Health" in rule.flags or "Quarter Fruit" in rule.flags):
                 continue
 
-            hidden.add(loc.name)
+            hidden.add(loc.name + f" ({self.multiworld.get_player_name(loc.player)})" if self.multiworld.players > 1 else loc.name)
 
         return hidden
 
