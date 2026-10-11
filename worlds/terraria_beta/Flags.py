@@ -6,6 +6,7 @@ from .Options import TerrariaOptions
 rule_flags = [
     "Location",  # Standard core locations
     "Item",  # Standard core items
+    "Progressive Item",
     "Goal",
     "Early",  # Achievement + logic modifier
     "Achievement",
@@ -100,10 +101,8 @@ def is_location_only(flags: List[str], options: TerrariaOptions | None = None) -
             case "Location":
                 return True
             case "Achievement":
-                return bool(options.normal_achievements.value) if options else True
-            case "Depth":
-                return bool(options.randomize_depth.value) if options else True
+                return True
     return False
 
 def is_item_only(flags: List[str]) -> bool:
-    return "Item" in flags
+    return "Item" in flags or "Progressive Item" in flags

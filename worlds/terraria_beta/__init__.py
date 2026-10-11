@@ -300,7 +300,10 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             crafting = "Crafting" in rule.flags
             grindy = "Grindy" in rule.flags
             fishing = "Fishing" in rule.flags
-            
+
+            if rule.name == "Infinity +1 Sword":
+                pass
+
             if rule.name in self.disabled_rules:
                 continue
 
