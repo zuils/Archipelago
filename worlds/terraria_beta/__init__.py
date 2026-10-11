@@ -10,7 +10,8 @@ from rule_builder.field_resolvers import FromWorldAttr
 from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, ItemClassification, Tutorial, CollectionState, Spoiler, MultiWorld
 from rule_builder.options import OptionFilter
-from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule, TWorld, HasFromList, Filtered
+from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule, TWorld, HasFromList, Filtered, \
+    HasAnyCount
 from .Flags import (
     invalid_flag,
     is_location_is_item,
@@ -31,6 +32,7 @@ from .Checks import (
     COND_LOC,
     COND_FN,
     COND_GROUP,
+    progressive_to_count,
     npcs,
     pickaxes,
     hammers,
@@ -336,9 +338,10 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 mark_progression(rule.conditions)
             if is_item and not ("Achievement" in rule.flags and rule.name not in goal_locations):
                 # Item
-                item_count += 1
-                if rule.name not in goal_locations:
-                    items.append(rule.name)
+                for i in range(progressive_to_count.get(rule.name) or 1):
+                    item_count += 1
+                    if rule.name not in goal_locations:
+                        items.append(rule.name)
             elif not is_loc and not is_item:
                 # Event
                 locations.append(rule.name)
@@ -504,6 +507,11 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     return HasFromList(*npcs, count=condition.argument)
                 case "npc_rando":
                     return True_(options=[OptionFilter(RandomizeNPCs, condition.sign)])
+                case "depth":
+                    assert(isinstance(condition.argument, int))
+                    return Has("Progressive Depth", count=condition.argument,
+                               options=[OptionFilter(RandomizeNPCs, condition.sign)],
+                               filtered_resolution=True)
                 case "calamity":
                     calamity_filter = OptionFilter(Mods, "Calamity", operator="contains")
                     if condition.sign:

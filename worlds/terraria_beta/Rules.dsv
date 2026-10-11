@@ -32,6 +32,9 @@ You Can Do It!;                     Achievement | Early;
 Wulfrum Battery;                    Calamity;
 Wulfrum Armor;                      Calamity | Armor Minions(1);
 
+// Depth
+Progressive Depth;                  Progressive Item(3) | Depth;
+
 // Surface exploration
 Cactus;
 Unusual Survival Strategies;        Achievement | Early;
@@ -65,7 +68,7 @@ Water Walking Boots;
 Aquatic Heart;                      Calamity;
 
 // Sky exploration
-Into Orbit;                         Depth;
+Into Orbit;                         Location | Depth;
 Mysterious Circuitry;               Calamity;
 Dubious Plating;                    Calamity;
 Charging Station;                   Calamity;
@@ -148,8 +151,8 @@ A Shimmer In The Dark;              Achievement;                                
 Shimmer;                            Shimmer;                                    Aether & @shimmer_skips;
 
 // Underworld
-It's Getting Hot in Here;           Depth;
-Rock Bottom;                        Depth;
+It's Getting Hot in Here;           Location | Depth;
+Rock Bottom;                        Location | Depth;
 Obsidian Rose;
 Havocplate;                         Calamity;
 Magma Stone;

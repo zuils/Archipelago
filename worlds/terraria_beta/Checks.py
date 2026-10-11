@@ -229,6 +229,7 @@ def validate_conditions(
             if condition.condition not in {
                 "npc",
                 "npc_rando",
+                "depth",
                 "calamity",
                 "fargo",
                 "rare",
@@ -266,6 +267,8 @@ def read_data() -> Tuple[
     Dict[str, int],
     # Location name to Item name
     Dict[str, str],
+    # Progressive Item to Count
+    Dict[str, int],
     # NPCs
     List[str],
     # Pickaxe to pick power
@@ -293,6 +296,7 @@ def read_data() -> Tuple[
     rules = []
     rule_indices = {}
     loc_to_item = {}
+    progressive_to_count = {}
 
     npcs = []
     pickaxes = {}
@@ -561,6 +565,9 @@ def read_data() -> Tuple[
 
             loc_to_item[name] = item_name
 
+            if (count := flags.get("Progressive Item")) is not None:
+                progressive_to_count[name] = count
+
             if "Npc" in flags:
                 npcs.append(name)
 
@@ -727,6 +734,7 @@ def read_data() -> Tuple[
         item_name_to_id,
         location_name_to_id,
         loc_to_item,
+        progressive_to_count,
         npcs,
         pickaxes,
         hammers,
@@ -748,6 +756,7 @@ def read_data() -> Tuple[
     item_name_to_id,
     location_name_to_id,
     loc_to_item,
+    progressive_to_count,
     npcs,
     pickaxes,
     hammers,
