@@ -114,7 +114,7 @@ class EarlyAchievements(DefaultOnToggle):
 
 class NormalAchievements(DefaultOnToggle):
     """
-    Adds checks upon collecting achivements not covered by the other options. Achievements for
+    Adds checks upon collecting achievements not covered by the other options. Achievements for
     clearing bosses and events are excluded.
     """
 
