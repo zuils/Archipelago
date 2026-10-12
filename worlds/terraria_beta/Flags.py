@@ -38,6 +38,7 @@ rule_flags = [
 # Flags that indicate the attached event may be necessary for progression
 special_events = [
     "Npc",
+    "Depth",
     "Pet",
     "Pickaxe",
     "Hammer",

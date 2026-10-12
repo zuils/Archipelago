@@ -176,7 +176,8 @@ class FillExtraChecksWith(Choice):
 
 class FishingSkips(Toggle):
     """
-    Enables sequence breaks in logic requiring the use of fishing or angler quests for particularly rare items.
+    Enables sequence breaks in logic requiring the use of fishing or angler quests for items.
+    If disabled, certain achievements (like Black Mirror) may become inaccessible.
     """
 
     display_name = "Fishing Skips"

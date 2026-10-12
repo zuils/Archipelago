@@ -249,6 +249,8 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 incompatible_options.append("NPC Randomization")
             if "Fargo" in self.options.mods.value:
                 incompatible_options.append("Fargo")
+            if self.options.randomize_depth:
+                incompatible_options.append("Depth Randomization")
 
             if incompatible_options:
                 logging.warning(f"SLOT {slot_name}: getfixedboi mode is enabled with the following incompatible options:\n"
@@ -663,6 +665,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             "getfixedboi": self.options.getfixedboi.value,
             "npc_rando": self.options.randomize_npcs.value,
             "randomize_npcs": list(self.npcs_to_randomize),
+            "depth_rando": self.options.randomize_depth.value,
             "goal_option": self.options.goal.value,
             "shuffle_to_option": self.options.shuffle_to.value,
             "early_achievements": self.options.early_achievements.value,
