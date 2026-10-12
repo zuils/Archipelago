@@ -357,7 +357,6 @@ Pixie Dust;                         ;                                           
 Holy Water;                         ;                                           (Pixie Dust & Hallowed Seeds) | (@calamity & Shimmer & Statis' Blessing);
 Unicorn Horn;                       ;                                           Hallow;
 Crystal Shard;                      ;                                           Hallow;
-Axe of Purity;                      Calamity;                                   Feller of Evergreens & Purification Powder & Pixie Dust & Crystal Shard;
 Soul of Light;                      ;                                           Hallow | (@calamity & #Queen Slime) | (Shimmer & (Light Disc | Meteor Staff));
 Meteor Staff;                       ;                                           Hardmode Anvil & Meteorite Bar & Pixie Dust & Soul of Light;
 Blessed Apple;                      ;                                           Hallow;
@@ -448,7 +447,6 @@ Archmage;                           Calamity;                                   
 
 // Skeletron Prime
 Soul of Fright;                     ;                                           #Skeletron Prime | (Shimmer & (Avenger Emblem | Flamethrower | (@calamity & (Mechanical Glove | Celestial Emblem))));
-Inferna Cutter;                     Calamity;                                   Hardmode Anvil & Axe of Purity & Soul of Fright & Essence of Havoc;
 Flamethrower;                       ;                                           (Hardmode Anvil & Illegal Gun Parts & Soul of Fright) | (@getfixedboi & @calamity & #Skeletron);
 Buckets of Bolts;                   Achievement;                                #The Twins & #The Destroyer & #Skeletron Prime;
 Mecha Mayhem;                       Achievement | Not Getfixedboi;              #The Twins & #The Destroyer & #Skeletron Prime;
@@ -675,7 +673,6 @@ Profaned Soul Artifact;             Calamity | Minions(1);                      
 Mark of Providence;                 Calamity;                                   (@fargo & Mutant NPC & (Storm Weaver | Ceaseless Void | Signus, Envoy of the Devourer)) | #Providence, the Profaned Goddess | (Hardmode Anvil & Luminite Bar & Unholy Essence & Fragment);
 Uelibloom Ore;                      Calamity;                                   Providence, the Profaned Goddess | (Shimmer & (Auric Ore | Uelibloom Bar));
 Uelibloom Bar;                      Calamity;                                   (Hardmode Forge & Uelibloom Ore) | Providence, the Profaned Goddess;
-Grax;                               Calamity | Hammer(110);                     Hardmode Anvil & Inferna Cutter & Luminite Hamaxe & Uelibloom Bar;
 Blossom Pickaxe;                    Calamity | Pickaxe(250);                    Hardmode Anvil & Uelibloom Bar;
 Voltage Regulation System;          Calamity;                                   Hardmode Anvil & Mysterious Circuitry & Dubious Plating & Uelibloom Bar & Luminite Bar & Advanced Display;
 Tarragon Armor;                     Calamity | Armor Minions(3);                Hardmode Anvil & Uelibloom Bar & Divine Geode;
