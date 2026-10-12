@@ -230,6 +230,7 @@ def validate_conditions(
                 "npc",
                 "npc_rando",
                 "depth",
+                "depth_safety",
                 "calamity",
                 "fargo",
                 "rare",
@@ -239,6 +240,7 @@ def validate_conditions(
                 "mech_boss",
                 "minions",
                 "getfixedboi",
+                "fishing",
                 "shimmer_skips",
                 "health",
             }:

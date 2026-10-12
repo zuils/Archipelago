@@ -30,7 +30,6 @@ rule_flags = [
     "Not Calamity Getfixedboi",
     "Fargo",
     "Not Fargo",
-    "Shimmer",  # Unique flag for Aether access + shimmer logic
     "Health",
     "Quarter Fruit",
     "Depth",
@@ -67,8 +66,6 @@ def invalid_flag(flags: List[str], options: TerrariaOptions):
                 valid_flag = "Fargo" in options.mods.value
             case "Not Fargo":
                 valid_flag = "Fargo" not in options.mods.value
-            case "Shimmer":
-                valid_flag = options.shimmer_skips.value
             case "Early":
                 valid_flag = options.early_achievements.value
             case "Achievement":

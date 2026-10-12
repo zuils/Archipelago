@@ -14,7 +14,7 @@ from rule_builder.rules import Has, HasAny, HasAll, True_, False_, And, Or, Rule
     HasAnyCount
 from .Flags import (
     invalid_flag,
-    is_location_is_item,
+    is_location_is_item, special_events,
 )
 from .Checks import (
     TerrariaItem,
@@ -43,7 +43,7 @@ from .Checks import (
     quarter_fruits,
 )
 from .Options import TerrariaOptions, Goal, ter_option_groups, RandomizeNPCs, Mods, RareAchievements, \
-    TimeAchievements, HealthLogic, Getfixedboi, ShimmerSkips
+    TimeAchievements, HealthLogic, Getfixedboi, ShimmerSkips, FishingSkips, RandomizeDepth
 
 
 class TerrariaWeb(WebWorld):
@@ -147,12 +147,11 @@ class TerrariaWorld(CachedRuleBuilderWorld):
 
         self.ter_items: List[str]
         self.ter_locations: List[str]
+        self.ter_rules = dict()
 
         self.ter_goals: Dict[str, str]
         self.goal_items: Set[str]
         self.goal_locations: Set[str]
-
-        self.disabled_rules: Set[str]
 
     # Yamlless UT Support
     @staticmethod
@@ -213,7 +212,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     goal, _ = goals[self.options.shuffle_to.value]
         ter_goals = {}
         goal_items = set()
-        self.disabled_rules = set()
 
         for location in goal_locations:
             if location == "Wall of Flesh" and not self.options.randomize_npcs.value:
@@ -239,6 +237,10 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             ter_goals[event] = location
             goal_items.add(event)
 
+        if self.options.fishing_achievements and not self.options.fishing_skips:
+            logging.warning(f"SLOT {slot_name}: fishing achievements are enabled with fishing skips disabled; enabling fishing skips")
+            self.options.fishing_skips.value = 1
+
         if self.options.getfixedboi:
             incompatible_options = []
             if "Princess" in goal_items:
@@ -253,16 +255,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                                 f" - {'\n - '.join(incompatible_options)}\n"
                                 f"Disabling getfixedboi.")
                 self.options.getfixedboi.value = 0
-        
-        if self.options.getfixedboi and not self.options.shimmer_skips.value:
-            self.disabled_rules.update({
-                "Purification Powder",
-                "Mystic Slime",
-                "The Great Slime Mitosis",
-                "Axe of Purity",
-                "Inferna Cutter",
-                "Grax"
-            })
 
         location_count = 0
         locations = []
@@ -270,8 +262,10 @@ class TerrariaWorld(CachedRuleBuilderWorld):
         items = []
 
         events = []
+        bad_events = set()
+        events_to_evaluate = {}
 
-        def mark_progression(conditions):
+        def mark_progression(operator, conditions):
             for condition in conditions:
                 if condition.type == COND_ITEM:
                     prog = condition.condition in self.progression
@@ -281,52 +275,37 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                             not prog
                             and not any(is_location_is_item(rule.flags, self.options))
                     ):
-                        mark_progression(rule.conditions)
+                        mark_progression(rule.operator, rule.conditions)
                 elif condition.type == COND_LOC:
-                    mark_progression(rules[rule_indices[condition.condition]].conditions)
+                    rule = rules[rule_indices[condition.condition]]
+                    mark_progression(rule.operator, rule.conditions)
                 elif condition.type == COND_GROUP:
                     operator, conds = condition.condition
-                    if not operator:
-                        rule_group = [self.create_rule(cond) for cond in conds]
-                        bad_group = (any(not r.filtered_resolution and any(not o.check(self.options) for o in r.options) for r in rule_group)
-                                     or any(type(r) is False_ and any(o.check(self.options) for o in r.options) for r in rule_group))
-                        if bad_group:
-                            continue
-                    mark_progression(conds)
+                    rule = self.create_rule_ini(operator, conds)
+                    if isinstance(rule, True_) or isinstance(rule, False_):
+                        continue
+                    mark_progression(operator, conds)
 
         valid_rules = rules[:goal] if goal != 0 else rules
         for rule in valid_rules:
-            early = "Early" in rule.flags
-            rare = "Rare" in rule.flags
-            time = "Time" in rule.flags
-            crafting = "Crafting" in rule.flags
-            grindy = "Grindy" in rule.flags
-            fishing = "Fishing" in rule.flags
-
-            if rule.name == "Infinity +1 Sword":
-                pass
-
-            if rule.name in self.disabled_rules:
-                continue
 
             if invalid_flag(rule.flags, self.options) and rule.name not in goal_locations:
                 continue
 
-            # Special events
-            if (
-                    "Npc" in rule.flags
-                    or "Pet" in rule.flags
-                    or "Pickaxe" in rule.flags
-                    or "Hammer" in rule.flags
-                    or "Mech Boss" in rule.flags
-                    or "Minions" in rule.flags
-                    or "Armor Minions" in rule.flags
-                    or "Health" in rule.flags
-                    or "Quarter Fruit" in rule.flags
-                    or rule.name in goal_locations
-            ):
+            if rule.name in goal_locations:
                 self.progression.add(loc_to_item[rule.name])
-                mark_progression(rule.conditions)
+                mark_progression(rule.operator, rule.conditions)
+
+            for flag in rule.flags:
+                if flag in special_events:
+                    if flag not in events_to_evaluate:
+                        events_to_evaluate[flag] = set()
+                    events_to_evaluate[flag].add(rule.name)
+
+            built_rule = self.create_rule_ini(rule.operator, rule.conditions)
+            if isinstance(built_rule, False_):
+                bad_events.add(rule.name)
+            self.ter_rules[rule.name] = built_rule
 
             is_loc, is_item = is_location_is_item(rule.flags, self.options)
 
@@ -335,7 +314,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 locations.append(rule.name)
                 if "Npc" in rule.flags:
                     self.npcs_to_randomize.add(rule.name)
-                mark_progression(rule.conditions)
             if is_item and not ("Achievement" in rule.flags and rule.name not in goal_locations):
                 # Item
                 for i in range(progressive_to_count.get(rule.name) or 1):
@@ -348,7 +326,65 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                 events.append(rule.name)
                 items.append(rule.name)
 
+        # Audit locations, mark progression
+        def unreachable_rules(rule: Rule) -> Set[str]:
+            if isinstance(rule, Has):
+                assert isinstance(rule.item_name, str)
+                if rule.item_name in bad_events:
+                    return {rule.item_name}
+                if rule.item_name not in events:
+                    return set()
+                if isinstance(self.ter_rules[rule.item_name], False_):
+                    return {rule.item_name}
+                sub_result = unreachable_rules(self.ter_rules[rule.item_name])
+                return sub_result.union({rule.item_name}) if sub_result else set()
+            elif isinstance(rule, And):
+                result = set()
+                for r in rule.children:
+                    result = result.union(unreachable_rules(r))
+                return result
+            elif isinstance(rule, Or):
+                result = set()
+                for r in rule.children:
+                    bad_flags = unreachable_rules(r)
+                    if not bad_flags:
+                        return set()
+                    result = result.union(bad_flags)
+                return result
+            else:
+                return set()
 
+        for name in self.ter_rules:
+            if name in events and unreachable_rules(self.ter_rules[name]):
+                bad_events.add(name)
+
+        bad_locs = set()
+        for loc in locations:
+            if loc not in events:
+                sub_result = unreachable_rules(self.ter_rules[loc])
+                if sub_result:
+                    bad_locs.add(loc)
+                    bad_events = bad_events.union(sub_result)
+        if bad_locs:
+            logging.warning(f"SLOT {slot_name}: The following locations are inaccessible due to your config and will be removed:\n"
+                            f" - {'\n - '.join(bad_locs)}")
+
+        for flag in events_to_evaluate.keys():
+            pool = events_to_evaluate[flag]
+            for item in pool:
+                if flag == "Pet" and unreachable_rules(self.ter_rules[item]):
+                    bad_events.add(item)
+                    continue
+                self.progression.add(loc_to_item[item])
+                rule = rules[rule_indices[item]]
+                mark_progression(rule.operator, rule.conditions)
+
+        location_count -= len(bad_locs)
+        locations = [loc for loc in locations if (loc not in bad_locs and loc not in bad_events)]
+        for loc in locations:
+            mark_progression(rules[rule_indices[loc]].operator, rules[rule_indices[loc]].conditions)
+        events = [i for i in events if i not in bad_events]
+        items = [i for i in items if i not in bad_events]
 
         pointless_events = [event for event in events if loc_to_item[event] not in self.progression]
         for event in pointless_events:
@@ -477,15 +513,28 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             if len(conditions) > 1:
                 raise Exception("Found multiple conditions without an operator")
             cond = self.create_rule(conditions[0])
-            return cond if isinstance(cond, Rule) else (True_() & cond)
+            if isinstance(cond, bool):
+                return True_() if cond else False_()
+            return cond
         sub_rules = [self.create_rule(condition) for condition in conditions]
-        return Or(*sub_rules) if operator else And(*sub_rules)
+
+        if operator:
+            if any(isinstance(r, True_) for r in sub_rules):
+                return True_()
+            elif all(isinstance(r, False_) for r in sub_rules):
+                return False_()
+            final_rules = [r for r in sub_rules if not isinstance(r, False_)]
+            return final_rules[0] if len(final_rules) == 1 else Or(*final_rules)
+        else:
+            if any(isinstance(r, False_) for r in sub_rules):
+                return False_()
+            elif all(isinstance(r, True_) for r in sub_rules):
+                return True_()
+            final_rules = [r for r in sub_rules if not isinstance(r, True_)]
+            return final_rules[0] if len(final_rules) == 1 else And(*final_rules)
 
     def create_rule(self, condition: Condition) -> Rule:
         if condition.type == COND_ITEM:
-            if condition.condition in self.disabled_rules:
-                return False_()
-            
             rule = rules[rule_indices[condition.condition]]
             if "Item" in rule.flags:
                 name = rule.flags.get("Item") or f"Post-{condition.condition}"
@@ -495,39 +544,32 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             assert(isinstance(name, str))
             return Has(name)
         elif condition.type == COND_LOC:
-            if condition.condition in self.disabled_rules:
-                return False_()
-            
             rule = rules[rule_indices[condition.condition]]
             return self.create_rule_ini(rule.operator, rule.conditions)
         elif condition.type == COND_FN:
+            def bool_to_rule(b):
+                return True_() if b else False_()
             match condition.condition:
                 case "npc":
                     assert(isinstance(condition.argument, int))
                     return HasFromList(*npcs, count=condition.argument)
                 case "npc_rando":
-                    return True_(options=[OptionFilter(RandomizeNPCs, condition.sign)])
+                    return bool_to_rule(not (condition.sign ^ self.options.randomize_npcs.value))
                 case "depth":
                     assert(isinstance(condition.argument, int))
                     return Has("Progressive Depth", count=condition.argument,
-                               options=[OptionFilter(RandomizeNPCs, condition.sign)],
+                               options=[OptionFilter(RandomizeDepth, 1, "ge")],
                                filtered_resolution=True)
+                case "depth_safety":
+                    return bool_to_rule(not (condition.sign ^ (self.options.randomize_depth.value > 1)))
                 case "calamity":
-                    calamity_filter = OptionFilter(Mods, "Calamity", operator="contains")
-                    if condition.sign:
-                        return True_(options=[calamity_filter], filtered_resolution=False)
-                    else:
-                        return False_(options=[calamity_filter], filtered_resolution=True)
+                    return bool_to_rule(not (condition.sign ^ ("Calamity" in self.options.mods.value)))
                 case "fargo":
-                    fargo_filter = OptionFilter(Mods, "Fargo", operator="contains")
-                    if condition.sign:
-                        return True_(options=[fargo_filter], filtered_resolution=False)
-                    else:
-                        return False_(options=[fargo_filter], filtered_resolution=True)
+                    return bool_to_rule(not (condition.sign ^ ("Fargo" in self.options.mods.value)))
                 case "rare":
-                    return True_(options=[OptionFilter(RareAchievements, condition.sign)])
+                    return bool_to_rule(not (condition.sign ^ self.options.rare_achievements.value))
                 case "time":
-                    return True_(options=[OptionFilter(TimeAchievements, condition.sign)])
+                    return bool_to_rule(not (condition.sign ^ self.options.time_achievements.value))
                 case "pickaxe":
                     if type(condition.argument) is not int:
                         raise Exception("@pickaxe requires an integer argument")
@@ -558,7 +600,9 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     if type(condition.argument) is not int:
                         raise Exception("@health requires an integer argument")
 
-                    health_option = OptionFilter(HealthLogic, 1)
+                    if not self.options.health_logic.value:
+                        return True_()
+
                     health_required = max(condition.argument + self.options.health_logic_handicap.value, 1)
 
                     if health_required == 1:
@@ -580,11 +624,13 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     if self.is_ut:
                         return Or(health_rule, Has(self.OUT_OF_LOGIC))
 
-                    return Filtered(health_rule, options=[health_option], filtered_resolution=True)
+                    return Filtered(health_rule, filtered_resolution=True)
                 case "getfixedboi":
-                    return True_(options=[OptionFilter(Getfixedboi, condition.sign)])
+                    return bool_to_rule(not (condition.sign ^ self.options.getfixedboi.value))
+                case "fishing":
+                    return bool_to_rule(not (condition.sign ^ self.options.fishing_skips.value))
                 case "shimmer_skips":
-                    return True_(options=[OptionFilter(ShimmerSkips, condition.sign)])
+                    return bool_to_rule(not (condition.sign ^ self.options.shimmer_skips.value))
                 case _:
                     raise Exception(f"Unknown function {condition.condition}")
         elif condition.type == COND_GROUP:

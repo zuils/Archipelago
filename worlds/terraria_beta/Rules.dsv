@@ -55,9 +55,9 @@ Enchanted Sword;
 Pretty in Pink;                     Achievement | Rare;
 Marathon Medalist;                  Achievement | Grindy;
 Angler;                             Npc;
-Fisherman's Pocket Guide;           ;                                           Angler | (Shimmer & Weather Radio);
-Weather Radio;                      ;                                           Angler | (Shimmer & Sextant);
-Sextant;                            ;                                           Angler | (Shimmer & Fisherman's Pocket Guide);
+Fisherman's Pocket Guide;           ;                                           Angler & (@fishing | (@fargo & Tinkerer's Workshop & Bug Net));
+Weather Radio;                      ;                                           Angler & (@fishing | (@fargo & Tinkerer's Workshop & Bug Net));
+Sextant;                            ;                                           Angler & (@fishing | (@fargo & Tinkerer's Workshop & Bug Net));
 Servant-in-Training;                Achievement | Fishing;                      Angler;
 \10 Fishing Quests;                 Achievement | Fishing;                      Angler;
 Trout Monkey;                       Achievement | Fishing;                      Angler;
@@ -148,7 +148,7 @@ Summoning Potion;                   Minions(1);
 // The Aether
 Aether;
 A Shimmer In The Dark;              Achievement;                                Aether;
-Shimmer;                            Shimmer;                                    Aether & @shimmer_skips;
+Shimmer;                            ;                                           Aether & @shimmer_skips;
 
 // Underworld
 It's Getting Hot in Here;           Location | Depth;
@@ -286,7 +286,7 @@ Tally Counter;                      ;                                           
 R.E.K. 3000;                        ;                                           Tinkerer's Workshop & Radar & Tally Counter & Lifeform Analyzer;
 PDA;                                ;                                           Tinkerer's Workshop & GPS & R.E.K. 3000 & Goblin Tech & Fish Finder;
 Cell Phone;                         ;                                           (Tinkerer's Workshop & Magic Mirror & PDA) | (@getfixedboi & @calamity & #Polterghast);
-Black Mirror;                       Achievement | Fishing | Crafting;           Cell Phone;
+Black Mirror;                       Achievement | Crafting;                     Cell Phone;
 Bewitching Table;                   Minions(1);                                 (@fargo & Witch Doctor & Skeletron) | Dungeon | (Witch Doctor & Wizard) | (Shimmer & Alchemy Table);
 Alchemy Table;                      ;                                           Dungeon | (Shimmer & Bewitching Table);
 Mechanic;                           Npc;                                        Dungeon;
