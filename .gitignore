@@ -24,6 +24,8 @@
 *.gb
 *.gbc
 *.gba
+*.nds
+*.iso
 *.wixobj
 *.lck
 *.db3
@@ -46,6 +48,7 @@ EnemizerCLI/
 /SNI/
 /sni-*/
 /appimagetool*
+/VC_redist.x64.exe
 /host.yaml
 /meta.yaml
 /options.yaml
@@ -64,13 +67,12 @@ Output Logs/
 /setup.ini
 /installdelete.iss
 /data/user.kv
+/data/jak1/
 /datapackage
+/datapackage_export.json
 /custom_worlds
-/.0.5.1
-/.0.6.0
-/fuzz_output
-fuzz.py
-/hooks
+# stubgen output
+/out/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
