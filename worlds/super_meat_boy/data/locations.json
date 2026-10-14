@@ -2997,7 +2997,7 @@
         "requires": "|3-13 A+ Rank|"
     },
     {
-        "name": "3-14X Step One",
+        "name": "3-14X Salmon",
         "category": [
             "DW Chapter 3"
         ],
@@ -3005,7 +3005,7 @@
         "requires": "|3-14 A+ Rank|"
     },
     {
-        "name": "3-14X Step One (A+ Rank)",
+        "name": "3-14X Salmon (A+ Rank)",
         "category": [
             "DW Chapter 3"
         ],
@@ -3991,7 +3991,7 @@
             "DW Chapter 4"
         ],
         "region": "Chapter 4",
-        "requires": "|4-1 A+ Rank|"
+        "requires": "|4-20 A+ Rank|"
     },
     {
         "name": "4-20X Imperial (A+ Rank)",
@@ -3999,7 +3999,7 @@
             "DW Chapter 4"
         ],
         "region": "Chapter 4",
-        "requires": "|4-1 A+ Rank|"
+        "requires": "|4-20 A+ Rank|"
     },
     {
         "name": "5-1WZ Skyscraper",

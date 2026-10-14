@@ -1,8 +1,10 @@
+from CommonClient import logger
 from Options import Choice, Range, OptionList, OptionSet, Toggle, DefaultOnToggle, DeathLink, PerGameCommonOptions
 from dataclasses import dataclass
 from worlds.AutoWorld import World
 from .locations import location_table
 from .utils import get_achievements
+
 
 class Goal(Choice):
     """
@@ -301,10 +303,13 @@ def resolve_options(world: World):
     # If goal requires a specific chapter that's not enabled, default to boss tokens
     if world.options.goal == "larries" and "5" not in world.options.chapters.value:
         world.options.goal.value = Goal.option_boss_tokens
+        logger.info("Larries is the goal but chapter 5 is not enabled, setting goal to boss tokens.")
     elif world.options.goal in ("light_world", "dark_world") and "6" not in world.options.chapters.value:
         world.options.goal.value = Goal.option_boss_tokens
+        logger.info("Goal is Dr. Fetus but chapter 6 is not enabled, setting goal to boss tokens.")
     elif world.options.goal in ("light_world_chapter7", "dark_world_chapter7") and "7" not in world.options.chapters.value:
         world.options.goal.value = Goal.option_boss_tokens
+        logger.info("Goal is chapter 7 but chapter 7 is not enabled, setting goal to boss tokens.")
     
     # If goal is boss tokens, force enable boss tokens
     if world.options.goal == "boss_tokens":
