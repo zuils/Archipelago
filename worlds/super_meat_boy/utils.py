@@ -9,9 +9,7 @@ if TYPE_CHECKING:
 
 
 def load_json_data(data_name: str) -> Union[List[Any], Dict[str, Any]]:
-    return orjson.loads(
-        pkgutil.get_data(__name__, "data/" + data_name).decode("utf-8-sig")
-    )
+    return orjson.loads(pkgutil.get_data(__name__, "data/" + data_name).decode("utf-8-sig"))
 
 
 def is_location_enabled(options: "SMBOptions", loc_data: "SMBLocationData") -> bool:

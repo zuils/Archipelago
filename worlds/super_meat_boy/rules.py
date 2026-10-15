@@ -1,11 +1,13 @@
-from BaseClasses import CollectionState, MultiWorld
-from typing import Any, Union, Dict, List, TYPE_CHECKING
-from .items import item_name_groups
+import re
+from typing import Any, Union, Dict, List, Tuple, TYPE_CHECKING
+from rule_builder.rules import AtLeast, CanReachLocation, Has, HasAll, HasGroup, Rule, True_
 from .locations import location_table
 from .options import SMBOptions
 from .regions import connect_regions
 from .utils import is_location_enabled
-import re
+
+if TYPE_CHECKING:
+    from . import SMBWorld
 
 TOKEN_REGEX = re.compile(
     r"""
@@ -78,12 +80,12 @@ def parse_function(token: str) -> Dict[str, Any]:
     return {"function": name.strip(), "args": args}
 
 
-def parse_expression(tokens: List[str]):
+def parse_expression(tokens: List[str]) -> Dict[str, Any]:
     """
     Parse a list of tokens into a nested logical requirement structure
     """
 
-    def parse_tokens(idx: int):
+    def parse_tokens(idx: int) -> Tuple[Dict[str, Any], int]:
         res = []
 
         while idx < len(tokens):
@@ -104,7 +106,7 @@ def parse_expression(tokens: List[str]):
 
         return combine_logical(res), idx
 
-    def combine_logical(lst: List[Any]):
+    def combine_logical(lst: List[Any]) -> Dict[str, Any]:
         """
         Convert a flat list with and/or into nested dicts.
 
@@ -125,215 +127,146 @@ def parse_expression(tokens: List[str]):
     return parsed
 
 
-def evaluate_requirement(world: MultiWorld, options: SMBOptions, state: CollectionState, player: int, node: Any) -> bool:
-    # No requirement
+def evaluate_requirement(node: Any, options: SMBOptions) -> Rule:
     if node is None or node == {}:
-        return True
+        return True_()
 
-    # Logical AND
     if isinstance(node, dict) and "and" in node:
-        return all(evaluate_requirement(world, options, state, player, child) for child in node["and"])
+        children = iter(node["and"])
+        rule = evaluate_requirement(next(children), options)
+        for child in children:
+            rule = rule & evaluate_requirement(child, options)
+        return rule
 
-    # Logical OR
     if isinstance(node, dict) and "or" in node:
-        return any(evaluate_requirement(world, options, state, player, child) for child in node["or"])
+        children = iter(node["or"])
+        rule = evaluate_requirement(next(children), options)
+        for child in children:
+            rule = rule | evaluate_requirement(child, options)
+        return rule
 
-    # Item requirement
     if isinstance(node, dict) and "item" in node:
-        return state.has(node["item"], player, node.get("count", 1))
+        return Has(node["item"], count=node.get("count", 1))
 
-    # Category requirement
     if isinstance(node, dict) and "category" in node:
-        category = node["category"]
-        needed = node.get("count", 1)
-        
-        item_names = item_name_groups.get(category, [])
-        
-        # Count how many items from this group the player has
-        total = 0
-        for item in item_names:
-            total += state.count(item, player)
-            if total >= needed:
-                return True
-            
-        return False
+        return HasGroup(node["category"], count=node.get("count", 1))
 
-    # Function requirement
     if isinstance(node, dict) and "function" in node:
-        func_name = node["function"]
-        args = node.get("args", [])
-
-        func = FUNCTION_TABLE[func_name]
-        return func(options, state, player, *args)
+        return FUNCTION_TABLE[node["function"]](options, *node.get("args", []))
 
     raise TypeError(f"Invalid requirement node: {node}")
 
 
-def parse_requirement(world: MultiWorld, options: SMBOptions, state: CollectionState, player: int, req: str) -> bool:
-    if not req:
-        return True
-
-    tokens = tokenize(req)
-    parsed = parse_expression(tokens)
-
-    return evaluate_requirement(world, options, state, player, parsed)
+def parse_requirement(req: str, options: SMBOptions) -> Rule:
+    return evaluate_requirement(parse_expression(tokenize(req)), options)
 
 
-def boss_req(options: SMBOptions, state: CollectionState, player: int, chpt: int) -> bool:
-    return state.has(f"Chapter {chpt} Boss Key", player, options.boss_req.value) and state.has("Meat Boy", player)
+def boss_req(options: SMBOptions, chpt: int) -> Rule:
+    return Has(f"Chapter {chpt} Boss Key", count=options.boss_req.value) & Has("Meat Boy")
 
 
-def speedrun_req(options: SMBOptions, state: CollectionState, player: int, chpt: int) -> bool:
-    return state.has_all([f"{chpt}-{i} A+ Rank" for i in range(1, 21 if chpt != 6 else 6)], player)
+def speedrun_req(options: SMBOptions, chpt: int) -> Rule:
+    return HasAll(*(f"{chpt}-{i} A+ Rank" for i in range(1, 21 if chpt != 6 else 6)))
 
 
-def larries(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    return boss_req(options, state, player, 5) and state.has("Meat Boy", player) and (
-        not options.boss_tokens.value
-        or options.goal != "larries"
-        or state.has("Boss Token", player, options.boss_token_req.value)
-    )
+def larries(options: SMBOptions) -> Rule:
+    rule = boss_req(options, 5) & Has("Meat Boy")
+    if options.boss_tokens.value and options.goal == "larries":
+        rule = rule & Has("Boss Token", count=options.boss_token_req.value)
+    return rule
 
 
-def lw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    return state.has("Chapter 6 Boss Key", player, options.lw_dr_fetus_req.value) and (
-        not options.boss_tokens.value
-        or options.goal != "light_world"
-        or state.has("Boss Token", player, options.boss_token_req.value)
-    )
+def lw_drfetus(options: SMBOptions) -> Rule:
+    rule = Has("Chapter 6 Boss Key", count=options.lw_dr_fetus_req.value)
+    if options.boss_tokens.value and options.goal == "light_world":
+        rule = rule & Has("Boss Token", count=options.boss_token_req.value)
+    return rule
 
 
-def dw_drfetus(options: SMBOptions, state: CollectionState, player: int) -> bool:
-    counter: int = 0
-    for i in range(1, 6):
-        if state.has(f"Chapter {i} Key", player):
-            counter += state.count_from_list([f"{i}-{j} A+ Rank" for j in range(1, 21)], player)
-    
-    if state.has_all(["Chapter 6 Key", "Meat Boy"], player):
-        counter += state.count_from_list([f"6-{i} A+ Rank" for i in range(1, 6)], player)
-
-    if state.has_all(["Chapter 7 Key", "Bandage Girl"], player):
-        counter += state.count_from_list([f"7-{i} A+ Rank" for i in range(1, 21)], player)
-        
-    return counter >= 85 and (
-        not options.boss_tokens.value
-        or options.goal != "dark_world"
-        or state.has("Boss Token", player, options.boss_token_req.value)
-    )
+def dw_drfetus(options: SMBOptions) -> Rule:
+    rules = [
+        HasAll(f"Chapter {chapter} Key", f"{chapter}-{level} A+ Rank")
+        for chapter in range(1, 6)
+        for level in range(1, 21)
+    ]
+    rules.extend(HasAll("Chapter 6 Key", "Meat Boy", f"6-{level} A+ Rank") for level in range(1, 6))
+    rules.extend(HasAll("Chapter 7 Key", "Bandage Girl", f"7-{level} A+ Rank") for level in range(1, 21))
+    rule = AtLeast(85, *rules)
+    if options.boss_tokens.value and options.goal == "dark_world":
+        rule = rule & Has("Boss Token", count=options.boss_token_req.value)
+    return rule
 
 
-def bandages(options: SMBOptions, state: CollectionState, player: int, req: int) -> bool:
-    counter: int = 0
-    if state.has("Chapter 1 Key", player):
-        counter += 11
-        if options.dark_world.value:
-            counter += (
-                state.has("1-3 A+ Rank", player)
-                + state.has("1-5 A+ Rank", player)
-                + state.has("1-10 A+ Rank", player)
-                + (state.has("1-13 A+ Rank", player) * 2)
-                + state.has("1-14 A+ Rank", player)
-                + state.has("1-15 A+ Rank", player)
-                + state.has("1-17 A+ Rank", player)
-                + state.has("1-19 A+ Rank", player)
-            )
-    if state.has("Chapter 2 Key", player):
-        counter += 11
-        if options.dark_world.value:
-            counter += (
-                state.has("2-4 A+ Rank", player)
-                + (state.has("2-5 A+ Rank", player) * 2)
-                + state.has("2-6 A+ Rank", player)
-                + state.has("2-7 A+ Rank", player)
-                + state.has("2-10 A+ Rank", player)
-                + state.has("2-12 A+ Rank", player)
-                + state.has("2-15 A+ Rank", player)
-                + state.has("2-16 A+ Rank", player)
-            )
-    if state.has("Chapter 3 Key", player):
-        counter += 8
-        if options.dark_world.value:
-            counter += (
-                (state.can_reach_location("3-7WZ Tunnel Vision", player) * 2)
-                + state.can_reach_location("3-4 Transmissions (Bandage)", player)
-                + state.has("3-3 A+ Rank", player)
-                + state.has("3-5 A+ Rank", player)
-                + state.has("3-6 A+ Rank", player)
-                + state.has("3-7 A+ Rank", player)
-                + (state.has("3-8 A+ Rank", player) * 2)
-                + state.can_reach_location("3-14X Step One (Bandage)", player)
-                + state.has("3-16 A+ Rank", player)
-                + state.has("3-19 A+ Rank", player)
-            )
-    if state.has("Chapter 4 Key", player):
-        counter += 11
-        if options.dark_world.value:
-            counter += (
-                state.has("4-3 A+ Rank", player)
-                + state.has("4-4 A+ Rank", player)
-                + (state.can_reach_location("4-7XWZ MMMMMM", player) * 2)
-                + state.has("4-8 A+ Rank", player)
-                + state.has("4-10 A+ Rank", player)
-                + state.has("4-14 A+ Rank", player)
-                + state.has("4-18 A+ Rank", player)
-                + state.has("4-19 A+ Rank", player)
-            )
-    if state.has("Chapter 5 Key", player):
-        counter += 11
-        if options.dark_world.value:
-            counter += (
-                state.has("5-4 A+ Rank", player)
-                + state.has("5-5 A+ Rank", player)
-                + state.has("5-8 A+ Rank", player)
-                + state.has("5-10 A+ Rank", player)
-                + state.has("5-11 A+ Rank", player)
-                + state.has("5-17 A+ Rank", player)
-                + state.has("5-18 A+ Rank", player)
-                + (state.has("5-20 A+ Rank", player) * 2)
-            )
+def add_bandages(rules: List[Rule], options: SMBOptions, chpt: int, count: int, dw_rules: List[tuple[Rule, int]]) -> None:
+    if str(chpt) not in options.chapters.value:
+        return
 
-    return counter >= req
+    chpt_key = Has(f"Chapter {chpt} Key")
+    rules.extend([chpt_key] * count)
+    if options.dark_world.value:
+        for rule, amount in dw_rules:
+            rules.extend([chpt_key & rule] * amount)
 
-def warp_zone(options: SMBOptions, state: CollectionState, player: int, req: int) -> bool:
-    counter: int = 0
-    if state.has("Chapter 1 Key", player):
-        counter += 3
-        if options.dark_world.value:
-            counter += state.has("1-13 A+ Rank", player)
-    if state.has("Chapter 2 Key", player):
-        counter += 3
-        if options.dark_world.value:
-            counter += state.has("2-5 A+ Rank", player)
-    if state.has("Chapter 3 Key", player):
-        counter += 2
-        counter += state.can_reach_location("3-7WZ Tunnel Vision", player)
-        if options.dark_world.value:
-            counter += state.has("3-8 A+ Rank", player)
-    if state.has("Chapter 4 Key", player):
-        counter += 3
-        if options.dark_world.value:
-            counter += state.can_reach_location("4-7XWZ MMMMMM", player)
-    if state.has("Chapter 5 Key", player):
-        counter += 3
-        if options.dark_world.value:
-            counter += state.has("5-20 A+ Rank", player)
-    
-    return counter >= req
+
+def bandages(options: SMBOptions, req: int) -> Rule:
+    rules: List[Rule] = []
+    add_bandages(rules, options, 1, 11, [
+        (Has("1-3 A+ Rank"), 1), (Has("1-5 A+ Rank"), 1), (Has("1-10 A+ Rank"), 1),
+        (Has("1-13 A+ Rank"), 2), (Has("1-14 A+ Rank"), 1), (Has("1-15 A+ Rank"), 1),
+        (Has("1-17 A+ Rank"), 1), (Has("1-19 A+ Rank"), 1),
+    ])
+    add_bandages(rules, options, 2, 11, [
+        (Has("2-4 A+ Rank"), 1), (Has("2-5 A+ Rank"), 2), (Has("2-6 A+ Rank"), 1),
+        (Has("2-7 A+ Rank"), 1), (Has("2-10 A+ Rank"), 1), (Has("2-12 A+ Rank"), 1),
+        (Has("2-15 A+ Rank"), 1), (Has("2-16 A+ Rank"), 1),
+    ])
+    add_bandages(rules, options, 3, 8, [
+        (CanReachLocation("3-7WZ Tunnel Vision"), 2),
+        (CanReachLocation("3-4 Transmissions (Bandage)"), 1), (Has("3-3 A+ Rank"), 1),
+        (Has("3-5 A+ Rank"), 1), (Has("3-6 A+ Rank"), 1), (Has("3-7 A+ Rank"), 1),
+        (Has("3-8 A+ Rank"), 2), (CanReachLocation("3-14X Step One (Bandage)"), 1),
+        (Has("3-16 A+ Rank"), 1), (Has("3-19 A+ Rank"), 1),
+    ])
+    add_bandages(rules, options, 4, 11, [
+        (Has("4-3 A+ Rank"), 1), (Has("4-4 A+ Rank"), 1),
+        (CanReachLocation("4-7XWZ MMMMMM"), 2), (Has("4-8 A+ Rank"), 1),
+        (Has("4-10 A+ Rank"), 1), (Has("4-14 A+ Rank"), 1),
+        (Has("4-18 A+ Rank"), 1), (Has("4-19 A+ Rank"), 1),
+    ])
+    add_bandages(rules, options, 5, 11, [
+        (Has("5-4 A+ Rank"), 1), (Has("5-5 A+ Rank"), 1), (Has("5-8 A+ Rank"), 1),
+        (Has("5-10 A+ Rank"), 1), (Has("5-11 A+ Rank"), 1), (Has("5-17 A+ Rank"), 1),
+        (Has("5-18 A+ Rank"), 1), (Has("5-20 A+ Rank"), 2),
+    ])
+    return AtLeast(req, *rules)
+
+
+def warp_zone(options: SMBOptions, req: int) -> Rule:
+    rules: List[Rule] = []
+    add_bandages(rules, options, 1, 3, [(Has("1-13 A+ Rank"), 1)])
+    add_bandages(rules, options, 2, 3, [(Has("2-5 A+ Rank"), 1)])
+    add_bandages(rules, options, 3, 2, [(CanReachLocation("3-7WZ Tunnel Vision"), 1), (Has("3-8 A+ Rank"), 1)])
+    add_bandages(rules, options, 4, 3, [(CanReachLocation("4-7XWZ MMMMMM"), 1)])
+    add_bandages(rules, options, 5, 3, [(Has("5-20 A+ Rank"), 1)])
+    return AtLeast(req, *rules)
+
 
 FUNCTION_TABLE = {
-    "boss_req": lambda options, state, player, chpt: boss_req(options, state, player, chpt),
-    "speedrun_req": lambda options, state, player, chpt: speedrun_req(
-        options, state, player, chpt
-    ),
-    "larries": lambda options, state, player: larries(options, state, player),
-    "lw_drfetus": lambda options, state, player: lw_drfetus(options, state, player),
-    "dw_drfetus": lambda options, state, player: dw_drfetus(options, state, player),
-    "bandages": lambda options, state, player, req: bandages(options, state, player, req),
-    "warp_zone": lambda options, state, player, req: warp_zone(options, state, player, req)
+    "boss_req": boss_req,
+    "speedrun_req": speedrun_req,
+    "larries": larries,
+    "lw_drfetus": lw_drfetus,
+    "dw_drfetus": dw_drfetus,
+    "bandages": bandages,
+    "warp_zone": warp_zone,
 }
 
 
-def set_rules(world: MultiWorld, options: SMBOptions, player: int):
+def set_rules(world: "SMBWorld") -> None:
+    multiworld = world.multiworld
+    options = world.options
+    player = world.player
+
     for name, data in location_table.items():
         if not is_location_enabled(options, data):
             continue
@@ -358,27 +291,28 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
 
         req = data.requirement
 
-        world.get_location(name, player).access_rule = lambda state, req=req: parse_requirement(
-            world, options, state, player, req
-        )
+        world.set_rule(multiworld.get_location(name, player), parse_requirement(req, options))
 
-    connect_regions(world, "Menu", "Initial", player)
+    connect_regions(multiworld, "Menu", "Initial", player)
+
     for i in range(1, 6):
         if str(i) in options.chapters.value:
-            connect_regions(world, "Menu", f"Chapter {i}", player, lambda state, i=i: state.has(f"Chapter {i} Key", player))
+            connect_regions(multiworld, "Menu", f"Chapter {i}", player)
+            world.set_rule(multiworld.get_region("Menu", player).exits[-1], Has(f"Chapter {i} Key"))
 
     if "6" in options.chapters.value:
-        connect_regions(world, "Menu", "Chapter 6", player, lambda state: state.has("Chapter 6 Key", player) and state.has("Meat Boy", player))
+        connect_regions(multiworld, "Menu", "Chapter 6", player)
+        world.set_rule(multiworld.get_region("Menu", player).exits[-1], HasAll("Chapter 6 Key", "Meat Boy"))
     
     if "7" in options.chapters.value:
         chpt_seven_goal = [f"Chapter {i} Key" for i in range(1, 8) if str(i) in options.chapters.value]
 
         if options.goal in ("light_world_chapter7", "dark_world_chapter7") and not options.boss_tokens.value:
-            connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
-                state.has_all(chpt_seven_goal, player) and state.has("Bandage Girl", player))
+            connect_regions(multiworld, "Menu", "Chapter 7", player)
+            world.set_rule(multiworld.get_region("Menu", player).exits[-1], HasAll(*chpt_seven_goal) & Has("Bandage Girl"))
         else:
-            connect_regions(world, "Menu", "Chapter 7", player, lambda state: \
-                state.has("Chapter 7 Key", player) and state.has("Bandage Girl", player))
+            connect_regions(multiworld, "Menu", "Chapter 7", player)
+            world.set_rule(multiworld.get_region("Menu", player).exits[-1], HasAll("Chapter 7 Key", "Bandage Girl"))
 
     boss_tokens_amount: int = 0
     
@@ -400,25 +334,20 @@ def set_rules(world: MultiWorld, options: SMBOptions, player: int):
         boss_tokens_amount += 1
     
     if options.goal == "bandages":
-        world.completion_condition[player] = lambda state: state.has("Bandage", player, options.bandages_amount.value) and (
-            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
-        )
+        completion_rule = Has("Bandage", count=options.bandages_amount.value)
     elif options.goal == "achievements":
-        world.completion_condition[player] = lambda state: state.has("Achievement Token", player, options.achievement_tokens.value) and (
-            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
-        )
+        completion_rule = Has("Achievement Token", count=options.achievement_tokens.value)
     elif options.goal == "boss_tokens":
-        world.completion_condition[player] = lambda state: state.has("Boss Token", player, boss_tokens_amount)
+        completion_rule = Has("Boss Token", count=boss_tokens_amount)
     elif options.goal == "light_world_chapter7":
-        world.completion_condition[player] = lambda state: state.has("Chapter 7 LW Level Key", player, 20) and (
-            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
-        )
+        completion_rule = Has("Chapter 7 LW Level Key", count=20)
     elif options.goal == "dark_world_chapter7":
-        world.completion_condition[player] = lambda state: state.has("Chapter 7 DW Level Key", player, 20) and (
-            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
-        )
+        completion_rule = Has("Chapter 7 DW Level Key", count=20)
     else:
-        world.completion_condition[player] = lambda state: state.has("Victory", player) and (
-            not options.boss_tokens.value or state.has("Boss Token", player, boss_tokens_amount)
-        )
+        completion_rule = Has("Victory")
+
+    if options.goal != "boss_tokens" and options.boss_tokens.value:
+        completion_rule = completion_rule & Has("Boss Token", count=boss_tokens_amount)
+
+    world.set_completion_rule(completion_rule)
         

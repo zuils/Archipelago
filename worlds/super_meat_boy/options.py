@@ -1,9 +1,11 @@
-from CommonClient import logger
+import logging
 from Options import Choice, Range, OptionList, OptionSet, Toggle, DefaultOnToggle, DeathLink, PerGameCommonOptions
 from dataclasses import dataclass
 from worlds.AutoWorld import World
 from .locations import location_table
 from .utils import get_achievements
+
+logger = logging.getLogger("Client")
 
 
 class Goal(Choice):

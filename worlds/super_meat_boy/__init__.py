@@ -33,6 +33,7 @@ class SMBWorld(World):
     
     item_name_to_id = {name: data.item_id for name, data in item_table.items()}
     location_name_to_id = {name: data.location_id for name, data in location_table.items()}
+    item_name_groups = item_name_groups
     
     def generate_early(self):
         resolve_options(self)
@@ -226,4 +227,4 @@ class SMBWorld(World):
         return create_regions(self.multiworld, self.options, self.player)
     
     def set_rules(self):
-        return set_rules(self.multiworld, self.options, self.player)
+        return set_rules(self)
