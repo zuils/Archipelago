@@ -254,7 +254,7 @@ class DeathLinkAmnesty(Range):
 
     display_name = "Death Link Amnesty"
     range_start = 1
-    range_end = 20
+    range_end = 30
     default = 10
 
 
