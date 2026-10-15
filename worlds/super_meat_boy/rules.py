@@ -1,4 +1,5 @@
 import re
+import ast
 from typing import Any, Union, Dict, List, Tuple, TYPE_CHECKING
 from rule_builder.rules import AtLeast, CanReachLocation, Has, HasAll, HasGroup, Rule, True_
 from .locations import location_table
@@ -73,7 +74,7 @@ def parse_function(token: str) -> Dict[str, Any]:
     if "(" in val:
         name, args = val.split("(", 1)
         args = args.rstrip(")")
-        args = [eval(arg.strip()) for arg in args.split(",")] if args else []
+        args = [ast.literal_eval(arg.strip()) for arg in args.split(",")] if args.strip() else []
     else:
         name = val
         args = []
