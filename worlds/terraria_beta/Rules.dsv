@@ -246,7 +246,7 @@ Hot Reels!;                         Achievement;                                
 Brimstone Slag;                     Calamity;                                   Underworld & @pickaxe(100);
 
 // Goblin Army
-Goblin Army;                        Location | Item;                            @health(1);
+Goblin Army;                        Location | Item;                            Orb & @health(1);
 Goblin Tinkerer;                    Npc;                                        Goblin Army;
 Abominationn NPC;                   Fargo;                                      Goblin Army;
 Tinkerer's Workshop;                ;                                           Goblin Tinkerer;
@@ -266,7 +266,7 @@ Diving Gear;                        ;                                           
 
 // Queen Bee
 Where's My Honey?;                  Achievement;                                Undercavern;
-Queen Bee;                          Location | Item;                            Undercavern | @health(1);
+Queen Bee;                          Location | Item;                            Undercavern & @health(1);
 Bee Keeper;                         ;                                           #Queen Bee;
 Bee Wax;                            ;                                           #Queen Bee;
 Bee Armor;                          Armor Minions(2);                           Bee Wax;
