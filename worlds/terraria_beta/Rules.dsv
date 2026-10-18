@@ -80,6 +80,7 @@ Clumsy Slime;                       Pet;
 // Underground
 Underground;                        ;                                           @depth(1);
 Undercavern;                        ;                                           @depth(2) | (~@depth_safety & @depth(1));  // used for events that could be accessed in underground or caverns based on worldgen
+Gold;                               ;                                           @rare | Underground;
 Watch Your Step!;                   Achievement;                                Underground;
 Throwing Lines;                     Achievement;                                Underground;
 Torch God;                          Location | Item(Reward: Torch God's Favor); Underground;
@@ -88,7 +89,7 @@ Ancient Bone Dust;                  Calamity;                                   
 Depth Meter;
 Compass;
 Hey! Listen!;                       Achievement;                                Underground;
-I Am Loot!;                         Achievement;  // can be achieved from crafted gold chests
+I Am Loot!;                         Achievement;                                Gold;
 Magic Mirror;
 Life Crystal;                       Health;                                     Underground | @fishing | (Nurse & @fargo);
 Heart Breaker;                      Achievement;                                Underground;
@@ -97,9 +98,9 @@ The Frequent Flyer;                 Not Calamity Getfixedboi | Achievement;     
 Feast of Midas;                     Achievement | Rare;                         Bug Net;
 Hold on Tight!;                     Achievement | Early;
 Feller of Evergreens;               Calamity;                                   Undercavern;
-Gold Hammer;                        Hammer(55);
-Gold Pickaxe;                       Pickaxe(55);
-Gold Watch;
+Gold Hammer;                        Hammer(55);                                 Gold;
+Gold Pickaxe;                       Pickaxe(55);                                Gold;
+Gold Watch;                         ;                                           Gold;
 Like a Boss;                        Achievement;                                Underground | Altar;
 Hermes Boots;                       ;                                           Undercavern | @fishing;
 Funkytown;                          Achievement;                                Underground;
