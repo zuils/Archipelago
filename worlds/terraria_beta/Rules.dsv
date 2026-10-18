@@ -45,7 +45,7 @@ Heliophobia;                        Achievement | Rare;
 Blighted Gel;                       Calamity;
 Evil Powder;
 Archaeologist;                      Achievement | Rare;
-Zoologist;                          Npc;
+Zoologist;                          Npc;                                        Underground;
 Cat;                                Pet;                                        Zoologist;
 Feeling Petty;                      Achievement;                                Cat | Dog;
 Dog;                                Pet;                                        Zoologist;
