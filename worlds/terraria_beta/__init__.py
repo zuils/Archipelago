@@ -163,6 +163,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             "mods": slot_data["mods"],
             "getfixedboi": slot_data["getfixedboi"],
             "randomize_npcs": slot_data["npc_rando"],
+            "randomize_depth": slot_data["depth_rando"],
             "early_achievements": slot_data["early_achievements"],
             "normal_achievements": slot_data["normal_achievements"],
             "rare_achievements": slot_data["rare_achievements"],
