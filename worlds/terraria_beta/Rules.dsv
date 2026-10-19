@@ -5,7 +5,7 @@ Copper Shortsword;
 Guide;                              Npc;
 
 // Immediately accessible
-Squire Slime;                       Pet;
+Squire Slime;                       Pet;  // Copper shortswords are not a given on journey mode worlds with tin, but we just give the player a copper shortsword
 Traveling Merchant;                 ;                                           @npc(2);
 Lifeform Analyzer;                  ;                                           Traveling Merchant;
 DPS Meter;                          ;                                           Traveling Merchant;
