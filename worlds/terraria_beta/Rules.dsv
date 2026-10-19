@@ -93,7 +93,7 @@ I Am Loot!;                         Achievement;                                
 Magic Mirror;
 Life Crystal;                       Health;                                     Underground | @fishing | (Nurse & @fargo);
 Heart Breaker;                      Achievement;                                Underground;
-Nurse;                              Npc;                                        Merchant | Life Crystal;
+Nurse;                              Npc;                                        Merchant & Life Crystal;
 The Frequent Flyer;                 Not Calamity Getfixedboi | Achievement;     Nurse;
 Feast of Midas;                     Achievement | Rare;                         Bug Net;
 Hold on Tight!;                     Achievement | Early;
