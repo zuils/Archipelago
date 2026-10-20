@@ -81,8 +81,9 @@ class PacManWorld2World(World):
                 if self.options.token_goal.value == 0:
                     continue
                 else:
-                    # We check minimum because if all levels are on then total levels * 2 will produce 1 more than the max because of Pac-Village
-                    count = min(data.count, self.options.total_levels.value * 2)
+                    available_tokens = sum(1 for loc in self.multiworld.get_locations(self.player) if loc.address is not None and "Token" in loc.name)
+                    count = min(data.count, available_tokens)
+                    self.options.token_goal.value = min(self.options.token_goal.value, count)
             
             item_pool.extend(self.create_item(name) for _ in range(count))
         
