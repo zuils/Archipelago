@@ -1,17 +1,15 @@
 import asyncio
 import logging
 import struct
+import Utils
 from argparse import Namespace
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Dict, List, Optional, Set, Tuple, Type
-
-import Utils
 from CommonClient import CommonContext, ClientCommandProcessor, server_loop, gui_enabled, get_base_parser
 from NetUtils import ClientStatus, NetworkItem
 from .pypine import Pine
 from . import locations
-
 
 logger = logging.getLogger("Client")
 
@@ -23,7 +21,7 @@ GP: int = 0x5BB070                                # Global Pointer
 
 # Live game state
 LEVEL_ID_ADDR: int = 0x49BD2C                     # u32: current level ID
-RUNTIME_LEVEL_COMPLETE_ADDR: int = 0x5B7BB0       # u8: runtime level completion flag
+# RUNTIME_LEVEL_COMPLETE_ADDR: int = 0x5B7BB0       # u8: runtime level completion flag
 FRUIT_ADDR: int = 0x3635E4                        # u32[5]: Cherry, Strawberry, Orange, Apple, Melon
 PACDOT_ADDR: int = GP - 0x1120                    # u32: pacDotsEaten (0x5B9F50)
 GALAXIAN_ADDR: int = 0x3635F8                     # u32: Galaxian counter
@@ -36,6 +34,14 @@ LEVEL_SAVE_BASES: Dict[int, int] = {
     0: 0x4969A8,  # Pac-Village
     1: 0x496700,  # The Bear Basics
     **{level: 0x496A30 + (level - 2) * LEVEL_STEP for level in range(2, 25)},
+}
+BOSS_COMPLETION_LOCATIONS: Dict[int, str] = {
+    4: "Defeat Blinky's Frog",
+    8: "Defeat Inky's Saw",
+    12: "Defeat Pinky's Blower",
+    16: "Defeat Clyde's Machine",
+    20: "Defeat Megawhale",
+    24: "Defeat Spooky",
 }
 
 # Offsets inside a level's saved struct
@@ -57,7 +63,7 @@ LEVELS_WITHOUT_TOKENS: Tuple[int, ...] = (4, 8, 12, 16, 20, 24)
 TT_BONUS_EXCLUDED_LEVEL: int = 18                 # No Time Trial bonus token here
 
 # Runtime level-complete flag values that count as "completed"
-LEVEL_COMPLETE_FLAG_VALUES: Tuple[int, ...] = (1, 0x4B)
+# LEVEL_COMPLETE_FLAG_VALUES: Tuple[int, ...] = (1, 0x4B)
 
 # Static data
 
@@ -125,9 +131,7 @@ class PacManWorld2Context(CommonContext):
         self.game_connected: bool = False
         self.last_status_message: Optional[str] = None
 
-        self.location_name_to_id: Dict[str, int] = {
-            name: data.location_id for name, data in locations.location_table.items()
-        }
+        self.location_name_to_id: Dict[str, int] = {name: data.location_id for name, data in locations.location_table.items()}
 
         # Data from the server
         self.slot_data: Dict[str, Any] = {}
@@ -139,7 +143,6 @@ class PacManWorld2Context(CommonContext):
 
         # Polling state
         self.prev: Optional[LevelSnapshot] = None
-        self.prev_runtime_level_complete: bool = False
         self.time_trial: Optional[ActiveTimeTrial] = None
 
         # Warning de-duplication
@@ -256,9 +259,7 @@ class PacManWorld2Context(CommonContext):
     @staticmethod
     def get_level_complete_address(level_id: int) -> Optional[int]:
         # MapSelect_CalculateOpens(): *(int *)(&DAT_0049bdc0 + levelID * 0x88)
-        if 0 <= level_id <= MAX_LEVEL_ID:
-            return LEVEL_DATA_BASE + level_id * LEVEL_STEP
-        return None
+        return LEVEL_SAVE_BASES.get(level_id)
 
     def get_level_base(self, level_id: int) -> Optional[int]:
         """Address of the first token flag for a level, or None if it has no tokens."""
@@ -363,7 +364,6 @@ class PacManWorld2Context(CommonContext):
         if not self.pine.is_connected():
             return
 
-        runtime_level_complete = self.pine.read_int32(RUNTIME_LEVEL_COMPLETE_ADDR) in LEVEL_COMPLETE_FLAG_VALUES
         level_id = self.pine.read_int32(LEVEL_ID_ADDR)
 
         # TODO: Fix level progression locking mechanism
@@ -377,7 +377,7 @@ class PacManWorld2Context(CommonContext):
         if gate.blocked and self.slot_data:
             self.warn_blocked_once(level_id, gate)
 
-        self.check_level_completion(level_id, runtime_level_complete)
+        self.check_level_completion(level_id)
 
         snapshot = self.read_snapshot(level_id)
         self.check_time_trial()
@@ -406,13 +406,17 @@ class PacManWorld2Context(CommonContext):
             tt_flag=self.pine.read_int32(TT_FLAG_ADDR + level_id * LEVEL_STEP),
         )
 
-    @staticmethod
-    def find_new_checks(prev: LevelSnapshot, cur: LevelSnapshot) -> List[str]:
+    def find_new_checks(self, prev: LevelSnapshot, cur: LevelSnapshot) -> List[str]:
         """Location suffixes for everything gained since the previous poll."""
         checks: List[str] = []
 
         for fruit_name, before, after in zip(FRUIT_NAMES, prev.fruits, cur.fruits):
-            checks += [f"{fruit_name} #{n + 1}" for n in range(before, after)]
+            if after > before:
+                first_fruit = f"{fruit_name} #1"
+                if any(name.endswith(f": {first_fruit}") for name in self.location_name_to_id):
+                    checks += [f"{fruit_name} #{n + 1}" for n in range(before, after)]
+                else:
+                    checks.append(fruit_name)
 
         checks += [f"Pac-Dot #{n + 1}" for n in range(prev.pacdot, cur.pacdot)]
 
@@ -438,13 +442,17 @@ class PacManWorld2Context(CommonContext):
             else:
                 self.queue_location(region_name, check)
 
-    def check_level_completion(self, level_id: int, runtime_level_complete: bool) -> None:
-        if runtime_level_complete and not self.prev_runtime_level_complete:
-            completed_level_id = self.find_completed_level_id(level_id)
-            if completed_level_id is not None:
-                self.queue_location(REGION_NAMES[completed_level_id], "Level Complete")
+    def check_level_completion(self, level_id: int) -> None:
+        completed_level_id = self.find_completed_level_id(level_id)
+        if completed_level_id is None:
+            return
 
-        self.prev_runtime_level_complete = runtime_level_complete
+        address = self.get_level_complete_address(completed_level_id)
+        if address is None or not (self.pine.read_int32(address) & 1):
+            return
+
+        location = BOSS_COMPLETION_LOCATIONS.get(completed_level_id, "Level Complete")
+        self.queue_location(REGION_NAMES[completed_level_id], location)
 
     def find_completed_level_id(self, level_id: int) -> Optional[int]:
         prev_level_id = self.prev.level_id if self.prev else None

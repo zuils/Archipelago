@@ -21,8 +21,7 @@ def create_location(name: str, region: str, count: int = 1, is_boss: bool = Fals
 
 create_location("Cherry", "Pac-Village", 6)
 create_location("Strawberry", "Pac-Village", 6)
-create_location("Orange", "Pac-Village", 4)
-create_location("Apple", "Pac-Village", 8)
+create_location("Apple", "Pac-Village", 4)
 create_location("Melon", "Pac-Village", 8)
 create_location("Pac-Dot", "Pac-Village", 142)
 create_location("Token", "Pac-Village", 8)
