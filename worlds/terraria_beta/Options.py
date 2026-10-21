@@ -87,12 +87,29 @@ class ShuffleUpTo(Choice):
     option_mutant = 19
     option_all = -1
 
-class RandomizeNPCs(Toggle):
+class RandomizeNPCs(DefaultOnToggle):
     """
     Randomizes all vanilla NPCs, putting them into the item pool. Fulfilling a certain NPC's recruit criteria rewards a check.
     """
     display_name = "Randomize NPCs"
-    default = True
+
+
+class RandomizeDepth(Choice):
+    """
+    Randomizes the maximum depth you are able to traverse, initially restricting you to the Surface and Space layers.
+    Receiving "Progressive Depth" items increments how many layers you can traverse downward, through the Underground, Cavern and Underworld respectively.
+    Adds checks upon collecting the achievements "Into Orbit", "It's Getting Hot in Here" and "Rock Bottom".
+
+    Use the gen safety option if you want structures and items that vary in spawn depth to only be considered accessible
+    when the Caverns are accessible. Otherwise, anything that *can* generate in the Underground layer will only need
+    access to that layer.
+    """
+
+    display_name = "Randomize Maximum Depth"
+    option_off = 0
+    option_on = 1
+    option_gen_safety = 2
+    default = 0
 
 
 class EarlyAchievements(DefaultOnToggle):
@@ -103,7 +120,7 @@ class EarlyAchievements(DefaultOnToggle):
 
 class NormalAchievements(DefaultOnToggle):
     """
-    Adds checks upon collecting achivements not covered by the other options. Achievements for
+    Adds checks upon collecting achievements not covered by the other options. Achievements for
     clearing bosses and events are excluded.
     """
 
@@ -137,7 +154,10 @@ class GrindyAchievements(Toggle):
 
 
 class FishingAchievements(Toggle):
-    """Adds checks upon collecting fishing quest achievements"""
+    """
+    Adds checks upon collecting fishing quest achievements.
+    If enabled, will also enable fishing logic.
+    """
 
     display_name = "Fishing Quest Achievements"
 
@@ -152,6 +172,16 @@ class FillExtraChecksWith(Choice):
     option_coins = 0
     option_useful_items = 1
     default = 1
+
+
+class FishingSkips(Toggle):
+    """
+    Enables sequence breaks in logic requiring the use of fishing or angler quests for items.
+    If disabled, certain achievements (like Black Mirror) may become inaccessible.
+    """
+
+    display_name = "Fishing Skips"
+
 
 
 class ShimmerSkips(Toggle):
@@ -200,6 +230,7 @@ ter_option_groups = [
     ]),
     OptionGroup("Checks", [
         RandomizeNPCs,
+        RandomizeDepth,
         EarlyAchievements,
         NormalAchievements,
         RareAchievements,
@@ -212,6 +243,7 @@ ter_option_groups = [
         FillExtraChecksWith,
     ]),
     OptionGroup("Logic", [
+        FishingSkips,
         ShimmerSkips,
         HealthLogic,
         HealthLogicHandicap,
@@ -225,6 +257,7 @@ class TerrariaOptions(PerGameCommonOptions):
     goal: Goal
     shuffle_to: ShuffleUpTo
     randomize_npcs: RandomizeNPCs
+    randomize_depth: RandomizeDepth
     early_achievements: EarlyAchievements
     normal_achievements: NormalAchievements
     rare_achievements: RareAchievements
@@ -233,6 +266,7 @@ class TerrariaOptions(PerGameCommonOptions):
     grindy_achievements: GrindyAchievements
     fishing_achievements: FishingAchievements
     fill_extra_checks_with: FillExtraChecksWith
+    fishing_skips: FishingSkips
     shimmer_skips: ShimmerSkips
     health_logic: HealthLogic
     health_logic_handicap: HealthLogicHandicap
