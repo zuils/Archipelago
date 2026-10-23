@@ -482,7 +482,7 @@ Chlorophyte Pickaxe;                Pickaxe(200);                               
 Chlorophyte Warhammer;              Hammer(90);                                 Hardmode Anvil & Chlorophyte Bar;
 
 // Calamitas Clone
-Lifelight;                          Fargo | Location | Item;                    ((Mutant NPC & Lifelight) | (Hardmode Anvil & Hallow & Crystal Shard & Soul of Light)) & @health(3);
+Lifelight;                          Fargo | Location | Item;                    ((Mutant NPC & Lifelight) | (Hardmode Anvil & Crystal Shard & Soul of Light)) & Hallow & @health(3);
 Calamitas Clone;                    Calamity | Location | Item | Goal;          ((@fargo & Mutant NPC & Calamitas Clone) | (Hardmode Anvil & Hellstone Bar & Essence of Havoc)) & @health(3);
 Plantera;                           Location | Item | Goal;                     ((@fargo & Mutant NPC & Plantera) | (Wall of Flesh & ((@mech_boss(3) & Underground) | (@calamity & Undercavern)))) & @health(3);  // Vernal Pass
 # calamitas_clone
