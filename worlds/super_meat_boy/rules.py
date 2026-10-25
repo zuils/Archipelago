@@ -298,22 +298,18 @@ def set_rules(world: "SMBWorld") -> None:
 
     for i in range(1, 6):
         if str(i) in options.chapters.value:
-            connect_regions(multiworld, "Menu", f"Chapter {i}", player)
-            world.set_rule(multiworld.get_region("Menu", player).exits[-1], Has(f"Chapter {i} Key"))
+            connect_regions(multiworld, "Menu", f"Chapter {i}", player, Has(f"Chapter {i} Key"))
 
     if "6" in options.chapters.value:
-        connect_regions(multiworld, "Menu", "Chapter 6", player)
-        world.set_rule(multiworld.get_region("Menu", player).exits[-1], HasAll("Chapter 6 Key", "Meat Boy"))
+        connect_regions(multiworld, "Menu", "Chapter 6", player, HasAll("Chapter 6 Key", "Meat Boy"))
     
     if "7" in options.chapters.value:
         chpt_seven_goal = [f"Chapter {i} Key" for i in range(1, 8) if str(i) in options.chapters.value]
 
         if options.goal in ("light_world_chapter7", "dark_world_chapter7") and not options.boss_tokens.value:
-            connect_regions(multiworld, "Menu", "Chapter 7", player)
-            world.set_rule(multiworld.get_region("Menu", player).exits[-1], HasAll(*chpt_seven_goal) & Has("Bandage Girl"))
+            connect_regions(multiworld, "Menu", "Chapter 7", player, HasAll(*chpt_seven_goal) & Has("Bandage Girl"))
         else:
-            connect_regions(multiworld, "Menu", "Chapter 7", player)
-            world.set_rule(multiworld.get_region("Menu", player).exits[-1], HasAll("Chapter 7 Key", "Bandage Girl"))
+            connect_regions(multiworld, "Menu", "Chapter7", player, HasAll("Chapter 7 Key", "Bandage Girl"))
 
     boss_tokens_amount: int = 0
     
