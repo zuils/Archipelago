@@ -227,28 +227,17 @@ class PacManWorld2Context(CommonContext):
             tokens_missing = max(0, self.token_goal - self.tokens_received)
         return LevelGate(levels_missing, tokens_missing)
 
-    def warn_blocked(self, level_id: int, gate: LevelGate) -> None:
-        if gate.levels_missing:
+    def warn_blocked(self, level_id: int, gate: LevelGate, once: bool) -> None:
+        if gate.levels_missing and (not once or level_id not in self.initial_warned_levels):
+            if once:
+                self.initial_warned_levels.add(level_id)
             logger.warning(
                 f"WARNING: Will not send checks out for the level {REGION_NAMES[level_id]}. "
                 f"You need {gate.levels_missing} more Progressive Levels."
             )
-        if gate.tokens_missing:
-            logger.warning(
-                f"WARNING: Will not send checks out for tokens. "
-                f"You need {gate.tokens_missing} more Tokens to unlock the final level."
-            )
-
-    def warn_blocked_once(self, level_id: int, gate: LevelGate) -> None:
-        """Entering a locked level warns once per level (and once for the token requirement)."""
-        if gate.levels_missing and level_id not in self.initial_warned_levels:
-            self.initial_warned_levels.add(level_id)
-            logger.warning(
-                f"WARNING: Will not send checks out for the level {REGION_NAMES[level_id]}. "
-                f"You need {gate.levels_missing} more Progressive Levels."
-            )
-        if gate.tokens_missing and not self.token_warned:
-            self.token_warned = True
+        if gate.tokens_missing and (not once or not self.token_warned):
+            if once:
+                self.token_warned = True
             logger.warning(
                 f"WARNING: Will not send checks out for tokens. "
                 f"You need {gate.tokens_missing} more Tokens to unlock the final level."
@@ -375,7 +364,7 @@ class PacManWorld2Context(CommonContext):
 
         gate = self.get_level_gate(level_id)
         if gate.blocked and self.slot_data:
-            self.warn_blocked_once(level_id, gate)
+            self.warn_blocked(level_id, gate, True)
 
         self.check_level_completion(level_id)
 
@@ -438,7 +427,7 @@ class PacManWorld2Context(CommonContext):
 
         for check in checks:
             if gate.blocked:
-                self.warn_blocked(level_id, gate)
+                self.warn_blocked(level_id, gate, False)
             else:
                 self.queue_location(region_name, check)
 
