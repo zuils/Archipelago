@@ -68,7 +68,7 @@ Water Walking Boots;
 Aquatic Heart;                      Calamity;
 
 // Sky exploration
-Into Orbit;                         Location | Depth;
+Into Orbit;                         Depth | Depth Achievement;
 Mysterious Circuitry;               Calamity;
 Dubious Plating;                    Calamity;
 Charging Station;                   Calamity;
@@ -160,8 +160,8 @@ Shimmer;                            ;                                           
 
 // Underworld
 Underworld;                         ;                                           @depth(3);
-It's Getting Hot in Here;           Location | Depth;                           Underworld;
-Rock Bottom;                        Location | Depth;                           Underworld;
+It's Getting Hot in Here;           Depth | Depth Achievement;                  Underworld;
+Rock Bottom;                        Depth | Depth Achievement;                  Underworld;
 Obsidian Rose;                      ;                                           Underworld;
 Havocplate;                         Calamity;                                   Underworld;
 Magma Stone;                        ;                                           Underworld;
