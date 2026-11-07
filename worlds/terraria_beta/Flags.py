@@ -37,7 +37,8 @@ rule_flags = [
 ]
 
 store_location_name = {
-    "Location"
+    "Location",
+    "Achievement",
 }
 
 list_flags = {
