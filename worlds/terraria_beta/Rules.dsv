@@ -169,7 +169,7 @@ Obsidian Skull Rose;                ;                                           
 
 // Evil
 Altar;                              ;                                           Underground;
-Orb;                                ;                                           Cavern | (Underground & @depth_unsafe(1));
+Orb;                                ;                                           Cavern | (Underground & @depth_unsafe(2));
 Smashing, Poppet!;                  Achievement;                                Underground;
 Arms Dealer;                        Npc;                                        Orb | Boomstick | #Wall of Flesh;  // rough gun logic
 Leading Landlord;                   Achievement | Not Getfixedboi;              (Nurse & Arms Dealer) | (Demolitionist & Tavernkeep & Underground) | (Zoologist & (Witch Doctor | Party Girl)) | (Painter & Dryad) | (Golfer & (Angler | Wizard)) | (Stylist & Dye Trader) | (Goblin Tinkerer & Mechanic) | (Clothier & Truffle) | (Party Girl & Wizard) | (Merchant & Tax Collector) | (Truffle & Guide) | (Pirate & Angler) | (Steampunker & Cyborg); // The logic is way more complex; this doesn't account for three NPC setups
