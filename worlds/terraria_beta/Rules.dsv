@@ -287,7 +287,7 @@ Aerospec Armor;                     Calamity | Armor Minions(1);                
 Feather Crown;                      Calamity;                                   Aerialite Bar | (Shimmer & Moonstone Crown);
 
 // Skeletron
-Skeletron;                          Location | Item;                            (~@npc_rando | ((@fargo & Mutant NPC & Skeletron) | Clothier)) & @health(1); // If NPCs are shuffled, Skeletron cannot be summoned if Post-Skeletron is received & The Clothier is not
+Skeletron;                          Location | Item;                            @health(1);
 Clothier;                           Npc;                                        Skeletron;
 Dungeon;                            ;                                           Skeletron & Underground;
 Dungeon Heist;                      Achievement;                                Dungeon;
