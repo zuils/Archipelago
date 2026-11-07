@@ -499,7 +499,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             "grindy_achievements": self.options.grindy_achievements.value,
             "fishing_achievements": self.options.fishing_achievements.value,
             "fill_extra_checks_with": self.options.fill_extra_checks_with.value,
-            "fishing_skips": self.options.fishing_skips,
+            "fishing_skips": self.options.fishing_skips.value,
             "shimmer_skips": self.options.shimmer_skips.value,
             "health_logic": self.options.health_logic.value,
             "health_logic_handicap": self.options.health_logic_handicap.value,
