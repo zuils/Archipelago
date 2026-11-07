@@ -666,7 +666,7 @@ def read_data() -> Tuple[
                     assert (isinstance(cond.argument, int) and 0 < cond.argument < 3)
                     return Or(Has(OUT_OF_LOGIC), True_(options=[OptionFilter(RandomizeDepth,
                                                                              RandomizeDepth.option_on + cond.argument,
-                                                                             "ge")]))
+                                                                             "lt")]))
                 case "calamity":
                     return True_(options=[OptionFilter(Mods, "Calamity", "contains")]) if cond.sign else (
                         False_(options=[OptionFilter(Mods, "Calamity", "contains")], filtered_resolution=True)
