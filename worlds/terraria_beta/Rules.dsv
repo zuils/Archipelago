@@ -47,7 +47,7 @@ Evil Powder;
 Archaeologist;                      Achievement | Rare;
 Zoologist;                          Npc;                                        Underground;
 Cat;                                Pet;                                        Zoologist;
-Feeling Petty;                      Achievement;                                Cat | Dog;
+Feeling Petty;                      Achievement;                                Squire Slime;
 Dog;                                Pet;                                        Zoologist;
 Painter;                            Npc;                                        @npc(8);
 A Rather Blustery Day;              Achievement | Time;
