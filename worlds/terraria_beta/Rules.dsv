@@ -89,7 +89,7 @@ Ancient Bone Dust;                  Calamity;                                   
 Depth Meter;
 Compass;
 Hey! Listen!;                       Achievement;                                Underground;
-I Am Loot!;                         Achievement;                                Gold;
+I Am Loot!;                         Achievement;                                Underground;
 Magic Mirror;
 Life Crystal;                       Health;                                     Underground | @fishing | (Nurse & @fargo);
 Heart Breaker;                      Achievement;                                Underground;
@@ -103,7 +103,7 @@ Gold Pickaxe;                       Pickaxe(55);                                
 Gold Watch;                         ;                                           Gold;
 Like a Boss;                        Achievement;                                Underground | Altar;
 Hermes Boots;                       ;                                           Undercavern | @fishing;
-Funkytown;                          Achievement;                                Underground;
+Funkytown;                          Achievement;                                Underground | @calamity;  // Glowing mushroom planetoids
 Dead Men Tell No Tales;             Achievement;                                Underground;
 Bulldozer;                          Achievement | Grindy;
 
@@ -170,7 +170,7 @@ Obsidian Skull Rose;                ;                                           
 // Evil
 Altar;                              ;                                           Underground;
 Orb;                                ;                                           Cavern | (Underground & @depth_unsafe(2));
-Smashing, Poppet!;                  Achievement;                                Underground;
+Smashing, Poppet!;                  Achievement;                                Orb;
 Arms Dealer;                        Npc;                                        Orb | Boomstick | #Wall of Flesh;  // rough gun logic
 Leading Landlord;                   Achievement | Not Getfixedboi;              (Nurse & Arms Dealer) | (Demolitionist & Tavernkeep & Underground) | (Zoologist & (Witch Doctor | Party Girl)) | (Painter & Dryad) | (Golfer & (Angler | Wizard)) | (Stylist & Dye Trader) | (Goblin Tinkerer & Mechanic) | (Clothier & Truffle) | (Party Girl & Wizard) | (Merchant & Tax Collector) | (Truffle & Guide) | (Pirate & Angler) | (Steampunker & Cyborg); // The logic is way more complex; this doesn't account for three NPC setups
 Completely Awesome;                 Achievement;                                Arms Dealer;
@@ -387,7 +387,7 @@ Essence of Havoc;                   Calamity;                                   
 Dreadnautilus;                      Calamity | Location | Item;                 Wall of Flesh & @health(1);
 Don't Dread on Me;                  Not Calamity | Achievement | Time;          Wall of Flesh & @health(1);
 Hardmode Giant Clam;                Calamity | Location | Item;                 #Giant Clam & Wall of Flesh;
-Truffle;                            Npc;                                        Wall of Flesh & Underground;
+Truffle;                            Npc;                                        Wall of Flesh & (Underground | @calamity);
 It Can Talk?!;                      Achievement;                                Truffle;
 The First Shadowflame;              Calamity | Minions(1);                      Goblin Army | Wall of Flesh;
 
