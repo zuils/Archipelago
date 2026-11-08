@@ -248,7 +248,7 @@ Brimstone Slag;                     Calamity;                                   
 
 // Goblin Army
 Goblin Army;                        Location | Item;                            Orb & @health(1);
-Goblin Tinkerer;                    Npc;                                        Goblin Army;
+Goblin Tinkerer;                    Npc;                                        Goblin Army & Cavern;
 Abominationn NPC;                   Fargo;                                      Goblin Army;
 Tinkerer's Workshop;                ;                                           Goblin Tinkerer;
 Mana Flower;                        ;                                           (Tinkerer's Workshop & Nature's Gift) | (@calamity & (Shimmer & Ethereal Talisman));
