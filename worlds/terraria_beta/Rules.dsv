@@ -18,9 +18,9 @@ Fashion Statement;                  Achievement | Early;
 Ooo! Shiny!;                        Achievement | Early;
 No Hobo;                            Achievement;                                @npc(1);
 Merchant;                           Npc;
-Lumberjack;                         Fargo;
-Deviantt NPC;                       Fargo;
-Squirrel;                           Fargo;
+Lumberjack;                         Fargo | Npc;
+Deviantt NPC;                       Fargo | Npc;
+Squirrel;                           Fargo | Npc;
 Bug Net;                            ;                                           Merchant | (@fishing & Angler);
 Heavy Metal;                        Achievement | Early;
 Dye Trader;                         Npc;                                        @npc(4);
@@ -188,7 +188,7 @@ Sticky Situation;                   Not Getfixedboi | Achievement | Time;
 The Cavalry;                        Achievement;                                @fishing | #King Slime;
 Solidifier;                         ;                                           #King Slime;
 Nerdy Slime;                        Pet;                                        #King Slime;
-Mutant NPC;                         Fargo;                                      #King Slime;
+Mutant NPC;                         Fargo | Npc;                                #King Slime;
 
 // Desert Scourge
 Desert Scourge;                     Calamity | Location | Item;                 @health(1) & Underground;
@@ -201,7 +201,7 @@ Voltaic Jelly;                      Calamity | Minions(1);                      
 
 // Giant Clam
 Giant Clam;                         Calamity | Location | Item;                 ((@fargo & Deviantt NPC & Giant Clam) | (Sunken Sea & (@fargo | Desert Scourge))) & @health(1);
-Sea King;                           Calamity;                                   Desert Scourge & Giant Clam;
+Sea King;                           Calamity | Npc;                             (Desert Scourge & Giant Clam) | (@npc_rando);
 
 // Blood Moon
 Blood Moon;                         ;                                           Life Crystal;
@@ -215,6 +215,7 @@ Surly Slime;                        Pet;                                        
 // Eye of Cthulhu
 Eye of Cthulhu;                     Location | Item;                            ((@fargo & Mutant NPC & Eye of Cthulhu) | Altar | (Life Crystal & @time)) & @health(1);
 Dryad;                              Npc;                                        Eye of Cthulhu | Evil Boss | Skeletron;
+Shady Salesman;                     Calamity | Npc;                             @rare | (Eye of Cthulhu & Blood Moon);
 Pumpkin Seeds;                      ;                                           Dryad;
 Pumpkin;                            ;                                           Pumpkin Seeds | (Shimmer & Cactus);
 Purification Powder;                ;                                           (~@getfixedboi & Dryad) | (Shimmer & Evil Powder);
@@ -248,8 +249,8 @@ Brimstone Slag;                     Calamity;                                   
 
 // Goblin Army
 Goblin Army;                        Location | Item;                            Orb & @health(1);
-Goblin Tinkerer;                    Npc;                                        Goblin Army & Cavern;
-Abominationn NPC;                   Fargo;                                      Goblin Army;
+Goblin Tinkerer;                    Npc;                                        Goblin Army;
+Abominationn NPC;                   Fargo | Npc;                                Goblin Army | #Abominationn;
 Tinkerer's Workshop;                ;                                           Goblin Tinkerer;
 Mana Flower;                        ;                                           (Tinkerer's Workshop & Nature's Gift) | (@calamity & (Shimmer & Ethereal Talisman));
 Silencing Sheath;                   Calamity;                                   (Tinkerer's Workshop & Demonite Bar & Evil Boss Part) | (Shimmer & Dark Matter Sheath);
@@ -308,7 +309,7 @@ Muramasa;                           ;                                           
 Cobalt Shield;                      ;                                           (Dungeon & (@depth_unsafe(1) | Cavern)) | (@calamity & Cobalt Bar);
 Obsidian Shield;                    ;                                           Tinkerer's Workshop & Cobalt Shield & Obsidian Skull;
 Elder Slime;                        Pet;                                        Skeletron & Dungeon;
-Bandit;                             Calamity;                                   Skeletron;
+Bandit;                             Calamity | Npc;                             Skeletron;
 
 // Deerclops
 Deerclops;                          Location | Item;                            ((@fargo & Mutant NPC & Deerclops) | Underground | Life Crystal) & @health(1);
@@ -454,7 +455,7 @@ Cryonic Bar;                        Calamity;                                   
 Abyssal Warhammer;                  Calamity | Hammer(88);                      Hardmode Anvil & Cryonic Bar;
 Shardlight Pickaxe;                 Calamity | Pickaxe(180);                    Hardmode Anvil & Cryonic Bar;
 Daedalus Armor;                     Calamity | Armor Minions(2);                Hardmode Anvil & Cryonic Bar & Essence of Eleum;
-Archmage;                           Calamity;                                   Cryogen;
+Archmage;                           Calamity | Npc;                             Cryogen;
 
 // Skeletron Prime
 Soul of Fright;                     ;                                           #Skeletron Prime | (Shimmer & (Avenger Emblem | Flamethrower | (@calamity & (Mechanical Glove | Celestial Emblem))));
@@ -780,6 +781,7 @@ Exo Mechs;                          Calamity | Location | Item | Final Boss;    
 Supreme Witch, Calamitas;           Calamity | Location | Item | Final Boss;    ((@fargo & ((Mutant NPC & Supreme Witch, Calamitas) | (Ashes of Calamity & Auric Bar))) | (Hardmode Anvil & Brimstone Slag & Auric Bar & Core of Calamity & Ashes of Calamity)) & @health(6);
 THE LORDE;                          Getfixedboi | Calamity;                     Lihzahrd Temple & @health(6);
 # calamity_final_bosses
+Brimstone Witch;                    Calamity | Npc;                             Supreme Witch, Calamitas;
 Exo Prism;                          Calamity;                                   #Exo Mechs | (Shimmer & Shadowspec Bar);
 Draedon's Forge;                    Calamity;                                   Cosmic Anvil & Hardmode Forge & Tinkerer's Workshop & Ancient Manipulator & Auric Bar & Exo Prism & Ascendant Spirit Essence;
 
