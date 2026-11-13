@@ -33,21 +33,42 @@ rule_flags = [
     "Health",
     "Quarter Fruit",
     "Depth",
+    "Depth Achievement",
 ]
 
-# Flags that indicate the attached event may be necessary for progression
-special_events = [
+store_location_name = {
+    "Location",
+    "Achievement",
+}
+
+list_flags = {
+    "Item",
+    "Location",
+    "Achievement",
     "Npc",
     "Depth",
+    "Depth Achievement",
     "Pet",
-    "Pickaxe",
-    "Hammer",
     "Mech Boss",
-    "Minions",
-    "Armor Minions",
+    "Final Boss",
     "Health",
     "Quarter Fruit",
-]
+}
+
+tuple_list_flags = {
+    "Progressive Item",
+    "Pickaxe",
+    "Hammer",
+    "Minions",
+    "Armor Minions",
+}
+
+assert not list_flags.intersection(tuple_list_flags)
+
+item_flag_to_group = {
+    "Item": "Flags",
+    "Npc": "NPCs",
+}
 
 def invalid_flag(flags: List[str], options: TerrariaOptions):
     for flag in flags:
@@ -81,7 +102,7 @@ def invalid_flag(flags: List[str], options: TerrariaOptions):
                 valid_flag = options.grindy_achievements.value
             case "Fishing":
                 valid_flag = options.fishing_achievements.value
-            case "Depth":
+            case "Depth" | "Depth Achievement":
                 valid_flag = options.randomize_depth.value
         if not valid_flag:
             return True
@@ -99,6 +120,8 @@ def is_location_only(flags: List[str], options: TerrariaOptions | None = None) -
             case "Location":
                 return True
             case "Achievement":
+                return True
+            case "Depth Achievement":
                 return True
     return False
 

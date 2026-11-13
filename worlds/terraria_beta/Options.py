@@ -100,15 +100,16 @@ class RandomizeDepth(Choice):
     Receiving "Progressive Depth" items increments how many layers you can traverse downward, through the Underground, Cavern and Underworld respectively.
     Adds checks upon collecting the achievements "Into Orbit", "It's Getting Hot in Here" and "Rock Bottom".
 
-    Use the gen safety option if you want structures and items that vary in spawn depth to only be considered accessible
-    when the Caverns are accessible. Otherwise, anything that *can* generate in the Underground layer will only need
-    access to that layer.
+    Use the gen safety option if you want structures and items that vary in spawn depth to require their deepest
+    possible layer to be accessible.
+    If you plan on playing on a small world, consider enabling gen_safety_small.
     """
 
     display_name = "Randomize Maximum Depth"
     option_off = 0
     option_on = 1
     option_gen_safety = 2
+    option_gen_safety_small = 3
     default = 0
 
 

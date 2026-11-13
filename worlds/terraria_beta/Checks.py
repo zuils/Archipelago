@@ -1,9 +1,19 @@
-from BaseClasses import Item, Location
-from typing import Tuple, Union, Set, List, Dict
-from .Flags import rule_flags, is_location_is_item
+import dataclasses
+import rule_builder.rules
+from BaseClasses import Item, Location, CollectionState
+from typing import Tuple, Union, Set, List, Dict, override, TYPE_CHECKING
+
+from rule_builder.options import OptionFilter
+if TYPE_CHECKING:
+    from worlds.terraria_beta import TerrariaWorld
+from .Flags import rule_flags, list_flags, tuple_list_flags, is_location_is_item, store_location_name
 import string
 import pkgutil
+from rule_builder.rules import TWorld, Rule, True_, False_, Has, And, Or, HasFromList, HasAny, HasAll, Filtered
+from .Options import HealthLogicHandicap, RandomizeNPCs, RandomizeDepth, Mods, RareAchievements, TimeAchievements, \
+    HealthLogic, Getfixedboi, FishingSkips, ShimmerSkips
 
+game_name = "Terraria Beta"
 
 class TerrariaItem(Item):
     game = "Terraria"
@@ -14,9 +24,9 @@ class TerrariaLocation(Location):
 
 
 def add_token(
-    tokens: List[Tuple[int, int, Union[str, int, None]]],
-    token: Union[str, int],
-    token_index: int,
+        tokens: List[Tuple[int, int, Union[str, int, None]]],
+        token: Union[str, int],
+        token_index: int,
 ):
     if token == "":
         return
@@ -157,17 +167,19 @@ COND_LOC = 1
 COND_FN = 2
 COND_GROUP = 3
 
+OUT_OF_LOGIC = "UT Logic"
+
 
 class Condition:
     def __init__(
-        self,
-        # True = positive, False = negative
-        sign: bool,
-        # See the `COND_*` constants
-        type: int,
-        # Condition name or list
-        condition: Union[str, Tuple[Union[bool, None], List["Condition"]]],
-        argument: Union[str, int, None],
+            self,
+            # True = positive, False = negative
+            sign: bool,
+            # See the `COND_*` constants
+            type: int,
+            # Condition name or list
+            condition: Union[str, Tuple[Union[bool, None], List["Condition"]]],
+            argument: Union[str, int, None],
     ):
         self.sign = sign
         self.type = type
@@ -188,20 +200,17 @@ class Condition:
     __repr__ = __str__
 
 
-class Rule:
+class Entry:
     def __init__(
-        self,
-        name: str,
-        # Name to arg
-        flags: Dict[str, Union[str, int, None]],
-        # True = or, False = and, None = N/A
-        operator: Union[bool, None],
-        conditions: List[Condition],
+            self,
+            name: str,
+            # Name to arg
+            flags: Dict[str, Union[str, int, None]],
+            rule: rule_builder.rules.Rule
     ):
         self.name = name
         self.flags = flags
-        self.operator = operator
-        self.conditions = conditions
+        self.rule = rule
 
     def __str__(self):
         return self.name
@@ -209,19 +218,66 @@ class Rule:
     __repr__ = __str__
 
 
+@dataclasses.dataclass()
+class HasValid(Rule["TerrariaWorld"], game=game_name):
+
+    item: str
+
+    def _instantiate(self, world: "TerrariaWorld") -> "Resolved":
+        if self.item in world.bad_events:
+            return False_().resolve(world)
+        else:
+            return Has(self.item).resolve(world)
+
+
+@dataclasses.dataclass()
+class HasMinion(Rule["TerrariaWorld"], game=game_name):
+
+    target: int
+
+    @override
+    def _instantiate(self, world: TWorld) -> Rule.Resolved:
+        return self.Resolved(self.target, player=world.player, caching_enabled=True)
+
+    class Resolved(Rule.Resolved):
+        target: int
+
+        @override
+        def _evaluate(self, state: CollectionState) -> bool:
+            count = 1
+            for armor, minion in flag_to_items["Armor Minions"]:
+                if state.has(armor, self.player):
+                    count += minion
+                    break
+            if count >= self.target:
+                return True
+            for accessory, minion in flag_to_items["Minions"]:
+                if state.has(accessory, self.player):
+                    count += minion
+                    if count >= self.target:
+                        return True
+            return False
+
+        @override
+        def item_dependencies(self) -> dict[str, set[int]]:
+            item_dict = {}
+            for item in flag_to_items["Armor Minions"] + flag_to_items["Minions"]:
+                item_dict[item[0]] = {id(self)}
+            return item_dict
+
 def validate_conditions(
-    rule: str,
-    rule_indices: dict,
-    conditions: List[Condition],
+        rule: str,
+        entry_indices: dict,
+        conditions: List[Condition],
 ):
     for condition in conditions:
         if condition.type == COND_ITEM:
-            if condition.condition not in rule_indices:
+            if condition.condition not in entry_indices:
                 raise Exception(
                     f"item `{condition.condition}` in `{rule}` is not defined"
                 )
         elif condition.type == COND_LOC:
-            if condition.condition not in rule_indices:
+            if condition.condition not in entry_indices:
                 raise Exception(
                     f"location `{condition.condition}` in `{rule}` is not defined"
                 )
@@ -230,7 +286,7 @@ def validate_conditions(
                 "npc",
                 "npc_rando",
                 "depth",
-                "depth_safety",
+                "depth_unsafe",
                 "calamity",
                 "fargo",
                 "rare",
@@ -249,15 +305,15 @@ def validate_conditions(
                 )
         elif condition.type == COND_GROUP:
             _, conditions = condition.condition
-            validate_conditions(rule, rule_indices, conditions)
+            validate_conditions(rule, entry_indices, conditions)
 
 
 def read_data() -> Tuple[
-    # Goal to rule index that ends that goal's range and the locations required
+    # Goal to entry index that ends that goal's range and the locations required
     List[Tuple[int, Set[str]]],
-    # Rules
-    List[Rule],
-    # Rule to rule index
+    # Entries
+    List[Entry],
+    # Entry to entry index
     Dict[str, int],
     # Label to rewards
     Dict[str, List[str]],
@@ -269,53 +325,29 @@ def read_data() -> Tuple[
     Dict[str, int],
     # Location name to Item name
     Dict[str, str],
-    # Progressive Item to Count
-    Dict[str, int],
-    # NPCs
-    List[str],
-    # Pickaxe to pick power
-    Dict[str, int],
-    # Hammer to hammer power
-    Dict[str, int],
-    # Mechanical bosses
-    List[str],
-    # Calamity final bosses
-    List[str],
-    # Armor to minion count,
-    Tuple[Tuple[str, int]],
-    # Accessory to minion count,
-    Tuple[Tuple[str, int]],
-    # Health upgrades
-    List[str],
-    # Calamity health upgrades that are unordered and give 25 health each
-    List[str],
+    # Flag to items
+    Dict[str, set]
 ]:
     next_id = 0x7E0000
     item_name_to_id = {}
 
     goals = []
     goal_indices = {}
-    rules = []
-    rule_indices = {}
+    entry_parts = []
+    entries = []
+    entry_indices = {}
     loc_to_item = {}
-    progressive_to_count = {}
-
-    npcs = []
-    pickaxes = {}
-    hammers = {}
     mech_boss_loc = []
     mech_bosses = []
     final_boss_loc = []
     final_bosses = []
-    armor_minions_list = []
-    accessory_minions_list = []
-    health_upgrades = []
-    quarter_fruits = []
+
+    flag_to_items = {}
 
     progression = set()
 
     for line, rule in enumerate(
-        pkgutil.get_data(__name__, "Rules.dsv").decode().splitlines()
+            pkgutil.get_data(__name__, "Rules.dsv").decode().splitlines()
     ):
         goal = None
         name = None
@@ -539,12 +571,12 @@ def read_data() -> Tuple[
             unexpected(line, char + 1, END_OF_LINE, None, pos, POS_FMT, "Rules.dsv")
 
         if name:
-            if name in rule_indices:
+            if name in entry_indices:
                 raise Exception(
                     f"rule `{name}` on line `{line + 1}` shadows a previous rule"
                 )
-            rule_indices[name] = len(rules)
-            rules.append(Rule(name, flags, operator, conditions))
+            entry_indices[name] = len(entry_parts)
+            entry_parts.append((name, flags, operator, conditions))
 
             for flag in flags:
                 if flag not in rule_flags:
@@ -554,33 +586,36 @@ def read_data() -> Tuple[
 
             _, is_item = is_location_is_item(list(flags.keys()))
             item_name = name
-            if "Item" in flags:
-                item_name = flags["Item"] or f"Post-{name}"
+            if is_item:
+                if "Item" in flags:
+                    item_name = flags["Item"] or f"Post-{name}"
                 if item_name in item_name_to_id:
                     raise Exception(
                         f"item `{item_name}` on line `{line + 1}` shadows a previous item"
                     )
-
-            if is_item:
                 item_name_to_id[item_name] = next_id
                 next_id += 1
 
             loc_to_item[name] = item_name
 
-            if (count := flags.get("Progressive Item")) is not None:
-                progressive_to_count[name] = count
+            for flag in flags:
 
-            if "Npc" in flags:
-                npcs.append(name)
+                if flag in list_flags:
+                    if not flag_to_items.get(flag):
+                        flag_to_items[flag] = []
+                    if flag in store_location_name:
+                        flag_to_items[flag].append(name)
+                    else:
+                        flag_to_items[flag].append(item_name)
 
-            elif "Pet" in flags:
-                npcs.append(name)
-
-            if (power := flags.get("Pickaxe")) is not None:
-                pickaxes[name] = power
-
-            if (power := flags.get("Hammer")) is not None:
-                hammers[name] = power
+                elif flag in tuple_list_flags:
+                    if not flag_to_items.get(flag):
+                        flag_to_items[flag] = []
+                    if (value := flags.get(flag)) is None:
+                        raise Exception(
+                            f"item `{name} on line `{line + 1}` has flag {flag} without assigned value"
+                        )
+                    flag_to_items[flag].append((item_name, value))
 
             if "Mech Boss" in flags:
                 mech_bosses.append(flags["Item"] or f"Post-{name}")
@@ -590,27 +625,158 @@ def read_data() -> Tuple[
                 final_bosses.append(flags["Item"] or f"Post-{name}")
                 final_boss_loc.append(name)
 
-            if (minions := flags.get("Armor Minions")) is not None:
-                armor_minions_list.append((name, minions))
-
-            if (minions := flags.get("Minions")) is not None:
-                accessory_minions_list.append((name, minions))
-
-            if "Health" in flags:
-                health_upgrades.append(name)
-
-            if "Quarter Fruit" in flags:
-                quarter_fruits.append(name)
-
         if goal:
             if goal in goal_indices:
                 raise Exception(
                     f"goal `{goal}` on line `{line + 1}` shadows a previous goal"
                 )
             goal_indices[goal] = len(goals)
-            goals.append((len(rules), set()))
+            goals.append((len(entry_parts), set()))
 
-    for rule in rules:
+    def condition_to_rule(cond: Condition) -> Rule:
+        if cond.type == COND_ITEM:
+            assert isinstance(cond.condition, str)
+            cond_name, cond_flags, _, _ = entry_parts[entry_indices[cond.condition]]
+            if "Item" in cond_flags:
+                cond_name = cond_flags.get("Item") or f"Post-{cond.condition}"
+            else:
+                cond_name = cond.condition
+            assert isinstance(cond_name, str)
+            return HasValid(cond_name)
+        elif cond.type == COND_LOC:
+            _, _, op, conds = entry_parts[entry_indices[cond.condition]]
+            return conditions_to_rule(op, conds)
+        elif cond.type == COND_FN:
+            def option_to_rule(option):
+                return True_(options=[OptionFilter(option, cond.sign, "eq")])
+
+            match cond.condition:
+                case "npc":
+                    assert (isinstance(cond.argument, int))
+                    return HasFromList(*(flag_to_items["Npc"] + flag_to_items["Pet"]),
+                                       count=cond.argument)
+                case "npc_rando":
+                    return option_to_rule(RandomizeNPCs)
+                case "depth":
+                    assert (isinstance(cond.argument, int))
+                    return Has("Progressive Depth", count=cond.argument,
+                               options=[OptionFilter(RandomizeDepth, 1, "ge")],
+                               filtered_resolution=True)
+                case "depth_unsafe":
+                    assert (isinstance(cond.argument, int) and 0 < cond.argument < 3)
+                    return Or(Has(OUT_OF_LOGIC), True_(options=[OptionFilter(RandomizeDepth,
+                                                                             RandomizeDepth.option_on + cond.argument,
+                                                                             "lt")]))
+                case "calamity":
+                    return True_(options=[OptionFilter(Mods, "Calamity", "contains")]) if cond.sign else (
+                        False_(options=[OptionFilter(Mods, "Calamity", "contains")], filtered_resolution=True)
+                    )
+                case "fargo":
+                    return True_(options=[OptionFilter(Mods, "Fargo", "contains")]) if cond.sign else (
+                        False_(options=[OptionFilter(Mods, "Fargo", "contains")], filtered_resolution=True)
+                    )
+                case "rare":
+                    return option_to_rule(RareAchievements)
+                case "time":
+                    return option_to_rule(TimeAchievements)
+                case "pickaxe":
+                    if type(cond.argument) is not int:
+                        raise Exception("@pickaxe requires an integer argument")
+
+                    eligible_items = []
+                    for pickaxe, power in flag_to_items["Pickaxe"]:
+                        if power >= cond.argument:
+                            eligible_items.append(pickaxe)
+
+                    return HasAny(*eligible_items)
+                case "hammer":
+                    if type(cond.argument) is not int:
+                        raise Exception("@hammer requires an integer argument")
+
+                    eligible_items = []
+                    for hammer, power in flag_to_items["Hammer"]:
+                        if power >= cond.argument:
+                            eligible_items.append(hammer)
+
+                    return HasAny(*eligible_items)
+                case "mech_boss":
+                    assert (isinstance(cond.argument, int))
+                    return HasFromList(*flag_to_items["Mech Boss"], count=cond.argument)
+                case "minions":
+                    assert (isinstance(cond.argument, int))
+                    return HasMinion(cond.argument)
+                case "health":
+                    if type(cond.argument) is not int:
+                        raise Exception("@health requires an integer argument")
+
+                    health_cascade = []
+
+                    # TODO: This probably needs a custom rule
+                    def cascade_to_rules():
+                        rule_sum = []
+                        for h in range(len(health_cascade)):
+                            min_handicap = h - len(health_cascade)
+                            rule_sum.append(Filtered(health_cascade[h],
+                                                     options=[OptionFilter(HealthLogicHandicap,
+                                                                           min_handicap,
+                                                                           "gt")],
+                                                     filtered_resolution=True))
+                        return Or(And(*rule_sum, options=[OptionFilter(HealthLogic, 1, "eq")], filtered_resolution=True),
+                                  Has(OUT_OF_LOGIC))
+
+                    health_upgrades = flag_to_items["Health"]
+                    health_cascade.append(Has(health_upgrades[0]))
+                    if cond.argument == 1:
+                        return cascade_to_rules()
+                    health_cascade.append(HasAll(*health_upgrades[:2]))
+                    if cond.argument == 2:
+                        return cascade_to_rules()
+                    else:
+                        for q in range(cond.argument-2):
+                            health_cascade.append(HasFromList(
+                                *flag_to_items["Quarter Fruit"],
+                                count=q+1,
+                                options=[OptionFilter(Mods, "Calamity", operator="contains")],
+                                filtered_resolution=True
+                            ))
+                        return cascade_to_rules()
+                case "getfixedboi":
+                    return option_to_rule(Getfixedboi)
+                case "fishing":
+                    return option_to_rule(FishingSkips)
+                case "shimmer_skips":
+                    return option_to_rule(ShimmerSkips)
+                case _:
+                    raise Exception(f"Unknown function {cond.condition}")
+        elif cond.type == COND_GROUP:
+            op, conds = cond.condition
+            assert (op is not None) and isinstance(conds, list)
+            return conditions_to_rule(op, conds)
+
+    def conditions_to_rule(op: Union[str | bool | None], conds: List["Condition"]) -> Rule:
+        if op is None:
+            if not conds:
+                return True_()
+            assert len(conds) == 1
+            return condition_to_rule(conds[0])
+        else:
+            assert isinstance(conds, list)
+            rule_list = []
+            for cond in conds:
+                rule_list.append(condition_to_rule(cond) if isinstance(cond.condition, str)
+                                 else conditions_to_rule(*cond.condition))
+            return Or(*rule_list) if op else And(*rule_list)
+
+    for rule in entries:
+        validate_conditions(rule.name, entry_indices, rule.conditions)
+
+    for i in range(len(entry_parts)):
+        name, flags, operator, conditions = entry_parts[i]
+        assert i == entry_indices[name]
+        validate_conditions(name, entry_indices, conditions)
+        entries.append(Entry(name, flags, conditions_to_rule(operator, conditions)))
+
+    for rule in entries:
         if "Goal" in rule.flags:
             if (name := rule.flags.get("Goal")) is not None:
                 goal_name = name
@@ -630,11 +796,8 @@ def read_data() -> Tuple[
     _, final_boss_items = goals[goal_indices["calamity_final_bosses"]]
     final_boss_items.update(final_boss_loc)
 
-    armor_minions = tuple(sorted(armor_minions_list, key=lambda item: item[1], reverse=True))
-    accessory_minions = tuple(accessory_minions_list)
-
-    for rule in rules:
-        validate_conditions(rule.name, rule_indices, rule.conditions)
+    flag_to_items["Armor Minions"] = list(
+        sorted(flag_to_items["Armor Minions"], key=lambda item: item[1], reverse=True))
 
     # Will be randomized via `slot_randoms` / `self.multiworld.random`
     label = None
@@ -715,11 +878,12 @@ def read_data() -> Tuple[
     item_name_to_id["Reward: Coins"] = next_id
     next_id += 1
 
+    item_name_to_id[OUT_OF_LOGIC] = next_id
+    next_id += 1
+
     location_name_to_id = {}
 
-    for rule in rules:
-        if rule.name == "Squire Slime":
-            pass
+    for rule in entries:
         is_loc, _ = is_location_is_item(rule.flags)
         if is_loc:
             if rule.name in location_name_to_id:
@@ -729,43 +893,25 @@ def read_data() -> Tuple[
 
     return (
         goals,
-        rules,
-        rule_indices,
+        entries,
+        entry_indices,
         labels,
         rewards,
         item_name_to_id,
         location_name_to_id,
         loc_to_item,
-        progressive_to_count,
-        npcs,
-        pickaxes,
-        hammers,
-        mech_bosses,
-        final_bosses,
-        armor_minions,
-        accessory_minions,
-        health_upgrades,
-        quarter_fruits,
+        flag_to_items,
     )
 
 
 (
     goals,
-    rules,
-    rule_indices,
+    entries,
+    entry_indices,
     labels,
     rewards,
     item_name_to_id,
     location_name_to_id,
     loc_to_item,
-    progressive_to_count,
-    npcs,
-    pickaxes,
-    hammers,
-    mech_bosses,
-    final_bosses,
-    armor_minions,
-    accessory_minions,
-    health_upgrades,
-    quarter_fruits,
+    flag_to_items,
 ) = read_data()
