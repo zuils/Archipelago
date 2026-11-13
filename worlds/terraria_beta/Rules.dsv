@@ -20,7 +20,7 @@ No Hobo;                            Achievement;                                
 Merchant;                           Npc;
 Lumberjack;                         Fargo | Npc;
 Deviantt NPC;                       Fargo | Npc;
-Squirrel;                           Fargo | Npc;
+Squirrel;                           Fargo | Npc;                                #Trojan Squirrel;
 Bug Net;                            ;                                           Merchant | (@fishing & Angler);
 Heavy Metal;                        Achievement | Early;
 Dye Trader;                         Npc;                                        @npc(4);
@@ -188,7 +188,7 @@ Sticky Situation;                   Not Getfixedboi | Achievement | Time;
 The Cavalry;                        Achievement;                                @fishing | #King Slime;
 Solidifier;                         ;                                           #King Slime;
 Nerdy Slime;                        Pet;                                        #King Slime;
-Mutant NPC;                         Fargo | Npc;                                #King Slime;
+Mutant NPC;                         Fargo | Npc;                                #King Slime | #Mutant;
 
 // Desert Scourge
 Desert Scourge;                     Calamity | Location | Item;                 @health(1) & Underground;
@@ -201,7 +201,7 @@ Voltaic Jelly;                      Calamity | Minions(1);                      
 
 // Giant Clam
 Giant Clam;                         Calamity | Location | Item;                 ((@fargo & Deviantt NPC & Giant Clam) | (Sunken Sea & (@fargo | Desert Scourge))) & @health(1);
-Sea King;                           Calamity | Npc;                             (Desert Scourge & Giant Clam) | (@npc_rando);
+Sea King;                           Calamity | Npc;                             #Giant Clam;
 
 // Blood Moon
 Blood Moon;                         ;                                           Life Crystal;
@@ -455,7 +455,7 @@ Cryonic Bar;                        Calamity;                                   
 Abyssal Warhammer;                  Calamity | Hammer(88);                      Hardmode Anvil & Cryonic Bar;
 Shardlight Pickaxe;                 Calamity | Pickaxe(180);                    Hardmode Anvil & Cryonic Bar;
 Daedalus Armor;                     Calamity | Armor Minions(2);                Hardmode Anvil & Cryonic Bar & Essence of Eleum;
-Archmage;                           Calamity | Npc;                             Cryogen;
+Archmage;                           Calamity | Npc;                             #Cryogen;
 
 // Skeletron Prime
 Soul of Fright;                     ;                                           #Skeletron Prime | (Shimmer & (Avenger Emblem | Flamethrower | (@calamity & (Mechanical Glove | Celestial Emblem))));
@@ -781,7 +781,7 @@ Exo Mechs;                          Calamity | Location | Item | Final Boss;    
 Supreme Witch, Calamitas;           Calamity | Location | Item | Final Boss;    ((@fargo & ((Mutant NPC & Supreme Witch, Calamitas) | (Ashes of Calamity & Auric Bar))) | (Hardmode Anvil & Brimstone Slag & Auric Bar & Core of Calamity & Ashes of Calamity)) & @health(6);
 THE LORDE;                          Getfixedboi | Calamity;                     Lihzahrd Temple & @health(6);
 # calamity_final_bosses
-Brimstone Witch;                    Calamity | Npc;                             Supreme Witch, Calamitas;
+Brimstone Witch;                    Calamity | Npc;                             #Supreme Witch, Calamitas;
 Exo Prism;                          Calamity;                                   #Exo Mechs | (Shimmer & Shadowspec Bar);
 Draedon's Forge;                    Calamity;                                   Cosmic Anvil & Hardmode Forge & Tinkerer's Workshop & Ancient Manipulator & Auric Bar & Exo Prism & Ascendant Spirit Essence;
 
