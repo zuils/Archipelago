@@ -455,7 +455,7 @@ Cryonic Bar;                        Calamity;                                   
 Abyssal Warhammer;                  Calamity | Hammer(88);                      Hardmode Anvil & Cryonic Bar;
 Shardlight Pickaxe;                 Calamity | Pickaxe(180);                    Hardmode Anvil & Cryonic Bar;
 Daedalus Armor;                     Calamity | Armor Minions(2);                Hardmode Anvil & Cryonic Bar & Essence of Eleum;
-Archmage;                           Calamity | Npc;                             #Cryogen;
+Archmage;                           Calamity | Npc;                             #Cryogen | (@rare & @getfixedboi & #Supreme Calamitas); // using delicious meat spawns archmage instead of scal
 
 // Skeletron Prime
 Soul of Fright;                     ;                                           #Skeletron Prime | (Shimmer & (Avenger Emblem | Flamethrower | (@calamity & (Mechanical Glove | Celestial Emblem))));
