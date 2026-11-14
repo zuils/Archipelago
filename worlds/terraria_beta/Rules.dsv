@@ -238,7 +238,7 @@ Meteorite Bar;                      ;                                           
 Meteor Hamaxe;                      Hammer(60);                                 Meteorite Bar;
 Hellforge;                          ;                                           Underworld & @pickaxe(60);
 Hellstone;                          ;                                           (@fargo & Demolitionist & Plantera) | (Underworld & (@pickaxe(65) | Wall of Flesh)) | (Shimmer & (Hellstone Bar | Infernal Suevite));
-Hellstone Bar;                      ;                                           Hellstone;
+Hellstone Bar;                      ;                                           Hellforge & Hellstone & Obsidian;
 Fiery Greatsword;                   ;                                           Hellstone Bar;
 Molten Hamaxe;                      Hammer(70);                                 Hellstone Bar;
 Molten Pickaxe;                     Pickaxe(100);                               Hellstone Bar;
