@@ -200,7 +200,7 @@ Sandstorm;                          ;                                           
 Voltaic Jelly;                      Calamity | Minions(1);                      Desert Scourge | Jelly-Charged Battery; // Jelly-Charged Battery doesn't stack. This is the case for all Calamity minion accessory upgrades. This is also why they are exempt from being marked as Shimmerable.
 
 // Giant Clam
-Giant Clam;                         Calamity | Location | Item;                 ((@fargo & Deviantt NPC & Giant Clam) | (Sunken Sea & (@fargo | Desert Scourge))) & @health(1);
+Giant Clam;                         Calamity | Location | Item;                 (@fargo | Desert Scourge) & Sunken Sea & @health(1);
 Sea King;                           Calamity;                                   Desert Scourge & Giant Clam;
 
 // Blood Moon
@@ -267,7 +267,7 @@ Diving Gear;                        ;                                           
 
 // Queen Bee
 Where's My Honey?;                  Achievement;                                Undercavern;
-Queen Bee;                          Location | Item;                            Undercavern & @health(1);
+Queen Bee;                          Location | Item;                            ((@fargo & Mutant NPC & Queen Bee & Underground) | Undercavern) & @health(1);
 Bee Keeper;                         ;                                           #Queen Bee;
 Bee Wax;                            ;                                           #Queen Bee;
 Bee Armor;                          Armor Minions(2);                           Bee Wax;
@@ -314,7 +314,7 @@ Bandit;                             Calamity;                                   
 Deerclops;                          Location | Item;                            ((@fargo & Mutant NPC & Deerclops) | Underground | Life Crystal) & @health(1);
 
 // The Slime God
-The Slime God;                      Calamity | Location | Item;                 ((@fargo & Mutant NPC & The Slime God) | Blighted Gel) & @health(1);
+The Slime God;                      Calamity | Location | Item;                 ((@fargo & Mutant NPC & The Slime God) | (Blighted Gel & Altar)) & @health(1);
 Purified Gel;                       Calamity;                                   #The Slime God | (Shimmer & Jelly-Charged Battery);
 Jelly-Charged Battery;              Calamity;                                   (Wulfrum Battery & Voltaic Jelly & Purified Gel & Stormlion Mandible) | (Shimmer & Star-Tainted Generator);
 Static Refiner;                     Calamity;                                   Purified Gel & Solidifier;
@@ -396,7 +396,7 @@ Pirate Invasion;                    Location | Item;                            
 Pirate;                             Npc;                                        Pirate Invasion;
 
 // Queen Slime
-Queen Slime;                        Location | Item;                            ((@fargo & Mutant NPC & Queen Slime) | Hallow) & @health(1);
+Queen Slime;                        Location | Item;                            ((@fargo & Mutant NPC & Queen Slime) | (Hallow & Cavern)) & @health(1);
 Sparkle Slime Balloon;              ;                                           #Queen Slime;
 Diva Slime;                         Pet;                                        Sparkle Slime Balloon & Aether;
 The Great Slime Mitosis;            Achievement | Time | Rare;                  Nerdy Slime & Cool Slime & Elder Slime & Clumsy Slime & Diva Slime & Surly Slime & Mystic Slime & Squire Slime;
@@ -660,7 +660,7 @@ Meowmere;                           ;                                           
 Star Wrath;                         ;                                           #Moon Lord;
 Exodium Cluster;                    Calamity;                                   (Moon Lord & (Wall of Flesh | @pickaxe(225))) | (Shimmer & Uelibloom Ore);
 Normality Relocator;                Calamity;                                   Hardmode Anvil & Rod of Discord & Exodium Cluster & Fragment;
-Unholy Essence;                     Calamity;                                   Moon Lord | #Providence, the Profaned Goddess | (@getfixedboi & Plantera);
+Unholy Essence;                     Calamity;                                   (Moon Lord & (Underworld | Hallow)) | #Providence, the Profaned Goddess | (@getfixedboi & Plantera);
 Necroplasm;                         Calamity;                                   (Moon Lord & (Dungeon | Wall of Flesh)) | #Polterghast | (Shimmer & #The Devourer of Gods);
 Fragments of Another World;         Calamity | Minions(1);                      Hardmode Anvil & Exodium Cluster & Navyplate & Necroplasm;
 Arctic Diving Gear;                 ;                                           Tinkerer's Workshop;
