@@ -349,7 +349,7 @@ Spider Armor;                       Armor Minions(3);                           
 Cross Necklace;                     ;                                           Wall of Flesh & Underground;
 Break Altar;                        ;                                           Wall of Flesh & Altar &  @hammer(80);
 Begone, Evil!;                      Achievement;                                Break Altar;
-Cobalt Ore;                         ;                                           (@fargo & Demolitionist & Moon Lord) | (((~@calamity & Break Altar) | (@calamity & Wall of Flesh)) & Underground & @pickaxe(100)) | (Wall of Flesh & @fishing) | (Shimmer & (Mythril Ore | Cobalt Bar));
+Cobalt Ore;                         ;                                           (@fargo & Demolitionist & Moon Lord) | (((~@calamity & Break Altar & Underground) | (@calamity & Wall of Flesh & Cavern)) & @pickaxe(100)) | (Wall of Flesh & @fishing) | (Shimmer & (Mythril Ore | Cobalt Bar));
 Extra Shiny!;                       Achievement;                                (Cobalt Ore & @pickaxe(100)) | (Mythril Ore & @pickaxe(110)) | (Adamantite Ore & @pickaxe(150)) | #Photosynthesis;  // The achievement triggers on mining it
 Cobalt Bar;                         ;                                           Cobalt Ore | (@calamity & Shimmer & Lunic Eye) | (Wall of Flesh & @fishing);
 Cobalt Pickaxe;                     Pickaxe(110);                               Cobalt Bar;
