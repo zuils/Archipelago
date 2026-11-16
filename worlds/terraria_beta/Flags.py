@@ -6,6 +6,7 @@ from .Options import TerrariaOptions
 rule_flags = [
     "Location",  # Standard core locations
     "Item",  # Standard core items
+    "Progressive Item",
     "Goal",
     "Early",  # Achievement + logic modifier
     "Achievement",
@@ -29,23 +30,45 @@ rule_flags = [
     "Not Calamity Getfixedboi",
     "Fargo",
     "Not Fargo",
-    "Shimmer",  # Unique flag for Aether access + shimmer logic
     "Health",
     "Quarter Fruit",
+    "Depth",
+    "Depth Achievement",
 ]
 
-# Flags that indicate the attached event may be necessary for progression
-special_events = [
+store_location_name = {
+    "Location",
+    "Achievement",
+}
+
+list_flags = {
+    "Item",
+    "Location",
+    "Achievement",
     "Npc",
+    "Depth",
+    "Depth Achievement",
     "Pet",
-    "Pickaxe",
-    "Hammer",
     "Mech Boss",
-    "Minions",
-    "Armor Minions",
+    "Final Boss",
     "Health",
     "Quarter Fruit",
-]
+}
+
+tuple_list_flags = {
+    "Progressive Item",
+    "Pickaxe",
+    "Hammer",
+    "Minions",
+    "Armor Minions",
+}
+
+assert not list_flags.intersection(tuple_list_flags)
+
+item_flag_to_group = {
+    "Item": "Flags",
+    "Npc": "NPCs",
+}
 
 def invalid_flag(flags: List[str], options: TerrariaOptions):
     for flag in flags:
@@ -65,8 +88,6 @@ def invalid_flag(flags: List[str], options: TerrariaOptions):
                 valid_flag = "Fargo" in options.mods.value
             case "Not Fargo":
                 valid_flag = "Fargo" not in options.mods.value
-            case "Shimmer":
-                valid_flag = options.shimmer_skips.value
             case "Early":
                 valid_flag = options.early_achievements.value
             case "Achievement":
@@ -81,6 +102,8 @@ def invalid_flag(flags: List[str], options: TerrariaOptions):
                 valid_flag = options.grindy_achievements.value
             case "Fishing":
                 valid_flag = options.fishing_achievements.value
+            case "Depth" | "Depth Achievement":
+                valid_flag = options.randomize_depth.value
         if not valid_flag:
             return True
     return False
@@ -97,8 +120,10 @@ def is_location_only(flags: List[str], options: TerrariaOptions | None = None) -
             case "Location":
                 return True
             case "Achievement":
-                return bool(options.normal_achievements.value) if options else True
+                return True
+            case "Depth Achievement":
+                return True
     return False
 
 def is_item_only(flags: List[str]) -> bool:
-    return "Item" in flags
+    return "Item" in flags or "Progressive Item" in flags
