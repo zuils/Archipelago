@@ -188,7 +188,7 @@ Sticky Situation;                   Not Getfixedboi | Achievement | Time;
 The Cavalry;                        Achievement;                                @fishing | #King Slime;
 Solidifier;                         ;                                           #King Slime;
 Nerdy Slime;                        Pet;                                        #King Slime;
-Mutant NPC;                         Fargo | Npc;                                #King Slime | #MutantTemp;
+Mutant NPC;                         Fargo | Npc;                                #King Slime | #MutantSummon;
 
 // Desert Scourge
 Desert Scourge;                     Calamity | Location | Item;                 @health(1) & Underground;
@@ -250,7 +250,7 @@ Brimstone Slag;                     Calamity;                                   
 // Goblin Army
 Goblin Army;                        Location | Item;                            Orb & @health(1);
 Goblin Tinkerer;                    Npc;                                        Goblin Army & Cavern;
-Abominationn NPC;                   Fargo | Npc;                                Goblin Army | #AbomTemp;
+Abominationn NPC;                   Fargo | Npc;                                Goblin Army | #AbomSummon;
 Tinkerer's Workshop;                ;                                           Goblin Tinkerer;
 Mana Flower;                        ;                                           (Tinkerer's Workshop & Nature's Gift) | (@calamity & (Shimmer & Ethereal Talisman));
 Silencing Sheath;                   Calamity;                                   (Tinkerer's Workshop & Demonite Bar & Evil Boss Part) | (Shimmer & Dark Matter Sheath);
@@ -770,8 +770,8 @@ Blend-O-Matic;                      ;                                           
 Crystal Ball;                       ;                                           Wizard;
 Flesh Cloning Vat;                  ;                                           Steampunker;
 Crucible of the Cosmos;             Fargo;                                      #Eridanus, Champion of Cosmos | (Hardmode Anvil & Hardmode Forge & Golden Dipping Vat & Elemental Assembler & Multitask Center & Decay Chamber & Steampunk Boiler & Meat Grinder & Blend-O-Matic & Autohammer & Crystal Ball & Luminite Bar & Ancient Manipulator & Lihzahrd Furniture & Flesh Cloning Vat);
-AbomTemp;                           Fargo;                                      ((Mutant NPC & Abominationn) | (Crucible of the Cosmos & #Goblin Army & #Pirate Invasion & #Pumpkin Moon & #Frost Moon & #Frost Legion & Tavernkeep & Luminite Bar & (~@calamity | Auric Bar)));
-Abominationn;                       Fargo | Location | Item | Goal;             #AbomTemp & @health(6);
+AbomSummon;                         Fargo;                                      ((Mutant NPC & Abominationn) | (Crucible of the Cosmos & #Goblin Army & #Pirate Invasion & #Pumpkin Moon & #Frost Moon & #Frost Legion & Tavernkeep & Luminite Bar & (~@calamity | Auric Bar)));
+Abominationn;                       Fargo | Location | Item | Goal;             #AbomSummon & @health(6);
 # abominationn
 Abominable Energy;                  Fargo;                                      #Abominationn;
 
@@ -798,8 +798,8 @@ Primordial Wyrm;                    Calamity | Location | Item | Goal;          
 # primordial_wyrm
 
 // Mutant
-MutantTemp;                         Fargo;                                      ((Mutant NPC & Mutant) | (Crucible of the Cosmos & Abominable Energy));
-Mutant;                             Fargo | Location | Item | Goal;             #MutantTemp & @health(6);
+MutantSummon;                       Fargo;                                      ((Mutant NPC & Mutant) | (Crucible of the Cosmos & Abominable Energy));
+Mutant;                             Fargo | Location | Item | Goal;             #MutantSummon & @health(6);
 # mutant
 Eternal Energy;                     Fargo;                                      #Mutant;
 
