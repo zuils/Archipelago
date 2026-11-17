@@ -138,6 +138,9 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     calamity = False
     fargo = False
     getfixedboi = False
+    
+    is_ut = False
+    ut_can_gen_without_yaml = True
 
     is_ut = False
     ut_can_gen_without_yaml = True
@@ -219,6 +222,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                     goal, _ = goals[self.options.shuffle_to.value]
         ter_goals = {}
         goal_items = set()
+        self.disabled_rules = set()
 
         for location in goal_locations:
             if location == "Wall of Flesh" and not self.options.randomize_npcs.value:
@@ -264,6 +268,16 @@ class TerrariaWorld(CachedRuleBuilderWorld):
                                 f" - {'\n - '.join(incompatible_options)}\n"
                                 f"Disabling getfixedboi.")
                 self.options.getfixedboi.value = 0
+        
+        if self.options.getfixedboi and not self.options.shimmer_skips.value:
+            self.disabled_rules.update({
+                "Purification Powder",
+                "Mystic Slime",
+                "The Great Slime Mitosis",
+                "Axe of Purity",
+                "Inferna Cutter",
+                "Grax"
+            })
 
         location_count = 0
         locations = []
