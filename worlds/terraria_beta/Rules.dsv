@@ -239,7 +239,7 @@ Meteorite Bar;                      ;                                           
 Meteor Hamaxe;                      Hammer(60);                                 Meteorite Bar;
 Hellforge;                          ;                                           Underworld & @pickaxe(60);
 Hellstone;                          ;                                           (@fargo & Demolitionist & Plantera) | (Underworld & (@pickaxe(65) | Wall of Flesh)) | (Shimmer & (Hellstone Bar | Infernal Suevite));
-Hellstone Bar;                      ;                                           Hellstone;
+Hellstone Bar;                      ;                                           Hellforge & Hellstone & Obsidian;
 Fiery Greatsword;                   ;                                           Hellstone Bar;
 Molten Hamaxe;                      Hammer(70);                                 Hellstone Bar;
 Molten Pickaxe;                     Pickaxe(100);                               Hellstone Bar;
@@ -268,7 +268,7 @@ Diving Gear;                        ;                                           
 
 // Queen Bee
 Where's My Honey?;                  Achievement;                                Undercavern;
-Queen Bee;                          Location | Item;                            Undercavern & @health(1);
+Queen Bee;                          Location | Item;                            ((@fargo & Mutant NPC & Queen Bee & Underground) | Undercavern) & @health(1);
 Bee Keeper;                         ;                                           #Queen Bee;
 Bee Wax;                            ;                                           #Queen Bee;
 Bee Armor;                          Armor Minions(2);                           Bee Wax;
@@ -315,7 +315,7 @@ Bandit;                             Calamity | Npc;                             
 Deerclops;                          Location | Item;                            ((@fargo & Mutant NPC & Deerclops) | Underground | Life Crystal) & @health(1);
 
 // The Slime God
-The Slime God;                      Calamity | Location | Item;                 ((@fargo & Mutant NPC & The Slime God) | Blighted Gel) & @health(1);
+The Slime God;                      Calamity | Location | Item;                 ((@fargo & Mutant NPC & The Slime God) | (Blighted Gel & Altar)) & @health(1);
 Purified Gel;                       Calamity;                                   #The Slime God | (Shimmer & Jelly-Charged Battery);
 Jelly-Charged Battery;              Calamity;                                   (Wulfrum Battery & Voltaic Jelly & Purified Gel & Stormlion Mandible) | (Shimmer & Star-Tainted Generator);
 Static Refiner;                     Calamity;                                   Purified Gel & Solidifier;
@@ -350,8 +350,8 @@ Spider Armor;                       Armor Minions(3);                           
 Cross Necklace;                     ;                                           Wall of Flesh & Underground;
 Break Altar;                        ;                                           Wall of Flesh & Altar &  @hammer(80);
 Begone, Evil!;                      Achievement;                                Break Altar;
-Cobalt Ore;                         ;                                           (@fargo & Demolitionist & Moon Lord) | (((~@calamity & Break Altar) | (@calamity & Wall of Flesh)) & Underground & @pickaxe(100)) | (Wall of Flesh & @fishing) | (Shimmer & (Mythril Ore | Cobalt Bar));
-Extra Shiny!;                       Achievement;                                Cobalt Ore | Mythril Ore | Adamantite Ore | Chlorophyte Ore;
+Cobalt Ore;                         ;                                           (@fargo & Demolitionist & Moon Lord) | (((~@calamity & Break Altar & Underground) | (@calamity & Wall of Flesh & Cavern)) & @pickaxe(100)) | (Wall of Flesh & @fishing) | (Shimmer & (Mythril Ore | Cobalt Bar));
+Extra Shiny!;                       Achievement;                                (Cobalt Ore & @pickaxe(100)) | (Mythril Ore & @pickaxe(110)) | (Adamantite Ore & @pickaxe(150)) | #Photosynthesis;  // The achievement triggers on mining it
 Cobalt Bar;                         ;                                           Cobalt Ore | (@calamity & Shimmer & Lunic Eye) | (Wall of Flesh & @fishing);
 Cobalt Pickaxe;                     Pickaxe(110);                               Cobalt Bar;
 Blindfold;                          ;                                           Wall of Flesh | (Shimmer & Pocket Mirror);
@@ -390,14 +390,14 @@ Don't Dread on Me;                  Not Calamity | Achievement | Time;          
 Hardmode Giant Clam;                Calamity | Location | Item;                 #Giant Clam & Wall of Flesh;
 Truffle;                            Npc;                                        Wall of Flesh & Underground;
 It Can Talk?!;                      Achievement;                                Truffle;
-The First Shadowflame;              Calamity | Minions(1);                      Goblin Army | Wall of Flesh;
+The First Shadowflame;              Calamity | Minions(1);                      #Goblin Army & Wall of Flesh;
 
 // Pirate Invasion
 Pirate Invasion;                    Location | Item;                            ((@fargo & Abominationn NPC & Pirate Invasion) | Wall of Flesh) & @health(1);
 Pirate;                             Npc;                                        Pirate Invasion;
 
 // Queen Slime
-Queen Slime;                        Location | Item;                            ((@fargo & Mutant NPC & Queen Slime) | Hallow) & @health(1);
+Queen Slime;                        Location | Item;                            ((@fargo & Mutant NPC & Queen Slime) | (Hallow & Cavern)) & @health(1);
 Sparkle Slime Balloon;              ;                                           #Queen Slime;
 Diva Slime;                         Pet;                                        Sparkle Slime Balloon & Aether;
 The Great Slime Mitosis;            Achievement | Time | Rare;                  Nerdy Slime & Cool Slime & Elder Slime & Clumsy Slime & Diva Slime & Surly Slime & Mystic Slime & Squire Slime;
@@ -475,7 +475,7 @@ Mechanical Glove;                   ;                                           
 Celestial Emblem;                   ;                                           (Celestial Magnet & Tinkerer's Workshop & Avenger Emblem) | (Shimmer & Sigil of Calamitas);
 Light Disc;                         ;                                           (Hallowed Bar & Soul of Light & Soul of Might) | (@getfixedboi & @calamity & #Evil Boss);
 Chlorophyte Ore;                    ;                                           (@fargo & Demolitionist & Moon Lord) | (Wall of Flesh & @pickaxe(200) & Underground) | (Shimmer & ((~@calamity & Luminite) | Chlorophyte Bar | (@calamity & Perennial Ore)));
-Photosynthesis;                     Achievement;                                Chlorophyte Ore;
+Photosynthesis;                     Achievement;                                Chlorophyte Ore & @pickaxe(200);  // see Extra Shiny
 Chlorophyte Bar;                    ;                                           (Hardmode Forge & Chlorophyte Ore) | (Shimmer & (Spectre Bar | Shroomite Bar));
 Chlorophyte Armor;                  ;                                           Hardmode Anvil & Chlorophyte Bar;
 True Excalibur;                     ;                                           Hardmode Anvil & Excalibur & Chlorophyte Bar;
@@ -528,19 +528,19 @@ Beastial Pickaxe;                   Calamity | Pickaxe(200);                    
 // Pumpkin Moon
 Pumpkin Moon;                       ;                                           ((@fargo & Abominationn NPC & Pumpking) | (Hardmode Anvil & Pumpkin & Ectoplasm & (@calamity | Hallowed Bar))) & @health(3);
 Spooky Armor;                       Armor Minions(4);                           (@fargo & Lumberjack & Pumpking) | Pumpkin Moon;
-Mourning Wood;                      Location | Item;                            (@fargo & Abominationn NPC & Mourning Wood) | Pumpkin Moon;
+Mourning Wood;                      Location | Item;                            ((@fargo & Abominationn NPC & Mourning Wood) | Pumpkin Moon) & @health(3);
 Necromantic Scroll;                 Minions(1);                                 #Mourning Wood;
 Papyrus Scarab;                     Minions(1);                                 (Tinkerer's Workshop & Hercules Beetle & Necromantic Scroll) | (@calamity & Statis' Blessing);
 Statis' Blessing;                   Calamity;                                   (Hardmode Anvil & Papyrus Scarab & Pygmy Necklace & Emblem & Holy Water & Essence of Sunlight) | Statis' Curse;
-Pumpking;                           Location | Item;                            (@fargo & Abominationn NPC & Pumpking) | Pumpkin Moon;
+Pumpking;                           Location | Item;                            ((@fargo & Abominationn NPC & Pumpking) | Pumpkin Moon) & @health(3);
 The Horseman's Blade;               ;                                           #Pumpking;
 Baleful Harvest;                    Achievement;                                Pumpkin Moon;
 
 // Frost Moon
 Frost Moon;                         ;                                           ((@fargo & Abominationn NPC & Ice Queen) | (Hardmode Anvil & Ectoplasm & (@calamity | Soul of Fright))) & @health(3);
-Everscream;                         Location | Item;                            (@fargo & Abominationn NPC & Everscream) | Frost Moon;
-Santa-NK1;                          Location | Item;                            (@fargo & Abominationn NPC & Santa-NK1) | Frost Moon;
-Ice Queen;                          Location | Item;                            (@fargo & Abominationn NPC & Ice Queen) | Frost Moon;
+Everscream;                         Location | Item;                            ((@fargo & Abominationn NPC & Everscream) | Frost Moon) & @health(3);
+Santa-NK1;                          Location | Item;                            ((@fargo & Abominationn NPC & Santa-NK1) | Frost Moon) & @health(3);
+Ice Queen;                          Location | Item;                            ((@fargo & Abominationn NPC & Ice Queen) | Frost Moon) & @health(3);
 Ice Scream;                         Achievement;                                Frost Moon;
 Christmas;                          ;                                           Frost Moon;
 
@@ -563,7 +563,7 @@ Solar Veil;                         Calamity;                                   
 Vampiric Talisman;                  Calamity;                                   Hardmode Anvil & Raider's Talisman & Eye of Cthulhu & Solar Veil;
 
 // Great Sand Shark
-Great Sand Shark;                   Calamity | Location | Item;                 ((@fargo & Abominationn NPC & Cragmaw Mire) | (#Plantera | (Hardmode Anvil & Forbidden Fragment & Core of Calamity))) & @health(3);
+Great Sand Shark;                   Calamity | Location | Item;                 ((@fargo & Abominationn NPC & Great Sand Shark) | (#Plantera | (Hardmode Anvil & Forbidden Fragment & Core of Calamity))) & @health(3);
 Grand Scale;                        Calamity;                                   #Great Sand Shark | (Shimmer & Sand Shark Tooth Necklace);
 Sand Shark Tooth Necklace;          Calamity;                                   (Tinkerer's Workshop & Shark Tooth Necklace & Avenger Emblem & Grand Scale) | (@getfixedboi & #Desert Scourge);
 
@@ -620,7 +620,8 @@ Empress of Light;                   Location | Item | Goal;                     
 # empress_of_light
 
 // Lunatic Cultist
-Lunatic Cultist;                    Location | Item | Goal;                     ((@fargo & Mutant NPC & Lunatic Cultist) | ((@calamity | (Dungeon & Golem)) & Wall of Flesh) | (@calamity & Calamitas Clone)) & @health(4);
+Eidolist;                           Calamity;                                   Abyss Layer 2 & (Wall of Flesh | Calamitas Clone);
+Lunatic Cultist;                    Location | Item | Goal;                     ((@fargo & Mutant NPC & Lunatic Cultist) | (Dungeon & Golem & Wall of Flesh) | Eidolist) & @health(4);
 Astrum Deus;                        Calamity | Location | Item | Goal;          ((@fargo & Mutant NPC & Astrum Deus) | Titan Heart) & @health(4);
 # lunatic_cultist
 # astrum_deus
@@ -660,7 +661,7 @@ Meowmere;                           ;                                           
 Star Wrath;                         ;                                           #Moon Lord;
 Exodium Cluster;                    Calamity;                                   (Moon Lord & (Wall of Flesh | @pickaxe(225))) | (Shimmer & Uelibloom Ore);
 Normality Relocator;                Calamity;                                   Hardmode Anvil & Rod of Discord & Exodium Cluster & Fragment;
-Unholy Essence;                     Calamity;                                   Moon Lord | #Providence, the Profaned Goddess | (@getfixedboi & Plantera);
+Unholy Essence;                     Calamity;                                   (Moon Lord & (Underworld | Hallow)) | #Providence, the Profaned Goddess | (@getfixedboi & Plantera);
 Necroplasm;                         Calamity;                                   (Moon Lord & (Dungeon | Wall of Flesh)) | #Polterghast | (Shimmer & #The Devourer of Gods);
 Fragments of Another World;         Calamity | Minions(1);                      Hardmode Anvil & Exodium Cluster & Navyplate & Necroplasm;
 Arctic Diving Gear;                 ;                                           Tinkerer's Workshop;
