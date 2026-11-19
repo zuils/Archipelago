@@ -474,7 +474,7 @@ Mechanical Glove;                   ;                                           
 Celestial Emblem;                   ;                                           (Celestial Magnet & Tinkerer's Workshop & Avenger Emblem) | (Shimmer & Sigil of Calamitas);
 Light Disc;                         ;                                           (Hallowed Bar & Soul of Light & Soul of Might) | (@getfixedboi & @calamity & #Evil Boss);
 Chlorophyte Ore;                    ;                                           (@fargo & Demolitionist & Moon Lord) | (Wall of Flesh & @pickaxe(200) & Underground) | (Shimmer & ((~@calamity & Luminite) | Chlorophyte Bar | (@calamity & Perennial Ore)));
-Photosynthesis;                     Achievement;                                Chlorophyte Ore & Pickaxe Axe;  // see Extra Shiny
+Photosynthesis;                     Achievement;                                Chlorophyte Ore & @pickaxe(200);  // see Extra Shiny
 Chlorophyte Bar;                    ;                                           (Hardmode Forge & Chlorophyte Ore) | (Shimmer & (Spectre Bar | Shroomite Bar));
 Chlorophyte Armor;                  ;                                           Hardmode Anvil & Chlorophyte Bar;
 True Excalibur;                     ;                                           Hardmode Anvil & Excalibur & Chlorophyte Bar;
