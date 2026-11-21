@@ -1091,7 +1091,7 @@ Desert Prowler Armor;               Calamity;                                   
 Desert Prowler Enchantment;         Calamity | Fargo;                           Altar & Desert Prowler Armor & Underground;
 Snow Ruffian Enchantment;           Calamity | Fargo;                           Altar & Underground;
 Statigel Enchantment;               Calamity | Fargo;                           Altar & Solidifier & Statigel Armor & Purified Gel & Dungeon;
-Sulphurous Enchantment;             Calamity | Fargo;                           Altar & Acid Rain Tier 1 & Underground;
+Sulphurous Enchantment;             Calamity | Fargo;                           Altar & #Acid Rain Tier 1 & Underground;
 Victide Enchantment;                Calamity | Fargo;                           Altar & Victide Armor & Sea King & Sea Remains & Underground;
 Force of Gale;                      Calamity | Fargo;                           Crucible of the Cosmos & Desert Prowler Enchantment & Snow Ruffian Enchantment & Statigel Enchantment & Victide Enchantment & Divine Geode;
 
