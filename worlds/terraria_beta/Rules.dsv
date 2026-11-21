@@ -401,7 +401,7 @@ The First Shadowflame;              Calamity | Minions(1);                      
 Angel Wings;                        ;                                           (@calamity | Hardmode Anvil) & Soul of Flight & Soul of Light;
 Demon Wings;                        ;                                           (@calamity | Hardmode Anvil) & Soul of Flight & Soul of Night;
 Fairy Wings;                        ;                                           (@calamity | Hardmode Anvil) & Soul of Flight & Pixie Dust;
-Fin Wings;                          ;                                           @fishing & Wall of Flesh;
+Fin Wings;                          Fishing;                                    Wall of Flesh;
 Frozen Wings;                       ;                                           Hardmode Anvil & Soul of Flight & Ice Feather;
 Harpy Wings;                        ;                                           Hardmode Anvil & Soul of Flight;
 Bundle of Horseshoe Balloons;       ;                                           Tinkerer's Workshop;
