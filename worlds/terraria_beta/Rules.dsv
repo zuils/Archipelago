@@ -1135,7 +1135,8 @@ Acid Rain Tier 3;                   Calamity;                                   
 The Old Duke;                       Calamity | Location | Item;                 (Acid Rain Tier 3 | (Bug Net & Moon Lord) | (((@fargo & Mutant NPC) | Sea King) & The Old Duke) | (@getfixedboi & #The Destroyer)) & @health(5) & @gear(7);
 
 // The Devourer of Gods
-The Devourer of Gods;               Calamity | Location | Item | Goal;          ((@fargo & Mutant NPC & The Devourer of Gods) | (Hardmode Anvil & ((Armored Shell & Twisting Nether & Dark Plasma) | (Luminite Bar & Fragment & Meld Blob & Necroplasm)))) & @health(5) & @gear(7);
+Lacerator;                          Calamity;                                   Hardmode Anvil & Bloodstone & Blood Orb;
+The Devourer of Gods;               Calamity | Location | Item | Goal;          ((@fargo & Mutant NPC & The Devourer of Gods) | (Hardmode Anvil & ((Armored Shell & Twisting Nether & Dark Plasma) | (Luminite Bar & Fragment & Meld Blob & Necroplasm)))) & @health(5) & (@gear(7) | (@getfixedboi & @gear(4) & Lacerator));
 # the_devourer_of_gods
 Cosmilite Bar;                      Calamity;                                   #The Devourer of Gods;
 Cosmic Anvil;                       Calamity;                                   Ancient Manipulator & Hardmode Anvil & Cosmilite Bar & Luminite Bar & Fragment & Meld Blob & Exodium Cluster;
