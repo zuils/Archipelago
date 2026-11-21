@@ -286,7 +286,6 @@ def validate_conditions(
                 "npc_rando",
                 "depth",
                 "depth_unsafe",
-                "depth_unsafe",
                 "calamity",
                 "fargo",
                 "rare",
