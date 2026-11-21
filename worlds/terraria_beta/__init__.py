@@ -36,7 +36,7 @@ from .Checks import (
     COND_GROUP, OUT_OF_LOGIC,
 )
 from .Options import TerrariaOptions, Goal, ter_option_groups, RandomizeNPCs, Mods, RareAchievements, \
-    TimeAchievements, HealthLogic, Getfixedboi, ShimmerSkips, FishingSkips, RandomizeDepth
+    TimeAchievements, CombatLogic, Getfixedboi, ShimmerSkips, FishingSkips, RandomizeDepth
 
 
 class TerrariaWeb(WebWorld):
@@ -66,7 +66,7 @@ class TerrariaSpoiler(Spoiler):
                 continue
 
             entry = entries[entry_indices[loc.name]]
-            if options.health_logic.value and ("Health" in entry.flags or "Quarter Fruit" in entry.flags):
+            if options.combat_logic.value in (CombatLogic.option_health, CombatLogic.option_both) and ("Health" in entry.flags or "Quarter Fruit" in entry.flags):
                 continue
 
             hidden.add(loc.name + f" ({self.multiworld.get_player_name(loc.player)})" if self.multiworld.players > 1 else loc.name)
@@ -179,7 +179,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             "fill_extra_checks_with": slot_data["fill_extra_checks_with"],
             "fishing_skips": slot_data["fishing_skips"],
             "shimmer_skips": slot_data["shimmer_skips"],
-            "health_logic": slot_data["health_logic"],
+            "combat_logic": slot_data["combat_logic"],
             "health_logic_handicap": slot_data["health_logic_handicap"],
         }
     
@@ -501,6 +501,6 @@ class TerrariaWorld(CachedRuleBuilderWorld):
             "fill_extra_checks_with": self.options.fill_extra_checks_with.value,
             "fishing_skips": self.options.fishing_skips.value,
             "shimmer_skips": self.options.shimmer_skips.value,
-            "health_logic": self.options.health_logic.value,
+            "combat_logic": self.options.combat_logic.value,
             "health_logic_handicap": self.options.health_logic_handicap.value,
         }

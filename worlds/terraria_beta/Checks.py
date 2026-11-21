@@ -2,16 +2,15 @@ import dataclasses
 import rule_builder.rules
 from BaseClasses import Item, Location, CollectionState
 from typing import Tuple, Union, Set, List, Dict, override, TYPE_CHECKING
-
 from rule_builder.options import OptionFilter
-if TYPE_CHECKING:
-    from worlds.terraria_beta import TerrariaWorld
 from .Flags import rule_flags, list_flags, tuple_list_flags, is_location_is_item, store_location_name
+from .Options import HealthLogicHandicap, GearLogicHandicap, RandomizeNPCs, RandomizeDepth, Mods, RareAchievements, TimeAchievements, CombatLogic, Getfixedboi, FishingSkips, ShimmerSkips
+from rule_builder.rules import TWorld, Rule, True_, False_, Has, And, Or, HasFromList, HasAny, HasAll, Filtered
 import string
 import pkgutil
-from rule_builder.rules import TWorld, Rule, True_, False_, Has, And, Or, HasFromList, HasAny, HasAll, Filtered
-from .Options import HealthLogicHandicap, RandomizeNPCs, RandomizeDepth, Mods, RareAchievements, TimeAchievements, \
-    HealthLogic, Getfixedboi, FishingSkips, ShimmerSkips
+
+if TYPE_CHECKING:
+    from worlds.terraria_beta import TerrariaWorld
 
 game_name = "Terraria Beta"
 
@@ -287,6 +286,7 @@ def validate_conditions(
                 "npc_rando",
                 "depth",
                 "depth_unsafe",
+                "depth_unsafe",
                 "calamity",
                 "fargo",
                 "rare",
@@ -294,11 +294,14 @@ def validate_conditions(
                 "pickaxe",
                 "hammer",
                 "mech_boss",
+                "force",
                 "minions",
                 "getfixedboi",
                 "fishing",
                 "shimmer_skips",
                 "health",
+                "gear",
+                "fargo_gear",
             }:
                 raise Exception(
                     f"function `{condition.condition}` in `{rule}` is not defined"
@@ -702,6 +705,9 @@ def read_data() -> Tuple[
                 case "mech_boss":
                     assert (isinstance(cond.argument, int))
                     return HasFromList(*flag_to_items["Mech Boss"], count=cond.argument)
+                case "force":
+                    assert (isinstance(cond.argument, int))
+                    return HasFromList(*flag_to_items["Force"], count=cond.argument)
                 case "minions":
                     assert (isinstance(cond.argument, int))
                     return HasMinion(cond.argument)
@@ -716,13 +722,17 @@ def read_data() -> Tuple[
                         rule_sum = []
                         for h in range(len(health_cascade)):
                             min_handicap = h - len(health_cascade)
-                            rule_sum.append(Filtered(health_cascade[h],
-                                                     options=[OptionFilter(HealthLogicHandicap,
-                                                                           min_handicap,
-                                                                           "gt")],
+                            rule_sum.append(Filtered(health_cascade[h], 
+                                                     options=[OptionFilter(HealthLogicHandicap, min_handicap, "gt")],
                                                      filtered_resolution=True))
-                        return Or(And(*rule_sum, options=[OptionFilter(HealthLogic, 1, "eq")], filtered_resolution=True),
-                                  Has(OUT_OF_LOGIC))
+                        return Or(
+                            And(
+                                *rule_sum,
+                                options=[OptionFilter(CombatLogic, (CombatLogic.option_health, CombatLogic.option_both), "in")],
+                                filtered_resolution=True,
+                            ),
+                            Has(OUT_OF_LOGIC),
+                        )
 
                     health_upgrades = flag_to_items["Health"]
                     health_cascade.append(Has(health_upgrades[0]))
@@ -742,6 +752,38 @@ def read_data() -> Tuple[
                         return cascade_to_rules()
                 case "getfixedboi":
                     return option_to_rule(Getfixedboi)
+                case "gear" | "fargo_gear":
+                    if cond.condition == "gear" and cond.argument is None:
+                        gear_enabled = OptionFilter(CombatLogic, (CombatLogic.option_gear, CombatLogic.option_both), "in")
+                        return True_(options=[gear_enabled]) if cond.sign else False_(options=[gear_enabled], filtered_resolution=True)
+                    
+                    if type(cond.argument) is not int:
+                        raise Exception(f"@{cond.condition} requires an integer argument")
+
+                    gear_flag = "Fargo Gear" if cond.condition == "fargo_gear" else "Gear"
+                    gear_items = flag_to_items.get(gear_flag, [])
+                    tier_index = cond.argument - 1
+                    
+                    gear_cascade = []
+                    def gear_cascade_to_rules():
+                        rule_sum = [gear_cascade[0]]
+                        for g in range(1, len(gear_cascade)):
+                            rule_sum.append(Filtered(gear_cascade[g],
+                                                     options=[OptionFilter(GearLogicHandicap, len(gear_cascade) - g, "lt")],
+                                                     filtered_resolution=True))
+                        return Or(
+                            And(
+                                *rule_sum,
+                                options=[OptionFilter(CombatLogic, (CombatLogic.option_gear, CombatLogic.option_both), "in")],
+                                filtered_resolution=True,
+                            ),
+                            Has(OUT_OF_LOGIC),
+                        )
+
+                    gear_cascade.append(Has(gear_items[0]))
+                    for g in range(1, tier_index + 1):
+                        gear_cascade.append(HasAll(*gear_items[:g + 1]))
+                    return gear_cascade_to_rules()
                 case "fishing":
                     return option_to_rule(FishingSkips)
                 case "shimmer_skips":

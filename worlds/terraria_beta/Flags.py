@@ -23,6 +23,9 @@ rule_flags = [
     "Armor Minions",  # Paired with additional minion capacity, cannot be stacked with other armors
     "Mech Boss",
     "Final Boss",
+    "Force",
+    "Gear",
+    "Fargo Gear",
     "Getfixedboi",
     "Not Getfixedboi",
     "Calamity",
@@ -51,6 +54,9 @@ list_flags = {
     "Pet",
     "Mech Boss",
     "Final Boss",
+    "Force",
+    "Gear",
+    "Fargo Gear",
     "Health",
     "Quarter Fruit",
 }

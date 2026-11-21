@@ -193,13 +193,36 @@ class ShimmerSkips(Toggle):
     display_name = "Shimmer Skips"
 
 
-class HealthLogic(DefaultOnToggle):
+class CombatLogic(Choice):
     """
-    Guarantees you will not have to fight a boss/event without access to prior health upgrades.
-    For each boss, the amount of health required is based on how much health the player is expected to have before fighting them.
-    Mainly alters Calamity logic, and is based off the health recommendations made by the official wiki.
+    Guarantees you will not have to fight a boss/event without access to prior health upgrades/gear.
+    Setting it to health logic will only put bosses in logic based on what health upgrades you can get (mainly alters Calamity logic)
+    Setting it to gear logic will only put bosses in logic based on what gear is obtainable (alters vanilla, calamity, and fargo logic)
+    Keeping this setting off will expect you to fight bosses with gear that is not viable.
+    
+    I hope you like reading :) Here is gear logic (if you do not recognize the name of these items assume its calamity mod):
+    Trojan Squirrel to Calamity Evil Bosses - underground (if depth rando enabled)
+    Queen Bee to WoF - cavern (if depth rando enabled)
+    queen slime to skele prime - underground (if depth rando enabled) and cobalt/mythril/adamantite/forbidden/crystal assassin/spider/titan heart and any wings/bundle of balloons
+    cal clone to duke fishron - adamantite/chlorophyte/hallowed/turtle/reaver/shroomite/brimflame/spectre/tiki/fathom swarmer/umbraphile/daedalus and any wings/bundle of balloons
+    plaguebringer to dragonfolly - beetle/hydrothermic/reaver/shroomite/plague reaper/lunic corps/astral/plaguebringer/gaia (if fargo enabled) and betsy/empress/fishron wings
+    profaned guardians to polterghast - lunar armor/tarragon/prismatic and celestial starboard/lunar wings/moon walkers/tarragon wings
+    dog and yharon - bloodflare/omega blue/prismatic and dash shield or statis ninja belt and elysian/tarragon wings/moon walkers
+    final bosses and eidolyn wyrm - god slayer/silva/auric tesla and wings of rebirth/void strikers and dash shield or statis ninja belt
+    boss rush - auric tesla/demonshade/gem tech and wings of rebirth/seraph tracers and dash shield or statis ninja void belt
+
+    fargo:
+    for the champions: gaia/stardust/god slayer or silva (if calamity is enabled), flight mastery soul (if calamity disabled) or force of the gale or elysian/tarragon wings/moon walkers (if calamity is enabled), 2 forces, 1 damage soul (if calamity disabled)
+    abominationn: eridanus armor/auric tesla (if calamity is enabled), flight mastery soul/force of the gale (if calamity is enabled), 3 forces, 1 damage soul (if calamity disabled)
+    mutant: styx armor/auric tesla (if calamity is enabled), soul of terraria, soul of dimensions & universe
     """
-    display_name = "Health Logic"
+    
+    display_name = "Combat Logic"
+    option_none = 0
+    option_health = 1
+    option_gear = 2
+    option_both = 3
+    default = 2
 
 
 class HealthLogicHandicap(Range):
@@ -208,9 +231,25 @@ class HealthLogicHandicap(Range):
     For example, if set to 0, Moon Lord will require Life Crystals/Fruits, Sanguine Tangerine, and Miracle Fruit.
     If set to -1, you only need Sanguine Tangerine or Miracle Fruit. If set to -2, neither are required.
     """
+    
     display_name = "Health Handicap"
     range_start = -6
     range_end = 0
+    default = 0
+
+
+class GearLogicHandicap(Range):
+    """
+    If gear logic is on, this option will adjust the requirements for each boss.
+    For example, if set to 1, instead of Skeletron requiring you to have the cavern layer unlocked, it'll expect you to beat him with only the underground layer.
+    If set to 2, Queen Slime would expect you to beat her with only underground layer instead of having early hardmode equipment.
+    
+    This handicap won't apply to the first bosses. So Trojan Squirrel will still require Underground (if depth rando is enabled) if this setting is higher than 1.
+    """
+    
+    display_name = "Gear Handicap"
+    range_start = 0
+    range_end = 3
     default = 0
 
 
@@ -219,6 +258,7 @@ class CompressedPlaythrough(DefaultOnToggle):
     Turn this on if you want the playthrough in the spoiler log to be compressed so it only shows the locations.
     Turn this off if you want the playthrough in the spoiler log to show both locations and events. 
     """
+
     display_name = "Compressed Playthrough"
 
 
@@ -246,8 +286,9 @@ ter_option_groups = [
     OptionGroup("Logic", [
         FishingSkips,
         ShimmerSkips,
-        HealthLogic,
+        CombatLogic,
         HealthLogicHandicap,
+        GearLogicHandicap,
     ]),
 ]
 
@@ -269,7 +310,8 @@ class TerrariaOptions(PerGameCommonOptions):
     fill_extra_checks_with: FillExtraChecksWith
     fishing_skips: FishingSkips
     shimmer_skips: ShimmerSkips
-    health_logic: HealthLogic
+    combat_logic: CombatLogic
     health_logic_handicap: HealthLogicHandicap
+    gear_logic_handicap: GearLogicHandicap
     compressed_playthrough: CompressedPlaythrough
     death_link: DeathLink
