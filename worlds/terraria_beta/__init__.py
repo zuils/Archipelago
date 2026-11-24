@@ -145,7 +145,7 @@ class TerrariaWorld(CachedRuleBuilderWorld):
     is_ut = False
     ut_can_gen_without_yaml = True
 
-    required_client_version = (0, 6, 200)
+    required_client_version = (0, 6, 210)
 
     def __init__(self, multiworld: MultiWorld, player: int):
         super().__init__(multiworld, player)

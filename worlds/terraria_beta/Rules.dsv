@@ -402,7 +402,7 @@ The First Shadowflame;              Calamity | Minions(1);                      
 Angel Wings;                        ;                                           (@calamity | Hardmode Anvil) & Soul of Flight & Soul of Light;
 Demon Wings;                        ;                                           (@calamity | Hardmode Anvil) & Soul of Flight & Soul of Night;
 Fairy Wings;                        ;                                           (@calamity | Hardmode Anvil) & Soul of Flight & Pixie Dust;
-Fin Wings;                          ;                                           @fishing & Wall of Flesh;
+Fin Wings;                          Fishing;                                    Wall of Flesh;
 Frozen Wings;                       ;                                           Hardmode Anvil & Soul of Flight & Ice Feather;
 Harpy Wings;                        ;                                           Hardmode Anvil & Soul of Flight;
 Bundle of Horseshoe Balloons;       ;                                           Tinkerer's Workshop;
@@ -425,7 +425,7 @@ Life Fruit;                         Health;                                     
 Get a Life;                         Achievement;                                Life Fruit;
 Topped Off;                         Achievement;                                Life Fruit;
 Mythril Ore;                        ;                                           (@fargo & Demolitionist & Moon Lord) | (((~@calamity & Break Altar) | (@calamity & @mech_boss(1))) & @pickaxe(110) & Cavern) | (Wall of Flesh & @fishing) | (Shimmer & (Adamantite Ore | Mythril Bar));
-Mythril Bar;                        ;                                           Mythril Ore | (Wall of Flesh & @fishing) | (@calamity & Shimmer & Electrician's Glove);
+Mythril Bar;                        ;                                           Mythril Ore | (Wall of Flesh & @fishing & @mech_boss(1)) | (@calamity & Shimmer & Electrician's Glove);
 Hardmode Anvil;                     ;                                           Mythril Bar;
 Tier 2 Hardmode Armor;                      ;                                   Hardmode Anvil & Mythril Bar;
 Mythril Pickaxe;                    Pickaxe(150);                               Hardmode Anvil & Mythril Bar;
@@ -1092,7 +1092,7 @@ Desert Prowler Armor;               Calamity;                                   
 Desert Prowler Enchantment;         Calamity | Fargo;                           Altar & Desert Prowler Armor & Underground;
 Snow Ruffian Enchantment;           Calamity | Fargo;                           Altar & Underground;
 Statigel Enchantment;               Calamity | Fargo;                           Altar & Solidifier & Statigel Armor & Purified Gel & Dungeon;
-Sulphurous Enchantment;             Calamity | Fargo;                           Altar & Acid Rain Tier 1 & Underground;
+Sulphurous Enchantment;             Calamity | Fargo;                           Altar & #Acid Rain Tier 1 & Underground;
 Victide Enchantment;                Calamity | Fargo;                           Altar & Victide Armor & Sea King & Sea Remains & Underground;
 Force of Gale;                      Calamity | Fargo;                           Crucible of the Cosmos & Desert Prowler Enchantment & Snow Ruffian Enchantment & Statigel Enchantment & Victide Enchantment & Divine Geode;
 
@@ -1136,7 +1136,8 @@ Acid Rain Tier 3;                   Calamity;                                   
 The Old Duke;                       Calamity | Location | Item;                 (Acid Rain Tier 3 | (Bug Net & Moon Lord) | (((@fargo & Mutant NPC) | Sea King) & The Old Duke) | (@getfixedboi & #The Destroyer)) & @health(5) & @gear(7);
 
 // The Devourer of Gods
-The Devourer of Gods;               Calamity | Location | Item | Goal;          ((@fargo & Mutant NPC & The Devourer of Gods) | (Hardmode Anvil & ((Armored Shell & Twisting Nether & Dark Plasma) | (Luminite Bar & Fragment & Meld Blob & Necroplasm)))) & @health(5) & @gear(7);
+Lacerator;                          Calamity;                                   Hardmode Anvil & Bloodstone & Blood Orb;
+The Devourer of Gods;               Calamity | Location | Item | Goal;          ((@fargo & Mutant NPC & The Devourer of Gods) | (Hardmode Anvil & ((Armored Shell & Twisting Nether & Dark Plasma) | (Luminite Bar & Fragment & Meld Blob & Necroplasm)))) & @health(5) & (@gear(7) | (@getfixedboi & @gear(4) & Lacerator));
 # the_devourer_of_gods
 Cosmilite Bar;                      Calamity;                                   #The Devourer of Gods;
 Cosmic Anvil;                       Calamity;                                   Ancient Manipulator & Hardmode Anvil & Cosmilite Bar & Luminite Bar & Fragment & Meld Blob & Exodium Cluster;
